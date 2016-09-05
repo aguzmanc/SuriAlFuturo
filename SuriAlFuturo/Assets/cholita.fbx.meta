@@ -8,9 +8,65 @@ ModelImporter:
     100000: //RootNode
     100002: Cylinder
     100004: Sphere
+    100006: Arm_IK_L
+    100008: Arm_IK_L_end
+    100010: Arm_IK_R
+    100012: Arm_IK_R_end
+    100014: Arm_L
+    100016: Arm_R
+    100018: Cholita_Armature
+    100020: Forearm_L
+    100022: Forearm_R
+    100024: Hand_L
+    100026: Hand_L_end
+    100028: Hand_R
+    100030: Hand_R_end
+    100032: Head
+    100034: Head_end
+    100036: Pie_L
+    100038: Pie_L_end
+    100040: Pie_R
+    100042: Pie_R_end
+    100044: Pierna_L
+    100046: Pierna_R
+    100048: Pollera1
+    100050: Pollera2
+    100052: Pollera3
+    100054: Pollera3_end
+    100056: PolleraController
+    100058: PolleraController_end
+    100060: Torax
     400000: //RootNode
     400002: Cylinder
     400004: Sphere
+    400006: Arm_IK_L
+    400008: Arm_IK_L_end
+    400010: Arm_IK_R
+    400012: Arm_IK_R_end
+    400014: Arm_L
+    400016: Arm_R
+    400018: Cholita_Armature
+    400020: Forearm_L
+    400022: Forearm_R
+    400024: Hand_L
+    400026: Hand_L_end
+    400028: Hand_R
+    400030: Hand_R_end
+    400032: Head
+    400034: Head_end
+    400036: Pie_L
+    400038: Pie_L_end
+    400040: Pie_R
+    400042: Pie_R_end
+    400044: Pierna_L
+    400046: Pierna_R
+    400048: Pollera1
+    400050: Pollera2
+    400052: Pollera3
+    400054: Pollera3_end
+    400056: PolleraController
+    400058: PolleraController_end
+    400060: Torax
     2300000: Cylinder
     2300002: Sphere
     3300000: Cylinder
