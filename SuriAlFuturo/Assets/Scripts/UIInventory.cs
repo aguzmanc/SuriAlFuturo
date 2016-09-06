@@ -34,7 +34,7 @@ public class UIInventory : MonoBehaviour {
             container.GetComponent<Image>().sprite = OwnedItems[i].Image;
 
             container.GetComponent<RectTransform>().anchoredPosition =
-                container.transform.GetComponent<RectTransform>().anchoredPosition +
+                ItemContainerPrototype.GetComponent<RectTransform>().anchoredPosition + 
                 new Vector2(Offset * i, 0);
 
             _containers.Add(container);
