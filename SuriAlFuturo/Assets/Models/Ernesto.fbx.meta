@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: a21947669e9358c4e8f902f4f0c9ccfc
-timeCreated: 1473167417
+guid: 9e7e76f70448a4b718876378c90ae111
+timeCreated: 1473200363
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cylinder
+    4300000: LD
   materials:
     importMaterials: 1
     materialName: 0
@@ -31,7 +31,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
