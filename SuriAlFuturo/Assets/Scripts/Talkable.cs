@@ -7,6 +7,8 @@ public class Talkable : MonoBehaviour {
     public int _currentDialogue = -1; //debugging
     public List<int> DialogueState = new List<int>();
     public int _currentState = 0; // debugging
+    public bool IsDone = false;
+    public GameObject GuideText;
 
     public Sprite Icon;
     public string Name;
@@ -37,7 +39,7 @@ public class Talkable : MonoBehaviour {
 
             if (_currentDialogue > DialogueState[_currentState]) { // checking end...
                 _currentDialogue = -1;
-                _controller.DoneTalking = true;
+                IsDone = _controller.DoneTalking = true;
             }
         }
     }
@@ -46,6 +48,7 @@ public class Talkable : MonoBehaviour {
         _isActive = true;
         _currentDialogue = -1;
         _controller.ActiveTalkable = this;
+        GuideText.SetActive(true);
     }
 
     void OnTriggerExit (Collider c) {
@@ -54,6 +57,7 @@ public class Talkable : MonoBehaviour {
         if (_controller.ActiveTalkable == this) {
             _controller.ActiveTalkable = null;
         }
+        GuideText.SetActive(false);
     }
 
     public Sprite GetIcon () {
