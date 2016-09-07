@@ -5,10 +5,12 @@ public class HoleDetector : MonoBehaviour {
     public CameraFollow TheCamera;
 
     void OnTriggerEnter (Collider c) {
-        TheCamera.OnHoleEnter();
+        if(c.name == "Hole") // patch!... delete later
+            TheCamera.OnHoleEnter();
     }
 
     void OnTriggerExit (Collider c) {
-        TheCamera.OnHoleExit();
+        if(c.name == "Hole") // patch!... delete later
+            TheCamera.OnHoleExit();
     }
 }

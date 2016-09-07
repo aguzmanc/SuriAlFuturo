@@ -42,8 +42,12 @@ public class Blocker : MonoBehaviour {
             .magnitude / Speed;
     }
 
-    void OnTriggerEnter(Collider player) {
+    void OnTriggerEnter(Collider player) 
+    {
         Collector collector = player.GetComponent<Collector>();
+
+        if(collector == null) // quick fix, delete later
+            return;
 
         for (int i=0; i<Requirements.Count; i++) {
             if (false == collector.Inventory[Requirements[i].Image]) {

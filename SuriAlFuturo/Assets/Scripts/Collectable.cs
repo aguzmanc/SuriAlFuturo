@@ -30,6 +30,7 @@ public class Collectable : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider player) {
+        Debug.Log(player.name);
         _controller.IngameCollector.Take(this);
         this.gameObject.SetActive(false);
     }
