@@ -42,9 +42,11 @@ public class Blocker : MonoBehaviour {
         for (int i=0; i<Requirements.Count; i++) {
             if (false == collector.Inventory[Requirements[i].Image]) {
                 return;
-            } else {
-                collector.Give(Requirements[i]);
             }
+        }
+
+        for (int i=0; i<Requirements.Count; i++) {
+            collector.Give(Requirements[i]);
         }
 
         Unblock();
