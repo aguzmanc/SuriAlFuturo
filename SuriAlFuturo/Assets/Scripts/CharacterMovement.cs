@@ -4,6 +4,7 @@ using System.Collections;
 public class CharacterMovement : MonoBehaviour 
 {
     public float Speed = 0;
+    public bool IsControlledByPlayer = false;
 
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
@@ -15,8 +16,8 @@ public class CharacterMovement : MonoBehaviour
     
     void Update () 
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        float h = IsControlledByPlayer ? Input.GetAxis("Horizontal") : 0;
+        float v = IsControlledByPlayer ? Input.GetAxis("Vertical")   : 0;
 
         // direction relative to camera view
         FollowCamera cam = FollowCamera.Instance;
@@ -35,4 +36,5 @@ public class CharacterMovement : MonoBehaviour
         if(_animator != null) 
             _animator.SetBool("IsWalking", isWalking);
     }
+
 }
