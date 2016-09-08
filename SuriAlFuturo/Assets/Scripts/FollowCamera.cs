@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CameraFollow : MonoBehaviour {
+public class FollowCamera : MonoBehaviour {
     public bool IsInHole;
     public GameObject Target;
     public float NoHoleDistance = 15;
@@ -13,13 +13,53 @@ public class CameraFollow : MonoBehaviour {
     public float TransitionTime = 5;
 
     private float _timeOnState = 0;
+
+
+    #region Properties
+
+    // read only property
+    public Vector3 Forward
+    {
+        get {
+            float y = IsInHole ? HoleRotation.y : NoHoleRotation.y;
+
+            return new Vector3(Mathf.Cos(((90-y)/360) * 2 * Mathf.PI), 0,
+                Mathf.Cos((y/360) * 2 * Mathf.PI)); 
+        }
+    }
+
+    public Vector3 Right
+    {
+        get {
+            return transform.right;
+        }
+    }
+
+
+    /** Singleton Instance **/
+    private static FollowCamera _instance;
+    public static FollowCamera Instance
+    {
+        get {
+            return _instance;
+        }
+    }
+
+    #endregion
+
+
+
     
-    void Start () {
+    void Start () 
+    {
+        _instance = this;
+        
         TheCamera.transform.localPosition = new Vector3(0,0, -NoHoleDistance);
         transform.rotation = Quaternion.Euler(NoHoleRotation);
     }
     
-    void Update () {
+    void Update () 
+    {
         Vector3 a, b;
         float c, d;
 
@@ -45,26 +85,17 @@ public class CameraFollow : MonoBehaviour {
             new Vector3(0,0, -Mathf.Lerp(c, d, _timeOnState/TransitionTime));
     }
 
-    public void OnHoleEnter () {
+    public void OnHoleEnter () 
+    {
         _timeOnState = 0;
         IsInHole = true;
     }
 
-    public void OnHoleExit () {
+    public void OnHoleExit () 
+    {
         _timeOnState = 0;
         IsInHole = false;
     }
 
-    public Vector3 GetForward () {
-        float y;
 
-        if (IsInHole) {
-            y = HoleRotation.y;
-        } else {
-            y = NoHoleRotation.y;
-        }
-
-        return new Vector3(Mathf.Cos(((90-y)/360) * 2 * Mathf.PI), 0,
-                           Mathf.Cos((y/360) * 2 * Mathf.PI));
-    }
 }
