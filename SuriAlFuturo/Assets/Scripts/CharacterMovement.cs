@@ -5,6 +5,7 @@ public class CharacterMovement : MonoBehaviour
 {
     public float Speed = 0;
     public bool IsControlledByPlayer = false;
+    public float CurrentSpeedPercent;
 
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
@@ -28,13 +29,14 @@ public class CharacterMovement : MonoBehaviour
                            Mathf.Max(Mathf.Abs(v),
                                      Mathf.Abs(h)));
 
-        bool isWalking = (v != 0) || (h != 0);
+        // needed on ShipAnimator.cs
+        CurrentSpeedPercent = Mathf.Max(Mathf.Abs(v), Mathf.Abs(h)); 
 
-        if (isWalking)
+        if (CurrentSpeedPercent != 0)
             transform.forward = new Vector3(dir.x, 0, dir.z);
 
         if(_animator != null) 
-            _animator.SetBool("IsWalking", isWalking);
+            _animator.SetBool("IsWalking", CurrentSpeedPercent != 0);
     }
 
 }
