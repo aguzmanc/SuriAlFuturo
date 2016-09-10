@@ -13,6 +13,8 @@ public class FollowCamera : MonoBehaviour {
     public float TransitionTime = 5;
 
     private float _timeOnState = 0;
+    private Vector3 _cachedRotation;
+    private float _cachedDistance;
 
 
     #region Properties
@@ -67,15 +69,15 @@ public class FollowCamera : MonoBehaviour {
         this.transform.position = Target.transform.position;
 
         if (IsInHole) {
-            a = NoHoleRotation;
+            a = _cachedRotation; // TODO
             b = HoleRotation;
-            c = NoHoleDistance;
+            c = _cachedDistance;
             d = HoleDistance;
         } else {
             b = NoHoleRotation;
-            a = HoleRotation;
+            a = _cachedRotation;
             d = NoHoleDistance;
-            c = HoleDistance;
+            c = _cachedDistance;
         }
 
         transform.rotation =
@@ -89,12 +91,16 @@ public class FollowCamera : MonoBehaviour {
     {
         _timeOnState = 0;
         IsInHole = true;
+        _cachedRotation = TheCamera.transform.rotation.eulerAngles;
+        _cachedDistance = Mathf.Abs(TheCamera.transform.localPosition.z);
     }
 
     public void OnHoleExit () 
     {
         _timeOnState = 0;
         IsInHole = false;
+        _cachedRotation = TheCamera.transform.rotation.eulerAngles;
+        _cachedDistance = Mathf.Abs(TheCamera.transform.localPosition.z);
     }
 
 

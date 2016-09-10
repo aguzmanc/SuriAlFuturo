@@ -1,82 +1,81 @@
 using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 
 public class Talkable : MonoBehaviour {
-    public List<string> Dialogue = new List<string>();
-    public int _currentDialogue = -1; //debugging
-    public List<int> DialogueState = new List<int>();
-    public int _currentState = 0; // debugging
-    public bool IsDone = false;
-    public GameObject GuideText;
-
+    public List<TextAsset> Dialogue;
+    public GameObject InteractIndicator;
     public Sprite Icon;
     public string Name;
-    
-    private bool _isActive;
+    public bool WasRead;
+
+    public int _currentLine;
+    public int _currentDialogue;
+    private bool _canInteract;
     private DialogueController _controller;
+    private List<List<string>> _digestedDialogue;
+    private char[] _delimiterSymbols = {'\n'};
 
     void Start () {
-        try {
-            _controller = GameObject.FindGameObjectWithTag(Tag.GameController).
-                GetComponent<DialogueController>();
-        } catch {
-            throw(new UnityException("I need a GameController with a DialogueController component"));
-        }
+        _DigestDialogue();
+        _currentLine = -1;
+        _currentDialogue = 0;
+        InteractIndicator.SetActive(false);
+        _controller = GameObject.FindGameObjectWithTag(Tag.GameController)
+            .GetComponent<DialogueController>();
+        Debug.Log(_controller);
     }
 
     void Update () {
-        if (_isActive && Input.GetButtonDown("Fire1")) {
-            if (_currentDialogue == -1) { // beginning of the dialogue...
-                if (_currentState == 0) {
-                    _currentDialogue = 0;
-                } else {
-                    _currentDialogue = DialogueState[_currentState-1] + 1;
-                }
-            } else { // not the beginning... just advancing
-                _currentDialogue++;
-            }
-
-            if (_currentDialogue > DialogueState[_currentState]) { // checking end...
-                _currentDialogue = -1;
-                IsDone = _controller.DoneTalking = true;
+        if (_canInteract && Input.GetButtonDown("Interact")) {
+            // _currentLine iterates between
+            // -1 and _digestedDialogue[_currentDialogue].Count-1
+            _currentLine = (_currentLine + 2) % (_digestedDialogue[_currentDialogue].Count + 1) - 1;
+            if (_currentLine == -1) {
+                WasRead = true;
             }
         }
     }
 
+
+
     void OnTriggerEnter (Collider c) {
-        _isActive = true;
-        _currentDialogue = -1;
+        _canInteract = true;
+        _currentLine = -1;
+        InteractIndicator.SetActive(true);
         _controller.ActiveTalkable = this;
-        GuideText.SetActive(true);
     }
 
     void OnTriggerExit (Collider c) {
-        _isActive = false;
-        _currentDialogue = -1;
+        InteractIndicator.SetActive(false);
+        _canInteract = false;
+        _currentLine = -1;
         if (_controller.ActiveTalkable == this) {
             _controller.ActiveTalkable = null;
         }
-        GuideText.SetActive(false);
     }
 
-    public Sprite GetIcon () {
-        return Icon;
-    }
 
-    public string GetName () {
-        return Name;
+
+    private void _DigestDialogue () {
+        _digestedDialogue = new List<List<string>>();
+        for (int i=0; i<Dialogue.Count; i++) {
+            _digestedDialogue.Add(new List<string>());
+            _digestedDialogue[i].AddRange(Dialogue[i].text.Split(_delimiterSymbols, StringSplitOptions.RemoveEmptyEntries));
+        }        
     }
 
     public string GetText () {
-        return Dialogue[_currentDialogue];
-    }
-
-    public void SetState (int newState) {
-        _currentState = newState;
+        return _digestedDialogue[_currentDialogue][_currentLine];
     }
 
     public bool IsTalking () {
-        return _currentDialogue >= 0;
+        return _currentLine >= 0;
+    }
+
+    public void SetDialogueIndex (int index) {
+        _currentDialogue = index;
     }
 }

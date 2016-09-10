@@ -22,8 +22,8 @@ public class UIDialogue : MonoBehaviour {
 	if (_controller.ActiveTalkable &&
             _controller.ActiveTalkable.IsTalking()) {
             DialogueHolder.SetActive(true);
-            IconHolder.sprite = _controller.ActiveTalkable.GetIcon();
-            NameHolder.text = _controller.ActiveTalkable.GetName();
+            IconHolder.sprite = _controller.ActiveTalkable.Icon;
+            NameHolder.text = _controller.ActiveTalkable.Name;
             TextHolder.text = _controller.ActiveTalkable.GetText();
         } else {
             DialogueHolder.SetActive(false);

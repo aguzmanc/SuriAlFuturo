@@ -5,7 +5,7 @@ public class OnRequirementMeetChangeDialogue : MonoBehaviour {
     public Talkable TheTalkable;
     public Blocker TheBlocker;
 
-    public int DialogueState;
+    public int DialogueIndex;
 
     void Start () {
         
@@ -13,7 +13,7 @@ public class OnRequirementMeetChangeDialogue : MonoBehaviour {
     
     void Update () {
 	if (TheBlocker.IsUnblocked) {
-            TheTalkable.SetState(DialogueState);
+            TheTalkable.SetDialogueIndex(DialogueIndex);
         }
     }
 }
