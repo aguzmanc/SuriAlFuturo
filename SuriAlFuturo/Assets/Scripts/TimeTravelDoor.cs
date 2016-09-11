@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class TimeTravelDoor : MonoBehaviour 
@@ -6,20 +7,20 @@ public class TimeTravelDoor : MonoBehaviour
     public WindZone Wind;
     public Light CenterLight;
     public int SecondsAfterTravelDisabled = 10;
-    public GameObject PresentTerrain;
-    public GameObject FutureTerrain;
     public TimeTravelFlash UIFlash;
 
     bool _timeTravelEnabled;
     ParticleSystem _particles;
-    GameObject _currentTerrain;
     UnityStandardAssets.Utility.AutoMoveAndRotate _autoRotate;
+
+    bool _isInPresent;
+
 
 	void Start () 
     {
-        _currentTerrain = PresentTerrain;
-        PresentTerrain.SetActive(true);
-        FutureTerrain.SetActive(false);
+        SceneManager.LoadScene("Present", LoadSceneMode.Additive);
+
+        _isInPresent = true;
 
         _particles = GetComponent<ParticleSystem>();
         _autoRotate = GetComponent<UnityStandardAssets.Utility.AutoMoveAndRotate>();
@@ -30,6 +31,7 @@ public class TimeTravelDoor : MonoBehaviour
     {
 	
 	}
+
 
 
     void OnTriggerEnter(Collider coll)
@@ -43,15 +45,8 @@ public class TimeTravelDoor : MonoBehaviour
 
             UIFlash.Flash();
 
-            if(_currentTerrain == PresentTerrain) {
-                PresentTerrain.SetActive(false);
-                FutureTerrain.SetActive(true);
-                _currentTerrain = FutureTerrain;
-            } else {
-                PresentTerrain.SetActive(true);
-                FutureTerrain.SetActive(false);
-                _currentTerrain = PresentTerrain;
-            }
+            // workaround for SceneManager.UnloadScene inside triggers
+            StartCoroutine(DeferedTimeTravel());
         }
     }
 
@@ -65,6 +60,10 @@ public class TimeTravelDoor : MonoBehaviour
         CenterLight.enabled = true;
         _particles.emissionRate = 30f;
         _autoRotate.rotateDegreesPerSecond.value = new Vector3(0,20,0);
+
+//        yield return new WaitForSeconds(4);
+//        SceneManager.UnloadScene("Present");
+
 
         while(true)
         {
@@ -86,6 +85,24 @@ public class TimeTravelDoor : MonoBehaviour
             // reenabling time travel
             _timeTravelEnabled = true;
             CenterLight.enabled = true;
+        }
+    }
+
+
+    IEnumerator DeferedTimeTravel()
+    {
+        yield return new WaitForEndOfFrame();
+
+        if(_isInPresent) {
+            SceneManager.LoadSceneAsync("Future", LoadSceneMode.Additive);
+            SceneManager.UnloadScene("Present");
+
+            _isInPresent = false;
+        } else {
+            SceneManager.LoadSceneAsync("Present", LoadSceneMode.Additive);
+            SceneManager.UnloadScene("Future");
+
+            _isInPresent = true;
         }
     }
 }
