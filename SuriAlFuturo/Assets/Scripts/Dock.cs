@@ -5,6 +5,7 @@ public class Dock : MonoBehaviour {
     public GameObject DockedShip;
     public GameObject Suri;
     public GameObject DisembarkPlace;
+    public GameObject Indicator;
     public bool IsSuriAtPort;
 
 
@@ -17,6 +18,13 @@ public class Dock : MonoBehaviour {
     }
     
     void Update () {
+        Indicator.SetActive(false);
+
+        if ((DockedShip != null && Suri.activeSelf && IsSuriAtPort) ||
+            (DockedShip != null && !Suri.activeSelf)) {
+            Indicator.SetActive(true);
+        }
+
         if (DockedShip != null && Input.GetButtonDown("LoadUnloadToShip")) {
             if (Suri.activeSelf && IsSuriAtPort) {
                 Suri.SetActive(false);

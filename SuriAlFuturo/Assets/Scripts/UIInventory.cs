@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class UIInventory : MonoBehaviour {
-    public List<Collectable> OwnedItems = new List<Collectable>();
+    public List<Sprite> OwnedItems = new List<Sprite>();
     public GameObject ItemContainerPrototype;
     public float Offset = 150;
 
@@ -31,7 +31,7 @@ public class UIInventory : MonoBehaviour {
             GameObject container = Instantiate(ItemContainerPrototype);
             container.transform.SetParent(this.transform);
             container.SetActive(true);
-            container.GetComponent<Image>().sprite = OwnedItems[i].Image;
+            container.GetComponent<Image>().sprite = OwnedItems[i];
 
             container.GetComponent<RectTransform>().anchoredPosition =
                 ItemContainerPrototype.GetComponent<RectTransform>().anchoredPosition + 
@@ -41,12 +41,12 @@ public class UIInventory : MonoBehaviour {
         }
     }
 
-    public void AddItem(Collectable item) {
+    public void AddItem(Sprite item) {
         OwnedItems.Add(item);
         Refresh();
     }
 
-    public void RemoveItem(Collectable item) {
+    public void RemoveItem(Sprite item) {
         OwnedItems.Remove(item);
         Refresh();
     }

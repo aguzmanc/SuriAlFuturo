@@ -12,7 +12,7 @@ public class Restarter : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         if (_talkable.WasRead) {
-            Application.LoadLevel ("MainLevel");
+            Application.LoadLevel ("BaseScene");
         }
     }
 }

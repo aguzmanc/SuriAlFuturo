@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class FaceCamera : MonoBehaviour {
-    private GameObject _camera;
+    public GameObject _camera;
 
     void Start () {
         _camera = GameObject.FindGameObjectWithTag(Tag.MainCamera);

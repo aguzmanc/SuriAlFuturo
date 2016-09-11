@@ -9,14 +9,19 @@ public class Blocker : MonoBehaviour {
     public float Speed = 5;
     public GameObject Obstacle;
     public GameObject Model;
+    public Talkable TheTalkable;
 
+    private CollectionSystem _controller;
     private NavMeshObstacle _navmeshObstacle;
     private float _timeOnState = 0;
     private Vector3 _cachedPosition;
     private float _totalTime;
     private Animator _animator;
+    private bool _areRequirementsMeet = false;
 
     void Start () {
+        _controller = GameObject.FindGameObjectWithTag(Tag.GameController)
+            .GetComponent<CollectionSystem>();
         _navmeshObstacle = Obstacle.GetComponent<NavMeshObstacle>();
         _animator = Model.GetComponent<Animator>();
     }
@@ -31,6 +36,13 @@ public class Blocker : MonoBehaviour {
         } else {
             _animator.SetBool("IsWalking", false);
         }
+
+        if (!IsUnblocked && TheTalkable.WasRead && _areRequirementsMeet) {
+            TakeRequirements();
+            Unblock();
+            _controller.UnblockedDudes.Add(this);
+        }
+
     }
 
     public void Unblock () {
@@ -42,23 +54,26 @@ public class Blocker : MonoBehaviour {
             .magnitude / Speed;
     }
 
-    void OnTriggerEnter(Collider player) 
-    {
-        Collector collector = player.GetComponent<Collector>();
-
-        if(collector == null) // quick fix, delete later
-            return;
-
+    public bool AreRequirementsMeet () {
         for (int i=0; i<Requirements.Count; i++) {
-            if (false == collector.Inventory[Requirements[i].Image]) {
-                return;
+            if (false == _controller.IngameCollector.Inventory[Requirements[i].Image]) {
+                return false;
             }
         }
+        return true;
+    }
 
+    public void TakeRequirements () {
         for (int i=0; i<Requirements.Count; i++) {
-            collector.Give(Requirements[i]);
+            _controller.IngameCollector.Give(Requirements[i]);
         }
+    }
 
-        Unblock();
+    void OnTriggerEnter(Collider player) 
+    {
+        _areRequirementsMeet = AreRequirementsMeet();
+        if (_areRequirementsMeet) {
+            TheTalkable.SetDialogueIndex(1);
+        }
     }
 }

@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,11 +22,13 @@ public class Collector : MonoBehaviour {
 
     public void Take (Collectable collectable) {
         Inventory[collectable.Image] = true;
-        _controller.UIController.AddItem(collectable);
+        _controller.UIController.AddItem(collectable.Image);
+        _controller.TakenStuff.Add(collectable);
     }
 
     public void Give (Collectable collectable) {
         Inventory[collectable.Image] = false;
-        _controller.UIController.RemoveItem(collectable);
+        _controller.UIController.RemoveItem(collectable.Image);
     }
+
 }

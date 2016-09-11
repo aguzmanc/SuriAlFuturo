@@ -77,5 +77,6 @@ public class Talkable : MonoBehaviour {
 
     public void SetDialogueIndex (int index) {
         _currentDialogue = index;
+        WasRead = false;
     }
 }
