@@ -12,12 +12,12 @@ public class SuriShipLoad : MonoBehaviour
 
 
 
-	void Start () 
+    void Start () 
     {
                 
-	}
+    }
 	
-	void Update () 
+    void Update () 
     {
         if(HasShipInRange && Input.GetButtonDown("LoadUnloadToShip")) {
             FollowCamera.Instance.Target = _shipInRange.gameObject;
@@ -28,7 +28,7 @@ public class SuriShipLoad : MonoBehaviour
             _shipInRange.LoadCharacters();
         }
 	
-	}
+    }
 
 
     void OnTriggerEnter(Collider coll)
