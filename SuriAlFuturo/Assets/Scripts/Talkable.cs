@@ -31,7 +31,7 @@ public class Talkable : MonoBehaviour {
     void Update () {
         if (_canInteract && Input.GetButtonDown("Interact")) {
             // _currentLine iterates between
-            // -1 and _digestedDialogue[_currentDialogue].Count-1
+            // [-1, _digestedDialogue[_currentDialogue].Count-1]
             _currentLine = (_currentLine + 2) % (_digestedDialogue[_currentDialogue].Count + 1) - 1;
             if (_currentLine == -1) {
                 WasRead = true;
