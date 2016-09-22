@@ -8,7 +8,8 @@ public class UIDialogue : MonoBehaviour {
     public Text NameHolder;
     public Text TextHolder;
 
-    private DialogueController _controller;
+    private Dialogue _activeDialogue;
+    private DialogueController _controller; // TODO: put the dictionary
 
     void Start () {
         _controller = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController).
@@ -17,14 +18,23 @@ public class UIDialogue : MonoBehaviour {
             throw( new UnityException("I need a DialogueController component attached to the UI Canvas"));
         }
     }
-    
+
     void Update () {
-	if (_controller.ActiveTalkable &&
+        if (_controller.ActiveTalkable &&
             _controller.ActiveTalkable.IsTalking()) {
             DialogueHolder.SetActive(true);
-            IconHolder.sprite = _controller.ActiveTalkable.Icon;
-            NameHolder.text = _controller.ActiveTalkable.Name;
-            TextHolder.text = _controller.ActiveTalkable.GetText();
+            _activeDialogue = _controller.ActiveTalkable.GetDialogue();
+
+            // emotion...
+            _controller.GetTalkingCharacter(_activeDialogue.Name).
+                SetEmotion(_activeDialogue.Emotion);
+            // animooted picture...
+            IconHolder.sprite =
+                _controller.GetTalkingCharacter(_activeDialogue.Name).GetSprite();
+            // name...
+            NameHolder.text = _activeDialogue.Name;
+            // dialogue text...
+            TextHolder.text = _activeDialogue.Text;
         } else {
             DialogueHolder.SetActive(false);
         }

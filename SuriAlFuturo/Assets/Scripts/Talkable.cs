@@ -5,23 +5,20 @@ using System.Collections.Generic;
 using System.IO;
 
 public class Talkable : MonoBehaviour {
-    public List<TextAsset> Dialogue;
+    public List<TextAsset> Dialogues;
     public GameObject InteractIndicator;
-    public Sprite Icon;
-    public string Name;
     public bool WasRead;
 
     public int _currentLine;
     public int _currentDialogue;
     private bool _canInteract;
     private DialogueController _controller;
-    private List<List<string>> _digestedDialogue;
-    private char[] _delimiterSymbols = {'\n'};
-
+    private Dialogue[]  _digestedDialogue;
+    
     void Start () {
-        _DigestDialogue();
         _currentLine = -1;
         _currentDialogue = 0;
+        _DigestDialogue();
         InteractIndicator.SetActive(false);
         _controller = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)
             .GetComponent<DialogueController>();
@@ -29,16 +26,14 @@ public class Talkable : MonoBehaviour {
 
     void Update () {
         if (_canInteract && Input.GetButtonDown("Interact")) {
-            // _currentLine iterates between
-            // [-1, _digestedDialogue[_currentDialogue].Count-1]
-            _currentLine = (_currentLine + 2) % (_digestedDialogue[_currentDialogue].Count + 1) - 1;
+            // _currentLine iterates between [-1, _digestedDialogue.Length-1]
+            _currentLine = (_currentLine + 2) % (_digestedDialogue.Length + 1) - 1;
+
             if (_currentLine == -1) {
                 WasRead = true;
             }
         }
     }
-
-
 
     void OnTriggerEnter (Collider c) {
         _canInteract = true;
@@ -59,15 +54,13 @@ public class Talkable : MonoBehaviour {
 
 
     private void _DigestDialogue () {
-        _digestedDialogue = new List<List<string>>();
-        for (int i=0; i<Dialogue.Count; i++) {
-            _digestedDialogue.Add(new List<string>());
-            _digestedDialogue[i].AddRange(Dialogue[i].text.Split(_delimiterSymbols, StringSplitOptions.RemoveEmptyEntries));
-        }        
+        _digestedDialogue =
+            JsonUtility.FromJson<JsonDialogueData>(Dialogues[_currentDialogue].text).
+            Dialogues;
     }
 
-    public string GetText () {
-        return _digestedDialogue[_currentDialogue][_currentLine];
+    public Dialogue GetDialogue () {
+        return _digestedDialogue[_currentLine];
     }
 
     public bool IsTalking () {
@@ -77,5 +70,6 @@ public class Talkable : MonoBehaviour {
     public void SetDialogueIndex (int index) {
         _currentDialogue = index;
         WasRead = false;
+        _DigestDialogue();
     }
 }

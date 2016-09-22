@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Blocker : MonoBehaviour {
     public bool IsUnblocked;
-    public List<Collectable> Requirements;
+    public List<Sprite> Requirements;
     public GameObject UnblockedPosition;
     public float Speed = 5;
     public GameObject Obstacle;
@@ -24,6 +24,13 @@ public class Blocker : MonoBehaviour {
             .GetComponent<CollectionSystem>();
         _navmeshObstacle = Obstacle.GetComponent<NavMeshObstacle>();
         _animator = Model.GetComponent<Animator>();
+
+        _controller.RegisterBlocker(this);
+
+        if (_controller.IsUnblocked(this)) {
+            this.Unblock();
+            _timeOnState = 100;
+        }
     }
 
     void Update () {
@@ -40,7 +47,7 @@ public class Blocker : MonoBehaviour {
         if (!IsUnblocked && TheTalkable.WasRead && _areRequirementsMeet) {
             TakeRequirements();
             Unblock();
-            _controller.UnblockedDudes.Add(this);
+            _controller.RegisterAsUnblocked(this);
         }
 
     }
@@ -56,7 +63,8 @@ public class Blocker : MonoBehaviour {
 
     public bool AreRequirementsMeet () {
         for (int i=0; i<Requirements.Count; i++) {
-            if (false == _controller.IngameCollector.Inventory[Requirements[i].Image]) {
+            if (false == _controller.IsCollected(Requirements[i]) &&
+                false == _controller.IsGiven(Requirements[i])) {
                 return false;
             }
         }
@@ -65,7 +73,7 @@ public class Blocker : MonoBehaviour {
 
     public void TakeRequirements () {
         for (int i=0; i<Requirements.Count; i++) {
-            _controller.IngameCollector.Give(Requirements[i]);
+            _controller.RegisterAsGiven(Requirements[i]);
         }
     }
 

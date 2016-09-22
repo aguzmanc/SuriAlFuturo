@@ -18,11 +18,11 @@ public class Dock : MonoBehaviour {
     }
     
     void Update () {
-        Indicator.SetActive(false);
-
         if ((DockedShip != null && Suri.activeSelf && IsSuriAtPort) ||
             (DockedShip != null && !Suri.activeSelf)) {
             Indicator.SetActive(true);
+        } else {
+            Indicator.SetActive(false);
         }
 
         if (DockedShip != null && Input.GetButtonDown("LoadUnloadToShip")) {
