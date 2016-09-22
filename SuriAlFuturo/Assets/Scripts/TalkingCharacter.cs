@@ -12,7 +12,7 @@ public class TalkingCharacter : MonoBehaviour {
         _renderer = GetComponent<SpriteRenderer>();
         _mecanim = GetComponent<Animator>();
 
-        _controller = GameObject.FindGameObjectWithTag(Tag.GameController).
+        _controller = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController).
             GetComponent<DialogueController>();
         _controller.RegisterTalkingCharacter(Name, this);
     }
