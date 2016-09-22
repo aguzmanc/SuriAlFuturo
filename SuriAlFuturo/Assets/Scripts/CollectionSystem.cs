@@ -1,50 +1,69 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 public class CollectionSystem : MonoBehaviour {
     public List<Collectable> IngameCollectables;
-    public List<Collectable> TakenStuff = new List<Collectable>();
-    public List<Blocker> UnblockedDudes = new List<Blocker>();
-    public Collector IngameCollector;
+
+    public Dictionary<Sprite, bool> TakenStuff = new Dictionary<Sprite, bool>();
+    public Dictionary<Sprite, bool> GivenStuff = new Dictionary<Sprite, bool>();
+
+    public Dictionary<Vector3, bool> UnblockedDudes = new Dictionary<Vector3, bool>();
 
     public UIInventory UIController;
 
     public void RegisterCollectable (Collectable collectable) {
-        if (IngameCollectables == null) {
-            IngameCollectables = new List<Collectable>();
+        if (false == TakenStuff.ContainsKey(collectable.Image)) { 
+            IngameCollectables.Add(collectable);
+            TakenStuff[collectable.Image] = false;
+            GivenStuff[collectable.Image] = false;
         }
-        IngameCollectables.Add(collectable);
-        IngameCollector.RegisterCollectable(collectable);
+    }
+
+    public void RegisterBlocker (Blocker blocker) {
+        if (false == UnblockedDudes.ContainsKey(blocker.transform.position)) {
+            UnblockedDudes[blocker.transform.position] = false;
+        }
     }
 
     void Start () {
-        if (!IngameCollector) {
-            throw (new UnityException("who is the collector? (PROTIP: Collector prefab to Player as a child, and drag it into \"Ingame Collector\" field)"));
-        }
-
         if (!UIController) {
             throw(new UnityException("I need a canvas with a UI Inventory component attached, when created, drag it into the UI Controller field!"));
         }
     }
 
-    void Update () {
-        
+    // readibility counts!
+    public bool IsCollected (Collectable collectable) {
+        return IsCollected(collectable.Image);
     }
 
-    public void UpdateState () {
-        for (int i=0; i<UnblockedDudes.Count; i++) {
-            try {
-                UnblockedDudes[i].Unblock();
-            } catch {}
-        }
+    public bool IsCollected (Sprite image) {
+        return TakenStuff[image];
+    }
 
-        for (int i=0; i<TakenStuff.Count; i++) {
-            try {
-                TakenStuff[i].gameObject.SetActive(false);
-            } catch {}
-        }
+    public void RegisterAsCollected(Collectable collectable) {
+        TakenStuff[collectable.Image] = true;
+        UIController.AddItem(collectable.Image);
     }
 
 
+
+    public bool IsGiven (Sprite image) {
+        return GivenStuff[image];
+    }
+
+    public void RegisterAsGiven (Sprite image) {
+        GivenStuff[image] = true;
+        UIController.RemoveItem(image);
+    }
+
+
+
+    public bool IsUnblocked (Blocker blocker) {
+        return UnblockedDudes[blocker.transform.position];
+    }
+
+    public void RegisterAsUnblocked (Blocker blocker) {
+        UnblockedDudes[blocker.transform.position] = true;
+    }
 }

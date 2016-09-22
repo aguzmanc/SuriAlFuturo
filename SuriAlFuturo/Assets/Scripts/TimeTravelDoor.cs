@@ -9,8 +9,8 @@ public class TimeTravelDoor : MonoBehaviour
     public int SecondsAfterTravelDisabled = 10;
     public TimeTravelFlash UIFlash;
 
-    public GameObject PresentStuff;
-    public GameObject FutureStuff;
+    public string Present = "Present";
+    public string Future = "Future";
 
     bool _timeTravelEnabled;
     ParticleSystem _particles;
@@ -21,7 +21,7 @@ public class TimeTravelDoor : MonoBehaviour
 
 	void Start () 
     {
-        SceneManager.LoadScene("Present", LoadSceneMode.Additive);
+        SceneManager.LoadScene(Present, LoadSceneMode.Additive);
 
         IsInPresent = true;
 
@@ -97,17 +97,15 @@ public class TimeTravelDoor : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         if(IsInPresent) {
-            SceneManager.LoadSceneAsync("Future", LoadSceneMode.Additive);
-            SceneManager.UnloadScene("Present");
+            SceneManager.LoadSceneAsync(Future, LoadSceneMode.Additive);
+            SceneManager.UnloadScene(Present);
 
             IsInPresent = false;
         } else {
-            SceneManager.LoadSceneAsync("Present", LoadSceneMode.Additive);
-            SceneManager.UnloadScene("Future");
+            SceneManager.LoadSceneAsync(Present, LoadSceneMode.Additive);
+            SceneManager.UnloadScene(Future);
 
             IsInPresent = true;
         }
-        PresentStuff.SetActive(IsInPresent);
-        FutureStuff.SetActive(!IsInPresent);
     }
 }

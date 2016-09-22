@@ -1,0 +1,14 @@
+{ "Dialogues" : [
+  { "Name": "Chapu",
+    "Emotion": "happy",
+    "Text": "funcionó!!"
+  },
+  { "Name": "Chapu",
+    "Emotion": "sad",
+    "Text": "tanto tiempo..."
+  }, {
+    "Name": "Chapu",
+    "Emotion": "bark",
+    "Text": "suficiente!... a trabajar!"
+  } ]
+}

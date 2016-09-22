@@ -23,15 +23,12 @@ public class Collectable : MonoBehaviour {
         }
 
         _controller.RegisterCollectable(this);
-    }
-	
-    void Update () {
-	
+
+        this.gameObject.SetActive(false == _controller.IsCollected(this));
     }
 
     void OnTriggerEnter(Collider player) {
-        Debug.Log(player.name);
-        _controller.IngameCollector.Take(this);
+        _controller.RegisterAsCollected(this);
         this.gameObject.SetActive(false);
     }
 }
