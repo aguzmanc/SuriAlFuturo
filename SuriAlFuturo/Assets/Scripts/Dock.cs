@@ -12,8 +12,8 @@ public class Dock : MonoBehaviour {
     private FollowCamera _camera;
 
     void Start () {
-        Suri = GameObject.FindGameObjectWithTag(Tag.Player);
-        _camera = GameObject.FindGameObjectWithTag(Tag.MainCamera).transform.parent.
+        Suri = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.Player);
+        _camera = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.MainCamera).transform.parent.
             gameObject.GetComponent<FollowCamera>();
     }
     
@@ -43,7 +43,7 @@ public class Dock : MonoBehaviour {
     void OnTriggerEnter (Collider c) {
         GameObject parent = c.transform.parent.gameObject;
 
-        if (parent.CompareTag(Tag.Ship)) {
+        if (parent.CompareTag(SuriAlFuturo.Tag.Ship)) {
             DockedShip = parent;
         } else {
             IsSuriAtPort = true;
@@ -53,7 +53,7 @@ public class Dock : MonoBehaviour {
     void OnTriggerExit (Collider c) {
         GameObject parent = c.transform.parent.gameObject;
 
-        if (parent.CompareTag(Tag.Ship)) {
+        if (parent.CompareTag(SuriAlFuturo.Tag.Ship)) {
             DockedShip = null;
         } else {
             IsSuriAtPort = false;

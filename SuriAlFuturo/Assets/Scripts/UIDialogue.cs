@@ -11,7 +11,7 @@ public class UIDialogue : MonoBehaviour {
     private DialogueController _controller;
 
     void Start () {
-        _controller = GameObject.FindGameObjectWithTag(Tag.GameController).
+        _controller = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController).
             GetComponent<DialogueController>();
         if (!_controller) {
             throw( new UnityException("I need a DialogueController component attached to the UI Canvas"));

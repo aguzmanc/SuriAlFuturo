@@ -9,7 +9,7 @@ public class Collector : MonoBehaviour {
     private CollectionSystem _controller;
     
     void Start () {
-        _controller = GameObject.FindGameObjectWithTag(Tag.GameController)
+        _controller = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)
             .GetComponent<CollectionSystem>();
     }
     

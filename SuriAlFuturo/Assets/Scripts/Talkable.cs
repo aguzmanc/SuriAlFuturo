@@ -23,9 +23,8 @@ public class Talkable : MonoBehaviour {
         _currentLine = -1;
         _currentDialogue = 0;
         InteractIndicator.SetActive(false);
-        _controller = GameObject.FindGameObjectWithTag(Tag.GameController)
+        _controller = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)
             .GetComponent<DialogueController>();
-        Debug.Log(_controller);
     }
 
     void Update () {
