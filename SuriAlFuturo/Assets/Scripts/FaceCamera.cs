@@ -5,7 +5,7 @@ public class FaceCamera : MonoBehaviour {
     public GameObject _camera;
 
     void Start () {
-        _camera = GameObject.FindGameObjectWithTag(Tag.MainCamera);
+        _camera = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.MainCamera);
     }
 
     void Update () {

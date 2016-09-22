@@ -8,11 +8,11 @@ public class Collectable : MonoBehaviour {
 
     void Start () {
 
-        if (!GameObject.FindGameObjectWithTag(Tag.GameController)) {
+        if (!GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)) {
             throw(new UnityException("Collectable items need a CollectionSystem component in the GameController"));
         }
 
-        _controller = GameObject.FindGameObjectWithTag(Tag.GameController)
+        _controller = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)
             .GetComponent<CollectionSystem>();
         if (!_controller) {
             throw (new UnityException("Collectable items need a CollectionSystem component in the GameController"));

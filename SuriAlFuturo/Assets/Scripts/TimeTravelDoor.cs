@@ -21,7 +21,7 @@ public class TimeTravelDoor : MonoBehaviour
 
 	void Start () 
     {
-        SceneManager.LoadScene(Present, LoadSceneMode.Additive);
+        
 
         IsInPresent = true;
 
@@ -64,10 +64,6 @@ public class TimeTravelDoor : MonoBehaviour
         _particles.emissionRate = 30f;
         _autoRotate.rotateDegreesPerSecond.value = new Vector3(0,20,0);
 
-//        yield return new WaitForSeconds(4);
-//        SceneManager.UnloadScene("Present");
-
-
         while(true)
         {
             yield return new WaitWhile( () => (_timeTravelEnabled));
@@ -96,16 +92,6 @@ public class TimeTravelDoor : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
 
-        if(IsInPresent) {
-            SceneManager.LoadSceneAsync(Future, LoadSceneMode.Additive);
-            SceneManager.UnloadScene(Present);
 
-            IsInPresent = false;
-        } else {
-            SceneManager.LoadSceneAsync(Present, LoadSceneMode.Additive);
-            SceneManager.UnloadScene(Future);
-
-            IsInPresent = true;
-        }
     }
 }

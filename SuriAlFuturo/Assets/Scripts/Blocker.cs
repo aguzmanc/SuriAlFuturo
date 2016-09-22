@@ -20,7 +20,7 @@ public class Blocker : MonoBehaviour {
     private bool _areRequirementsMeet = false;
 
     void Start () {
-        _controller = GameObject.FindGameObjectWithTag(Tag.GameController)
+        _controller = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)
             .GetComponent<CollectionSystem>();
         _navmeshObstacle = Obstacle.GetComponent<NavMeshObstacle>();
         _animator = Model.GetComponent<Animator>();
