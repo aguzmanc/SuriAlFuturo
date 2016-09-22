@@ -9,24 +9,18 @@ public class TimeTravelDoor : MonoBehaviour
     public int SecondsAfterTravelDisabled = 10;
     public TimeTravelFlash UIFlash;
 
-    public GameObject PresentStuff;
-    public GameObject FutureStuff;
-
-    bool _timeTravelEnabled;
-    ParticleSystem _particles;
-    UnityStandardAssets.Utility.AutoMoveAndRotate _autoRotate;
-
-    public bool IsInPresent;
+    private bool _timeTravelEnabled;
+    private ParticleSystem _particles;
+    private UnityStandardAssets.Utility.AutoMoveAndRotate _autoRotate;
+    private TimeTravelController _timeTravelController;
 
 
 	void Start () 
     {
-        
-
-        IsInPresent = true;
-
         _particles = GetComponent<ParticleSystem>();
         _autoRotate = GetComponent<UnityStandardAssets.Utility.AutoMoveAndRotate>();
+        _timeTravelController = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController).GetComponent<TimeTravelController>();
+
         StartCoroutine(TimeTravelCycle());
 	}
 	
@@ -39,6 +33,8 @@ public class TimeTravelDoor : MonoBehaviour
 
     void OnTriggerEnter(Collider coll)
     {
+        Debug.Log(coll.name);
+
         if(coll.tag.CompareTo("Player") != 0)
             return;
 
@@ -92,6 +88,6 @@ public class TimeTravelDoor : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
 
-
+        _timeTravelController.OnTimeTravel();
     }
 }

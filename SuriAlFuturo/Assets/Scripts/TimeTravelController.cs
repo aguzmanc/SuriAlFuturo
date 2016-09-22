@@ -120,6 +120,15 @@ public class TimeTravelController : MonoBehaviour
             _waterSourcesClosed.Add(source.WaterSourceTag, false); // all water sources are opened by default;
         }
 
-        source.SwitchWaterFlow(_waterSourcesClosed[source.WaterSourceTag]);
+        source.SwitchWaterFlow(!_waterSourcesClosed[source.WaterSourceTag]); // "closed" is ~ON
+    }
+
+
+    public void OnWaterSourceToggled(WaterSource.Tag tag, bool isOpen)
+    {
+        if(false == _waterSourcesClosed.ContainsKey(tag)) 
+            throw new UnityException(string.Format( "Water Source with tag [{0}] must have been registered on loading", tag));
+
+        _waterSourcesClosed[tag] = !isOpen;
     }
 }

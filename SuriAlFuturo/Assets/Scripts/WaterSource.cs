@@ -11,16 +11,16 @@ public class WaterSource : MonoBehaviour
     private ParticleSystem _waterFlow;
     private bool _isWaterOn;
     private bool _canInteract;
+    private TimeTravelController _timeTravelController;
 
 	void Start () 
     {
-        Debug.Log("WaterSource");
         _waterFlow = GetComponentInChildren<ParticleSystem>();
         _isWaterOn = true;
         _canInteract = false;
 
-        TimeTravelController ctrl = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController).GetComponent<TimeTravelController>();
-        ctrl.OnWaterSourceLoad(this);
+        _timeTravelController = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController).GetComponent<TimeTravelController>();
+        _timeTravelController.OnWaterSourceLoad(this);
 	}
 	
 
@@ -28,10 +28,15 @@ public class WaterSource : MonoBehaviour
     {        
         // open and close water flow
         if(Input.GetButtonDown("Interact") && _canInteract) {
+
             if(_isWaterOn)
                 _waterFlow.Stop();
             else
                 _waterFlow.Play();
+
+            _isWaterOn = !_isWaterOn;
+
+            _timeTravelController.OnWaterSourceToggled(WaterSourceTag, _isWaterOn);
         }
 	}
 
@@ -53,9 +58,9 @@ public class WaterSource : MonoBehaviour
         _isWaterOn = isOn;
 
         if(_isWaterOn)
-            _waterFlow.Stop();
-        else
             _waterFlow.Play();
+        else
+            _waterFlow.Stop();
         
     }
 
