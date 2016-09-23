@@ -8,6 +8,7 @@ public class UIInventory : MonoBehaviour {
     public List<Sprite> OwnedItems = new List<Sprite>();
     public GameObject ItemContainerPrototype;
     public float Offset = 150;
+    public int ActiveItem = 0;
 
     private List<GameObject> _containers = new List<GameObject>();
 
@@ -16,9 +17,21 @@ public class UIInventory : MonoBehaviour {
             throw( new UnityException("I need a UI prototype where to put the inventory item icon. There is one on the prefabs! When created, drag it into the UI Prototype field!"));
         }
     }
-    
+
     void Update () {
-	
+        if (_containers.Count > 0) {
+            _containers[ActiveItem].GetComponent<UIContainer>().Active = false;
+
+            if (Input.GetButtonDown("InventaryNext")) {
+                ActiveItem = Mathf.Min(_containers.Count-1, ActiveItem+1);
+            }
+
+            if (Input.GetButtonDown("InventaryPrevious")) {
+                ActiveItem = Mathf.Max(0, ActiveItem-1);
+            }
+
+            _containers[ActiveItem].GetComponent<UIContainer>().Active = true;
+        }
     }
 
     public void Refresh () {
@@ -26,7 +39,7 @@ public class UIInventory : MonoBehaviour {
             Destroy(_containers[i]);
         }
         _containers = new List<GameObject>();
-        
+
         for (int i=0; i<OwnedItems.Count; i++) {
             GameObject container = Instantiate(ItemContainerPrototype);
             container.transform.SetParent(this.transform);
@@ -34,10 +47,15 @@ public class UIInventory : MonoBehaviour {
             container.GetComponent<Image>().sprite = OwnedItems[i];
 
             container.GetComponent<RectTransform>().anchoredPosition =
-                ItemContainerPrototype.GetComponent<RectTransform>().anchoredPosition + 
+                ItemContainerPrototype.GetComponent<RectTransform>().anchoredPosition +
                 new Vector2(Offset * i, 0);
 
             _containers.Add(container);
+        }
+
+        if (OwnedItems.Count > 0) {
+            ActiveItem = Mathf.Min(ActiveItem, _containers.Count-1);
+            _containers[ActiveItem].GetComponent<UIContainer>().Active = true;
         }
     }
 

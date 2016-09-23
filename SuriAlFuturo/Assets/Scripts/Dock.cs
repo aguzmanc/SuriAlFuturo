@@ -32,7 +32,6 @@ public class Dock : MonoBehaviour {
                 _camera.Target = DockedShip;
             } else if (!Suri.activeSelf) {
                 Suri.transform.position = DisembarkPlace.transform.position;
-                Debug.Log(Suri.transform.position);
                 Suri.SetActive(true);
                 DockedShip.GetComponent<CharacterMovement>().IsControlledByPlayer = false;
                 _camera.Target = Suri;
