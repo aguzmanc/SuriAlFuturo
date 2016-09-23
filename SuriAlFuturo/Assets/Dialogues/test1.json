@@ -1,0 +1,7 @@
+{ "Dialogues" : [
+  { "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "bark",
+    "Text": "Uno!"
+  } ]
+}

@@ -9,6 +9,8 @@ public class CollectionSystem : MonoBehaviour {
     public Dictionary<Sprite, bool> GivenStuff = new Dictionary<Sprite, bool>();
 
     public Dictionary<Vector3, bool> UnblockedDudes = new Dictionary<Vector3, bool>();
+    public Dictionary<Vector3, List<Requirement>> RegisteredRequirements =
+        new Dictionary<Vector3, List<Requirement>>();
 
     public UIInventory UIController;
 
@@ -65,5 +67,26 @@ public class CollectionSystem : MonoBehaviour {
 
     public void RegisterAsUnblocked (Blocker blocker) {
         UnblockedDudes[blocker.transform.position] = true;
+    }
+
+
+    public void RegisterRequirements (Blocker blocker) {
+        List<Requirement> requirements = blocker.Requirements;
+        RegisteredRequirements[blocker.transform.position] = new List<Requirement>();
+        for (int i=0; i<requirements.Count; i++) {
+            RegisteredRequirements[blocker.transform.position].Add(requirements[i]);
+        }
+    }
+
+    public List<Requirement> GetRequirements (Blocker blocker) {
+        return RegisteredRequirements[blocker.transform.position];
+    }
+
+    public bool HasRegisteredRequirements (Blocker blocker) {
+        return RegisteredRequirements.ContainsKey(blocker.transform.position);
+    }
+
+    public Sprite GetActiveRequirement () {
+        return UIController.GetActiveRequirement();
     }
 }

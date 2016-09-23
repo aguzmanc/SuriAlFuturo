@@ -8,10 +8,15 @@ public class Talkable : MonoBehaviour {
     public List<TextAsset> Dialogues;
     public GameObject InteractIndicator;
     public bool WasRead;
+    public bool IsForcedToTalk;
+    public bool WillTalkForcedDialogue;
+    public Dialogue ForcedDialogue;
+    public string DefaultName = "...";
+    public string DefaultAvatar = "Cholita";
 
-    public int _currentLine;
-    public int _currentDialogue;
-    private bool _canInteract;
+    private int _currentLine;
+    private int _currentDialogue;
+    private bool _canInteract;    
     private DialogueController _controller;
     private Dialogue[]  _digestedDialogue;
     
@@ -25,12 +30,21 @@ public class Talkable : MonoBehaviour {
     }
 
     void Update () {
-        if (_canInteract && Input.GetButtonDown("Interact")) {
+        int qtyOfLines = _digestedDialogue.Length;
+        if (WillTalkForcedDialogue) {
+            qtyOfLines = 1;
+        }
+
+        if (IsInteractTriggered()) {
+            IsForcedToTalk = false;
             // _currentLine iterates between [-1, _digestedDialogue.Length-1]
-            _currentLine = (_currentLine + 2) % (_digestedDialogue.Length + 1) - 1;
+            _currentLine = (_currentLine + 2) % (qtyOfLines + 1) - 1;
 
             if (_currentLine == -1) {
                 WasRead = true;
+                if (WillTalkForcedDialogue) {
+                    WillTalkForcedDialogue = false;
+                }
             }
         }
     }
@@ -60,6 +74,9 @@ public class Talkable : MonoBehaviour {
     }
 
     public Dialogue GetDialogue () {
+        if (WillTalkForcedDialogue) {
+            return ForcedDialogue;
+        }
         return _digestedDialogue[_currentLine];
     }
 
@@ -71,5 +88,20 @@ public class Talkable : MonoBehaviour {
         _currentDialogue = index;
         WasRead = false;
         _DigestDialogue();
+    }
+
+    public bool IsInteractTriggered () {
+        return _canInteract && (Input.GetButtonDown("Interact") || IsForcedToTalk ||
+                                (Input.anyKeyDown && _currentLine >= 0));
+    }
+
+    public void ForceDialogue (Dialogue forcedDialogue) {
+        ForcedDialogue = forcedDialogue;
+        WillTalkForcedDialogue = true;
+        IsForcedToTalk = true;
+    }
+
+    public void SayIDontHaveThat () {
+        ForceDialogue(_controller.DontNeedThat);
     }
 }
