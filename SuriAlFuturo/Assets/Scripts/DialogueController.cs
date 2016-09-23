@@ -8,6 +8,7 @@ public class DialogueController : MonoBehaviour {
     public bool DoneTalking;
     public Dictionary<string, TalkingCharacter> TalkingCharacterDictionary
         = new Dictionary<string, TalkingCharacter>();
+    public Dialogue DontNeedThat;
 
     public TalkingCharacter GetTalkingCharacter (string name) {
         return TalkingCharacterDictionary[name];

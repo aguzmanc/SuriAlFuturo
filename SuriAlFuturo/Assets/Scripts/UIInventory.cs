@@ -68,4 +68,11 @@ public class UIInventory : MonoBehaviour {
         OwnedItems.Remove(item);
         Refresh();
     }
+
+    public Sprite GetActiveRequirement () {
+        if (OwnedItems.Count == 0) {
+            return null;
+        }
+        return OwnedItems[ActiveItem];
+    }
 }

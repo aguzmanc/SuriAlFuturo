@@ -4,13 +4,16 @@ using System.Collections.Generic;
 
 public class Blocker : MonoBehaviour {
     public bool IsUnblocked;
-    public List<Sprite> Requirements;
+    public List<Requirement> Requirements;
     public GameObject UnblockedPosition;
     public float Speed = 5;
     public GameObject Obstacle;
     public GameObject Model;
     public Talkable TheTalkable;
+    public int RequirementsMeetDialogueIndex = 1;
+    public int InvalidDialogueIndex;
 
+    private bool _canTake;
     private CollectionSystem _controller;
     private NavMeshObstacle _navmeshObstacle;
     private float _timeOnState = 0;
@@ -20,12 +23,18 @@ public class Blocker : MonoBehaviour {
     private bool _areRequirementsMeet = false;
 
     void Start () {
+        InvalidDialogueIndex = Requirements.Count - 1;
         _controller = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)
             .GetComponent<CollectionSystem>();
         _navmeshObstacle = Obstacle.GetComponent<NavMeshObstacle>();
         _animator = Model.GetComponent<Animator>();
 
         _controller.RegisterBlocker(this);
+        if (_controller.HasRegisteredRequirements(this)) {
+            Requirements = _controller.GetRequirements(this);
+        } else {
+            _controller.RegisterRequirements(this);
+        }
 
         if (_controller.IsUnblocked(this)) {
             this.Unblock();
@@ -35,6 +44,7 @@ public class Blocker : MonoBehaviour {
 
     void Update () {
         _timeOnState += Time.deltaTime;
+
         if (IsUnblocked) {
             Obstacle.transform.position =
                 Vector3.Lerp(_cachedPosition, UnblockedPosition.transform.position,
@@ -44,12 +54,16 @@ public class Blocker : MonoBehaviour {
             _animator.SetBool("IsWalking", false);
         }
 
-        if (!IsUnblocked && TheTalkable.WasRead && _areRequirementsMeet) {
-            TakeRequirements();
+        if (Input.GetButtonDown("Give") && _canTake) {
+            if (false == TryToTakeRequirement(_controller.GetActiveRequirement())) {
+                TheTalkable.SayIDontHaveThat();
+            }
+        }
+
+        if (TheTalkable.WasRead && _areRequirementsMeet) {
             Unblock();
             _controller.RegisterAsUnblocked(this);
         }
-
     }
 
     public void Unblock () {
@@ -62,26 +76,38 @@ public class Blocker : MonoBehaviour {
     }
 
     public bool AreRequirementsMeet () {
+        return Requirements.Count == 0;
+    }
+
+    public bool TryToTakeRequirement (Sprite requirement) {
+        int i = IndexOfRequirement(requirement);
+        if (i >= 0) {
+            TheTalkable.SetDialogueIndex(Requirements[i].IndexOfDialogue);
+            _controller.RegisterAsGiven(requirement);
+            Requirements.RemoveAt(i);
+            _areRequirementsMeet = AreRequirementsMeet();
+            TheTalkable.IsForcedToTalk = true;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int IndexOfRequirement (Sprite requirement) {
         for (int i=0; i<Requirements.Count; i++) {
-            if (false == _controller.IsCollected(Requirements[i]) &&
-                false == _controller.IsGiven(Requirements[i])) {
-                return false;
+            if (Requirements[i].Image == requirement) {
+                return i;
             }
         }
-        return true;
+        return -1;
     }
 
-    public void TakeRequirements () {
-        for (int i=0; i<Requirements.Count; i++) {
-            _controller.RegisterAsGiven(Requirements[i]);
-        }
+    void OnTriggerEnter (Collider player) {
+        _canTake = true;
     }
 
-    void OnTriggerEnter(Collider player) 
-    {
-        _areRequirementsMeet = AreRequirementsMeet();
-        if (_areRequirementsMeet) {
-            TheTalkable.SetDialogueIndex(1);
-        }
+    void OnTriggerExit (Collider player) {
+        _canTake = false;
     }
+
 }
