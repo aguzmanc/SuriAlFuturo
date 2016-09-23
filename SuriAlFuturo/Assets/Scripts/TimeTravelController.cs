@@ -75,34 +75,7 @@ public class TimeTravelController : MonoBehaviour
         } else { // is in present.. go to a different future according to water sources opened (requirements)
             originReality = TemporalReality.Present;
 
-            int bestRequirementsCount = -1;
-            TemporalReality bestRealityToTravel = TemporalReality.NoWaterFuture;
-
-            foreach(TravelTimeRequirement req in TravelRequirements) {
-                int totalClosed = 0;
-                for(int i=0;i<req.WaterSourcesRequired.Count;i++) {
-                    if(_waterSourcesClosed.ContainsKey(req.WaterSourcesRequired[i])){
-                        if(_waterSourcesClosed[req.WaterSourcesRequired[i]]) {
-                            totalClosed++;
-                        }
-                    }
-                }
-
-                if(totalClosed == req.WaterSourcesRequired.Count) { // this requirement was achieved
-                    // check among all others requirement achieved. The one with more
-                    // closed water sources count is the reality to travel to
-                    if(totalClosed > bestRequirementsCount) {
-                        bestRequirementsCount = totalClosed;
-                        bestRealityToTravel = req.RealityToTravel;
-                    }
-                }
-            }
-
-            if(bestRequirementsCount != -1) {
-                destinationReality = bestRealityToTravel;
-            } else { // none of the requirements were satisfied, so, go to darkest future by default
-                destinationReality = TemporalReality.NoWaterFuture;
-            }
+            destinationReality = FindDestRealityByClosedCountWaterSources();
 
             _currentReality = destinationReality;
         }
@@ -134,4 +107,66 @@ public class TimeTravelController : MonoBehaviour
 
         _waterSourcesClosed[tag] = !isOpen;
     }
+
+
+    public TemporalReality FindDestRealityByClosedCountWaterSources()
+    {
+        // count the number of closed water sources
+        int totalClosed = 0;
+        foreach(KeyValuePair<WaterSource.Tag, bool> kv in _waterSourcesClosed) {
+            if(kv.Value)
+                totalClosed++;
+        }
+
+        int bestCount = -1;
+        TemporalReality bestReality = TemporalReality.NoWaterFuture; // worst future by default
+        // find best appropiate reality according to number of closed water sources
+        foreach(TravelTimeRequirement req in TravelRequirements) {
+            int countRequired = req.WaterSourcesRequired.Count;
+
+            if(totalClosed >= countRequired) {
+                if(countRequired > bestCount){
+                    bestCount = countRequired;
+                    bestReality = req.RealityToTravel;
+                }
+            }
+        }
+
+        return bestReality;
+    }
+
+
+    public TemporalReality FindDestRealityByReqs()
+    {
+        int bestRequirementsCount = -1;
+        TemporalReality bestRealityToTravel = TemporalReality.NoWaterFuture;
+
+        foreach(TravelTimeRequirement req in TravelRequirements) {
+            int totalClosed = 0;
+            for(int i=0;i<req.WaterSourcesRequired.Count;i++) {
+                if(_waterSourcesClosed.ContainsKey(req.WaterSourcesRequired[i])){
+                    if(_waterSourcesClosed[req.WaterSourcesRequired[i]]) {
+                        totalClosed++;
+                    }
+                }
+            }
+
+            if(totalClosed == req.WaterSourcesRequired.Count) { // this requirement was achieved
+                // check among all others requirement achieved. The one with more
+                // closed water sources count is the reality to travel to
+                if(totalClosed > bestRequirementsCount) {
+                    bestRequirementsCount = totalClosed;
+                    bestRealityToTravel = req.RealityToTravel;
+                }
+            }
+        }
+
+        if(bestRequirementsCount != -1) 
+            return bestRealityToTravel;
+        
+        // none of the requirements were satisfied, so, go to darkest future by default
+        return TemporalReality.NoWaterFuture;
+    }
+
+
 }
