@@ -75,7 +75,6 @@ public class TimeTravelController : MonoBehaviour
         } else { // is in present.. go to a different future according to water sources opened (requirements)
             originReality = TemporalReality.Present;
 
-
             int bestRequirementsCount = -1;
             TemporalReality bestRealityToTravel = TemporalReality.NoWaterFuture;
 
@@ -104,9 +103,13 @@ public class TimeTravelController : MonoBehaviour
             } else { // none of the requirements were satisfied, so, go to darkest future by default
                 destinationReality = TemporalReality.NoWaterFuture;
             }
+
+            _currentReality = destinationReality;
         }
 
         // ACTUAL TIME TRAVEL!
+        Debug.Log("from: " + originReality);
+        Debug.Log("to: " + destinationReality);
         SceneManager.LoadSceneAsync(destinationReality.ToString(), LoadSceneMode.Additive);
         SceneManager.UnloadScene(originReality.ToString());
     }

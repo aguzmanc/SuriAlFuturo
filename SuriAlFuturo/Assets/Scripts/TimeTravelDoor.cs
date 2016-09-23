@@ -33,8 +33,6 @@ public class TimeTravelDoor : MonoBehaviour
 
     void OnTriggerEnter(Collider coll)
     {
-        Debug.Log(coll.name);
-
         if(coll.tag.CompareTo("Player") != 0)
             return;
 
@@ -58,7 +56,7 @@ public class TimeTravelDoor : MonoBehaviour
         Wind.windMain = 0f;
         CenterLight.enabled = true;
         _particles.emissionRate = 30f;
-        _autoRotate.rotateDegreesPerSecond.value = new Vector3(0,20,0);
+        _autoRotate.rotateDegreesPerSecond.value = new Vector3(0,0,20);
 
         while(true)
         {
@@ -73,7 +71,7 @@ public class TimeTravelDoor : MonoBehaviour
             // reenabling time travel door (only aspect)
             Wind.windMain = 0f;
             _particles.emissionRate = 30f;
-            _autoRotate.rotateDegreesPerSecond.value = new Vector3(0,20,0);
+            _autoRotate.rotateDegreesPerSecond.value = new Vector3(0,0,20);
 
             yield return new WaitForSeconds(5f);
 
