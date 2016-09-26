@@ -1,9 +1,11 @@
 fileFormatVersion: 2
 guid: 9c10ab0d19d99734890b089eee1aef9e
-timeCreated: 1474646214
+timeCreated: 1474670645
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: ActiveCollectable_0
+    21300002: ActiveCollectable_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -38,7 +40,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +51,62 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: ActiveCollectable_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 97, y: 179}
+        - {x: -128, y: 179}
+        - {x: -149, y: 160}
+        - {x: -150, y: 156}
+        - {x: -150, y: -70}
+        - {x: -141, y: -92}
+        - {x: 99, y: -92}
+        - {x: 116, y: -74}
+        - {x: 118, y: -64}
+        - {x: 118, y: 156}
+      - - {x: -118, y: 137}
+        - {x: 74, y: 145}
+        - {x: 83, y: -48}
+        - {x: -108, y: -57}
+    - name: ActiveCollectable_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 150, y: -151}
+        - {x: 150, y: -16}
+        - {x: 128, y: 4}
+        - {x: 60, y: 4}
+        - {x: 23, y: -39}
+        - {x: 41, y: -96}
+        - {x: 70, y: -111}
+        - {x: 68, y: -136}
+        - {x: 53, y: -139}
+        - {x: 49, y: -145}
+        - {x: 44, y: -134}
+        - {x: 62, y: -136}
+        - {x: 68, y: -129}
+        - {x: 67, y: -111}
+        - {x: 44, y: -108}
+        - {x: -81, y: -102}
+        - {x: -140, y: -110}
+        - {x: -140, y: -180}
+        - {x: 147, y: -180}
     outline: []
   spritePackingTag: 
   userData: 
