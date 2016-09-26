@@ -6,12 +6,15 @@ public class Dock : MonoBehaviour {
     public GameObject Suri;
     public GameObject DisembarkPlace;
     public GameObject Indicator;
+    private GameController _gameController;
     public bool IsSuriAtPort;
 
 
     private FollowCamera _camera;
 
     void Start () {
+        _gameController = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)
+            .GetComponent<GameController>();
         Suri = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.Player);
         _camera = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.MainCamera).transform.parent.
             gameObject.GetComponent<FollowCamera>();
@@ -30,11 +33,13 @@ public class Dock : MonoBehaviour {
                 Suri.SetActive(false);
                 DockedShip.GetComponent<CharacterMovement>().IsControlledByPlayer = true;
                 _camera.Target = DockedShip;
+                _gameController.SetDrivingBoat(true);
             } else if (!Suri.activeSelf) {
                 Suri.transform.position = DisembarkPlace.transform.position;
                 Suri.SetActive(true);
                 DockedShip.GetComponent<CharacterMovement>().IsControlledByPlayer = false;
                 _camera.Target = Suri;
+                _gameController.SetDrivingBoat(false);
             }
         }
     }

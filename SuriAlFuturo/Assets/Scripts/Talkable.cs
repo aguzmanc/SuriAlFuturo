@@ -68,9 +68,13 @@ public class Talkable : MonoBehaviour {
 
 
     private void _DigestDialogue () {
-        _digestedDialogue =
-            JsonUtility.FromJson<JsonDialogueData>(Dialogues[_currentDialogue].text).
-            Dialogues;
+        if (Dialogues.Count == 0) {
+            _digestedDialogue = new Dialogue[0];
+        } else {
+            _digestedDialogue =
+                JsonUtility.FromJson<JsonDialogueData>(Dialogues[_currentDialogue].text).
+                Dialogues;
+        }
     }
 
     public Dialogue GetDialogue () {
