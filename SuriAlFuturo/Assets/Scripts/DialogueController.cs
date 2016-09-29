@@ -9,7 +9,7 @@ public class DialogueController : MonoBehaviour {
     public Dictionary<string, TalkingCharacter> TalkingCharacterDictionary
         = new Dictionary<string, TalkingCharacter>();
     public Dialogue DontNeedThat;
-    public CharacterMovement Player;
+    public CharacterMovement Player;    
 
     void Update () {
         Player.IsControlledByPlayer = !(ActiveTalkable != null &&

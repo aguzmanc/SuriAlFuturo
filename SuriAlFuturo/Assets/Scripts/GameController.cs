@@ -4,6 +4,7 @@ using System.Collections;
 public class GameController : MonoBehaviour {
     private bool _drivingBoat;
     public FollowCamera FollowingCamera;
+    public GameObject Suri;
 
     public void SetDrivingBoat (bool value) {
         _drivingBoat = value;

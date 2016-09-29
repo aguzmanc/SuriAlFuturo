@@ -23,6 +23,14 @@ ModelImporter:
     100030: hola_R
     100032: //RootNode
     100034: Sphere
+    100036: Bone_L.004
+    100038: Bone_L.004_end
+    100040: Bone_L.005
+    100042: Bone_L.005_end
+    100044: Bone_R.004
+    100046: Bone_R.004_end
+    100048: Bone_R.005
+    100050: Bone_R.005_end
     400000: Armature.001
     400002: Bone
     400004: Bone.001
@@ -41,8 +49,19 @@ ModelImporter:
     400030: hola_R
     400032: //RootNode
     400034: Sphere
+    400036: Bone_L.004
+    400038: Bone_L.004_end
+    400040: Bone_L.005
+    400042: Bone_L.005_end
+    400044: Bone_R.004
+    400046: Bone_R.004_end
+    400048: Bone_R.005
+    400050: Bone_R.005_end
     4300000: Sphere
     7400000: Armature.001|Stand
+    7400002: Armature.001|Hey0
+    7400004: Armature.001|Hey1
+    7400006: Sphere|Hey0
     9500000: //RootNode
     13700000: Sphere
   materials:

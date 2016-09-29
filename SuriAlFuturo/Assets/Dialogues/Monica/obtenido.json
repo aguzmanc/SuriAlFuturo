@@ -1,0 +1,27 @@
+{ "Dialogues": [
+  { "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Encontré este juguete en el futuro, proyecta hologramas, seguro que le va a gustar al Enrique!"
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "Sí, al Enrique le encantaría, se nota que es muy nuevo"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Toma, te lo regalo!"
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "En serio?! muchas gracias Suri! el Enriquito se va a poner bien feliz en su cumpleaños!"
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "Y ahora qué te doy pues wawa? ah! aún quieres usar mi barco? usálo nomás!"
+  }
+] }

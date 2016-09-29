@@ -15,7 +15,8 @@ public class Dock : MonoBehaviour {
     void Start () {
         _gameController = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)
             .GetComponent<GameController>();
-        Suri = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.Player);
+        // Suri = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.Player);
+        Suri = _gameController.GetComponent<GameController>().Suri;
         _camera = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.MainCamera).transform.parent.
             gameObject.GetComponent<FollowCamera>();
     }
