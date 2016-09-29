@@ -1,0 +1,17 @@
+{ "Dialogues": [
+  { "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Dónde estará el abuelito? Nunca se va sin avisar."
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "sad",
+    "Text": "wrrrfff"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Sigamos ese camino."
+  }
+] }

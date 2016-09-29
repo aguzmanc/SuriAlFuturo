@@ -1,0 +1,67 @@
+{ "Dialogues" : [
+  { "Avatar": "Anciano",
+    "Name": "Don Sebastián",
+    "Emotion": "normal",
+    "Text": "Hijita, buen día"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Hola abuelito, buen día!"
+  }, {
+    "Avatar": "Anciano",
+    "Name": "Don Sebastián",
+    "Emotion": "normal",
+    "Text": "Sabes qué me he soñado anoche? que te estabas viajando vos solita a un lugar muy lejano"
+  }, {
+    "Avatar": "Anciano",
+    "Name": "Don Sebastián",
+    "Emotion": "normal",
+    "Text": "no sé ni qué tenías que hacer, pero era algo muy importante."
+  }, {
+    "Avatar": "Anciano",
+    "Name": "Don Sebastián",
+    "Emotion": "normal",
+    "Text": "Siento que la Pachamama ha estado llorando. Siento que te vas a ir"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Abuelito... estás bien?"
+  }, {
+    "Avatar": "Anciano",
+    "Name": "Don Sebastián",
+    "Emotion": "normal",
+    "Text": "Sí hijita, no te preocupes mucho por mí, pero por algo pasan las cosas, y este sueño no vino así sin motivo."
+  }, {
+    "Avatar": "Anciano",
+    "Name": "Don Sebastián",
+    "Emotion": "normal",
+    "Text": "Esta mañana las gallinas no han cacareado, y las flores se han despertado tarde."
+  }, {
+    "Avatar": "Anciano",
+    "Name": "Don Sebastián",
+    "Emotion": "normal",
+    "Text": "El ajayu del bosque está pidiendo ayuda, no hay más, clarito se nota, yo como soy viejo ya me doy cuenta de esas cosas."
+  }, {
+    "Avatar": "Anciano",
+    "Name": "Don Sebastián",
+    "Emotion": "normal",
+    "Text": "Suri, yo no puedo hacer nada, mis ojos ya no funcionan como antes, pero tú debes ayudar a la Pachamama!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "No te preocupes abuelito! puedes contar conmigo!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "pero no sé cómo hacerlo"
+  }, {
+    "Avatar": "Anciano",
+    "Name": "Don Sebastián",
+    "Emotion": "normal",
+    "Text": "Vete nomás a jugar, pues la Pachamama es sabia y ya sabrá ella cómo mostrarte la forma de que la ayudes."
+  }
+] }

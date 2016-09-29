@@ -11,7 +11,6 @@ public class Blocker : MonoBehaviour {
     public GameObject Model;
     public Talkable TheTalkable;
     public int RequirementsMeetDialogueIndex = 1;
-    public int InvalidDialogueIndex;
 
     private bool _canTake;
     private CollectionSystem _controller;
@@ -23,7 +22,6 @@ public class Blocker : MonoBehaviour {
     private bool _areRequirementsMeet = false;
 
     void Start () {
-        InvalidDialogueIndex = Requirements.Count - 1;
         _controller = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)
             .GetComponent<CollectionSystem>();
         _navmeshObstacle = Obstacle.GetComponent<NavMeshObstacle>();
@@ -54,7 +52,7 @@ public class Blocker : MonoBehaviour {
             _animator.SetBool("IsWalking", false);
         }
 
-        if (Input.GetButtonDown("Give") && _canTake) {
+        if (Input.GetButtonDown("Give") && _canTake && !TheTalkable.IsTalking()) {
             if (false == TryToTakeRequirement(_controller.GetActiveRequirement())) {
                 TheTalkable.SayIDontHaveThat();
             }
@@ -62,11 +60,11 @@ public class Blocker : MonoBehaviour {
 
         if (TheTalkable.WasRead && _areRequirementsMeet) {
             Unblock();
-            _controller.RegisterAsUnblocked(this);
         }
     }
 
     public void Unblock () {
+        _controller.RegisterAsUnblocked(this);
         IsUnblocked = true;
         _cachedPosition = Obstacle.transform.position;
         _timeOnState = 0;

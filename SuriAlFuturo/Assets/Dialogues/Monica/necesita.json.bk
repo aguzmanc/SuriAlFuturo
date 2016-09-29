@@ -1,0 +1,38 @@
+{ "Dialogues" : [
+  { "Avatar": "Cholita",
+    "Name": "Monica",
+    "Emotion": "happy",
+    "Text": "Suri! Buen dia waway!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Buen dia doña Moni! ¡Mi abuelo se ha soñado que voy a viajar lejos! Dice que pronto haré algo importante, y quiero averiguar que es ¿No quieres prestarme tu barco? Así voy a empezar a recorrer el mundo desde ahorita!
+"
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Monica",
+    "Emotion": "happy",
+    "Text": "Jajaja, ¡hay! Estas wawas, mirále su ocurrencia! Mi barco es para que trabaje hijita, tengo que pescar para comer, no es para dar la vuelta al mundo, además ya acerca el cumpleaños del Enriquito, tengo que estar ahorrando nomás. Me ha dicho que quiere uno de esas consolas de videojuegos portátiles. Le voy a dar el gusto este año, pero no le vayas a decir."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "¿Entonces no me vas a prestar?"
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "No Suri, a menos que te encuentres de casualidad una consola de juegos en medio del bosque, o uno de esos aparatos de realidad virtual que tanto hablan los niños de ahora, y de paso que nadie necesite. Jajaja. Ahi si te prestaría mi barco."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Creo que mis planes de viajar lejos quedarán ahí por ahora. ¿Y donde esta el Enrique?"
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "Ahí atrás debe andar, ¿Porque no vas a saludarlo? Ahh, y recuerda, cuidadito con decirle que quiero regalarle esa consola que tanto le gusta."
+  } ]
+}

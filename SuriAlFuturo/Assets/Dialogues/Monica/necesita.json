@@ -1,0 +1,86 @@
+{ "Dialogues" : [
+  { "Avatar": "Cholita",
+    "Name": "Monica",
+    "Emotion": "happy",
+    "Text": "Suri! Buen día waway!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "¡Buen dia doña Moni! ¡Mi abuelo se ha soñado que voy a viajar lejos!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Dice que pronto haré algo importante, y quiero averiguar qué es"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "¿No quieres prestarme tu barco? Así voy a empezar a recorrer el mundo desde ahorita!"
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "Jjajaja, ¡ay estas wawas! ¡mirále haber su ocurrencia! Mi barco es para que trabaje hijita."
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "tengo que pescar para comer, no es para dar la vuelta al mundo, además..."
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "ya se acerca el cumpleaños del Enriquito, tengo que estar ahorrando nomás."
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "Me ha dicho que quiere una de esas consolas de videojuegos portátiles. Le voy a dar el gusto este año..."
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "¡¡pero no le vayas a decir!!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "¿Entonces no me vas a prestar?"
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "No Suri, a menos que te encuentres de casualidad una consola de juegos en medio del bosque"
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "o uno de esos aparatos de realidad virtual que tanto hablan los niños de ahora, y de paso que nadie necesite jajaja"
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "sólamente entonces te prestaría mi barco."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "ohh... Creo que mis planes de viajar lejos quedarán allí por ahora."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Y dónde está el Enrique?"
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "Ahí atrás debe andar, por qué no vas a saludarlo? Ahh, y recuerda!"
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "Cuidadito con decirle que quiero regalarle esa consola que tanto le gusta!"
+  }] } 

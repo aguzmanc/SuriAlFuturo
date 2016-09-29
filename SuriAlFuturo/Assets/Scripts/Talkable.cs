@@ -96,7 +96,7 @@ public class Talkable : MonoBehaviour {
 
     public bool IsInteractTriggered () {
         return _canInteract && (Input.GetButtonDown("Interact") || IsForcedToTalk ||
-                                (Input.anyKeyDown && _currentLine >= 0));
+                                (Input.GetButtonDown("Give") && _currentLine >= 0));
     }
 
     public void ForceDialogue (Dialogue forcedDialogue) {

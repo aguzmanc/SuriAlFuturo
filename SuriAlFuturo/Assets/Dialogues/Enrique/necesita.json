@@ -1,0 +1,72 @@
+{ "Dialogues" : [
+  { "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Hola Enrique! Qué estás haciendo?"
+  }, {
+    "Avatar": "Kid",
+    "Name": "Enrique",
+    "Emotion": "mad",
+    "Text": "Shh!!.. vas a hacer que me descubran!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Estás espiando otra vez a Joaquín, verdad?"
+  }, {
+    "Avatar": "Kid",
+    "Name": "Enrique",
+    "Emotion": "mad",
+    "Text": "Es que ahora le regalaron una nueva patineta... y a mi nunca me regalan nada!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Yo creo que tu mamá hace lo posible por comprarte cosas"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "pero tienes que entender que no es tan fácil. Deberías tener paciencia, pronto puedes recibir una sorpresa!"
+  }, {
+    "Avatar": "Kid",
+    "Name": "Enrique",
+    "Emotion": "mad",
+    "Text": "Que venda su balsa de totora! No nos sirve para nada, solo para agarrar tanto pescado que ni siquiera comemos todo! ya le dije que quiero una patineta!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "Deberías ser más considerado con tu mamá, ella vende los pescados para que tú puedas ir a la escuela y comprarte cuadernos."
+  }, {
+    "Avatar": "Kid",
+    "Name": "Enrique",
+    "Emotion": "mad",
+    "Text": "El colegio es una pérdida de tiempo. Tampoco sirve para nada!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "Si tomaras más atención sabrías muchas cosas, por ejemplo, que deberías cerrar esa pila detrás tuyo, así no desperdiciarías agua. Recuerdas?"
+  }, {
+    "Avatar": "Kid",
+    "Name": "Enrique",
+    "Emotion": "laugh",
+    "Text": "Desperdiciar agua? no ves que vivimos en un lago? jajajaja"
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "mad",
+    "Text": "Grrrr!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Mejor vámonos Chapu, así siempre es el Enrique, sonsito es! Mejor volvamos donde el abuelo."
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "bark",
+    "Text": "Guau! Guau!"
+  }
+] }
