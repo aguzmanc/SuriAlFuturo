@@ -9,12 +9,14 @@ public class DialogueController : MonoBehaviour {
     public Dictionary<string, TalkingCharacter> TalkingCharacterDictionary
         = new Dictionary<string, TalkingCharacter>();
     public Dialogue DontNeedThat;
-    public CharacterMovement Player;    
+    public CharacterMovement Player;
+    public Dictionary<Vector3, bool> SavedActiveState
+        = new Dictionary<Vector3, bool>();
 
     void Update () {
         Player.IsControlledByPlayer = !(ActiveTalkable != null &&
                                         ActiveTalkable.IsTalking());
-            
+
     }
 
     public TalkingCharacter GetTalkingCharacter (string name) {

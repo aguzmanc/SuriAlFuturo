@@ -6,4 +6,8 @@ public class PersistedTalkable {
     public bool IsActive;
     public bool IsForcedToTalk;
     public bool WasRead;
+
+    public void Persist () {
+        
+    }
 }
