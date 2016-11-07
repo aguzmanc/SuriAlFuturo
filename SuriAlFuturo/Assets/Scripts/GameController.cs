@@ -6,6 +6,8 @@ public class GameController : MonoBehaviour {
     public FollowCamera FollowingCamera;
     public GameObject Suri;
 
+    public GameObject ControlledCharacter;
+
     public void SetDrivingBoat (bool value) {
         _drivingBoat = value;
         if (value) {
