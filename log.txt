@@ -1,0 +1,3 @@
+Tagged terrain and water with "floor" tag in all levels.
+Restored Cancel button as it is needed for the EventSystem.
+Added a new EventSystem, because last one was corrupted.

@@ -20,10 +20,12 @@ public class Blocker : MonoBehaviour {
     private float _totalTime;
     private Animator _animator;
     private bool _areRequirementsMeet = false;
+    private bool _interactionTriggered;
 
     void Start () {
         _controller = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)
             .GetComponent<CollectionSystem>();
+        _controller.Blockers.Add(this);
         _navmeshObstacle = Obstacle.GetComponent<NavMeshObstacle>();
         _animator = Model.GetComponent<Animator>();
 
@@ -52,7 +54,9 @@ public class Blocker : MonoBehaviour {
             _animator.SetBool("IsWalking", false);
         }
 
-        if (Input.GetButtonDown("Give") && _canTake && !TheTalkable.IsTalking()) {
+        if ((Input.GetButtonDown("Give") || _interactionTriggered)
+            && _canTake && !TheTalkable.IsTalking() ) {
+            _interactionTriggered = false;
             if (false == TryToTakeRequirement(_controller.GetActiveRequirement())) {
                 TheTalkable.SayIDontHaveThat();
             }
@@ -61,6 +65,18 @@ public class Blocker : MonoBehaviour {
         if (TheTalkable.WasRead && _areRequirementsMeet) {
             Unblock();
         }
+    }
+
+    void OnDestroy () {
+        _controller.Blockers.Remove(this);
+    }
+
+    void OnTriggerEnter (Collider player) {
+        _canTake = true;
+    }
+
+    void OnTriggerExit (Collider player) {
+        _canTake = false;
     }
 
     public void Unblock () {
@@ -100,12 +116,7 @@ public class Blocker : MonoBehaviour {
         return -1;
     }
 
-    void OnTriggerEnter (Collider player) {
-        _canTake = true;
+    public void TriggerInteraction () {
+        _interactionTriggered = true;
     }
-
-    void OnTriggerExit (Collider player) {
-        _canTake = false;
-    }
-
 }

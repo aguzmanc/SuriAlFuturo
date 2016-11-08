@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class CollectionSystem : MonoBehaviour {
+    public List<Blocker> Blockers;
     public List<Collectable> IngameCollectables;
 
     public Dictionary<Sprite, bool> TakenStuff = new Dictionary<Sprite, bool>();
@@ -88,5 +89,15 @@ public class CollectionSystem : MonoBehaviour {
 
     public Sprite GetActiveRequirement () {
         return UIController.GetActiveRequirement();
+    }
+
+    public int CountOwnedItems () {
+        return UIController.OwnedItems.Count;
+    }
+
+    public void NotifyInteractionTriggered () {
+        foreach (Blocker b in Blockers) {
+            b.TriggerInteraction();
+        }
     }
 }

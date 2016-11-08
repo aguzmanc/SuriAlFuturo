@@ -6,6 +6,7 @@ public class DialogueController : MonoBehaviour {
     public UIDialogue UiController;
     public Talkable ActiveTalkable;
     public bool DoneTalking;
+    public List<Talkable> Talkables;
     public Dictionary<string, TalkingCharacter> TalkingCharacterDictionary
         = new Dictionary<string, TalkingCharacter>();
     public Dialogue DontNeedThat;
@@ -14,8 +15,8 @@ public class DialogueController : MonoBehaviour {
         = new Dictionary<Vector3, bool>();
 
     void Update () {
-        Player.IsControlledByPlayer = !(ActiveTalkable != null &&
-                                        ActiveTalkable.IsTalking());
+        // player can't be controlled while talking
+        Player.IsControlledByPlayer = (false == IsTalkingToSomeone());
 
     }
 
@@ -25,5 +26,15 @@ public class DialogueController : MonoBehaviour {
 
     public void RegisterTalkingCharacter (string name, TalkingCharacter character) {
         TalkingCharacterDictionary[name] = character;
+    }
+
+    public void NotifyInteractionTriggered () {
+        foreach (Talkable t in Talkables) {
+            t.TriggerInteraction();
+        }
+    }
+
+    public bool IsTalkingToSomeone () {
+        return ActiveTalkable != null && ActiveTalkable.IsTalking();
     }
 }

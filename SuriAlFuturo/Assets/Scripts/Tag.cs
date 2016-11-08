@@ -7,6 +7,8 @@ public class Tag {
     public static string MainCamera = "MainCamera";
     public static string Ship = "Ship";
     public static string Floor = "Floor";
+    public static string Canvas = "Canvas";
+    public static string EventSystem = "EventSystem";
 }
 
 }
