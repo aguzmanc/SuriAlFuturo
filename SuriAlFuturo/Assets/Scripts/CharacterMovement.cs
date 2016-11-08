@@ -20,6 +20,9 @@ public class CharacterMovement : MonoBehaviour
     private UIController _uiController;
     private EventSystem _eventSystem;
 
+    private Touch _tap;
+    private bool _tapped;
+
     void Start () {
         _navMeshAgent = GetComponent<NavMeshAgent> ();
         _animator = GetComponent<Animator>();
@@ -42,6 +45,7 @@ public class CharacterMovement : MonoBehaviour
             IsControlledByArrows = Mathf.Abs(Input.GetAxis("Horizontal")) > 0 ||
                 Mathf.Abs(Input.GetAxis("Vertical")) > 0;
 
+            UpdateTapDetector();
             UpdateDirection();
             UpdateMovement();
             UpdateAnimatorParameters();
@@ -72,27 +76,13 @@ public class CharacterMovement : MonoBehaviour
             _navMeshAgent.Move(this.Direction * Time.deltaTime * Speed *
                                Mathf.Max( Mathf.Abs(Input.GetAxis("Vertical")),
                                           Mathf.Abs(Input.GetAxis("Horizontal")) ));
-        } else if (Input.GetMouseButtonDown(0) &&
-                   false == _eventSystem.IsPointerOverGameObject()) {
-
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            _floors = GameObject.FindGameObjectsWithTag(SuriAlFuturo.Tag.Floor);
-
-            _gizmos.transform.position = new Vector3(-100, -100, -100);
-
-            foreach (GameObject floor in _floors) {
-                if (floor.GetComponent<Collider>().Raycast(ray, out hit, 200)) {
-                    _navMeshAgent.Resume();
-                    _navMeshAgent.SetDestination(hit.point);
-                    if (hit.point.y > _gizmos.transform.position.y) {
-                        _gizmos.transform.position = hit.point;
-                        _gizmos.SetActive(true);
-                        _gizmosAnimator.SetTrigger("Born");
-                    }
-                }
-            }
-
+        } else if (Interacted() && !_IsInteractionBlocked()) {
+            Vector3 destination = GetInteractionDestination();
+            _gizmos.transform.position = destination;
+            _gizmos.SetActive(true);
+            _gizmosAnimator.SetTrigger("Born");
+            _navMeshAgent.Resume();
+            _navMeshAgent.SetDestination(destination);
         }
     }
 
@@ -118,6 +108,58 @@ public class CharacterMovement : MonoBehaviour
         } else {
             return _navMeshAgent.velocity.magnitude / Speed;
         }
+    }
+
+    public void UpdateTapDetector () {
+        _tapped = false;
+
+        for (int i=0; i < Input.touchCount; i++) {
+            if (Input.GetTouch(i).phase == TouchPhase.Began) {
+                _tap = Input.GetTouch(i);
+                _tapped = true;
+            }
+        }
+    }
+
+    public Vector2 GetInteractionPosition () {
+        if (Input.GetMouseButtonDown(0)) {
+            return Input.mousePosition;
+        }
+
+        if (_tapped) {
+            return _tap.position;
+        }
+
+        return new Vector2(Mathf.NegativeInfinity, Mathf.NegativeInfinity);
+    }
+
+    public Vector3 GetInteractionDestination () {
+        Vector3 destination = new Vector3(Mathf.NegativeInfinity,
+                                          Mathf.NegativeInfinity,
+                                          Mathf.NegativeInfinity);;
+
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(GetInteractionPosition());
+        _floors = GameObject.FindGameObjectsWithTag(Tag.Floor);
+
+        foreach (GameObject floor in _floors) {
+            if (floor.GetComponent<Collider>().Raycast(ray, out hit, 200)) {
+                if (hit.point.y > destination.y) {
+                    destination = hit.point;
+                }
+            }
+        }
+
+        return destination;
+    }
+
+    private bool Interacted () {
+        return _tapped || Input.GetMouseButtonDown(0);
+    }
+
+    private bool _IsInteractionBlocked () {
+        return (_eventSystem.IsPointerOverGameObject() ||
+                (_tapped && _eventSystem.IsPointerOverGameObject(_tap.fingerId)));
     }
 
 }
