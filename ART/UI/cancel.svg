@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="mobile-interaction.svg">
+   sodipodi:docname="cancel.svg">
   <defs
      id="defs4">
     <filter
@@ -102,7 +102,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -110,7 +110,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(507.91404,-251.45912)"
+     transform="translate(293.91404,-251.45912)"
      style="display:inline">
     <g
        id="g4365"
@@ -455,7 +455,7 @@
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="pushed"
-     transform="translate(507.91404,-251.45912)"
+     transform="translate(293.91404,-251.45912)"
      style="display:inline"
      sodipodi:insensitive="true">
     <g

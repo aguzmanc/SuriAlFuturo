@@ -6,43 +6,44 @@ public class Dock : MonoBehaviour {
     public GameObject Suri;
     public GameObject DisembarkPlace;
     public GameObject Indicator;
-    private GameController _gameController;
     public bool IsSuriAtPort;
 
-
+    private GameController _gameController;
+    private DockController _dockController;
+    private bool _isInterfaceInteractionTriggered;
     private FollowCamera _camera;
 
     void Start () {
+        _isInterfaceInteractionTriggered = false;
+
         _gameController = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)
             .GetComponent<GameController>();
-        // Suri = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.Player);
+        _dockController = _gameController.GetComponent<DockController>();
+        _dockController.Docks.Add(this);
         Suri = _gameController.GetComponent<GameController>().Suri;
         _camera = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.MainCamera).transform.parent.
             gameObject.GetComponent<FollowCamera>();
     }
     
     void Update () {
-        if ((DockedShip != null && Suri.activeSelf && IsSuriAtPort) ||
-            (DockedShip != null && !Suri.activeSelf)) {
-            Indicator.SetActive(true);
-        } else {
-            Indicator.SetActive(false);
+        Indicator.SetActive(CanEmbark() || CanDisembark());
+        if (Indicator.activeSelf) {
+            _dockController.CanUseDock = true;
         }
 
-        if (DockedShip != null && Input.GetButtonDown("LoadUnloadToShip")) {
-            if (Suri.activeSelf && IsSuriAtPort) {
-                Suri.SetActive(false);
-                DockedShip.GetComponent<CharacterMovement>().IsControlledByPlayer = true;
-                _camera.Target = DockedShip;
-                _gameController.SetDrivingBoat(true);
-            } else if (!Suri.activeSelf) {
-                Suri.transform.position = DisembarkPlace.transform.position;
-                Suri.SetActive(true);
-                DockedShip.GetComponent<CharacterMovement>().IsControlledByPlayer = false;
-                _camera.Target = Suri;
-                _gameController.SetDrivingBoat(false);
+        if ((Input.GetButtonDown("LoadUnloadToShip") ||
+             _isInterfaceInteractionTriggered)) {
+            _isInterfaceInteractionTriggered = false;
+            if (CanEmbark()) {
+                Embark();
+            } else if (CanDisembark()) {
+                Disembark();
             }
         }
+    }
+
+    void OnDestroy () {
+        _dockController.Docks.Remove(this);
     }
 
     void OnTriggerEnter (Collider c) {
@@ -63,5 +64,34 @@ public class Dock : MonoBehaviour {
         } else {
             IsSuriAtPort = false;
         }
+
+        _dockController.CanUseDock = false;
+    }
+
+    public bool CanEmbark () {
+        return DockedShip != null && Suri.activeSelf && IsSuriAtPort;
+    }
+
+    public bool CanDisembark () {
+        return DockedShip != null && !Suri.activeSelf;
+    }
+
+    public void Embark () {
+        Suri.SetActive(false);
+        DockedShip.GetComponent<CharacterMovement>().IsControlledByPlayer = true;
+        _camera.Target = DockedShip;
+        _gameController.SetDrivingBoat(true);
+    }
+
+    public void Disembark () {
+        Suri.transform.position = DisembarkPlace.transform.position;
+        Suri.SetActive(true);
+        DockedShip.GetComponent<CharacterMovement>().IsControlledByPlayer = false;
+        _camera.Target = Suri;
+        _gameController.SetDrivingBoat(false);
+    }
+
+    public void TriggerInterfaceInteraction () {
+        _isInterfaceInteractionTriggered = true;
     }
 }
