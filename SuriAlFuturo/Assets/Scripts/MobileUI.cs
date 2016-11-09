@@ -5,6 +5,7 @@ public class MobileUI : MonoBehaviour {
     public GameObject TalkButton;
     public GameObject GiveButton;
     public GameObject DockButton;
+    public GameObject TapButton;
 
     private GameController _controller;
     private DialogueController _dialogueController;
@@ -22,5 +23,6 @@ public class MobileUI : MonoBehaviour {
         GiveButton.SetActive(_controller.CanGive);
         DockButton.SetActive(_dockController.CanUseDock &&
                              false == _dialogueController.IsTalkingToSomeone());
+        TapButton.SetActive(_controller.CanUseTap);
     }
 }

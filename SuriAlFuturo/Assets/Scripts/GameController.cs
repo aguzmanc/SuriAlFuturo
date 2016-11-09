@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour {
                 && CloseToBlocker;
         }
     }
+    public bool CanUseTap;
 
     private bool _drivingBoat;
     private bool _canGive;

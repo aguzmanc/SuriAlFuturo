@@ -11,45 +11,63 @@ public class WaterSource : MonoBehaviour
     private ParticleSystem _waterFlow;
     private bool _isWaterOn;
     private bool _canInteract;
+    private bool _interactionTriggered;
     private TimeTravelController _timeTravelController;
+    private GameController _gameController;
+    private TapController _tapController;
 
-	void Start () 
+    void Start () 
     {
         _waterFlow = GetComponentInChildren<ParticleSystem>();
         _isWaterOn = true;
         _canInteract = false;
 
-        _timeTravelController = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController).GetComponent<TimeTravelController>();
-        _timeTravelController.OnWaterSourceLoad(this);
-	}
-	
+        _gameController = GameObject.
+            FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)
+            .GetComponent<GameController>();
+        _tapController = _gameController.GetComponent<TapController>();
+        _timeTravelController = _gameController.GetComponent<TimeTravelController>();
 
-	void Update () 
+        _timeTravelController.OnWaterSourceLoad(this);
+        _tapController.Taps.Add(this);
+    }
+	
+    
+    void Update () 
     {        
         // open and close water flow
-        if(Input.GetButtonDown("Interact") && _canInteract) {
+        if (Input.GetButtonDown("Interact") || _interactionTriggered) {
+            _interactionTriggered = false;
+            if (_canInteract) {
 
-            if(_isWaterOn)
-                _waterFlow.Stop();
-            else
-                _waterFlow.Play();
+                if(_isWaterOn)
+                    _waterFlow.Stop();
+                else
+                    _waterFlow.Play();
 
-            _isWaterOn = !_isWaterOn;
+                _isWaterOn = !_isWaterOn;
 
-            _timeTravelController.OnWaterSourceToggled(WaterSourceTag, _isWaterOn);
-        }
+                _timeTravelController.OnWaterSourceToggled(WaterSourceTag, _isWaterOn);
+            }
 	}
+    }
 
 
     void OnTriggerEnter(Collider coll)
     {
         Debug.Log("Entrando a water source: " + coll.name);
-        _canInteract = true;
+        _gameController.CanUseTap = _canInteract = true;
     }
 
     void OnTriggerExit(Collider coll)
     {
-        _canInteract = false;
+        _gameController.CanUseTap = _canInteract = false;
+    }
+
+    void OnDestroy ()
+    {
+        _gameController.CanUseTap = false;
+        _tapController.Taps.Remove(this);
     }
 
 
@@ -64,5 +82,7 @@ public class WaterSource : MonoBehaviour
         
     }
 
-
+    public void TriggerInteraction () {
+        _interactionTriggered = true;
+    }
 }
