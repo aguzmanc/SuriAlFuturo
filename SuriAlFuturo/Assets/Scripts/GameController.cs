@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour {
                 && CloseToBlocker;
         }
     }
+    // tap == pila
     public bool CanUseTap;
 
     private bool _drivingBoat;

@@ -3,11 +3,12 @@ using System.Collections;
 
 public class PersistedTalkable {
     public int DialogueIndex;
-    public bool IsActive;
     public bool IsForcedToTalk;
     public bool WasRead;
-
-    public void Persist () {
-        
+    
+    public PersistedTalkable (int dialogueIndex, bool isForcedToTalk, bool wasRead) {
+        this.DialogueIndex = dialogueIndex;
+        this.IsForcedToTalk = isForcedToTalk;
+        this.WasRead = wasRead;
     }
 }

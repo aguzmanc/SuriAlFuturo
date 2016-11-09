@@ -11,8 +11,9 @@ public class DialogueController : MonoBehaviour {
         = new Dictionary<string, TalkingCharacter>();
     public Dialogue DontNeedThat;
     public CharacterMovement Player;
-    public Dictionary<Vector3, bool> SavedActiveState
-        = new Dictionary<Vector3, bool>();
+
+    public Dictionary<Vector3, PersistedTalkable> SavedTalkableStates =
+        new Dictionary<Vector3, PersistedTalkable>();
 
     void Update () {
         // player can't be controlled while talking
@@ -36,5 +37,17 @@ public class DialogueController : MonoBehaviour {
 
     public bool IsTalkingToSomeone () {
         return ActiveTalkable != null && ActiveTalkable.IsTalking();
+    }
+
+    public void Save (Talkable talkable) {
+        SavedTalkableStates[talkable.PersistenceKey] = talkable.GetPersistedTalkable();
+    }
+
+    public void Load (Talkable talkable) {
+        talkable.Load(SavedTalkableStates[talkable.PersistenceKey]);
+    }
+
+    public bool HasSavedData (Talkable talkable) {
+        return SavedTalkableStates.ContainsKey(talkable.PersistenceKey);
     }
 }

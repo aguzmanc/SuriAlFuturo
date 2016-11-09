@@ -14,6 +14,7 @@ public class Talkable : MonoBehaviour {
     public Dialogue ForcedDialogue;
     public string DefaultName = "...";
     public string DefaultAvatar = "Cholita";
+    public Vector3 PersistenceKey;
 
     private bool _interactionTriggered;
     private int _currentLine;
@@ -25,17 +26,23 @@ public class Talkable : MonoBehaviour {
     private MobileUI _mobileUI;
 
     void Start () {
-        _currentLine = -1;
-        _currentDialogue = 0;
+        PersistenceKey = this.transform.position;
+
+        _gameController = GameObject.
+            FindGameObjectWithTag(Tag.GameController).GetComponent<GameController>();
+        _controller = _gameController.GetComponent<DialogueController>();
+        _mobileUI = GameObject.
+            FindGameObjectWithTag(Tag.Canvas).GetComponent<MobileUI>();
+
+        if (_controller.HasSavedData(this)) {
+            _controller.Load(this);
+        } else {
+            _currentLine = -1;
+            _currentDialogue = 0;
+        }
+
         _DigestDialogue();
         InteractIndicator.SetActive(false);
-        _gameController = GameObject.
-            FindGameObjectWithTag(Tag.GameController)
-            .GetComponent<GameController>();
-        _controller = _gameController.GetComponent<DialogueController>();
-        _mobileUI = GameObject.FindGameObjectWithTag(Tag.Canvas).
-            GetComponent<MobileUI>();
-
         _controller.Talkables.Add(this);
     }
 
@@ -63,6 +70,7 @@ public class Talkable : MonoBehaviour {
         if (_canInteract) {
             _canInteract = _gameController.CanTalk = false;
         }
+        _controller.Save(this);
     }
 
     void OnTriggerEnter (Collider c) {
@@ -82,6 +90,7 @@ public class Talkable : MonoBehaviour {
     }
 
     void OnDestroy () {
+        _controller.Save(this);
         _controller.Talkables.Remove(this);
     }
 
@@ -138,5 +147,15 @@ public class Talkable : MonoBehaviour {
 
     public void TriggerInteraction () {
         _interactionTriggered = true;
+    }
+    
+    public PersistedTalkable GetPersistedTalkable () {
+        return new PersistedTalkable(_currentDialogue, IsForcedToTalk, WasRead);
+    }
+
+    public void Load (PersistedTalkable persisted) {
+        this._currentDialogue = persisted.DialogueIndex;
+        this.IsForcedToTalk = persisted.IsForcedToTalk;
+        this.WasRead = persisted.WasRead;
     }
 }
