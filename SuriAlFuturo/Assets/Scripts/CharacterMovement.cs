@@ -54,6 +54,7 @@ public class CharacterMovement : MonoBehaviour
 
         } else {
             _navMeshAgent.Stop();
+            _navMeshAgent.velocity = Vector3.zero;
             CurrentSpeedPercent = 0;
         }
     }
@@ -161,5 +162,4 @@ public class CharacterMovement : MonoBehaviour
         return (_eventSystem.IsPointerOverGameObject() ||
                 (_tapped && _eventSystem.IsPointerOverGameObject(_tap.fingerId)));
     }
-
 }

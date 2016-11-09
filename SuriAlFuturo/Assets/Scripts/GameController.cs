@@ -6,11 +6,13 @@ public class GameController : MonoBehaviour {
     public GameObject Suri;
     public GameObject MovementGizmos;
     public GameObject ControlledCharacter;
+    public bool CloseToBlocker;
     public bool CanTalk;
     public bool CanGive {
         get {
             return (_collectionSystem.CountOwnedItems() > 0) && CanTalk
-                && false == _dialogueController.IsTalkingToSomeone();
+                && false == _dialogueController.IsTalkingToSomeone()
+                && CloseToBlocker;
         }
     }
 
@@ -22,6 +24,7 @@ public class GameController : MonoBehaviour {
     void Start () {
         _collectionSystem = GetComponent<CollectionSystem>();
         _dialogueController = GetComponent<DialogueController>();
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 
     public void SetDrivingBoat (bool value) {

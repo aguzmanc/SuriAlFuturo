@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using SuriAlFuturo;
 
 public class Blocker : MonoBehaviour {
     public bool IsUnblocked;
@@ -14,6 +15,7 @@ public class Blocker : MonoBehaviour {
 
     private bool _canTake;
     private CollectionSystem _controller;
+    private GameController _gameController;
     private NavMeshObstacle _navmeshObstacle;
     private float _timeOnState = 0;
     private Vector3 _cachedPosition;
@@ -23,8 +25,9 @@ public class Blocker : MonoBehaviour {
     private bool _interactionTriggered;
 
     void Start () {
-        _controller = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)
-            .GetComponent<CollectionSystem>();
+        _gameController = GameObject.FindGameObjectWithTag(Tag.GameController)
+            .GetComponent<GameController>();
+        _controller = _gameController.GetComponent<CollectionSystem>();
         _controller.Blockers.Add(this);
         _navmeshObstacle = Obstacle.GetComponent<NavMeshObstacle>();
         _animator = Model.GetComponent<Animator>();
@@ -54,10 +57,10 @@ public class Blocker : MonoBehaviour {
             _animator.SetBool("IsWalking", false);
         }
 
-        if ((Input.GetButtonDown("Give") || _interactionTriggered)
-            && _canTake && !TheTalkable.IsTalking() ) {
+        if (Input.GetButtonDown("Give") || _interactionTriggered) {
             _interactionTriggered = false;
-            if (false == TryToTakeRequirement(_controller.GetActiveRequirement())) {
+            if (_canTake && !TheTalkable.IsTalking() &&
+                false == TryToTakeRequirement(_controller.GetActiveRequirement())) {
                 TheTalkable.SayIDontHaveThat();
             }
         }
@@ -72,11 +75,11 @@ public class Blocker : MonoBehaviour {
     }
 
     void OnTriggerEnter (Collider player) {
-        _canTake = true;
+        _gameController.CloseToBlocker = _canTake = true;
     }
 
     void OnTriggerExit (Collider player) {
-        _canTake = false;
+        _gameController.CloseToBlocker = _canTake = false;
     }
 
     public void Unblock () {

@@ -53,9 +53,15 @@ public class Talkable : MonoBehaviour {
             if (_currentLine == -1) {
                 WasRead = true;
                 if (WillTalkForcedDialogue) {
-                    WillTalkForcedDialogue = false;
+                    _gameController.CanTalk = WillTalkForcedDialogue = false;
                 }
             }
+        }
+    }
+
+    void OnDisable () {
+        if (_canInteract) {
+            _canInteract = _gameController.CanTalk = false;
         }
     }
 
