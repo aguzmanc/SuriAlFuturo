@@ -5,74 +5,63 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class UIInventory : MonoBehaviour {
-    public List<Sprite> OwnedItems = new List<Sprite>();
-    public GameObject ItemContainerPrototype;
-    public float Offset = 150;
     public int ActiveItem = 0;
+    public List<UIContainer> Slots;
 
-    private List<GameObject> _containers = new List<GameObject>();
+    private Dictionary<Collectable.Tag, Sprite> _icons =
+        new Dictionary<Collectable.Tag, Sprite>();
+
+    private CollectionSystem _controller;
 
     void Start () {
-        if (!ItemContainerPrototype) {
-            throw( new UnityException("I need a UI prototype where to put the inventory item icon. There is one on the prefabs! When created, drag it into the UI Prototype field!"));
-        }
-    }
+        _controller = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)
+            .GetComponent<CollectionSystem>();
 
-    void Update () {
-        if (_containers.Count > 0) {
-            _containers[ActiveItem].GetComponent<UIContainer>().Active = false;
-
-            if (Input.GetButtonDown("InventaryNext")) {
-                ActiveItem = Mathf.Min(_containers.Count-1, ActiveItem+1);
+        Sprite[] icons = Resources.LoadAll<Sprite>("Icons");
+        for (int i=0; i < icons.Length; i++) {
+            try {
+                Collectable.Tag parsedTag =
+                    (Collectable.Tag) System.Enum.Parse(typeof(Collectable.Tag),
+                                                        icons[i].name);
+                _icons[parsedTag] = icons[i];
+            } catch {
+                Debug.LogWarning(icons[i].name + " has no enumerable on Collectable.Tag :(");
             }
-
-            if (Input.GetButtonDown("InventaryPrevious")) {
-                ActiveItem = Mathf.Max(0, ActiveItem-1);
-            }
-
-            _containers[ActiveItem].GetComponent<UIContainer>().Active = true;
         }
+
+        for (int i=0; i < Slots.Count; i++) {
+            Slots[i].Index = i;
+        }
+
+        Refresh();
     }
 
     public void Refresh () {
-        for (int i=0; i<_containers.Count; i++) {
-            Destroy(_containers[i]);
-        }
-        _containers = new List<GameObject>();
+        // ActiveItem will always be between 0 and inventory size-1.
+        ActiveItem = Mathf.Max(Mathf.Min(ActiveItem, _controller.Inventory.Count-1), 0);
 
-        for (int i=0; i<OwnedItems.Count; i++) {
-            GameObject container = Instantiate(ItemContainerPrototype);
-            container.transform.SetParent(this.transform);
-            container.SetActive(true);
-            container.GetComponent<Image>().sprite = OwnedItems[i];
-
-            container.GetComponent<RectTransform>().anchoredPosition =
-                ItemContainerPrototype.GetComponent<RectTransform>().anchoredPosition +
-                new Vector2(Offset * i, 0);
-
-            _containers.Add(container);
+        for (int i=0; i < Slots.Count; i++) {
+            if (i < _controller.Inventory.Count) {
+                Slots[i].gameObject.SetActive(true);
+                Slots[i].SetSprite(_icons[_controller.Inventory[i]]);
+            } else {
+                Slots[i].gameObject.SetActive(false);
+            }
+            Slots[i].Active = false;
         }
 
-        if (OwnedItems.Count > 0) {
-            ActiveItem = Mathf.Min(ActiveItem, _containers.Count-1);
-            _containers[ActiveItem].GetComponent<UIContainer>().Active = true;
-        }
+        Slots[ActiveItem].Active = true;
     }
 
-    public void AddItem(Sprite item) {
-        OwnedItems.Add(item);
+    public Collectable.Tag GetActiveRequirement () {
+        if (_controller.CountOwnedItems() == 0) {
+            return Collectable.Tag.NONE;
+        }
+        return _controller.Inventory[ActiveItem];
+    }
+
+    public void SetActive (UIContainer slot) {
+        ActiveItem = slot.Index;
         Refresh();
-    }
-
-    public void RemoveItem(Sprite item) {
-        OwnedItems.Remove(item);
-        Refresh();
-    }
-
-    public Sprite GetActiveRequirement () {
-        if (OwnedItems.Count == 0) {
-            return null;
-        }
-        return OwnedItems[ActiveItem];
     }
 }

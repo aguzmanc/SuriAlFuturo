@@ -5,29 +5,20 @@ using System.Collections.Generic;
 public class CollectionSystem : MonoBehaviour {
     public List<Blocker> Blockers;
     public List<Collectable> IngameCollectables;
+    public Dictionary<Vector3, PersistedCollectable> SavedCollectables =
+        new Dictionary<Vector3, PersistedCollectable>();
+    public Dictionary<Vector3, PersistedBlocker> SavedBlockers =
+        new Dictionary<Vector3, PersistedBlocker>();
 
-    public Dictionary<Sprite, bool> TakenStuff = new Dictionary<Sprite, bool>();
-    public Dictionary<Sprite, bool> GivenStuff = new Dictionary<Sprite, bool>();
+    public List<Collectable.Tag> Inventory = new List<Collectable.Tag>();
 
-    public Dictionary<Vector3, bool> UnblockedDudes = new Dictionary<Vector3, bool>();
-    public Dictionary<Vector3, List<Requirement>> RegisteredRequirements =
-        new Dictionary<Vector3, List<Requirement>>();
+    public UIInventory UIController; // TODO: make this private
 
-    public UIInventory UIController;
+    private Dictionary<Collectable.Tag, bool> _takenStuff =
+        new Dictionary<Collectable.Tag, bool>();
+    private Dictionary<Collectable.Tag, bool> _givenStuff =
+        new Dictionary<Collectable.Tag, bool>();
 
-    public void RegisterCollectable (Collectable collectable) {
-        if (false == TakenStuff.ContainsKey(collectable.Image)) { 
-            IngameCollectables.Add(collectable);
-            TakenStuff[collectable.Image] = false;
-            GivenStuff[collectable.Image] = false;
-        }
-    }
-
-    public void RegisterBlocker (Blocker blocker) {
-        if (false == UnblockedDudes.ContainsKey(blocker.transform.position)) {
-            UnblockedDudes[blocker.transform.position] = false;
-        }
-    }
 
     void Start () {
         if (!UIController) {
@@ -35,64 +26,12 @@ public class CollectionSystem : MonoBehaviour {
         }
     }
 
-    // readibility counts!
-    public bool IsCollected (Collectable collectable) {
-        return IsCollected(collectable.Image);
-    }
-
-    public bool IsCollected (Sprite image) {
-        return TakenStuff[image];
-    }
-
-    public void RegisterAsCollected(Collectable collectable) {
-        TakenStuff[collectable.Image] = true;
-        UIController.AddItem(collectable.Image);
-    }
-
-
-
-    public bool IsGiven (Sprite image) {
-        return GivenStuff[image];
-    }
-
-    public void RegisterAsGiven (Sprite image) {
-        GivenStuff[image] = true;
-        UIController.RemoveItem(image);
-    }
-
-
-
-    public bool IsUnblocked (Blocker blocker) {
-        return UnblockedDudes[blocker.transform.position];
-    }
-
-    public void RegisterAsUnblocked (Blocker blocker) {
-        UnblockedDudes[blocker.transform.position] = true;
-    }
-
-
-    public void RegisterRequirements (Blocker blocker) {
-        List<Requirement> requirements = blocker.Requirements;
-        RegisteredRequirements[blocker.transform.position] = new List<Requirement>();
-        for (int i=0; i<requirements.Count; i++) {
-            RegisteredRequirements[blocker.transform.position].Add(requirements[i]);
-        }
-    }
-
-    public List<Requirement> GetRequirements (Blocker blocker) {
-        return RegisteredRequirements[blocker.transform.position];
-    }
-
-    public bool HasRegisteredRequirements (Blocker blocker) {
-        return RegisteredRequirements.ContainsKey(blocker.transform.position);
-    }
-
-    public Sprite GetActiveRequirement () {
+    public Collectable.Tag GetActiveRequirement () {
         return UIController.GetActiveRequirement();
     }
 
     public int CountOwnedItems () {
-        return UIController.OwnedItems.Count;
+        return Inventory.Count;
     }
 
     public void NotifyInteractionTriggered () {
@@ -100,4 +39,51 @@ public class CollectionSystem : MonoBehaviour {
             b.TriggerInteraction();
         }
     }
+
+    // TODO: check if already registed? (maybe not necessary)
+    public void RegisterAsTaken (Collectable collectable) {
+        RegisterAsTaken(collectable.Name);
+    }
+    public void RegisterAsTaken (Collectable.Tag collectable) {
+        _takenStuff[collectable] = true;
+        Inventory.Add(collectable);
+        UIController.Refresh();
+    }
+
+    public void RegisterAsGiven (Collectable collectable) {
+        RegisterAsGiven(collectable.Name);
+    }
+    public void RegisterAsGiven (Collectable.Tag collectable) {
+        _givenStuff[collectable] = true;
+        Inventory.Remove(collectable);
+        UIController.Refresh();
+    }
+
+
+    #region persistence
+    #region collectable
+    public void Save (Collectable collectable) {
+        SavedCollectables[collectable.PersistenceKey] =
+            collectable.GetPersistedObject();
+    }
+
+    public void Load (Collectable collectable) {
+        if (SavedCollectables.ContainsKey(collectable.PersistenceKey)) {
+            collectable.LoadPersistedObject(SavedCollectables[collectable.PersistenceKey]);
+        }
+    }
+    #endregion
+
+    #region blocker
+    public void Save (Blocker blocker) {
+        SavedBlockers[blocker.PersistenceKey] = blocker.GetPersistedObject();
+    }
+
+    public void Load (Blocker blocker) {
+        if (SavedBlockers.ContainsKey(blocker.PersistenceKey)) {
+            blocker.LoadPersistedObject(SavedBlockers[blocker.PersistenceKey]);
+        }
+    }
+    #endregion
+    #endregion
 }
