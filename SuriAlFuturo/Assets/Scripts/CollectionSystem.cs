@@ -15,6 +15,9 @@ public class CollectionSystem : MonoBehaviour {
 
     public UIInventory UIController;
 
+    public Dictionary<Vector3, PersistedBlocker> SavedBlockers =
+        new Dictionary<Vector3, PersistedBlocker>();
+
     public void RegisterCollectable (Collectable collectable) {
         if (false == TakenStuff.ContainsKey(collectable.Image)) { 
             IngameCollectables.Add(collectable);
@@ -28,7 +31,7 @@ public class CollectionSystem : MonoBehaviour {
             UnblockedDudes[blocker.transform.position] = false;
         }
     }
-
+    
     void Start () {
         if (!UIController) {
             throw(new UnityException("I need a canvas with a UI Inventory component attached, when created, drag it into the UI Controller field!"));
@@ -66,27 +69,6 @@ public class CollectionSystem : MonoBehaviour {
         return UnblockedDudes[blocker.transform.position];
     }
 
-    public void RegisterAsUnblocked (Blocker blocker) {
-        UnblockedDudes[blocker.transform.position] = true;
-    }
-
-
-    public void RegisterRequirements (Blocker blocker) {
-        List<Requirement> requirements = blocker.Requirements;
-        RegisteredRequirements[blocker.transform.position] = new List<Requirement>();
-        for (int i=0; i<requirements.Count; i++) {
-            RegisteredRequirements[blocker.transform.position].Add(requirements[i]);
-        }
-    }
-
-    public List<Requirement> GetRequirements (Blocker blocker) {
-        return RegisteredRequirements[blocker.transform.position];
-    }
-
-    public bool HasRegisteredRequirements (Blocker blocker) {
-        return RegisteredRequirements.ContainsKey(blocker.transform.position);
-    }
-
     public Sprite GetActiveRequirement () {
         return UIController.GetActiveRequirement();
     }
@@ -99,5 +81,18 @@ public class CollectionSystem : MonoBehaviour {
         foreach (Blocker b in Blockers) {
             b.TriggerInteraction();
         }
+    }
+
+    // PERSISTENCE!
+    public void Save (Blocker blocker) {
+        SavedBlockers[blocker.PersistenceKey] = blocker.GetPersistedObject();
+    }
+
+    public void Load (Blocker blocker) {
+        blocker.Load(SavedBlockers[blocker.PersistenceKey]);
+    }
+
+    public bool HasSavedData (Blocker blocker) {
+        return SavedBlockers.ContainsKey(blocker.PersistenceKey);
     }
 }

@@ -11,4 +11,9 @@ public class Requirement {
         return requirement.Image;
     }
 
+    public void Clone () {
+        
+
+    }
+
 }

@@ -4,14 +4,16 @@ using System.Collections.Generic;
 using SuriAlFuturo;
 
 public class Blocker : MonoBehaviour {
+    public Vector3 PersistenceKey;
+
     public bool IsUnblocked;
-    public List<Requirement> Requirements;
+    public List<Requirement> UnmetRequirements;
     public GameObject UnblockedPosition;
     public float Speed = 5;
     public GameObject Obstacle;
     public GameObject Model;
     public Talkable TheTalkable;
-    public int RequirementsMeetDialogueIndex = 1;
+    public int RequirementsMetDialogueIndex = 1;
 
     private bool _canTake;
     private CollectionSystem _controller;
@@ -21,27 +23,22 @@ public class Blocker : MonoBehaviour {
     private Vector3 _cachedPosition;
     private float _totalTime;
     private Animator _animator;
-    private bool _areRequirementsMeet = false;
     private bool _interactionTriggered;
 
     void Start () {
+        PersistenceKey = transform.position;
+
         _gameController = GameObject.FindGameObjectWithTag(Tag.GameController)
             .GetComponent<GameController>();
         _controller = _gameController.GetComponent<CollectionSystem>();
-        _controller.Blockers.Add(this);
         _navmeshObstacle = Obstacle.GetComponent<NavMeshObstacle>();
         _animator = Model.GetComponent<Animator>();
 
+        _controller.Blockers.Add(this);
         _controller.RegisterBlocker(this);
-        if (_controller.HasRegisteredRequirements(this)) {
-            Requirements = _controller.GetRequirements(this);
-        } else {
-            _controller.RegisterRequirements(this);
-        }
 
-        if (_controller.IsUnblocked(this)) {
-            this.Unblock();
-            _timeOnState = 100;
+        if (_controller.HasSavedData(this)) {
+            _controller.Load(this);
         }
     }
 
@@ -65,13 +62,18 @@ public class Blocker : MonoBehaviour {
             }
         }
 
-        if (TheTalkable.WasRead && _areRequirementsMeet) {
+        if (TheTalkable.WasRead && AreRequirementsMet()) {
             Unblock();
         }
     }
 
+    void OnDisable () {
+        _controller.Save(this); // TODO: es necesario grabar ondisabled y ondestroy?
+    }
+
     void OnDestroy () {
         _controller.Blockers.Remove(this);
+        _controller.Save(this);
     }
 
     void OnTriggerEnter (Collider player) {
@@ -83,7 +85,6 @@ public class Blocker : MonoBehaviour {
     }
 
     public void Unblock () {
-        _controller.RegisterAsUnblocked(this);
         IsUnblocked = true;
         _cachedPosition = Obstacle.transform.position;
         _timeOnState = 0;
@@ -92,17 +93,16 @@ public class Blocker : MonoBehaviour {
             .magnitude / Speed;
     }
 
-    public bool AreRequirementsMeet () {
-        return Requirements.Count == 0;
+    public bool AreRequirementsMet () {
+        return UnmetRequirements.Count == 0;
     }
 
     public bool TryToTakeRequirement (Sprite requirement) {
         int i = IndexOfRequirement(requirement);
         if (i >= 0) {
-            TheTalkable.SetDialogueIndex(Requirements[i].IndexOfDialogue);
+            TheTalkable.SetDialogueIndex(UnmetRequirements[i].IndexOfDialogue);
             _controller.RegisterAsGiven(requirement);
-            Requirements.RemoveAt(i);
-            _areRequirementsMeet = AreRequirementsMeet();
+            UnmetRequirements.RemoveAt(i);
             TheTalkable.IsForcedToTalk = true;
             return true;
         } else {
@@ -111,8 +111,8 @@ public class Blocker : MonoBehaviour {
     }
 
     public int IndexOfRequirement (Sprite requirement) {
-        for (int i=0; i<Requirements.Count; i++) {
-            if (Requirements[i].Image == requirement) {
+        for (int i=0; i<UnmetRequirements.Count; i++) {
+            if (UnmetRequirements[i].Image == requirement) {
                 return i;
             }
         }
@@ -121,5 +121,23 @@ public class Blocker : MonoBehaviour {
 
     public void TriggerInteraction () {
         _interactionTriggered = true;
+    }
+
+    public PersistedBlocker GetPersistedObject () {
+        return new PersistedBlocker(this);
+    }
+
+    public void Load (PersistedBlocker persisted) {
+        if (persisted.IsUnblocked) {
+            Obstacle.transform.position = UnblockedPosition.transform.position;
+            // they could equal anything but it must be < 0
+            _totalTime = _timeOnState = 1;
+            _navmeshObstacle.enabled = false;
+        }
+        IsUnblocked = persisted.IsUnblocked;
+
+        foreach (Requirement r in UnmetRequirements) {
+            UnmetRequirements.Add(r);
+        }
     }
 }
