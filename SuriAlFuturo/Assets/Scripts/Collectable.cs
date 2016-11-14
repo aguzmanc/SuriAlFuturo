@@ -5,12 +5,14 @@ public class Collectable : MonoBehaviour {
 
     // spanish!!
     public enum Tag { // implicitly static :O
-        turbina,
-        patineta,
-        tmt,
-        holograma,
-        flower,
         chatarra,
+        flor,
+        holograma,
+        patineta_voladora,
+        patineta_arreglada,
+        pollera,
+        turbina,
+        tmt,
 
         NONE
     };
