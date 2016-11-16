@@ -6,6 +6,17 @@ using System.IO;
 using SuriAlFuturo;
 
 public class Talkable : MonoBehaviour {
+
+    public enum All {
+        Monica,
+        Ernesto,
+        Enrique,
+        Joaquín,
+
+        NONE
+    }
+
+    public Talkable.All Name = Talkable.All.NONE;
     public List<TextAsset> Dialogues;
     public GameObject InteractIndicator;
     public bool WasRead;
@@ -148,7 +159,7 @@ public class Talkable : MonoBehaviour {
     public void TriggerInteraction () {
         _interactionTriggered = true;
     }
-    
+
     public PersistedTalkable GetPersistedTalkable () {
         return new PersistedTalkable(_currentDialogue, IsForcedToTalk, WasRead);
     }

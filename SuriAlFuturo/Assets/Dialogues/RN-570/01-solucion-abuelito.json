@@ -1,0 +1,138 @@
+{ "Dialogues": [
+  {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Procesando datos ingresados... BIP!... Solución encontrada!"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Todas las cosas que los humanos hagan en el presente tienen repercusión en el futuro. BIP!"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "El hecho que tu abuelito esté atrapado es porque ya no existe agua en el lago del futuro"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "entonces tienes que encontrar la forma de evitar que el lago se seque."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Y cómo evito eso?"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Una mínima acción ahora puede hacer que eventos sucesivos cambien de manera considerable el futuro."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Lo del lago, por ejemplo, es porque los humanos desperdician mucha agua: creen que es infinita!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "normal",
+    "Text": "Entonces debo hacer que la gente deje de desperdiciar agua ahora"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "normal",
+    "Text": "Así en el futuro el lago va a volver a estar lleno y voy a poder recuperar a mi abuelito."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Veo que eres una niña inteligente. Afirmativo! debes dar el ejemplo haciendo pequeñas acciones."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "pequeñas, pero considerables"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "explicando el por qué es importante pasar ese mismo conocimiento a los demás."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "las personas que te escuchen, a su vez harán lo mismo con alguien más, y a alguien más luego"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "creando una cadena de acciones que repercutirán en gran medida en el futuro"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Una cadena de acciones que las empezarás tu, por supuesto"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Entiendo, empezaré buscando lugares cercanos donde se desperdicia el agua..."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "También voy a hablar con los demás para convencerlos de dejar de desperdiciar el agua!"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Siempre puedes volver aquí, e ir al futuro"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "para ver cómo las acciones que hiciste repercutieron o no en el futuro."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Si hiciste algo significativo, viajarás a un futuro diferente."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "Qué pasará con mi abuelito? no quiero dejarlo solo mucho tiempo."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "No te preocupes por él, dispones de una máquina del tiempo"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Por lo tanto, tienes todo el tiempo que requieras para cumplir tu misión."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Cada vez que viajes al pasado y vuelvas al futuro..."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Tu abuelito sentirá que pasaron solo un par de minutos, aunque tardes mucho más."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Entonces vamos a cumplir la misión de una vez.. vamos Chapu!"
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "happy",
+    "Text": "Wrhorff!!"
+  }
+] }
