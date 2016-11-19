@@ -73,6 +73,26 @@
     "Avatar": "Joaquin",
     "Name": "Joaquín",
     "Emotion": "sad",
-    "Text": "Me gustaría ayudarte en tu misión, lástima que mis papás no están"
-  } ]
+    "Text": "Me gustaría ayudarte en tu misión, lástima que mis papás no están en casa"
+  }, {
+    "Avatar": "Joaquin",
+    "Name": "Joaquín",
+    "Emotion": "sad",
+    "Text": "para darme permiso de ir a dar una vuelta"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "No te preocupes, Chapy y yo ya nos la arreglaremos!"
+  }, {
+    "Avatar": "Joaquin",
+    "Name": "Joaquín",
+    "Emotion": "happy",
+    "Text": "Suerte Suri!"
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "bark",
+    "Text": "waw!"
+  }  ]
 }
