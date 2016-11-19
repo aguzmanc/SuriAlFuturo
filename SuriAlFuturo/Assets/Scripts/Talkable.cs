@@ -6,6 +6,7 @@ using System.IO;
 using SuriAlFuturo;
 
 public class Talkable : MonoBehaviour {
+    public bool WasTriggered = false;
     public List<TextAsset> Dialogues;
     public GameObject InteractIndicator;
     public bool WasRead;
@@ -117,6 +118,11 @@ public class Talkable : MonoBehaviour {
         return _currentLine >= 0;
     }
 
+    public void TriggerDialogue (int index) {
+        SetDialogueIndex(index);
+        WasTriggered = true;
+    }
+
     public void SetDialogueIndex (int index) {
         _currentDialogue = index;
         WasRead = false;
@@ -154,8 +160,10 @@ public class Talkable : MonoBehaviour {
     }
 
     public void Load (PersistedTalkable persisted) {
-        this._currentDialogue = persisted.DialogueIndex;
-        this.IsForcedToTalk = persisted.IsForcedToTalk;
-        this.WasRead = persisted.WasRead;
+        if (!WasTriggered) {
+            this._currentDialogue = persisted.DialogueIndex;
+            this.IsForcedToTalk = persisted.IsForcedToTalk;
+            this.WasRead = persisted.WasRead;
+        }
     }
 }

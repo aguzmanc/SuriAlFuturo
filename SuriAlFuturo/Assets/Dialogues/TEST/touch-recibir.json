@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Cholita",
+    "Name": "InfoCholita",
+    "Emotion": "happy",
+    "Text": "para mí? gracias!"
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Perrito",
+    "Emotion": "sad",
+    "Text": "yo quería eso!"
+  } ]
+}
