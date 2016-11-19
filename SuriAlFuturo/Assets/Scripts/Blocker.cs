@@ -33,15 +33,10 @@ public class Blocker : MonoBehaviour {
 
         _controller = _gameController.GetComponent<CollectionSystem>();
 
-        _navmeshObstacle = Obstacle.GetComponent<NavMeshObstacle>();
+        _navMeshObstacle = Obstacle.GetComponent<NavMeshObstacle>();
         _animator = Model.GetComponent<Animator>();
 
         _controller.Blockers.Add(this);
-        _controller.RegisterBlocker(this);
-
-        if (_controller.HasSavedData(this)) {
-            _controller.Load(this);
-        }
 
         _navMeshAgent = TheTalkable.GetComponent<NavMeshAgent>();
         _navMeshAgent.enabled = false;
@@ -127,19 +122,21 @@ public class Blocker : MonoBehaviour {
     }
 
     public void LoadPersistedObject (PersistedBlocker persisted) {
-        IsUnblocked = persisted.IsUnblocked;
+        IsUnblocked = persisted.IsUnblocked || WasForcedToUnblock;
 
         if (IsUnblocked) {
             transform.position = UnblockedPosition.transform.position;
             _navMeshObstacle.enabled = false;
         }
 
-        if (persisted.UnmetRequirements.Count > 0) {
-            UnmetRequirements = new List<Requirement>();
-        }
+        if (!WasForcedToUnblock) {
+            if (persisted.UnmetRequirements.Count > 0) {
+                UnmetRequirements = new List<Requirement>();
+            }
 
-        foreach (Requirement requirement in persisted.UnmetRequirements) {
-            UnmetRequirements.Add(requirement);
+            foreach (Requirement requirement in persisted.UnmetRequirements) {
+                UnmetRequirements.Add(requirement);
+            }
         }
     }
     #endregion
@@ -152,25 +149,5 @@ public class Blocker : MonoBehaviour {
         }
 
         return -1;
-    }
-
-    public PersistedBlocker GetPersistedObject () {
-        return new PersistedBlocker(this);
-    }
-
-    public void Load (PersistedBlocker persisted) {
-        if (persisted.IsUnblocked || WasForcedToUnblock) {
-            Obstacle.transform.position = UnblockedPosition.transform.position;
-            // they could equal anything but it must be < 0
-            _totalTime = _timeOnState = 1;
-            _navmeshObstacle.enabled = false;
-            IsUnblocked = true;
-        }
-
-        if (!WasForcedToUnblock) {
-            foreach (Requirement r in UnmetRequirements) {
-                UnmetRequirements.Add(r);
-            }
-        }
     }
 }

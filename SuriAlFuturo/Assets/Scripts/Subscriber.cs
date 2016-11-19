@@ -36,21 +36,16 @@ public class Subscriber : MonoBehaviour {
     }
 
     public void Trigger () {
-        Debug.Log("Trigger!! " + EventSubscribed);
         Triggered = true;
-        Debug.Log("DING!1");
         if (GetsUnblocked) {
             try {
                 TheBlocker.Unblock();
             } catch {}
         }
-        Debug.Log("DING!2");
         if (TheTalkable != null) {
             TheTalkable.TriggerDialogue(DialogueIndex);
         }
-        Debug.Log("DING!3");
         this.enabled = false;
-        Debug.Log("DING!4");
     }
 
     public PersistedSubscriber GetPersistedObject () {

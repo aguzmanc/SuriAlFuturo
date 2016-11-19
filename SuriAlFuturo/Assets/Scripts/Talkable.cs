@@ -121,7 +121,6 @@ public class Talkable : MonoBehaviour {
     public void TriggerDialogue (int index) {
         SetDialogueIndex(index);
         WasTriggered = true;
-        Debug.Log("triggering dialogue because of event...");
     }
 
     public void SetDialogueIndex (int index) {
@@ -161,9 +160,7 @@ public class Talkable : MonoBehaviour {
     }
 
     public void Load (PersistedTalkable persisted) {
-        Debug.Log("loading persisted object...");
         if (!WasTriggered) {
-            Debug.Log("dialogue was not triggered! :O");
             this._currentDialogue = persisted.DialogueIndex;
             this.IsForcedToTalk = persisted.IsForcedToTalk;
             this.WasRead = persisted.WasRead;
