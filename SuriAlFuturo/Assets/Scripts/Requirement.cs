@@ -4,16 +4,6 @@ using System.Collections.Generic;
 
 [System.Serializable]
 public class Requirement {
-    public Sprite Image;
+    public Collectable.Tag Name;
     public int IndexOfDialogue;
-
-    public static implicit operator Sprite (Requirement requirement) {
-        return requirement.Image;
-    }
-
-    public void Clone () {
-        
-
-    }
-
 }

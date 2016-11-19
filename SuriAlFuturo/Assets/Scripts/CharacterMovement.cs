@@ -72,12 +72,12 @@ public class CharacterMovement : MonoBehaviour
     }
 
     public void UpdateMovement () {
-        if (IsControlledByArrows) {
+        if (IsControlledByArrows) { // keyboard control!
             _navMeshAgent.Stop();
             _navMeshAgent.Move(this.Direction * Time.deltaTime * Speed *
                                Mathf.Max( Mathf.Abs(Input.GetAxis("Vertical")),
                                           Mathf.Abs(Input.GetAxis("Horizontal")) ));
-        } else if (Interacted() && !_IsInteractionBlocked()) {
+        } else if (Interacted() && !_IsInteractionBlocked()) { // touch control!
             Vector3 destination = GetInteractionDestination();
             _gizmos.transform.position = destination;
             _gizmos.SetActive(true);

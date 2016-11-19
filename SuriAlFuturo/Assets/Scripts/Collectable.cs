@@ -2,33 +2,58 @@
 using System.Collections;
 
 public class Collectable : MonoBehaviour {
-    public Sprite Image;
+
+    // spanish!!
+    public enum Tag { // implicitly static :O
+        chatarra,
+        flor,
+        holograma,
+        patineta_voladora,
+        patineta_arreglada,
+        pollera,
+        turbina,
+        tmt,
+
+        NONE
+    };
+
+    public Vector3 PersistenceKey;
+    public Tag Name = Tag.NONE;
+    public bool IsTaken;
 
     private CollectionSystem _controller;
 
     void Start () {
-
-        if (!GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)) {
-            throw(new UnityException("Collectable items need a CollectionSystem component in the GameController"));
-        }
-
+        PersistenceKey = transform.position;
         _controller = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)
             .GetComponent<CollectionSystem>();
-        if (!_controller) {
-            throw (new UnityException("Collectable items need a CollectionSystem component in the GameController"));
-        }
-
-        if (!Image) {
-            throw (new UnityException("I need an image as an icon to show on the inventory!"));
-        }
-
-        _controller.RegisterCollectable(this);
-
-        this.gameObject.SetActive(false == _controller.IsCollected(this));
+        _controller.Load(this);
     }
 
-    void OnTriggerEnter(Collider player) {
-        _controller.RegisterAsCollected(this);
-        this.gameObject.SetActive(false);
+    void Update () {
+        if (IsTaken) {
+            gameObject.SetActive(false);
+        }
+    }
+
+    void OnTriggerEnter (Collider player) {
+        IsTaken = true;
+        _controller.RegisterAsTaken(this);
+    }
+
+    void OnDestroy () {
+        _controller.Save(this);
+    }
+
+    void OnDisable () {
+        _controller.Save(this);
+    }
+
+    public PersistedCollectable GetPersistedObject () {
+        return new PersistedCollectable(IsTaken);
+    }
+
+    public void LoadPersistedObject (PersistedCollectable persisted) {
+        this.IsTaken = persisted.IsTaken;
     }
 }

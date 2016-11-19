@@ -6,23 +6,22 @@ using SuriAlFuturo;
 public class Blocker : MonoBehaviour {
     public Vector3 PersistenceKey;
 
+    public float Speed = 5;
     public bool IsUnblocked;
     public bool WasForcedToUnblock = false;
-    public List<Requirement> UnmetRequirements;
-    public GameObject UnblockedPosition;
-    public float Speed = 5;
-    public GameObject Obstacle;
-    public GameObject Model;
-    public Talkable TheTalkable;
-    public int RequirementsMetDialogueIndex = 1;
+    public List<Requirement> UnmetRequirements = new List<Requirement>();
 
-    private bool _canTake;
+    public GameObject UnblockedPosition;
+    public GameObject Model;
+    public GameObject Obstacle;
+    public Talkable TheTalkable;
+
     private CollectionSystem _controller;
     private GameController _gameController;
-    private NavMeshObstacle _navmeshObstacle;
-    private float _timeOnState = 0;
-    private Vector3 _cachedPosition;
-    private float _totalTime;
+
+    private bool _canTake;
+    private NavMeshObstacle _navMeshObstacle;
+    private NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private bool _interactionTriggered;
 
@@ -31,7 +30,9 @@ public class Blocker : MonoBehaviour {
 
         _gameController = GameObject.FindGameObjectWithTag(Tag.GameController)
             .GetComponent<GameController>();
+
         _controller = _gameController.GetComponent<CollectionSystem>();
+
         _navmeshObstacle = Obstacle.GetComponent<NavMeshObstacle>();
         _animator = Model.GetComponent<Animator>();
 
@@ -41,31 +42,30 @@ public class Blocker : MonoBehaviour {
         if (_controller.HasSavedData(this)) {
             _controller.Load(this);
         }
+
+        _navMeshAgent = TheTalkable.GetComponent<NavMeshAgent>();
+        _navMeshAgent.enabled = false;
+
+        _controller.Load(this);
     }
 
     void Update () {
-        _timeOnState += Time.deltaTime;
-
-        if (IsUnblocked) {
-            Obstacle.transform.position =
-                Vector3.Lerp(_cachedPosition, UnblockedPosition.transform.position,
-                             _timeOnState/_totalTime);
-            _animator.SetBool("IsWalking", _timeOnState/_totalTime <= 1);
-        } else {
-            _animator.SetBool("IsWalking", false);
-        }
-
         if (Input.GetButtonDown("Give") || _interactionTriggered) {
             _interactionTriggered = false;
+
             if (_canTake && !TheTalkable.IsTalking() &&
                 false == TryToTakeRequirement(_controller.GetActiveRequirement())) {
                 TheTalkable.SayIDontHaveThat();
             }
+
         }
 
-        if (TheTalkable.WasRead && AreRequirementsMet()) {
+        if (false == IsUnblocked &&
+            TheTalkable.WasRead && AreRequirementsMet()) {
             Unblock();
         }
+
+        _animator.SetBool("IsWalking", _navMeshAgent.velocity.magnitude > 0.1f);
     }
 
     void OnDisable () {
@@ -87,11 +87,9 @@ public class Blocker : MonoBehaviour {
 
     public void Unblock () {
         IsUnblocked = true;
-        _cachedPosition = Obstacle.transform.position;
-        _timeOnState = 0;
-        _navmeshObstacle.enabled = false;
-        _totalTime = (UnblockedPosition.transform.position - _cachedPosition)
-            .magnitude / Speed;
+        _navMeshObstacle.enabled = false;
+        _navMeshAgent.enabled = true;
+        _navMeshAgent.SetDestination(UnblockedPosition.transform.position);
     }
 
     public void ForcedUnblock () {
@@ -104,30 +102,56 @@ public class Blocker : MonoBehaviour {
         return UnmetRequirements.Count == 0;
     }
 
-    public bool TryToTakeRequirement (Sprite requirement) {
-        int i = IndexOfRequirement(requirement);
+    public bool TryToTakeRequirement (Collectable.Tag requirement) {
+        // int i = UnmetRequirements.IndexOf(requirement);
+        int i = _IndexOfRequirement(requirement);
+
         if (i >= 0) {
             TheTalkable.SetDialogueIndex(UnmetRequirements[i].IndexOfDialogue);
             _controller.RegisterAsGiven(requirement);
             UnmetRequirements.RemoveAt(i);
             TheTalkable.IsForcedToTalk = true;
             return true;
-        } else {
-            return false;
         }
-    }
 
-    public int IndexOfRequirement (Sprite requirement) {
-        for (int i=0; i<UnmetRequirements.Count; i++) {
-            if (UnmetRequirements[i].Image == requirement) {
-                return i;
-            }
-        }
-        return -1;
+        return false;
     }
 
     public void TriggerInteraction () {
         _interactionTriggered = true;
+    }
+
+    #region persistence
+    public PersistedBlocker GetPersistedObject () {
+        return new PersistedBlocker(IsUnblocked, UnmetRequirements);
+    }
+
+    public void LoadPersistedObject (PersistedBlocker persisted) {
+        IsUnblocked = persisted.IsUnblocked;
+
+        if (IsUnblocked) {
+            transform.position = UnblockedPosition.transform.position;
+            _navMeshObstacle.enabled = false;
+        }
+
+        if (persisted.UnmetRequirements.Count > 0) {
+            UnmetRequirements = new List<Requirement>();
+        }
+
+        foreach (Requirement requirement in persisted.UnmetRequirements) {
+            UnmetRequirements.Add(requirement);
+        }
+    }
+    #endregion
+
+    private int _IndexOfRequirement (Collectable.Tag requirement) {
+        for (int i=0; i<UnmetRequirements.Count; i++) {
+            if (UnmetRequirements[i].Name == requirement) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     public PersistedBlocker GetPersistedObject () {
