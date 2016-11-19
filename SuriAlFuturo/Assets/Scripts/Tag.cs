@@ -9,6 +9,7 @@ public class Tag {
     public static string Floor = "Floor";
     public static string Canvas = "Canvas";
     public static string EventSystem = "EventSystem";
+    public static string Chapu = "Chapu";
 }
 
-}
+}//namespace
