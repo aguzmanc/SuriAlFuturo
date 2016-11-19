@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class OnReadTrigger : MonoBehaviour {
-    public Blocker Target;
+    public GameObject TargetGameObject;
+    public Blocker TheBlocker;
+    public Talkable TheTalkable;
     public List<Talkable> Requirements;
     public int DialogueIndex;
     public bool GetsUnblocked;
@@ -22,13 +24,16 @@ public class OnReadTrigger : MonoBehaviour {
         }
 
         if (met) {
-            if (GetsUnblocked) {
-                Target.Unblock();
+            if (GetsUnblocked && TheBlocker != null) {
+                TheBlocker.Unblock();
             }
             if (GetsDisabled) {
-                Target.gameObject.SetActive(false);
+                TargetGameObject.SetActive(false);
             }
-            Target.TheTalkable.SetDialogueIndex(DialogueIndex);
+            if (TheTalkable != null) {
+                TheTalkable.SetDialogueIndex(DialogueIndex);
+            }
+            this.enabled = false;
         }
     }
 }

@@ -1,5 +1,15 @@
 { "Dialogues": [
   {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "cry",
+    "Text": "Mi abuelito está encerrado en medio de la isla en el futuro."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "cry",
+    "Text": "Cómo hacemos para sacarlo?"
+  }, {
     "Avatar": "RN-570",
     "Name": "RN-570",
     "Emotion": "normal",
