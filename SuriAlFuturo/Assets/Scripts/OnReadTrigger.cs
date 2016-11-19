@@ -16,24 +16,26 @@ public class OnReadTrigger : MonoBehaviour {
     }
 
     void Update () {
-        bool met = true;
-        foreach (Talkable requirement in Requirements) {
-            if (!requirement.WasRead) {
-                met = false;
+        try {
+            bool met = true;
+            foreach (Talkable requirement in Requirements) {
+                if (!requirement.WasRead) {
+                    met = false;
+                }
             }
-        }
 
-        if (met) {
-            if (GetsUnblocked && TheBlocker != null) {
-                TheBlocker.Unblock();
+            if (met) {
+                if (GetsUnblocked && TheBlocker != null) {
+                    TheBlocker.Unblock();
+                }
+                if (GetsDisabled) {
+                    TargetGameObject.SetActive(false);
+                }
+                if (TheTalkable != null) {
+                    TheTalkable.SetDialogueIndex(DialogueIndex);
+                }
+                this.enabled = false;
             }
-            if (GetsDisabled) {
-                TargetGameObject.SetActive(false);
-            }
-            if (TheTalkable != null) {
-                TheTalkable.SetDialogueIndex(DialogueIndex);
-            }
-            this.enabled = false;
-        }
+        } catch {}
     }
 }
