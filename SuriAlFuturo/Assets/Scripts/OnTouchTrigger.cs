@@ -30,10 +30,6 @@ public class OnTouchTrigger : MonoBehaviour {
         _controller.TriggerEvent(TriggeredEvent);
     }
 
-    public void GetPersistedObject () {
-        return new PersistedOnTouchTrigger(Triggered);
-    }
-
     public void Load (PersistedOnTouchTrigger persisted) {
         Triggered = persisted.Triggered;
     }

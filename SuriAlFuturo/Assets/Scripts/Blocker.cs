@@ -7,6 +7,7 @@ public class Blocker : MonoBehaviour {
     public Vector3 PersistenceKey;
 
     public bool IsUnblocked;
+    public bool WasForcedToUnblock = false;
     public List<Requirement> UnmetRequirements;
     public GameObject UnblockedPosition;
     public float Speed = 5;
@@ -93,6 +94,12 @@ public class Blocker : MonoBehaviour {
             .magnitude / Speed;
     }
 
+    public void ForcedUnblock () {
+        UnmetRequirements = new List<Requirement>();
+        Unblock();
+        WasForcedToUnblock = true;
+    }
+
     public bool AreRequirementsMet () {
         return UnmetRequirements.Count == 0;
     }
@@ -128,16 +135,18 @@ public class Blocker : MonoBehaviour {
     }
 
     public void Load (PersistedBlocker persisted) {
-        if (persisted.IsUnblocked) {
+        if (persisted.IsUnblocked || WasForcedToUnblock) {
             Obstacle.transform.position = UnblockedPosition.transform.position;
             // they could equal anything but it must be < 0
             _totalTime = _timeOnState = 1;
             _navmeshObstacle.enabled = false;
+            IsUnblocked = true;
         }
-        IsUnblocked = persisted.IsUnblocked;
 
-        foreach (Requirement r in UnmetRequirements) {
-            UnmetRequirements.Add(r);
+        if (!WasForcedToUnblock) {
+            foreach (Requirement r in UnmetRequirements) {
+                UnmetRequirements.Add(r);
+            }
         }
     }
 }

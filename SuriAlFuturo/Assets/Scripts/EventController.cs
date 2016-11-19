@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EventController : MonoBehaviour {
     public Dictionary<Vector3, PersistedOnTouchTrigger> SavedTouchTriggers =
@@ -11,15 +12,23 @@ public class EventController : MonoBehaviour {
     public Dictionary<Event, int> TriggeredEvents =
         new Dictionary<Event, int>();
 
+    public List<Subscriber> AliveSubscribers = new List<Subscriber>();
+
     void Start () {
         
     }
     
-    public void TriggerEvent (Event event) {
-        TriggeredEvents[event] = true;
+    public void TriggerEvent (Event e) {
+        try {
+            TriggeredEvents[e]++;
+        } catch {
+            TriggeredEvents[e] = 1;
+        }
 
-        for (int i=0; i<Subscribers.Count; i++) {
-            Subscribers[i].Trigger(event);
+        foreach (Subscriber s in AliveSubscribers) {
+            if (s.EventSubscribed == e) {
+                s.OnEventTriggered();
+            }
         }
     }
 
@@ -34,12 +43,28 @@ public class EventController : MonoBehaviour {
     }
 
     public void Save (Subscriber s) {
-        SavedTouchTriggers[s.PersistenceKey] = s.GetPersistedObject();
+        SavedSubscribers[s.PersistenceKey] = s.GetPersistedObject();
     }
 
     public void Load (Subscriber s) {
         try {
             s.Load(SavedSubscribers[s.PersistenceKey]);
         } catch {}
+    }
+
+    public int TimesTriggered (Event e) {
+        try {
+            return TriggeredEvents[e];
+        } catch {
+            return 0;
+        }
+    }
+
+    public void RegisterAsAlive (Subscriber s) {
+        AliveSubscribers.Add(s);
+    }
+
+    public void UnregisterAsAlive (Subscriber s) {
+        AliveSubscribers.Remove(s);
     }
 }
