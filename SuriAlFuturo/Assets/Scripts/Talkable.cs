@@ -166,4 +166,8 @@ public class Talkable : MonoBehaviour {
             this.WasRead = persisted.WasRead;
         }
     }
+
+    public int GetDialogueIndex () {
+        return _currentDialogue;
+    }
 }

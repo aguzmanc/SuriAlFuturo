@@ -3,12 +3,7 @@
     "Avatar": "Joaquin",
     "Name": "Joaquín",
     "Emotion": "sad",
-    "Text": "Ese niño extraño me está viendo de nuevo, y cree estar escondido."
-  } , {
-    "Avatar": "Joaquin",
-    "Name": "Joaquín",
-    "Emotion": "sad",
-    "Text": "Es muy fácil darse cuenta que está allí!"
+    "Text": "Ese niño me pone de los nervios, todos los días sale a verme. Me gustaría jugar con él, ya me aburrí de jugar solo."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
@@ -18,77 +13,42 @@
     "Avatar": "Joaquin",
     "Name": "Joaquín",
     "Emotion": "sad",
-    "Text": "Sí, pero siempre que me acerco se escapa, creo que es algo arisco."
-  }, {
-    "Avatar": "Suri",
-    "Name": "Suri",
-    "Emotion": "happy",
-    "Text": "Algún día recapacitará"
+    "Text": "Sí, pero cuando me acerco se asusta y se escapa."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "surprised",
-    "Text": "Tú también tienes un caño de agua abierto!"
-  }, {
-    "Avatar": "Joaquin",
-    "Name": "Joaquín",
-    "Emotion": "sad",
-    "Text": "Cierto no me di cuenta! ayúdame a cerrarlo Suri, por favor!"
-  }, {
-    "Avatar": "Joaquin",
-    "Name": "Joaquín",
-    "Emotion": "sad",
-    "Text": "fue un descuido muy grande de mi parte"
+    "Text": "Joaquín! hay un caño abierto allí, por qué desperdicias el agua? en el futuro el lago se va a secar!"
   }, {
     "Avatar": "Joaquin",
     "Name": "Joaquín",
     "Emotion": "happy",
-    "Text": "en la escuela nos enseñan a cuidar mucho del agua,"
-  }, {
-    "Avatar": "Joaquin",
-    "Name": "Joaquín",
-    "Emotion": "happy",
-    "Text": "y vivir en un lago no es escusa para no cuidar esos detalles."
-  }, {
-    "Avatar": "Suri",
-    "Name": "Suri",
-    "Emotion": "happy",
-    "Text": "Tú sí que sabes Joaquín, por eso me caes tan bien."
-  }, {
-    "Avatar": "Joaquin",
-    "Name": "Joaquín",
-    "Emotion": "flush",
-    "Text": "Este... no quieres quedarte a jugar con mi patineta?"
-  }, {
-    "Avatar": "Suri",
-    "Name": "Suri",
-    "Emotion": "happy",
-    "Text": "Me gustaría, pero estoy algo ocupada, tengo que salvar el lago."
+    "Text": "Tu crees? me parece imposible que el lago se seque! es infinito!"
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "sad",
-    "Text": "y rescatar a mi abuelito"
+    "Text": "no es infinito, el lago es bajito nomás, en la escuela dice que tiene 150 metros de altura, nada es infinito!"
   }, {
     "Avatar": "Joaquin",
     "Name": "Joaquín",
     "Emotion": "sad",
-    "Text": "Me gustaría ayudarte en tu misión, lástima que mis papás no están en casa"
-  }, {
-    "Avatar": "Joaquin",
-    "Name": "Joaquín",
-    "Emotion": "sad",
-    "Text": "para darme permiso de ir a dar una vuelta"
+    "Text": "Tienes razón! y si el lago se seca todos los pescaditos se van a morir, Suri, me ayudas a cerrarlo?"
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "happy",
-    "Text": "No te preocupes, Chapy y yo ya nos la arreglaremos!"
+    "Text": "Está bien, pero tienes que prometer que vas a cuidar el agua de ahora en adelante."
   }, {
     "Avatar": "Joaquin",
     "Name": "Joaquín",
     "Emotion": "happy",
-    "Text": "Suerte Suri!"
+    "Text": "Lo prometo!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Gracias Joaquín! por eso me caes tan bien"
   }, {
     "Avatar": "Chapu",
     "Name": "Chapu",

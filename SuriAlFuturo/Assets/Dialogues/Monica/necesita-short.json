@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Me prestas tu barco?"
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "No a menos que me encuentre un CELULAR NUEVO tirado en medio del bosque jajaja"
+  }
+] }

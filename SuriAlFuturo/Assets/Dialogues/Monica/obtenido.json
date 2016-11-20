@@ -2,12 +2,12 @@
   { "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "happy",
-    "Text": "Encontré este juguete en el futuro, proyecta hologramas, seguro que le va a gustar al Enrique!"
+    "Text": "Encontré este celular por allí."
   }, {
     "Avatar": "Cholita",
     "Name": "Mónica",
     "Emotion": "happy",
-    "Text": "Sí, al Enrique le encantaría, se nota que es muy nuevo"
+    "Text": "Es un YDroid 20! Qué suerte tienes Suri!"
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
@@ -17,7 +17,12 @@
     "Avatar": "Cholita",
     "Name": "Mónica",
     "Emotion": "happy",
-    "Text": "En serio?! muchas gracias Suri! el Enriquito se va a poner bien feliz en su cumpleaños!"
+    "Text": "En serio?! muchas gracias Suri! el Enriquito quería el YDroid 7, pero este es el 20"
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "Como el 20 es más grande que el 7, este debe ser mejor. El Enriquito va a estar chocho!"
   }, {
     "Avatar": "Cholita",
     "Name": "Mónica",

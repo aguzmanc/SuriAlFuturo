@@ -1,0 +1,28 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Joaquin",
+    "Name": "Joaquín",
+    "Emotion": "happy",
+    "Text": "Gracias Suri! no quieres quedarte a jugar?"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "No puedo Joaquín, tengo una misión muy importante."
+  }, {
+    "Avatar": "Joaquin",
+    "Name": "Joaquín",
+    "Emotion": "sad",
+    "Text": "Me gustaría ayudarte, pero mis papás están trabajando, y no puedo salir sin su permiso."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "No te preocupes Joaquín, Chapu y yo nos las arreglaremos",
+  }, {
+    "Avatar": "Joaquin",
+    "Name": "Joaquín",
+    "Emotion": "happy",
+    "Text": "Buena suerte Suri!"
+  }
+] }

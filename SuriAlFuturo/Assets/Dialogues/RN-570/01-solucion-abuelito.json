@@ -3,12 +3,7 @@
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "cry",
-    "Text": "Mi abuelito está encerrado en medio de la isla en el futuro."
-  }, {
-    "Avatar": "Suri",
-    "Name": "Suri",
-    "Emotion": "cry",
-    "Text": "Cómo hacemos para sacarlo?"
+    "Text": "Mi abuelito está encerrado en medio de la isla en el futuro. Cómo lo sacamos?"
   }, {
     "Avatar": "RN-570",
     "Name": "RN-570",
@@ -23,12 +18,7 @@
     "Avatar": "RN-570",
     "Name": "RN-570",
     "Emotion": "normal",
-    "Text": "El hecho que tu abuelito esté atrapado es porque ya no existe agua en el lago del futuro"
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "entonces tienes que encontrar la forma de evitar que el lago se seque."
+    "Text": "Debes EVITAR que el LAGO SE SEQUE."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
@@ -38,102 +28,42 @@
     "Avatar": "RN-570",
     "Name": "RN-570",
     "Emotion": "normal",
-    "Text": "Una mínima acción ahora puede hacer que eventos sucesivos cambien de manera considerable el futuro."
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "Lo del lago, por ejemplo, es porque los humanos desperdician mucha agua: creen que es infinita!"
+    "Text": "El lago se secó porque los humanos creyeron que el agua era infinita, y la usaron todita."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "normal",
     "Text": "Entonces debo hacer que la gente deje de desperdiciar agua ahora"
   }, {
-    "Avatar": "Suri",
-    "Name": "Suri",
+    "Avatar": "RN-570",
+    "Name": "RN-570",
     "Emotion": "normal",
-    "Text": "Así en el futuro el lago va a volver a estar lleno y voy a poder recuperar a mi abuelito."
+    "Text": "Afirmativo! debes dar el ejemplo haciendo acciones pequeñas, pero considerables."
   }, {
     "Avatar": "RN-570",
     "Name": "RN-570",
     "Emotion": "normal",
-    "Text": "Veo que eres una niña inteligente. Afirmativo! debes dar el ejemplo haciendo pequeñas acciones."
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "pequeñas, pero considerables"
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "explicando el por qué es importante pasar ese mismo conocimiento a los demás."
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "las personas que te escuchen, a su vez harán lo mismo con alguien más, y a alguien más luego"
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "creando una cadena de acciones que repercutirán en gran medida en el futuro"
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "Una cadena de acciones que las empezarás tu, por supuesto"
+    "Text": "Asegurándote que los demás humanos te imiten, creando una cadena de acciones que causará que haya agua en el futuro."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "happy",
-    "Text": "Entiendo, empezaré buscando lugares cercanos donde se desperdicia el agua..."
-  }, {
-    "Avatar": "Suri",
-    "Name": "Suri",
-    "Emotion": "happy",
-    "Text": "También voy a hablar con los demás para convencerlos de dejar de desperdiciar el agua!"
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "Siempre puedes volver aquí, e ir al futuro"
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "para ver cómo las acciones que hiciste repercutieron o no en el futuro."
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "Si hiciste algo significativo, viajarás a un futuro diferente."
+    "Text": "Entiendo, voy a hablar con los demás para convencerlos de dejar de desperdiciar el agua!"
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "sad",
-    "Text": "Qué pasará con mi abuelito? no quiero dejarlo solo mucho tiempo."
+    "Text": "Pero mientras tanto... qué pasará con mi abuelito? no quiero dejarlo solo mucho tiempo."
   }, {
     "Avatar": "RN-570",
     "Name": "RN-570",
     "Emotion": "normal",
-    "Text": "No te preocupes por él, dispones de una máquina del tiempo"
+    "Text": "No te preocupes por él, tómate todo el tiempo que requieras para cumplir tu misión."
   }, {
     "Avatar": "RN-570",
     "Name": "RN-570",
     "Emotion": "normal",
-    "Text": "Por lo tanto, tienes todo el tiempo que requieras para cumplir tu misión."
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "Cada vez que viajes al pasado y vuelvas al futuro..."
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "Tu abuelito sentirá que pasaron solo un par de minutos, aunque tardes mucho más."
+    "Text": "Cada vez que uses el portal del tiempo, tu abuelito sólamente sentirá que pasaron unos minutos"
   }, {
     "Avatar": "Suri",
     "Name": "Suri",

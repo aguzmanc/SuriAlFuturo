@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Cholita",
+    "Name": "Monica",
+    "Emotion": "happy",
+    "Text": "Este va a ser el mejor cumpleaños que el Enriquito ha tenido! gracias Suri!"
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "Usá nomás mi BALSA. Pero cuidadito con perderla, para desembarcar siempre vas a usar los PUERTOS."
+  }
+] }

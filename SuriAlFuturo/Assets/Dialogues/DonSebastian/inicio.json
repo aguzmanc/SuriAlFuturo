@@ -12,7 +12,7 @@
     "Avatar": "Anciano",
     "Name": "Don Sebastián",
     "Emotion": "normal",
-    "Text": "Sabes qué me he soñado anoche? que te estabas viajando vos solita a un lugar muy lejano"
+    "Text": "anoche me he soñado que te estabas viajando vos solita a un lugar muy lejano"
   }, {
     "Avatar": "Anciano",
     "Name": "Don Sebastián",
@@ -32,36 +32,26 @@
     "Avatar": "Anciano",
     "Name": "Don Sebastián",
     "Emotion": "normal",
-    "Text": "Sí hijita, no te preocupes mucho por mí, pero por algo pasan las cosas, y este sueño no vino así sin motivo."
+    "Text": "Sí hijita, no te preocupes, pero por algo pasan las cosas, y este sueño no vino así sin motivo."
   }, {
     "Avatar": "Anciano",
     "Name": "Don Sebastián",
     "Emotion": "normal",
-    "Text": "Esta mañana las gallinas no han cacareado, y las flores se han despertado tarde."
-  }, {
-    "Avatar": "Anciano",
-    "Name": "Don Sebastián",
-    "Emotion": "normal",
-    "Text": "El ajayu del bosque está pidiendo ayuda, no hay más, clarito se nota, yo como soy viejo ya me doy cuenta de esas cosas."
-  }, {
-    "Avatar": "Anciano",
-    "Name": "Don Sebastián",
-    "Emotion": "normal",
-    "Text": "Suri, yo no puedo hacer nada, mis ojos ya no funcionan como antes, pero tú debes ayudar a la Pachamama!"
-  }, {
-    "Avatar": "Suri",
-    "Name": "Suri",
-    "Emotion": "happy",
-    "Text": "No te preocupes abuelito! puedes contar conmigo!"
+    "Text": "Dicen que cuando te sueñas con viajes es porque el ajayu del bosque está pidiendo ayuda."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "sad",
-    "Text": "pero no sé cómo hacerlo"
+    "Text": "Pobrecito... me gustaría ayudarlo, pero no sé cómo hacerlo"
   }, {
     "Avatar": "Anciano",
     "Name": "Don Sebastián",
     "Emotion": "normal",
-    "Text": "Vete nomás a jugar, pues la Pachamama es sabia y ya sabrá ella cómo mostrarte la forma de que la ayudes."
+    "Text": "no te preocupes, clarito la Pachamama te mostrará la forma de que la ayudes."
+  }, {
+    "Avatar": "Anciano",
+    "Name": "Don Sebastián",
+    "Emotion": "normal",
+    "Text": "Por qué no vas a jugar con el ENRIQUE?"
   }
 ] }
