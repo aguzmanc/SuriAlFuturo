@@ -1,14 +1,18 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PersistedTalkable {
     public int DialogueIndex;
     public bool IsForcedToTalk;
     public bool WasRead;
+    public List<bool> ReadDialogues;
     
-    public PersistedTalkable (int dialogueIndex, bool isForcedToTalk, bool wasRead) {
+    public PersistedTalkable (int dialogueIndex, bool isForcedToTalk, bool wasRead,
+                              List<bool> readDialogues) {
         this.DialogueIndex = dialogueIndex;
         this.IsForcedToTalk = isForcedToTalk;
         this.WasRead = wasRead;
+        this.ReadDialogues = readDialogues;
     }
 }
