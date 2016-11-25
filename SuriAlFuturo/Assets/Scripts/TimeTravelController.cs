@@ -45,6 +45,7 @@ public class TimeTravelController : MonoBehaviour {
             _currentReality = RealitySceneName[GetFutureRealityIndex()];
         }
         SceneManager.LoadSceneAsync(_currentReality, LoadSceneMode.Additive);
+        SceneManager.UnloadScene(lastReality);
     }
 
     public int GetFutureRealityIndex () {
