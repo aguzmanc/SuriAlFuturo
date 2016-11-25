@@ -1,172 +1,53 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 using System.Collections;
 using System.Collections.Generic;
 
-public class TimeTravelController : MonoBehaviour 
-{
-    public enum TemporalReality {
-        Present,
-        NoWaterFuture,
-        LittleWaterFuture,
-        MediumWaterFuture,
-        AlmostFullWaterFuture,
-        FullWaterFuture
-    };
+using SuriAlFuturo;
 
-    [System.Serializable]
-    public class TravelTimeRequirement
-    {
-        public TemporalReality RealityToTravel;
-        public List<WaterSource.Tag> WaterSourcesRequired;
-    }
+public class TimeTravelController : MonoBehaviour {
+    public List<string> RealitySceneName;
 
+    private TapController _tapController;
+    private string _currentReality;
 
-    public List<TravelTimeRequirement> TravelRequirements;
+    void Start () {
+        _tapController = GameObject.FindGameObjectWithTag(Tag.GameController)
+            .GetComponent<TapController>();
 
-
-    private Dictionary<WaterSource.Tag, bool> _waterSourcesClosed;
-    private TemporalReality _currentReality;
-
-
-    void Awake()
-    {
-        _waterSourcesClosed = new Dictionary<WaterSource.Tag, bool>();    
-    }
-
-
-	void Start () 
-    {
-        // check if "Present" scene is in loaded scenes (debug purposes in editor when testing)
+        // check if "Present" scene is in loaded scenes
+        // (debug purposes in editor when testing)
         bool isLoaded = false;
-        for(int i=0;i<SceneManager.sceneCount;i++){
+
+        // Suri is in present time at beginning of the game
+        _currentReality = RealitySceneName[0];
+
+        for (int i=0; i<SceneManager.sceneCount; i++){
             string sceneName = SceneManager.GetSceneAt(i).name;
-            if(sceneName.CompareTo(TemporalReality.Present.ToString()) == 0) {
+            if(sceneName.CompareTo(RealitySceneName[0]) == 0) {
                 isLoaded = true;
                 break;
             }
         }
 
-        if(false == isLoaded)
-            SceneManager.LoadScene(TemporalReality.Present.ToString(), LoadSceneMode.Additive);
-
-        _currentReality = TemporalReality.Present; // Suri is in present time at beginning of game
-	}
-
-
-	
-	void Update () 
-    {
-	
-	}
-
-
-
-    public void OnTimeTravel()
-    {
-        TemporalReality originReality;
-        TemporalReality destinationReality;
-
-        if(_currentReality != TemporalReality.Present) { // is in future.. back to present then
-            originReality = _currentReality;
-            destinationReality = TemporalReality.Present;
-            _currentReality = TemporalReality.Present;
-        } else { // is in present.. go to a different future according to water sources opened (requirements)
-            originReality = TemporalReality.Present;
-
-            destinationReality = FindDestRealityByClosedCountWaterSources();
-
-            _currentReality = destinationReality;
+        if(false == isLoaded) {
+            SceneManager.LoadSceneAsync(_currentReality, LoadSceneMode.Additive);
         }
-
-        // ACTUAL TIME TRAVEL!
-        Debug.Log("from: " + originReality);
-        Debug.Log("to: " + destinationReality);
-        SceneManager.LoadSceneAsync(destinationReality.ToString(), LoadSceneMode.Additive);
-        SceneManager.UnloadScene(originReality.ToString());
     }
 
+    public void OnTimeTravel () {
+        string lastReality = _currentReality;
 
-
-    // Registers and updates all WaterSources
-    public void OnWaterSourceLoad(WaterSource source)
-    {
-        if(false == _waterSourcesClosed.ContainsKey(source.WaterSourceTag)) { // first loading
-            _waterSourcesClosed.Add(source.WaterSourceTag, false); // all water sources are opened by default;
+        if (_currentReality != RealitySceneName[0]) {
+            _currentReality = RealitySceneName[0];
+        } else {
+            _currentReality = RealitySceneName[GetFutureRealityIndex()];
         }
-
-        source.SwitchWaterFlow(!_waterSourcesClosed[source.WaterSourceTag]); // "closed" is ~ON
+        SceneManager.LoadSceneAsync(_currentReality, LoadSceneMode.Additive);
     }
 
-
-    public void OnWaterSourceToggled(WaterSource.Tag tag, bool isOpen)
-    {
-        if(false == _waterSourcesClosed.ContainsKey(tag)) 
-            throw new UnityException(string.Format( "Water Source with tag [{0}] must have been registered on loading", tag));
-
-        _waterSourcesClosed[tag] = !isOpen;
+    public int GetFutureRealityIndex () {
+        return _tapController.CountWaterTapsOff() + 1;
     }
-
-
-    public TemporalReality FindDestRealityByClosedCountWaterSources()
-    {
-        // count the number of closed water sources
-        int totalClosed = 0;
-        foreach(KeyValuePair<WaterSource.Tag, bool> kv in _waterSourcesClosed) {
-            if(kv.Value)
-                totalClosed++;
-        }
-
-        int bestCount = -1;
-        TemporalReality bestReality = TemporalReality.NoWaterFuture; // worst future by default
-        // find best appropiate reality according to number of closed water sources
-        foreach(TravelTimeRequirement req in TravelRequirements) {
-            int countRequired = req.WaterSourcesRequired.Count;
-
-            if(totalClosed >= countRequired) {
-                if(countRequired > bestCount){
-                    bestCount = countRequired;
-                    bestReality = req.RealityToTravel;
-                }
-            }
-        }
-
-        return bestReality;
-    }
-
-
-    public TemporalReality FindDestRealityByReqs()
-    {
-        int bestRequirementsCount = -1;
-        TemporalReality bestRealityToTravel = TemporalReality.NoWaterFuture;
-
-        foreach(TravelTimeRequirement req in TravelRequirements) {
-            int totalClosed = 0;
-            for(int i=0;i<req.WaterSourcesRequired.Count;i++) {
-                if(_waterSourcesClosed.ContainsKey(req.WaterSourcesRequired[i])){
-                    if(_waterSourcesClosed[req.WaterSourcesRequired[i]]) {
-                        totalClosed++;
-                    }
-                }
-            }
-
-            if(totalClosed == req.WaterSourcesRequired.Count) { // this requirement was achieved
-                // check among all others requirement achieved. The one with more
-                // closed water sources count is the reality to travel to
-                if(totalClosed > bestRequirementsCount) {
-                    bestRequirementsCount = totalClosed;
-                    bestRealityToTravel = req.RealityToTravel;
-                }
-            }
-        }
-
-        if(bestRequirementsCount != -1) 
-            return bestRealityToTravel;
-        
-        // none of the requirements were satisfied, so, go to darkest future by default
-        return TemporalReality.NoWaterFuture;
-    }
-
-
 }
