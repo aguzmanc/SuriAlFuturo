@@ -86,4 +86,14 @@ public class CollectionSystem : MonoBehaviour {
     }
     #endregion
     #endregion
+
+    public bool HasItem (Collectable.Tag item) {
+        foreach (Collectable.Tag ownedItem in Inventory) {
+            if (item == ownedItem) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

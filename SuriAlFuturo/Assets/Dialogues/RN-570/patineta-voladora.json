@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Veo que tienes una patineta antigua y una turbina."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Las he reciclado, aquí tienes una patineta voladora."
+  }
+] }
