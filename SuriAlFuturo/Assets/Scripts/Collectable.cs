@@ -16,6 +16,7 @@ public class Collectable : MonoBehaviour {
         turbina,
         tmt,
         ydroid,
+        camara,
 
         NONE
     };
