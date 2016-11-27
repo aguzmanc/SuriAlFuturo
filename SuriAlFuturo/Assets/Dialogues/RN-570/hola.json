@@ -1,8 +1,9 @@
 { "Dialogues": [
-  { "Avatar": "RN-570",
+  {
+    "Avatar": "RN-570",
     "Name": "RN-570",
     "Emotion": "normal",
-    "Text": "Una niña humana!"
+    "Text": "¡Una niña humana! "
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
@@ -12,96 +13,46 @@
     "Avatar": "Chapu",
     "Name": "Chapu",
     "Emotion": "mad",
-    "Text": "Grrrrr!!"
+    "Text": "Grrr!"
   }, {
     "Avatar": "RN-570",
     "Name": "RN-570",
     "Emotion": "normal",
-    "Text": "Soy RN-570, androide de reciclaje"
+    "Text": "Soy RN-5T0, androide de reciclaje, ESTADO ACTUAL: obsoleto, reparado y reciclado para cumplir misión.. bip!"
   }, {
     "Avatar": "RN-570",
     "Name": "RN-570",
     "Emotion": "normal",
-    "Text": "estado actual: obsoleto, reparado y reciclado para cumplir misión importante... BIP!"
-  }, {
-    "Avatar": "Suri",
-    "Name": "Suri",
-    "Emotion": "sad",
-    "Text": "Qué hiciste con mi abuelo?!"
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "Abuelo... Buscando en bases de datos... BIP!... "
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "persona con una gran cantidad de años registrados desde su nacimiento."
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": ".. gran base de datos acumulada, experiencia muy alta."
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "último ejemplar registrado: tres minutos atrás, dirigiéndose al portal del tiempo..."
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "luego de dar un bastonazo en la estructura de RN-570..."
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "Observaciones: mal genio y poca capacidad visual..."
-  }, {
-    "Avatar": "Suri",
-    "Name": "Suri",
-    "Emotion": "sad",
-    "Text": "Estás diciendo que viste a mi abuelito? de qué portal hablas?"
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "Portal del tiempo... máquina cuántica construida por últimos humanos vivos"
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "para advertir a humanos del pasado sobre desastre ecológico inminente."
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "Probabilidad de destrucción de toda forma de vida... 100%"
+    "Text": "MISIÓN ACTUAL: avisar a humanos del pasado sobre desastre ecológico. Bip!..."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "cry",
-    "Text": "Estás diciendo que mi abuelito se metió en ese portal del tiempo? Dónde está ahora?"
+    "Text": "Que hiciste con mi abuelo?"
   }, {
     "Avatar": "RN-570",
     "Name": "RN-570",
     "Emotion": "normal",
-    "Text": "Probablemente en lo que ustedes llamarían su futuro: Un lugar horrible, sin agua, sin árboles, sin animales... sin niños... sin perros!"
+    "Text": "Último humano anciano visto cruzando portal del tiempo por el que RN-5T0 vino al pasado.."
   }, {
-    "Avatar": "Chapu",
-    "Name": "Chapu",
-    "Emotion": "sad",
-    "Text": "awwww awww"
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "el humano me dio un bastonazo.. luego se fue enojado."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "El anciano tiene poca capacidad visual.. y poca paciencia por cierto..."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
-    "Emotion": "surprised",
-    "Text": "Chapu! Debemos ir a buscar al abuelito! entremos a ese portal que dice este robot"
+    "Emotion": "sad",
+    "Text": "Debemos ir a buscar al abuelito Chapu! Crucemos por este portal que dice este robot."
   }, {
     "Avatar": "Chapu",
     "Name": "Chapu",
-    "Emotion": "bark",
+    "Emotion": "mad",
     "Text": "Guau! Guau!"
   }
 ] }

@@ -3,20 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using SuriAlFuturo;
 
-// DI: DialogueIndex
 public class Blocker : MonoBehaviour {
-    // TODO: implement this!
-    // public int DialogueIndexOnRequirementMet = 1; // TODO: split this on its own class?
+    public Vector3 PersistenceKey;
+
     public float Speed = 5;
     public bool IsUnblocked;
-
+    public bool WasForcedToUnblock = false;
     public List<Requirement> UnmetRequirements = new List<Requirement>();
+
     public GameObject UnblockedPosition;
     public GameObject Model;
-    public Talkable TheTalkable;
     public GameObject Obstacle;
-
-    public Vector3 PersistenceKey;
+    public Talkable TheTalkable;
 
     private CollectionSystem _controller;
     private GameController _gameController;
@@ -36,10 +34,11 @@ public class Blocker : MonoBehaviour {
             .GetComponent<GameController>();
 
         _controller = _gameController.GetComponent<CollectionSystem>();
-        _controller.Blockers.Add(this);
 
         _navMeshObstacle = Obstacle.GetComponent<NavMeshObstacle>();
         _animator = Model.GetComponent<Animator>();
+
+        _controller.Blockers.Add(this);
 
         _navMeshAgent = TheTalkable.GetComponent<NavMeshAgent>();
         _navMeshAgent.enabled = false;
@@ -78,6 +77,10 @@ public class Blocker : MonoBehaviour {
         _animator.SetBool("IsWalking", _navMeshAgent.velocity.magnitude > 0.1f);
     }
 
+    void OnDisable () {
+        _controller.Save(this); // TODO: es necesario grabar ondisabled y ondestroy?
+    }
+
     void OnDestroy () {
         _controller.Blockers.Remove(this);
         _controller.Save(this);
@@ -96,6 +99,12 @@ public class Blocker : MonoBehaviour {
         _navMeshObstacle.enabled = false;
         _navMeshAgent.enabled = true;
         _navMeshAgent.SetDestination(UnblockedPosition.transform.position);
+    }
+
+    public void ForcedUnblock () {
+        UnmetRequirements = new List<Requirement>();
+        Unblock();
+        WasForcedToUnblock = true;
     }
 
     public bool AreRequirementsMet () {
@@ -127,19 +136,21 @@ public class Blocker : MonoBehaviour {
     }
 
     public void LoadPersistedObject (PersistedBlocker persisted) {
-        IsUnblocked = persisted.IsUnblocked;
+        IsUnblocked = persisted.IsUnblocked || WasForcedToUnblock;
 
         if (IsUnblocked) {
             transform.position = UnblockedPosition.transform.position;
             _navMeshObstacle.enabled = false;
         }
 
-        if (persisted.UnmetRequirements.Count > 0) {
-            UnmetRequirements = new List<Requirement>();
-        }
+        if (!WasForcedToUnblock) {
+            if (persisted.UnmetRequirements.Count > 0) {
+                UnmetRequirements = new List<Requirement>();
+            }
 
-        foreach (Requirement requirement in persisted.UnmetRequirements) {
-            UnmetRequirements.Add(requirement);
+            foreach (Requirement requirement in persisted.UnmetRequirements) {
+                UnmetRequirements.Add(requirement);
+            }
         }
     }
     #endregion

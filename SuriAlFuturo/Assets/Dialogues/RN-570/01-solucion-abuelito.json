@@ -1,0 +1,43 @@
+{ "Dialogues": [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "cry",
+    "Text": "Mi abuelito está encerrado en medio de la isla en el futuro. Cómo lo traemos de vuelta?"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Todas las cosas que los humanos hacen hoy tienen una consecuencia en el futuro."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Si el lago se secó es porque mucha gente desperdicia agua hoy y no la cuida."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "¿Si hago que la gente no desperdicie agua podré llegar donde mi abuelito y rescatarlo?"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Definitivamente si. El lago volverá a la normalidad."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Vuelve aquí cada vez que hayas hecho entrar en conciencia a alguien, y veras como el futuro habrá cambiado un poco"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Entonces vamos cumplir la misión de una vez Chapu!"
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "happy",
+    "Text": "Wrhorff!!"
+  }
+] }

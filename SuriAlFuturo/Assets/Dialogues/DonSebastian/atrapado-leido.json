@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Anciano",
+    "Name": "Anciano",
+    "Emotion": "normal",
+    "Text": "Si tan solo hubiera MÁS AGUA en el LAGO, podría salir de aquí en BARQUITO"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "No te muevas abuelito! iremos a hablar con RN-570!"
+  }
+] }

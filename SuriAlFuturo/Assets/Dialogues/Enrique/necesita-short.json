@@ -1,0 +1,18 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "Deberías cerrar esa pila"
+  }, {
+    "Avatar": "Kid",
+    "Name": "Enrique",
+    "Emotion": "mad",
+    "Text": "SHHHH!!!!! vas a hacer que me descubran!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Tal vez deberíamos darle algún JUGUETE."
+  }
+] }

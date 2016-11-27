@@ -6,6 +6,8 @@ using System.IO;
 using SuriAlFuturo;
 
 public class Talkable : MonoBehaviour {
+    public List<bool> ReadDialogues;
+    public bool WasTriggered = false;
     public List<TextAsset> Dialogues;
     public GameObject InteractIndicator;
     public bool WasRead;
@@ -27,6 +29,10 @@ public class Talkable : MonoBehaviour {
 
     void Start () {
         PersistenceKey = this.transform.position;
+
+        foreach (TextAsset x in Dialogues) {
+            ReadDialogues.Add(false);
+        }
 
         _gameController = GameObject.
             FindGameObjectWithTag(Tag.GameController).GetComponent<GameController>();
@@ -59,6 +65,7 @@ public class Talkable : MonoBehaviour {
 
             if (_currentLine == -1) {
                 WasRead = true;
+                ReadDialogues[_currentDialogue] = true;
                 if (WillTalkForcedDialogue) {
                     _gameController.CanTalk = WillTalkForcedDialogue = false;
                 } else {
@@ -119,6 +126,11 @@ public class Talkable : MonoBehaviour {
         return _currentLine >= 0;
     }
 
+    public void TriggerDialogue (int index) {
+        SetDialogueIndex(index);
+        WasTriggered = true;
+    }
+
     public void SetDialogueIndex (int index) {
         _currentDialogue = index;
         WasRead = false;
@@ -152,12 +164,24 @@ public class Talkable : MonoBehaviour {
     }
     
     public PersistedTalkable GetPersistedTalkable () {
-        return new PersistedTalkable(_currentDialogue, IsForcedToTalk, WasRead);
+        return new PersistedTalkable(_currentDialogue, IsForcedToTalk, WasRead,
+                                     ReadDialogues);
     }
 
     public void Load (PersistedTalkable persisted) {
-        this._currentDialogue = persisted.DialogueIndex;
-        this.IsForcedToTalk = persisted.IsForcedToTalk;
-        this.WasRead = persisted.WasRead;
+        if (!WasTriggered) {
+            this._currentDialogue = persisted.DialogueIndex;
+            this.IsForcedToTalk = persisted.IsForcedToTalk;
+            this.WasRead = persisted.WasRead;
+            this.ReadDialogues = persisted.ReadDialogues;
+        }
+    }
+
+    public int GetDialogueIndex () {
+        return _currentDialogue;
+    }
+
+    public bool WasDialogueIndexRead (int dialogueIndex) {
+        return ReadDialogues[dialogueIndex];
     }
 }

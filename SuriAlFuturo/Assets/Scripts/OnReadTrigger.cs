@@ -1,10 +1,11 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 public class OnReadTrigger : MonoBehaviour {
-    public Blocker Target;
-    public List<Talkable> Requirements;
+    public GameObject TargetGameObject;
+    public Blocker TheBlocker;
+    public Talkable TheTalkable;
+    public Talkable Requirement;
     public int DialogueIndex;
     public bool GetsUnblocked;
     public bool GetsDisabled;
@@ -14,21 +15,19 @@ public class OnReadTrigger : MonoBehaviour {
     }
 
     void Update () {
-        bool met = true;
-        foreach (Talkable requirement in Requirements) {
-            if (!requirement.WasRead) {
-                met = false;
+        // try {
+            if (Requirement.WasDialogueIndexRead(DialogueIndex)) {
+                if (GetsUnblocked && TheBlocker != null) {
+                    TheBlocker.Unblock();
+                }
+                if (GetsDisabled) {
+                    TargetGameObject.SetActive(false);
+                }
+                if (TheTalkable != null) {
+                    TheTalkable.SetDialogueIndex(DialogueIndex);
+                }
+                this.enabled = false;
             }
-        }
-
-        if (met) {
-            if (GetsUnblocked) {
-                Target.Unblock();
-            }
-            if (GetsDisabled) {
-                Target.gameObject.SetActive(false);
-            }
-            Target.TheTalkable.SetDialogueIndex(DialogueIndex);
-        }
+        // } catch {}
     }
 }

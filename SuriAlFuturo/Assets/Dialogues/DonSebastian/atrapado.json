@@ -1,92 +1,38 @@
 { "Dialogues": [
-  { "Avatar": "Anciano",
-    "Name": "Don Sebastián",
-    "Emotion": "normal",
-    "Text": "Suri!"
-  }, {
-    "Avatar": "Suri",
-    "Name": "Suri",
-    "Emotion": "happy",
-    "Text": "Abuelito!"
-  }, {
+  {
     "Avatar": "Anciano",
     "Name": "Don Sebastián",
     "Emotion": "normal",
-    "Text": "Sácame de aquí!"
-  }, {
-    "Avatar": "Suri",
-    "Name": "Suri",
-    "Emotion": "surprised",
-    "Text": "Cómo te subiste allí?"
-  }, {
-    "Avatar": "Anciano",
-    "Name": "Don Sebastián",
-    "Emotion": "normal",
-    "Text": "No tengo idea waway! me encontré con ese pajpaku que hablaba del futuro"
-  }, {
-    "Avatar": "Anciano",
-    "Name": "Don Sebastián",
-    "Emotion": "normal",
-    "Text": "y no sé qué cosas más que no le entendí, pero tenía un acento muy chistoso"
-  }, {
-    "Avatar": "Anciano",
-    "Name": "Don Sebastián",
-    "Emotion": "normal",
-    "Text": "pensé que me quería robar, le pegué con mi bastón, corrí y me tropecé con esa luz brillante"
-  }, {
-    "Avatar": "Anciano",
-    "Name": "Don Sebastián",
-    "Emotion": "normal",
-    "Text": "luego aparecí aquí."
+    "Text": "Suri Sácame de aquí!"
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "cry",
-    "Text": "y ahora cómo vamos a bajarte de allí?"
+    "Text": "¿Como te subiste ahi abuelito?"
   }, {
     "Avatar": "Anciano",
     "Name": "Don Sebastián",
     "Emotion": "normal",
-    "Text": "Tranquila hijita, recuerda que por algo pasan las cosas, clarito vamos a encontrar la forma de bajar..."
+    "Text": "No tengo idea waway!.. Me encontre con ese pajpaku que hablaba del futuro, parecía un vendedor"
   }, {
     "Avatar": "Anciano",
     "Name": "Don Sebastián",
     "Emotion": "normal",
-    "Text": "Tengo una idea! haz que vuelva toda el agua, y luego le pides a doña Mónica  su balsa de totora!"
+    "Text": "luego vi una luz y  apareci aquí. creo que el tiene la culpa, ¿porque no le preguntas?"
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
-    "Emotion": "surprised",
-    "Text": "y cómo hago para que vuelva toda el agua?"
+    "Emotion": "sad",
+    "Text": "No era un vendedor, era un robot que venia del futuro... y ahora cómo te sacamos de allí?"
   }, {
     "Avatar": "Anciano",
     "Name": "Don Sebastián",
     "Emotion": "normal",
-    "Text": "No sé, pero por algún lado se ha debido salir!"
-  }, {
-    "Avatar": "Anciano",
-    "Name": "Don Sebastián",
-    "Emotion": "normal",
-    "Text": "Creo que ese pajpaku sabe algo! estaba diciéndoome macanas sobre salvar el mundo y cosas así."
-  }, {
-    "Avatar": "Anciano",
-    "Name": "Don Sebastián",
-    "Emotion": "normal",
-    "Text": "Tal vez él sepa dónde se fue el agua"
-  }, {
-    "Avatar": "Suri",
-    "Name": "Suri",
-    "Emotion": "surprised",
-    "Text": "Te refieres a RN-5T0? el robot?"
-  }, {
-    "Avatar": "Anciano",
-    "Name": "Don Sebastián",
-    "Emotion": "normal",
-    "Text": "Ay! estos jóvenes de hoy en día, cada nombre que se ponen... sí, él, ve y pregúntale."
+    "Text": "Si tan solo hubiera MÁS AGUA, podríamos salir en un BARCO, o al menos nadando!"
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "happy",
-    "Text": "eso haremos!"
+    "Text": "Creo que tengo una idea... ya volvemos abuelito!"
   }
 ] }

@@ -18,7 +18,6 @@ public class DialogueController : MonoBehaviour {
     void Update () {
         // player can't be controlled while talking
         Player.IsControlledByPlayer = (false == IsTalkingToSomeone());
-
     }
 
     public TalkingCharacter GetTalkingCharacter (string name) {

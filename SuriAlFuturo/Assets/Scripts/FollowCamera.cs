@@ -18,6 +18,7 @@ public class FollowCamera : MonoBehaviour {
     public Vector3 WaterRotation = new Vector3(45, 45, 0);
     public float TransitionTime = 5;
 
+    private int _lastState;
     private float _timeOnState = 0;
     private Vector3 _cachedRotation;
     private float _cachedDistance;
@@ -113,11 +114,15 @@ public class FollowCamera : MonoBehaviour {
     }
 
     public void EnterWater () {
-        _SwitchState(IN_WATER);
+        if (State != IN_HOLE) {
+            _SwitchState(IN_WATER);
+        }
     }
 
     public void ExitWater () {
-        _SwitchState(IN_FLOOR);
+        if (State != IN_HOLE) {
+            _SwitchState(IN_FLOOR);
+        }
     }
 
     private void _SwitchState (int newState) {
