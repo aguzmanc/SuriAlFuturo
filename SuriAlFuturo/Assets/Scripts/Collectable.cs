@@ -10,6 +10,7 @@ public class Collectable : MonoBehaviour {
         holograma,
         patineta_voladora,
         patineta_arreglada,
+        patineta_joaquin,
         pollera,
         turbina,
         tmt,
