@@ -1,0 +1,73 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Hola!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Hola señorita! Usted tampoco es de por acá, ¿verdad?"
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Acabo de llegar hoy al lago, es un lugar muy bonito, pero no vengo de vacaciones"
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "vengo a contar los árboles y peces que quedan en el lago. También cuánta agua nos queda."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Parece un trabajo muy difícil."
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Lo es! Mi trabajo consiste en saber ese tipo de cosas de los lagos, de los bosques..."
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Ojalá hubiese ALGÚN AYUDANTE que pudiera CONTAR todas esas cosas por mí"
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Así yo podría predecir el futuro, y avisar a las autoridades para tomar medidas al respecto."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Su trabajo parece muy importante."
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Mi nombre es Natalia, quiero ayudar a la naturaleza, por eso ahora soy bióloga."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Bienvenida a nuestro lago!! espero que pueda hacer que el futuro sea un mejor lugar."
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "happy",
+    "Text": "whorff!!"
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Ven a visitarme luego, me prestaron una casa en el centro del lago, "
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "claro! luego de que termine de contarlo todo jejeje"
+  }
+] }

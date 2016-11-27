@@ -1,63 +1,58 @@
 { "Dialogues": [
   {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "¡Una niña humana! "
+  }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "surprised",
     "Text": "Un robot?"
   }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "Soy RN-570, androide de reciclaje. Estado actual: obsoleto, reparado y reciclado... BIP!"
-  }, {
-    "Avatar": "Suri",
-    "Name": "Suri",
-    "Emotion": "sad",
-    "Text": "Qué hiciste con mi abuelo?!"
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "mad",
+    "Text": "Grrr!"
   }, {
     "Avatar": "RN-570",
     "Name": "RN-570",
     "Emotion": "normal",
-    "Text": "Abuelo... Buscando en bases de datos... encontrado! BIP!... "
+    "Text": "Soy RN-5T0, androide de reciclaje, ESTADO ACTUAL: obsoleto, reparado y reciclado para cumplir misión.. bip!"
   }, {
     "Avatar": "RN-570",
     "Name": "RN-570",
     "Emotion": "normal",
-    "Text": "último ejemplar registrado: tres minutos atrás, dirigiéndose al PORTAL DEL TIEMPO"
-  }, {
-    "Avatar": "Suri",
-    "Name": "Suri",
-    "Emotion": "surprised",
-    "Text": "Qué? portal del tiempo? qué es eso?"
-  }, {
-    "Avatar": "RN-570",
-    "Name": "RN-570",
-    "Emotion": "normal",
-    "Text": "Portal del tiempo... máquina cuántica construida por últimos humanos vivos"
+    "Text": "MISIÓN ACTUAL: avisar a humanos del pasado sobre desastre ecológico. Bip!..."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "cry",
-    "Text": "Y ahora?? En dónde está mi abuelito?!"
+    "Text": "Que hiciste con mi abuelo?"
   }, {
     "Avatar": "RN-570",
     "Name": "RN-570",
     "Emotion": "normal",
-    "Text": "En lo que ustedes llamarían 'FUTURO': Un lugar sin agua, sin árboles, sin animales... sin niños... sin perros!"
+    "Text": "Último humano anciano visto cruzando portal del tiempo por el que RN-5T0 vino al pasado.."
   }, {
-    "Avatar": "Chapu",
-    "Name": "Chapu",
-    "Emotion": "sad",
-    "Text": "awwww awww"
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "el humano me dio un bastonazo.. luego se fue enojado."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "El anciano tiene poca capacidad visual.. y poca paciencia por cierto..."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "sad",
-    "Text": "Chapu! Debemos ir a buscar al abuelito! entremos a ese PORTAL DEL TIEMPO"
+    "Text": "Debemos ir a buscar al abuelito Chapu! Crucemos por este portal que dice este robot."
   }, {
     "Avatar": "Chapu",
     "Name": "Chapu",
-    "Emotion": "bark",
+    "Emotion": "mad",
     "Text": "Guau! Guau!"
   }
 ] }

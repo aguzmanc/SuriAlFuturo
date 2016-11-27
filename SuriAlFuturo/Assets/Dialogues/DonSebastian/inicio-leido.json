@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Sabes dónde está el Enrique?"
+  }, {
+    "Avatar": "Anciano",
+    "Name": "Don Sebastián",
+    "Emotion": "normal",
+    "Text": "Pregúntale a Doña Mónica, ella sabe estar en el puerto, reparando su barquito de totora."
+  }
+] }

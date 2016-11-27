@@ -13,7 +13,7 @@ public class Talkable : MonoBehaviour {
     public bool WasRead;
     public bool IsForcedToTalk;
     public bool WillTalkForcedDialogue;
-    public Dialogue ForcedDialogue;
+    public Dialogue[] ForcedDialogue;
     public string DefaultName = "...";
     public string DefaultAvatar = "Cholita";
     public Vector3 PersistenceKey;
@@ -58,7 +58,7 @@ public class Talkable : MonoBehaviour {
     void Update () {
         int qtyOfLines = _digestedDialogue.Length;
         if (WillTalkForcedDialogue) {
-            qtyOfLines = 1;
+            qtyOfLines = ForcedDialogue.Length;
         }
 
         if (IsInteractTriggered()) {
@@ -71,6 +71,8 @@ public class Talkable : MonoBehaviour {
                 ReadDialogues[_currentDialogue] = true;
                 if (WillTalkForcedDialogue) {
                     _gameController.CanTalk = WillTalkForcedDialogue = false;
+                } else {
+                    ReadDialogues[_currentDialogue] = true;
                 }
             }
         }
@@ -118,7 +120,7 @@ public class Talkable : MonoBehaviour {
 
     public Dialogue GetDialogue () {
         if (WillTalkForcedDialogue) {
-            return ForcedDialogue;
+            return ForcedDialogue[_currentLine];
         }
         return _digestedDialogue[_currentLine];
     }
@@ -150,14 +152,14 @@ public class Talkable : MonoBehaviour {
                                  || triggereded );
     }
 
-    public void ForceDialogue (Dialogue forcedDialogue) {
+    public void ForceDialogue (Dialogue[] forcedDialogue) {
         ForcedDialogue = forcedDialogue;
         WillTalkForcedDialogue = true;
         IsForcedToTalk = true;
     }
 
-    public void SayIDontHaveThat () {
-        ForceDialogue(_controller.DontNeedThat);
+    public void SayIDontWantThat () {
+        ForceDialogue(new Dialogue[1] {_controller.DontNeedThat});
     }
 
     public void TriggerInteraction () {

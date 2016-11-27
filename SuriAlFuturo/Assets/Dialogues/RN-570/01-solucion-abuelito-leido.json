@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Niña humana! debes hacer que la gente ahorre agua, el futuro del lago depende de tí."
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "sad",
+    "Text": "aaawwww"
+  }
+] }

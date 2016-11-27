@@ -24,6 +24,8 @@ public class Blocker : MonoBehaviour {
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private bool _interactionTriggered;
+    private Dictionary<Collectable.Tag, Dialogue[]> _customDontNeedThat
+        = new Dictionary<Collectable.Tag, Dialogue[]>();
 
     void Start () {
         PersistenceKey = transform.position;
@@ -50,7 +52,19 @@ public class Blocker : MonoBehaviour {
 
             if (_canTake && !TheTalkable.IsTalking() &&
                 false == TryToTakeRequirement(_controller.GetActiveRequirement())) {
-                TheTalkable.SayIDontHaveThat();
+                Dialogue[] customRejection = null;
+                bool hasCustomRejection = false;
+
+                try {
+                    customRejection =
+                        _customDontNeedThat[_controller.GetActiveRequirement()];
+                    hasCustomRejection = true;
+                } catch {}
+                if (hasCustomRejection) {
+                    TheTalkable.ForceDialogue(customRejection);
+                } else {
+                    TheTalkable.SayIDontWantThat();
+                }
             }
 
         }
@@ -149,5 +163,9 @@ public class Blocker : MonoBehaviour {
         }
 
         return -1;
+    }
+
+    public void Register (CustomDontNeedThat rejection) {
+        _customDontNeedThat[rejection.Item] = rejection.GetDialogues();
     }
 }

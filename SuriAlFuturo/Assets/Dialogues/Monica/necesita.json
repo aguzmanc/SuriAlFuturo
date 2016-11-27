@@ -1,46 +1,43 @@
 { "Dialogues" : [
-  { "Avatar": "Cholita",
-    "Name": "Monica",
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
     "Emotion": "happy",
-    "Text": "Suri! Buen día waway!"
+    "Text": "Buen día doña Moni. Mi abuelito se soñó que yo iba a viajar muy lejos."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "happy",
-    "Text": "¡Buen dia doña Moni! ¡Mi abuelo dice que el ajayu del bosque necesita mi ayuda!"
-  }, {
-    "Avatar": "Suri",
-    "Name": "Suri",
-    "Emotion": "happy",
-    "Text": "¿No quieres prestarme tu barco? Así voy a poder ayudarlo mejor"
+    "Text": "¿No quiere prestarme su BALSA DE TOTORA para que pueda empezar mi viaje?"
   }, {
     "Avatar": "Cholita",
     "Name": "Mónica",
     "Emotion": "happy",
-    "Text": "Jajaja, ¡ay estas wawas! ¡mirále haber su ocurrencia! Mi barco es para PESCAR, no para JUGAR"
+    "Text": "Buen día waway!. Jajaja.. Mirale a ver su ocurrencia!"
   }, {
     "Avatar": "Cholita",
     "Name": "Mónica",
     "Emotion": "happy",
-    "Text": "ya se acerca el cumpleaños del Enriquito, tengo que trabajar más duro para conseguirle su regalo."
-  }, {
-    "Avatar": "Cholita",
-    "Name": "Mónica",
-    "Emotion": "happy",
-    "Text": "Me ha dicho que quiere uno de esos celulares nuevos. Le voy a dar el gusto este año..."
-  }, {
-    "Avatar": "Cholita",
-    "Name": "Mónica",
-    "Emotion": "happy",
-    "Text": "¡¡pero no le vayas a decir!!"
+    "Text": "Mi balsa es para trabajar, para pescar, para darle de comer al Enriquito. Por cierto, su CUMPLEAÑOS esta cerca."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "surprised",
-    "Text": "¿Entonces no me vas a prestar?"
+    "Text": "Qué le piensa regalar?"
   }, {
     "Avatar": "Cholita",
     "Name": "Mónica",
     "Emotion": "happy",
-    "Text": "No Suri, a menos que me encuentre de casualidad un CELULAR NUEVO en medio del bosque jajaja."
-  }] }
+    "Text": "Me ha dicho que quiere una consola de videojuegos. Son aparatos muy caros, tal vez uno usadito se lo compre."
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "Si alguien me lo vendiera o consiguiera, estaria tan feliz que le prestaría mi barco!"
+  }, {
+    "Avatar": "Cholita",
+    "Name": "Mónica",
+    "Emotion": "happy",
+    "Text": "¿porque no vas a jugar con el Enriquito? Esta ahi solito toda la mañana."
+  }
+] }

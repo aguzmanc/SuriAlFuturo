@@ -11,6 +11,7 @@ public class Collectable : MonoBehaviour {
         patineta,
         patineta_voladora,
         patineta_arreglada,
+        patineta_joaquin,
         pollera,
         turbina,
         tmt,

@@ -1,0 +1,23 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Mira, Joaquín me dio su patineta para que te la regale a tí!"
+  }, {
+    "Avatar": "Kid",
+    "Name": "Enrique",
+    "Emotion": "mad",
+    "Text": "Ya no quiero la patineta de Joaquín, ahora quiero una patineta flotante!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "Pero qué niño más envidioso eres! Si te regalara una, me dejarías cerrar esa pila detrás de tí?"
+  }, {
+    "Avatar": "Kid",
+    "Name": "Enrique",
+    "Emotion": "laugh",
+    "Text": "Si me regalaras una haría lo que sea!"
+  }
+] }
