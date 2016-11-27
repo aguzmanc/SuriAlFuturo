@@ -10,6 +10,7 @@ public class Tag {
     public static string Canvas = "Canvas";
     public static string EventSystem = "EventSystem";
     public static string Chapu = "Chapu";
+    public static string RepairButton = "RepairButton";
 }
 
 }//namespace
