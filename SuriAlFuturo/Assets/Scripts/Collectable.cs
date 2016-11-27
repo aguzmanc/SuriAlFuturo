@@ -15,6 +15,7 @@ public class Collectable : MonoBehaviour {
         pollera,
         turbina,
         tmt,
+        ydroid,
 
         NONE
     };
