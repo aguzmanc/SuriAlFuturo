@@ -15,19 +15,17 @@ public class OnReadTrigger : MonoBehaviour {
     }
 
     void Update () {
-        // try {
-            if (Requirement.WasDialogueIndexRead(DialogueIndex)) {
-                if (GetsUnblocked && TheBlocker != null) {
-                    TheBlocker.Unblock();
-                }
-                if (GetsDisabled) {
-                    TargetGameObject.SetActive(false);
-                }
-                if (TheTalkable != null) {
-                    TheTalkable.SetDialogueIndex(DialogueIndex);
-                }
-                this.enabled = false;
+        if (Requirement.WasDialogueIndexRead(DialogueIndex)) {
+            if (GetsUnblocked && TheBlocker != null) {
+                TheBlocker.Unblock();
             }
-        // } catch {}
+            if (GetsDisabled) {
+                TargetGameObject.SetActive(false);
+            }
+            if (TheTalkable != null) {
+                TheTalkable.SetDialogueIndex(DialogueIndex);
+            }
+            this.enabled = false;
+        }
     }
 }

@@ -4,6 +4,8 @@ using System.Collections;
 public class ShipAnimation : MonoBehaviour {
     public GameObject Suri;
     public GameObject TotoraShip;
+    [HideInInspector]
+    public Transform ChapuHolder;
 
     private CharacterMovement _shipMover;
     private Animator _suriAnimator;

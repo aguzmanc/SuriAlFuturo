@@ -48,7 +48,10 @@ public class Talkable : MonoBehaviour {
         }
 
         _DigestDialogue();
-        InteractIndicator.SetActive(false);
+        if(InteractIndicator != null) {
+            InteractIndicator.SetActive(false);
+        }
+        
         _controller.Talkables.Add(this);
     }
 

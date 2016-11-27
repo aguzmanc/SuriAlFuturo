@@ -36,7 +36,10 @@ public class TimeTravelController : MonoBehaviour {
         }
     }
 
-    public void OnTimeTravel () {
+
+
+    public void OnTimeTravel () 
+    {
         string lastReality = _currentReality;
 
         if (_currentReality != RealitySceneName[0]) {
@@ -47,6 +50,8 @@ public class TimeTravelController : MonoBehaviour {
         SceneManager.LoadSceneAsync(_currentReality, LoadSceneMode.Additive);
         SceneManager.UnloadScene(lastReality);
     }
+
+
 
     public int GetFutureRealityIndex () {
         return _tapController.CountWaterTapsOff() + 1;

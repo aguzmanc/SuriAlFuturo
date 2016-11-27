@@ -8,6 +8,7 @@ public class Collectable : MonoBehaviour {
         chatarra,
         flor,
         holograma,
+        patineta,
         patineta_voladora,
         patineta_arreglada,
         pollera,

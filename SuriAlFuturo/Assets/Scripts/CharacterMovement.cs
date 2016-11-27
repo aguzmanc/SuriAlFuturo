@@ -53,8 +53,10 @@ public class CharacterMovement : MonoBehaviour
             _controller.ControlledCharacter = this.gameObject;
 
         } else {
-            _navMeshAgent.Stop();
-            _navMeshAgent.velocity = Vector3.zero;
+            if(_navMeshAgent.isActiveAndEnabled){
+                _navMeshAgent.Stop();
+                _navMeshAgent.velocity = Vector3.zero;
+            }
             CurrentSpeedPercent = 0;
         }
     }
@@ -73,17 +75,21 @@ public class CharacterMovement : MonoBehaviour
 
     public void UpdateMovement () {
         if (IsControlledByArrows) { // keyboard control!
-            _navMeshAgent.Stop();
-            _navMeshAgent.Move(this.Direction * Time.deltaTime * Speed *
-                               Mathf.Max( Mathf.Abs(Input.GetAxis("Vertical")),
-                                          Mathf.Abs(Input.GetAxis("Horizontal")) ));
+            if(_navMeshAgent.isActiveAndEnabled){
+                _navMeshAgent.Stop();
+                _navMeshAgent.Move(this.Direction * Time.deltaTime * Speed *
+                                    Mathf.Max( Mathf.Abs(Input.GetAxis("Vertical")),
+                                             Mathf.Abs(Input.GetAxis("Horizontal")) ));
+            }
         } else if (Interacted() && !_IsInteractionBlocked()) { // touch control!
             Vector3 destination = GetInteractionDestination();
             _gizmos.transform.position = destination;
             _gizmos.SetActive(true);
             _gizmosAnimator.SetTrigger("Born");
-            _navMeshAgent.Resume();
-            _navMeshAgent.SetDestination(destination);
+            if(_navMeshAgent.isActiveAndEnabled){
+                _navMeshAgent.Resume();
+                _navMeshAgent.SetDestination(destination);
+            }
         }
     }
 
@@ -154,6 +160,12 @@ public class CharacterMovement : MonoBehaviour
         return destination;
     }
 
+    // Temporal disable Nav Mesh while scene change is made
+    public void TimeTravel() 
+    {
+        StartCoroutine(TemporalDisableNavMesh());
+    }
+
     private bool Interacted () {
         return _tapped || Input.GetMouseButtonDown(0);
     }
@@ -162,4 +174,12 @@ public class CharacterMovement : MonoBehaviour
         return (_eventSystem.IsPointerOverGameObject() ||
                 (_tapped && _eventSystem.IsPointerOverGameObject(_tap.fingerId)));
     }
+
+    private IEnumerator TemporalDisableNavMesh()
+    {
+        _navMeshAgent.enabled = false;
+        yield return new WaitForSeconds(2f);
+        _navMeshAgent.enabled = true;
+    }
 }
+

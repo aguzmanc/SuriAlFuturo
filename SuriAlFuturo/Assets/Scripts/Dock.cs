@@ -78,20 +78,34 @@ public class Dock : MonoBehaviour {
 
     public void Embark () {
         Suri.SetActive(false);
+
+        Chapu chapu = _gameController.GetComponent<GameController>().Chapu.GetComponent<Chapu>();
+        chapu.Embark();
+
         DockedShip.GetComponent<CharacterMovement>().IsControlledByPlayer = true;
         _camera.Target = DockedShip;
         _gameController.SetDrivingBoat(true);
     }
 
-    public void Disembark () {
+
+
+    public void Disembark () 
+    {
         Suri.transform.position = DisembarkPlace.transform.position;
         Suri.SetActive(true);
         DockedShip.GetComponent<CharacterMovement>().IsControlledByPlayer = false;
         _camera.Target = Suri;
         _gameController.SetDrivingBoat(false);
+
+        Chapu chapu = _gameController.GetComponent<GameController>().Chapu.GetComponent<Chapu>();
+        chapu.gameObject.SetActive(true);
+        chapu.Disembark();
     }
 
-    public void TriggerInterfaceInteraction () {
+
+
+    public void TriggerInterfaceInteraction () 
+    {
         _isInterfaceInteractionTriggered = true;
     }
 }

@@ -119,31 +119,32 @@ public class FollowCamera : MonoBehaviour {
         }
     }
 
-    public void ExitWater () {
+    public void ExitWater () 
+    {
         if (State != IN_HOLE) {
             _SwitchState(IN_FLOOR);
         }
     }
 
-    private void _SwitchState (int newState) {
+    private void _SwitchState (int newState) 
+    {
         _timeOnState = 0;
         State = newState;
         _cachedRotation = TheCamera.transform.rotation.eulerAngles;
         _cachedDistance = Mathf.Abs(TheCamera.transform.localPosition.z);
     }
 
-    public float GetY () {
+    public float GetY ()
+    {
         switch (State) {
             case IN_WATER:
                 return WaterRotation.y;
-                break;
             case IN_FLOOR:
                 return FloorRotation.y;
-                break;
             case IN_HOLE:
                 return HoleRotation.y;
-                break;
         }
+
         return 0;
     }
 }

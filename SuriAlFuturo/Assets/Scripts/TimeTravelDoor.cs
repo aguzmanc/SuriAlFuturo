@@ -24,11 +24,6 @@ public class TimeTravelDoor : MonoBehaviour
         StartCoroutine(TimeTravelCycle());
 	}
 	
-	void Update () 
-    {
-	
-	}
-
 
 
     void OnTriggerEnter(Collider coll)
@@ -44,6 +39,7 @@ public class TimeTravelDoor : MonoBehaviour
 
             // workaround for SceneManager.UnloadScene inside triggers
             StartCoroutine(DeferedTimeTravel());
+            coll.GetComponent<CharacterMovement>().TimeTravel();
         }
     }
 

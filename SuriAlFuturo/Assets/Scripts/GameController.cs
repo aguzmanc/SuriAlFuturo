@@ -4,6 +4,7 @@ using System.Collections;
 public class GameController : MonoBehaviour {
     public FollowCamera FollowingCamera;
     public GameObject Suri;
+    public GameObject Chapu;
     public GameObject MovementGizmos;
     public GameObject ControlledCharacter;
     public bool CloseToBlocker;
@@ -18,7 +19,6 @@ public class GameController : MonoBehaviour {
     // tap == pila
     public bool CanUseTap;
 
-    private bool _drivingBoat;
     private bool _canGive;
     private CollectionSystem _collectionSystem;
     private DialogueController _dialogueController;
@@ -30,7 +30,6 @@ public class GameController : MonoBehaviour {
     }
 
     public void SetDrivingBoat (bool value) {
-        _drivingBoat = value;
         if (value) {
             FollowingCamera.EnterWater();
         } else {
