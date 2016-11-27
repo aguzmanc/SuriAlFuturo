@@ -1,0 +1,28 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Mira Enrique, una patineta!!"
+  }, {
+    "Avatar": "Enrique",
+    "Name": "Enrique",
+    "Emotion": "mad",
+    "Text": "ni siquiera tiene ruedas, cómo voy a jugar con eso?!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Es una patineta voladora, no necesita ruedas"
+  }, {
+    "Avatar": "Enrique",
+    "Name": "Enrique",
+    "Emotion": "mad",
+    "Text": "Me estás tomando el pelo? no te creo, además yo quiero una patineta como la de Joaquín."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "Tal vez deberíamos darle esta patineta al Joaquín, él es más listo."
+  }
+] }

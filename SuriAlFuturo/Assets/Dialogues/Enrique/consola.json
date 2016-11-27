@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Deberíamos darle esto a Doña Mónica, así el Enrique va a tener una buena sorpresa en su cumpleaños."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Además, así vamos a poder usar el barquito!"
+  }
+] }

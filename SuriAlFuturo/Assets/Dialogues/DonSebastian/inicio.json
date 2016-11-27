@@ -1,9 +1,5 @@
 { "Dialogues" : [
-  { "Avatar": "Anciano",
-    "Name": "Don Sebastián",
-    "Emotion": "normal",
-    "Text": "Hijita, buen día"
-  }, {
+  {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "happy",
@@ -12,46 +8,31 @@
     "Avatar": "Anciano",
     "Name": "Don Sebastián",
     "Emotion": "normal",
-    "Text": "anoche me he soñado que te estabas viajando vos solita a un lugar muy lejano"
+    "Text": "Suri, buen día hijita! Anoche me he soñado que te viajabas lejos"
   }, {
     "Avatar": "Anciano",
     "Name": "Don Sebastián",
     "Emotion": "normal",
-    "Text": "no sé ni qué tenías que hacer, pero era algo muy importante."
-  }, {
-    "Avatar": "Anciano",
-    "Name": "Don Sebastián",
-    "Emotion": "normal",
-    "Text": "Siento que la Pachamama ha estado llorando. Siento que te vas a ir"
-  }, {
-    "Avatar": "Suri",
-    "Name": "Suri",
-    "Emotion": "surprised",
-    "Text": "Abuelito... estás bien?"
-  }, {
-    "Avatar": "Anciano",
-    "Name": "Don Sebastián",
-    "Emotion": "normal",
-    "Text": "Sí hijita, no te preocupes, pero por algo pasan las cosas, y este sueño no vino así sin motivo."
-  }, {
-    "Avatar": "Anciano",
-    "Name": "Don Sebastián",
-    "Emotion": "normal",
-    "Text": "Dicen que cuando te sueñas con viajes es porque el ajayu del bosque está pidiendo ayuda."
+    "Text": "y tenías que hacer algo muy importante por la Pachamama, que últimamente estuvo llorando mucho."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "sad",
-    "Text": "Pobrecito... me gustaría ayudarlo, pero no sé cómo hacerlo"
+    "Text": "¿Estas bien abuelito?"
   }, {
     "Avatar": "Anciano",
     "Name": "Don Sebastián",
     "Emotion": "normal",
-    "Text": "no te preocupes, clarito la Pachamama te mostrará la forma de que la ayudes."
+    "Text": "Si hijita, no te preocupes mucho por mi, solo que tengo un presentimiento..."
   }, {
     "Avatar": "Anciano",
     "Name": "Don Sebastián",
     "Emotion": "normal",
-    "Text": "Por qué no vas a jugar con el ENRIQUE?"
+    "Text": "auguro cosas muy grandes para ti. La Pachamama es sabia, ella sabrá cómo mostrarte la forma en que la ayudes. "
+  }, {
+    "Avatar": "Anciano",
+    "Name": "Don Sebastián",
+    "Emotion": "normal",
+    "Text": "Mejor ve a jugar con el Enriquito."
   }
 ] }
