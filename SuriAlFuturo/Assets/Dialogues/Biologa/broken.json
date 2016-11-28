@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Qué es eso? se parece a mi maleta verde, pero mucho más vieja y destrozada"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "No deberíamos mostrarle esto a Natalia, vamos a meter a Fernando en problemas."
+  }
+] }

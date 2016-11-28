@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Qué linda maleta! es tuya? yo tengo una igual en mi casa al centro del lago."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Deberíamos darle esto a Fernando, el pobre debe estar muy asustado."
+  }
+] }

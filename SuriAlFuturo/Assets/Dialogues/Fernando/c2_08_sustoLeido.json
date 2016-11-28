@@ -1,0 +1,18 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Fernando",
+    "Name": "Fernando",
+    "Emotion": "scared",
+    "Text": "Las cosas de la señorita Natalia se cayeron al fondo del lago!"
+  }, {
+    "Avatar": "Fernando",
+    "Name": "Fernando",
+    "Emotion": "scared",
+    "Text": "Si tan solo hubiera MENOS AGUA, podría recuperarlas."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Deberíamos viajar al futuro para recuperar las cosas de la señorita Natalia"
+  }
+] }

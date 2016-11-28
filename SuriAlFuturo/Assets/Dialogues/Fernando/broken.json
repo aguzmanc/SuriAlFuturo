@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Fernando",
+    "Name": "Fernando",
+    "Emotion": "scared",
+    "Text": "Las cosas de la señorita Natalia están todas rotas!! se va a enojar mucho"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "Tal vez RN-570, el robot, pueda arreglarlas..."
+  }
+] }

@@ -19,6 +19,9 @@ public class Collectable : MonoBehaviour {
         camara,
         motor_ionico,
         rueda,
+        prueba,
+        maleta_verde_arruinada,
+        maleta_verde_arreglada,
 
         NONE
     };

@@ -1,4 +1,5 @@
 public enum Event {
     AbuelitoEncontrado,
-    Test
+    Test,
+    HabladoConNatalia
 }

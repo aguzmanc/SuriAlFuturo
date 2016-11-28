@@ -1,0 +1,28 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Mira! logramos recuperar las cosas de la señorita Natalia!"
+  }, {
+    "Avatar": "Fernando",
+    "Name": "Fernando",
+    "Emotion": "happy",
+    "Text": "En serio?! cómo lo hiciste?!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "En el futuro el lago se va a secar porque no cuidamos el agua"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "mira! haz dejado una pila abierta detrás de tí"
+  }, {
+    "Avatar": "Fernando",
+    "Name": "Fernando",
+    "Emotion": "happy",
+    "Text": "Tienes razón. Suri, me ayudas a cerrarla? prometo cuidar el agua de ahora en adelante"
+  }
+] }

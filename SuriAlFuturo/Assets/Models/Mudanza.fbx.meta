@@ -1,0 +1,323 @@
+fileFormatVersion: 2
+guid: cc82a74647e7cb94490240b6457c3a7c
+timeCreated: 1480364485
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Arm1_L
+    100002: Arm1_R
+    100004: Arm2_L
+    100006: Arm2_L_end
+    100008: Arm2_R
+    100010: Arm2_R_end
+    100012: Armature
+    100014: Bone
+    100016: Bone.001
+    100018: Bone.001_end
+    100020: Bone.002
+    100022: Bone_L
+    100024: Bone_L.001
+    100026: Bone_L.002
+    100028: Bone_L.003
+    100030: Bone_L.003_end
+    100032: Bone_R
+    100034: Bone_R.001
+    100036: Bone_R.002
+    100038: Bone_R.003
+    100040: Bone_R.003_end
+    100042: IK_Leg_L
+    100044: IK_Leg_L_end
+    100046: IK_Leg_R
+    100048: IK_Leg_R_end
+    100050: Knee_L
+    100052: Knee_L_end
+    100054: Knee_R
+    100056: Knee_R_end
+    100058: //RootNode
+    100060: Sphere
+    400000: Arm1_L
+    400002: Arm1_R
+    400004: Arm2_L
+    400006: Arm2_L_end
+    400008: Arm2_R
+    400010: Arm2_R_end
+    400012: Armature
+    400014: Bone
+    400016: Bone.001
+    400018: Bone.001_end
+    400020: Bone.002
+    400022: Bone_L
+    400024: Bone_L.001
+    400026: Bone_L.002
+    400028: Bone_L.003
+    400030: Bone_L.003_end
+    400032: Bone_R
+    400034: Bone_R.001
+    400036: Bone_R.002
+    400038: Bone_R.003
+    400040: Bone_R.003_end
+    400042: IK_Leg_L
+    400044: IK_Leg_L_end
+    400046: IK_Leg_R
+    400048: IK_Leg_R_end
+    400050: Knee_L
+    400052: Knee_L_end
+    400054: Knee_R
+    400056: Knee_R_end
+    400058: //RootNode
+    400060: Sphere
+    4300000: Sphere
+    7400000: Walk
+    7400002: Armature|x
+    7400004: Armature|xxxxxx
+    7400006: Sphere|Walk
+    7400008: Sphere|x
+    7400010: Sphere|xxxxxx
+    7400012: Breathe
+    9500000: //RootNode
+    13700000: Sphere
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Breathe
+      takeName: Armature|Breathe
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Bone.002
+        weight: 1
+      - path: Armature/Bone/Bone.002/Arm1_L
+        weight: 1
+      - path: Armature/Bone/Bone.002/Arm1_L/Arm2_L
+        weight: 1
+      - path: Armature/Bone/Bone.002/Arm1_L/Arm2_L/Arm2_L_end
+        weight: 1
+      - path: Armature/Bone/Bone.002/Arm1_R
+        weight: 1
+      - path: Armature/Bone/Bone.002/Arm1_R/Arm2_R
+        weight: 1
+      - path: Armature/Bone/Bone.002/Arm1_R/Arm2_R/Arm2_R_end
+        weight: 1
+      - path: Armature/Bone/Bone.002/Bone.001
+        weight: 1
+      - path: Armature/Bone/Bone.002/Bone.001/Bone.001_end
+        weight: 1
+      - path: Armature/Bone/Bone_L
+        weight: 1
+      - path: Armature/Bone/Bone_L/Bone_L.001
+        weight: 1
+      - path: Armature/Bone/Bone_L/Bone_L.001/Bone_L.002
+        weight: 1
+      - path: Armature/Bone/Bone_L/Bone_L.001/Bone_L.002/Bone_L.003
+        weight: 1
+      - path: Armature/Bone/Bone_L/Bone_L.001/Bone_L.002/Bone_L.003/Bone_L.003_end
+        weight: 1
+      - path: Armature/Bone/Bone_R
+        weight: 1
+      - path: Armature/Bone/Bone_R/Bone_R.001
+        weight: 1
+      - path: Armature/Bone/Bone_R/Bone_R.001/Bone_R.002
+        weight: 1
+      - path: Armature/Bone/Bone_R/Bone_R.001/Bone_R.002/Bone_R.003
+        weight: 1
+      - path: Armature/Bone/Bone_R/Bone_R.001/Bone_R.002/Bone_R.003/Bone_R.003_end
+        weight: 1
+      - path: Armature/IK_Leg_L
+        weight: 1
+      - path: Armature/IK_Leg_L/IK_Leg_L_end
+        weight: 1
+      - path: Armature/IK_Leg_R
+        weight: 1
+      - path: Armature/IK_Leg_R/IK_Leg_R_end
+        weight: 1
+      - path: Armature/Knee_L
+        weight: 1
+      - path: Armature/Knee_L/Knee_L_end
+        weight: 1
+      - path: Armature/Knee_R
+        weight: 1
+      - path: Armature/Knee_R/Knee_R_end
+        weight: 1
+      - path: Sphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: Armature|Walk
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Bone.002
+        weight: 1
+      - path: Armature/Bone/Bone.002/Arm1_L
+        weight: 1
+      - path: Armature/Bone/Bone.002/Arm1_L/Arm2_L
+        weight: 1
+      - path: Armature/Bone/Bone.002/Arm1_L/Arm2_L/Arm2_L_end
+        weight: 1
+      - path: Armature/Bone/Bone.002/Arm1_R
+        weight: 1
+      - path: Armature/Bone/Bone.002/Arm1_R/Arm2_R
+        weight: 1
+      - path: Armature/Bone/Bone.002/Arm1_R/Arm2_R/Arm2_R_end
+        weight: 1
+      - path: Armature/Bone/Bone.002/Bone.001
+        weight: 1
+      - path: Armature/Bone/Bone.002/Bone.001/Bone.001_end
+        weight: 1
+      - path: Armature/Bone/Bone_L
+        weight: 1
+      - path: Armature/Bone/Bone_L/Bone_L.001
+        weight: 1
+      - path: Armature/Bone/Bone_L/Bone_L.001/Bone_L.002
+        weight: 1
+      - path: Armature/Bone/Bone_L/Bone_L.001/Bone_L.002/Bone_L.003
+        weight: 1
+      - path: Armature/Bone/Bone_L/Bone_L.001/Bone_L.002/Bone_L.003/Bone_L.003_end
+        weight: 1
+      - path: Armature/Bone/Bone_R
+        weight: 1
+      - path: Armature/Bone/Bone_R/Bone_R.001
+        weight: 1
+      - path: Armature/Bone/Bone_R/Bone_R.001/Bone_R.002
+        weight: 1
+      - path: Armature/Bone/Bone_R/Bone_R.001/Bone_R.002/Bone_R.003
+        weight: 1
+      - path: Armature/Bone/Bone_R/Bone_R.001/Bone_R.002/Bone_R.003/Bone_R.003_end
+        weight: 1
+      - path: Armature/IK_Leg_L
+        weight: 1
+      - path: Armature/IK_Leg_L/IK_Leg_L_end
+        weight: 1
+      - path: Armature/IK_Leg_R
+        weight: 1
+      - path: Armature/IK_Leg_R/IK_Leg_R_end
+        weight: 1
+      - path: Armature/Knee_L
+        weight: 1
+      - path: Armature/Knee_L/Knee_L_end
+        weight: 1
+      - path: Armature/Knee_R
+        weight: 1
+      - path: Armature/Knee_R/Knee_R_end
+        weight: 1
+      - path: Sphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
