@@ -1,0 +1,23 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Joaquin",
+    "Name": "Joaquin",
+    "Emotion": "happy",
+    "Text": "Wooooow!! esa patineta está mejor que la mía. No tiene ruedas... es porque flota, verdad?"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Te la doy a cambio de tu vieja patineta. Me siento mas segura con las ruedas que flotando."
+  }, {
+    "Avatar": "Joaquin",
+    "Name": "Joaquin",
+    "Emotion": "happy",
+    "Text": "¿En serio? Acepto! Toma!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Gracias!"
+  }
+] }

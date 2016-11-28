@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "James",
+    "Name": "James",
+    "Emotion": "happy",
+    "Text": "Ya probaste la CÁMARA ANTIGUA? puede tomar fotos desde muy lejos"
+  }, {
+    "Avatar": "James",
+    "Name": "James",
+    "Emotion": "happy",
+    "Text": "Pero nunca aprendí a enfocar bien."
+  }
+] }

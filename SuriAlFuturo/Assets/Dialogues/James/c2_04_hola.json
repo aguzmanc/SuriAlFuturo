@@ -1,0 +1,38 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "James",
+    "Name": "James",
+    "Emotion": "happy",
+    "Text": "Jelouuu niñita!!  Que dia más bounito, ¿no?  Yo vengo desde lejano país a este lago tan bonitou.."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Veo que le gusta tomar muchas fotos de nuestro lago."
+  }, {
+    "Avatar": "James",
+    "Name": "James",
+    "Emotion": "happy",
+    "Text": "Sii.. pero soy muy mal fotografou."
+  }, {
+    "Avatar": "James",
+    "Name": "James",
+    "Emotion": "happy",
+    "Text": "Si tuviera una cámara que me diga como tomar mejores fotos, sería muy feliz. "
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Algún día inventarán algo así. Mientras disfrute el aire fresco del campo. "
+  }, {
+    "Avatar": "James",
+    "Name": "James",
+    "Emotion": "happy",
+    "Text": "bye bye niñitaaaa!"
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "happy",
+    "Text": "Whoorrff!!"
+  }
+] }
