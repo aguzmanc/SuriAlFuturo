@@ -1,8 +1,43 @@
 { "Dialogues": [
   {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Mira Enrique, una patineta flotante, la quieres?"
+  }, {
     "Avatar": "Kid",
     "Name": "Enrique",
     "Emotion": "happy",
-    "Text": "Gracias!"
+    "Text": "Sí! dame, dame, dame!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Está bien, pero prométeme que vas a jugar con Joaquín un día de estos."
+  }, {
+    "Avatar": "Kid",
+    "Name": "Enrique",
+    "Emotion": "mad",
+    "Text": "mmh... está bien, lo prometo, ya dámela!!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Está bien, aquí tienes... en serio deberías cerrar esa pila, le haces daño al medio ambiente."
+  }, {
+    "Avatar": "Kid",
+    "Name": "Enrique",
+    "Emotion": "laugh",
+    "Text": "'el medio ambiente'... si tanto te importa el medio ambiente, por qué no la cierras tú?!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "Este chiquito nunca va a aprender. Mejor cerremos la pila nosotros Chapu."
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "sad",
+    "Text": "aaawwwww"
   }
 ] }
