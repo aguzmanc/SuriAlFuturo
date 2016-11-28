@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "James",
+    "Name": "James",
+    "Emotion": "happy",
+    "Text": "Si tan solo tener una CÁMARA más INTELIGENTE."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Tranquilo, ya la inventarán, mientras tanto, practique nomás con esa CÁMARA ANTIGUA!"
+  }
+] }

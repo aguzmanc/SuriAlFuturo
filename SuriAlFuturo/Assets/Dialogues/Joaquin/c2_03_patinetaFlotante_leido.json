@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Joaquin",
+    "Name": "Joaquin",
+    "Emotion": "happy",
+    "Text": "Gracias Suri! Qué haras con la patineta vieja?"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Debería prestársela a Enrique, seguro se pondría feliz."
+  }
+] }

@@ -1,0 +1,33 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Mire, le tengo una sorpresa. Una cámara que le ayuda a ser el fotógrafo perfecto!"
+  }, {
+    "Avatar": "YDroid",
+    "Name": "YDroid",
+    "Emotion": "normal",
+    "Text": "Analizando entorno. Sugerencia: tomar foto del árbol a la izquierda con ángulo focal de 45 mm."
+  }, {
+    "Avatar": "James",
+    "Name": "James",
+    "Emotion": "happy",
+    "Text": "Déjame probar... Click...... whoooow!.. esta foto es increíble. "
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Se la regalo, la encontre tirada por ahí, jeje."
+  }, {
+    "Avatar": "James",
+    "Name": "James",
+    "Emotion": "happy",
+    "Text": "very much gracias, quieres mi CÁMARA ANTIGUA?, creo que no la necesitaré más."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Gracias, seguro encontraré un uso muy bueno para ella."
+  }
+] }
