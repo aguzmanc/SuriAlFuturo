@@ -17,6 +17,8 @@ public class Collectable : MonoBehaviour {
         tmt,
         ydroid,
         camara,
+        motor_ionico,
+        rueda,
 
         NONE
     };
