@@ -60,7 +60,7 @@
      inkscape:cx="375"
      inkscape:cy="520"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g49946"
      showgrid="false"
      inkscape:window-width="1366"
      inkscape:window-height="715"
@@ -407,11 +407,11 @@
     <image
        sodipodi:absref="C:\Users\vg\SuriAlFuturo\ART\Models\Kid\Kid-UV.png"
        xlink:href="Kid-UV.png"
-       width="1280"
-       height="1280"
-       preserveAspectRatio="none"
-       id="image49248"
+       y="-366.88062"
        x="-623.20038"
-       y="-366.88062" />
+       id="image49248"
+       preserveAspectRatio="none"
+       height="1280"
+       width="1280" />
   </g>
 </svg>

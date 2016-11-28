@@ -1,0 +1,28 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Kid",
+    "Name": "Enrique",
+    "Emotion": "mad",
+    "Text": "Este... Suri... gracias por la patineta"
+  }, {
+    "Avatar": "Kid",
+    "Name": "Enrique",
+    "Emotion": "sad",
+    "Text": "Vi que apagaste la pila, creí que solo me estabas molestando, pero de verdad te preocupa el medio ambiente."
+  }, {
+    "Avatar": "Kid",
+    "Name": "Enrique",
+    "Emotion": "sad",
+    "Text": "De ahora en adelante, voy a cuidar más el agua... este... perdón... por hablarte así."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Esta bien Enrique, te perdono, pero debes prometer tratar mejor a tu mamá."
+  }, {
+    "Avatar": "Kid",
+    "Name": "Enrique",
+    "Emotion": "happy",
+    "Text": "Lo prometo!"
+  }
+] }

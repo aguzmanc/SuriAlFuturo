@@ -1,0 +1,28 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Qué es esto?"
+  }, {
+    "Avatar": "ydroid",
+    "Name": "ydroid",
+    "Emotion": "normal",
+    "Text": "Modelo yDroid de mensajería y telefonía, funciones al 60 por ciento"
+  }, {
+    "Avatar": "ydroid",
+    "Name": "ydroid",
+    "Emotion": "normal",
+    "Text": "Sistema de reconocimiento de paisajes y toma de ángulos óptimos habilitado."
+  }, {
+    "Avatar": "ydroid",
+    "Name": "ydroid",
+    "Emotion": "normal",
+    "Text": "Tome fotos, yo le digo cómo convertirse en un fotógrafo profesional... BIP!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Excelente! a James le va a gustar esto."
+  }
+] }

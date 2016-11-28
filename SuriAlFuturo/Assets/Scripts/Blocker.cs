@@ -19,6 +19,7 @@ public class Blocker : MonoBehaviour {
     private CollectionSystem _controller;
     private GameController _gameController;
 
+    private int _receibedDialogueIndex;
     private bool _canTake;
     private NavMeshObstacle _navMeshObstacle;
     private NavMeshAgent _navMeshAgent;
@@ -70,7 +71,8 @@ public class Blocker : MonoBehaviour {
         }
 
         if (false == IsUnblocked &&
-            TheTalkable.WasRead && AreRequirementsMet()) {
+            AreRequirementsMet() &&
+            TheTalkable.WasDialogueIndexRead(_receibedDialogueIndex)) {
             Unblock();
         }
 
@@ -116,7 +118,8 @@ public class Blocker : MonoBehaviour {
         int i = _IndexOfRequirement(requirement);
 
         if (i >= 0) {
-            TheTalkable.SetDialogueIndex(UnmetRequirements[i].IndexOfDialogue);
+            _receibedDialogueIndex = UnmetRequirements[i].IndexOfDialogue;
+            TheTalkable.SetDialogueIndex(_receibedDialogueIndex);
             _controller.RegisterAsGiven(requirement);
             UnmetRequirements.RemoveAt(i);
             TheTalkable.IsForcedToTalk = true;
