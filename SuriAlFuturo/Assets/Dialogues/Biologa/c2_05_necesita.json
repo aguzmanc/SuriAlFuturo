@@ -3,7 +3,7 @@
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "happy",
-    "Text": "Hola!"
+    "Text": "Hola! Usted no es de aquí, o sí?"
   }, {
     "Avatar": "Natalia",
     "Name": "Natalia",
@@ -33,11 +33,21 @@
     "Avatar": "Natalia",
     "Name": "Natalia",
     "Emotion": "happy",
-    "Text": "Tal vez... Puedo pedirte un favor? puedes ir a mi casa en el CENTRO DEL LAGO?"
+    "Text": "Tal vez... eso sería muy útil, así yo podría enfocarme en hacer cálculos para predecir el futuro..."
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Pareces una niña muy lista, puedo pedirte un favor? puedes ir a mi casa en el CENTRO DEL LAGO?"
   }, {
     "Avatar": "Natalia",
     "Name": "Natalia",
     "Emotion": "happy",
     "Text": "Dile a FERNANDO que la maleta verde tiene instrumentos de vidrio, y que la trate con cuidado."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "En seguida!!"
   }
 ] }

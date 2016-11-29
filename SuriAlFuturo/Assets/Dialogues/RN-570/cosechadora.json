@@ -1,0 +1,23 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Haz conseguido muchas cosas!"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Con esas cuatro ruedas, el motor, y esa rueda cosechadora"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Puedo construir una COSECHADORA AUTOMÁTICA que funciona con ENERGÍA LIMPIA!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Creo que a Andrés, el granjero, le podría servir mucho este vehículo."
+  }
+] }
