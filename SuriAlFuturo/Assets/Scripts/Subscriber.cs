@@ -8,6 +8,7 @@ public class Subscriber : MonoBehaviour {
     public Event EventSubscribed;
     public bool Triggered = false;
 
+    public bool DisappearsOnTrigger = false;
     public bool GetsUnblocked;
     public Blocker TheBlocker;
     public int DialogueIndex;
@@ -45,7 +46,12 @@ public class Subscriber : MonoBehaviour {
         if (TheTalkable != null) {
             TheTalkable.TriggerDialogue(DialogueIndex);
         }
+
         this.enabled = false;
+
+        if (DisappearsOnTrigger) {
+            this.gameObject.SetActive(false);
+        }
     }
 
     public PersistedSubscriber GetPersistedObject () {
