@@ -22,6 +22,16 @@ public class Collectable : MonoBehaviour {
         prueba,
         maleta_verde_arruinada,
         maleta_verde_arreglada,
+        dron,
+        rueda1,
+        rueda2,
+        rueda3,
+        rueda4,
+        motor,
+        energia,
+        pala,
+        cosechadora,
+        dron_completo,
 
         NONE
     };
