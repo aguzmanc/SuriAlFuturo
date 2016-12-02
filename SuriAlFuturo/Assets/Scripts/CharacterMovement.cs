@@ -11,6 +11,7 @@ public class CharacterMovement : MonoBehaviour
     public float CurrentSpeedPercent;
     public Vector3 Direction;
 
+    private bool _isInteracting;
     private GameObject _gizmos;
     private Animator _gizmosAnimator;
     private NavMeshAgent _navMeshAgent;
@@ -27,6 +28,7 @@ public class CharacterMovement : MonoBehaviour
         _navMeshAgent = GetComponent<NavMeshAgent> ();
         _animator = GetComponent<Animator>();
         _navMeshAgent.speed = Speed;
+        _isInteracting = false;
 
         _controller = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController).
             GetComponent<GameController>();
@@ -81,14 +83,26 @@ public class CharacterMovement : MonoBehaviour
                                     Mathf.Max( Mathf.Abs(Input.GetAxis("Vertical")),
                                              Mathf.Abs(Input.GetAxis("Horizontal")) ));
             }
-        } else if (Interacted() && !_IsInteractionBlocked()) { // touch control!
-            Vector3 destination = GetInteractionDestination();
-            _gizmos.transform.position = destination;
-            _gizmos.SetActive(true);
-            _gizmosAnimator.SetTrigger("Born");
-            if(_navMeshAgent.isActiveAndEnabled){
-                _navMeshAgent.Resume();
-                _navMeshAgent.SetDestination(destination);
+        } else if (false == _IsInteractionBlocked()) {
+            if(StartInteracting()){
+                _gizmosAnimator.SetTrigger("Born");
+            }
+
+            if(_isInteracting) {
+                Vector3 destination;
+
+                if(GetInteractionDestination(out destination)) {
+                    _gizmos.transform.position = destination;
+                    _gizmos.SetActive(true);
+                    if(_navMeshAgent.isActiveAndEnabled){
+                        _navMeshAgent.Resume();
+                        _navMeshAgent.SetDestination(destination);
+                    }
+                }
+            }
+
+            if(StopInteracting()) {
+                _gizmosAnimator.SetTrigger("Die");
             }
         }
     }
@@ -117,48 +131,67 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    public void UpdateTapDetector () {
-        _tapped = false;
 
-        for (int i=0; i < Input.touchCount; i++) {
-            if (Input.GetTouch(i).phase == TouchPhase.Began) {
-                _tap = Input.GetTouch(i);
-                _tapped = true;
-            }
-        }
+
+    public void UpdateTapDetector () 
+    {
+        _tapped = (Input.touchCount > 0);
+        if(_tapped){
+            _tap = Input.GetTouch(0);
+        } 
     }
 
-    public Vector2 GetInteractionPosition () {
-        if (Input.GetMouseButtonDown(0)) {
-            return Input.mousePosition;
+
+
+    public bool GetInteractionPosition (out Vector2 pos) 
+    {
+        pos = new Vector2();
+
+        if (Input.GetMouseButton(0)) {
+            pos = Input.mousePosition;
+            return true;
         }
 
         if (_tapped) {
-            return _tap.position;
+            pos = _tap.position;
+            return true;
         }
 
-        return new Vector2(Mathf.NegativeInfinity, Mathf.NegativeInfinity);
+        return false;
     }
 
-    public Vector3 GetInteractionDestination () {
-        Vector3 destination = new Vector3(Mathf.NegativeInfinity,
-                                          Mathf.NegativeInfinity,
-                                          Mathf.NegativeInfinity);;
 
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(GetInteractionPosition());
-        _floors = GameObject.FindGameObjectsWithTag(Tag.Floor);
 
-        foreach (GameObject floor in _floors) {
-            if (floor.GetComponent<Collider>().Raycast(ray, out hit, 200)) {
-                if (hit.point.y > destination.y) {
-                    destination = hit.point;
+    public bool GetInteractionDestination (out Vector3 destination) 
+    {
+        destination = new Vector3(Mathf.NegativeInfinity,
+                                  Mathf.NegativeInfinity,
+                                  Mathf.NegativeInfinity);
+
+        Vector2 pos2d;
+
+        if(GetInteractionPosition(out pos2d)) {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(pos2d);
+            _floors = GameObject.FindGameObjectsWithTag(Tag.Floor);
+
+            bool found = false;
+            foreach (GameObject floor in _floors) {
+                if (floor.GetComponent<Collider>().Raycast(ray, out hit, 200)) {
+                    if (hit.point.y > destination.y) {
+                        destination = hit.point;
+                        found = true;
+                    }
                 }
             }
-        }
 
-        return destination;
+            return found;
+        } 
+
+        return false;
     }
+
+
 
     // Temporal disable Nav Mesh while scene change is made
     public void TimeTravel() 
@@ -166,14 +199,61 @@ public class CharacterMovement : MonoBehaviour
         StartCoroutine(TemporalDisableNavMesh());
     }
 
-    private bool Interacted () {
-        return _tapped || Input.GetMouseButtonDown(0);
+
+
+    private bool StartInteracting () 
+    {
+        if(false == _isInteracting)
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                _isInteracting = true;
+                return true;
+            }
+
+            if(_tapped) {
+                if(_tap.phase == TouchPhase.Began) {
+                    _isInteracting = true;    
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
-    private bool _IsInteractionBlocked () {
+
+
+    private bool StopInteracting() 
+    {
+        if(_isInteracting)
+        {
+            if(Input.GetMouseButtonUp(0))
+            {
+                _isInteracting = false;
+                return true;
+            }
+
+            if(_tapped) {
+                if(_tap.phase == TouchPhase.Ended) {
+                    _isInteracting = false;
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+
+
+    private bool _IsInteractionBlocked () 
+    {
         return (_eventSystem.IsPointerOverGameObject() ||
                 (_tapped && _eventSystem.IsPointerOverGameObject(_tap.fingerId)));
     }
+
+
 
     private IEnumerator TemporalDisableNavMesh()
     {
