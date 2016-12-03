@@ -10,6 +10,7 @@ public class Blocker : MonoBehaviour {
     public bool IsUnblocked;
     public bool WasForcedToUnblock = false;
     public List<Requirement> UnmetRequirements = new List<Requirement>();
+    public WaterTap ImprovesFuturePatch;
 
     public GameObject UnblockedPosition;
     public GameObject Model;
@@ -101,6 +102,10 @@ public class Blocker : MonoBehaviour {
         _navMeshObstacle.enabled = false;
         _navMeshAgent.enabled = true;
         _navMeshAgent.SetDestination(UnblockedPosition.transform.position);
+
+        if (ImprovesFuturePatch != null) {
+            ImprovesFuturePatch.ToggleFountain(false);
+        }
     }
 
     public void ForcedUnblock () {

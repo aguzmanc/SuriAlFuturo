@@ -1,0 +1,38 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Andres",
+    "Name": "Andres",
+    "Emotion": "happy",
+    "Text": "Suri!! Cómo haces para cargar ese enorme carro? Qué es? de dónde lo sacaste?"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "En realidad es muy liviano. Es un cosechador del futuro. RN-570 dice que es ecológico"
+  }, {
+    "Avatar": "Andres",
+    "Name": "Andres",
+    "Emotion": "happy",
+    "Text": "Ecológico? o sea que no daña al medio ambiente... déjame darle un vistazo..."
+  }, {
+    "Avatar": "Cosechadora",
+    "Name": "Cosechadora",
+    "Emotion": "motor-speaking",
+    "Text": "bbbrrrrrummmm!!!"
+  }, {
+    "Avatar": "Andres",
+    "Name": "Andres",
+    "Emotion": "happy",
+    "Text": "Funciona! increíble. Si me lo dejas unos meses, puedo crear uno parecido usando ingeniería inversa."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Claro! puedes quedártelo, pero debes prometer que cuando lo logres, liberarás los planos de construcción en el internet."
+  }, {
+    "Avatar": "Andres",
+    "Name": "Andres",
+    "Emotion": "happy",
+    "Text": "Eso haré Suri, lo prometo!"
+  }
+] }
