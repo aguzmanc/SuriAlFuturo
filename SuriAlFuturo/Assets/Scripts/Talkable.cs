@@ -27,6 +27,13 @@ public class Talkable : MonoBehaviour {
     private Dialogue[]  _digestedDialogue;
     private MobileUI _mobileUI;
 
+
+    void Awake()
+    {
+        
+    }
+
+
     void Start () {
         PersistenceKey = this.transform.position;
 

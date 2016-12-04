@@ -72,13 +72,16 @@ public class PersistenceController : MonoBehaviour
         PersistenceController persistenceCtrl = gc.GetComponent<PersistenceController>();
         CollectionSystem collectionSystem = gc.GetComponent<CollectionSystem>();
         TapController tapCtrl = gc.GetComponent<TapController>();
+        TimeTravelController timeTravelCtrl = gc.GetComponent<TimeTravelController>();
 
         SavedGame savedGame     = new SavedGame();
-        savedGame.Talkables     = dialogCtrl.SavedTalkableStates;
-        savedGame.GameObjects   = persistenceCtrl.SavedGameObjects;
-        savedGame.Collectables  = collectionSystem.SavedCollectables;
-        savedGame.Blockers      = collectionSystem.SavedBlockers;
-        savedGame.Taps          = tapCtrl.SavedTaps;
+        savedGame.Talkables         = dialogCtrl.SavedTalkableStates;
+        savedGame.GameObjects       = persistenceCtrl.SavedGameObjects;
+        savedGame.Collectables      = collectionSystem.SavedCollectables;
+        savedGame.Blockers          = collectionSystem.SavedBlockers;
+        savedGame.Inventory         = collectionSystem.Inventory;
+        savedGame.Taps              = tapCtrl.SavedTaps;
+        savedGame.CurrentReality    = timeTravelCtrl.CurrentReality;
 
         bf.Serialize(file, savedGame);
         file.Close();
@@ -95,6 +98,7 @@ public class PersistenceController : MonoBehaviour
         PersistenceController persistenceCtrl = gc.GetComponent<PersistenceController>();
         CollectionSystem collectionSystem = gc.GetComponent<CollectionSystem>();
         TapController tapCtrl = gc.GetComponent<TapController>();
+        TimeTravelController timeTravelCtrl = gc.GetComponent<TimeTravelController>();
 
         if(File.Exists(nombreArch)){
             BinaryFormatter bf = new BinaryFormatter();
@@ -104,12 +108,13 @@ public class PersistenceController : MonoBehaviour
 
             file.Close();
 
-            dialogCtrl.SavedTalkableStates = savedGame.Talkables;
-            persistenceCtrl.SavedGameObjects = savedGame.GameObjects;
-            collectionSystem.SavedCollectables = savedGame.Collectables;
-            collectionSystem.SavedBlockers = savedGame.Blockers;
-            tapCtrl.SavedTaps = savedGame.Taps;
-
+            dialogCtrl.SavedTalkableStates      = savedGame.Talkables;
+            persistenceCtrl.SavedGameObjects    = savedGame.GameObjects;
+            collectionSystem.SavedCollectables  = savedGame.Collectables;
+            collectionSystem.SavedBlockers      = savedGame.Blockers;
+            collectionSystem.Inventory          = savedGame.Inventory;
+            tapCtrl.SavedTaps                   = savedGame.Taps;
+            timeTravelCtrl.CurrentReality       = savedGame.CurrentReality;
         } else  {
             SaveDataToDisk();
         }
@@ -127,6 +132,8 @@ public class SavedGame
     private Dictionary<Vector3Serializable, bool> _taps;
 
 
+    public List<Collectable.Tag> Inventory;
+    public string CurrentReality;
 
 
     public Dictionary<Vector3, PersistedTalkable> Talkables
