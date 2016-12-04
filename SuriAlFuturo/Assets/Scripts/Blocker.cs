@@ -12,6 +12,7 @@ public class Blocker : MonoBehaviour {
     public List<Requirement> UnmetRequirements = new List<Requirement>();
     public WaterTap ImprovesFuturePatch;
     public GameObject EnablesGameObject;
+    public GameObject DisablesGameObject;
 
     public GameObject UnblockedPosition;
     public GameObject Model;
@@ -110,6 +111,10 @@ public class Blocker : MonoBehaviour {
 
         if (EnablesGameObject != null) {
             EnablesGameObject.SetActive(true);
+        }
+
+        if (DisablesGameObject != null) {
+            DisablesGameObject.SetActive(false);
         }
     }
 

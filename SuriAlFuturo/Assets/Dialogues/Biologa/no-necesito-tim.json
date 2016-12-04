@@ -1,0 +1,38 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Mira Natalia! encontré un robot, creo que te podría servir."
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Qué lindo juguete, qué es lo que hace?"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Tim, demuéstrale! cuántos árboles hay al rededor del lago?"
+  }, {
+    "Avatar": "Tim",
+    "Name": "Tim",
+    "Emotion": "normal",
+    "Text": "Rango de visión: 1 metro. Árboles detectados en las cercanías: 0"
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Wow! habla? qué interesante. Tráelo esta noche a mi casa, y jugaremos con él juntas, pero por ahora, debo seguir trabajando."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "No es un juguete. Mi abuelito no puede estar atrapado en el futuro hasta la noche."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Tal vez si sus ojos pudieran ver MÁS LEJOS... Podríamos ponerlo en ALGO QUE VUELE, y demostrarle a Natalia que no es un juguete."
+  }
+] }

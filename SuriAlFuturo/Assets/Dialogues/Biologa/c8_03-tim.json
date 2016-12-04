@@ -1,0 +1,38 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Suri! Qué lindo drone, qué es lo que hace?"
+  }, {
+    "Avatar": "Tim",
+    "Name": "Tim",
+    "Emotion": "normal",
+    "Text": "Árboles encontrados: 327. Habitantes humanos: 23. Habitantes caninos: 7. Habitantes felinos: 5. Peces: 432 con 25 especies distintas..."
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Espera, espera... Cómo puedes hacer todo eso?"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Tim es muy confiable! puede contar lo que sea, le pusimos alas y una cámara."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Úsalo, sé que tu le darás un mejor uso que yo."
+  }, {
+    "Avatar": "Tim",
+    "Name": "Tim",
+    "Emotion": "happy",
+    "Text": "Terminando de procesar datos. Inminente desastre ecológico en 80 años, aproximadamente."
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "sad",
+    "Text": "Justo como sospechaba. Debo comunicar a las autoridades para que salven el lago."
+  }
+] }

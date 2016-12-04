@@ -1,0 +1,28 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Qué lindo drone! si tan solo fuera más pequeña y menos pesada, podría subirme en él"
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "y contar con más facilidad cuántos árboles hay en el lago"
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "sad",
+    "Text": "pero esos aparatos pueden alzar solo como 8 Kg, tampoco tengo ninguna cámara como para poder ponérsela"
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Gracias Suri, pero deberías quedártelo, no lo necesito. Omar, el ingeniero, va a llegar mañana, él seguro tiene uno."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "No podemos esperar tanto, el abuelito se va a aburrir. Tal vez Natalia necesite una máquina MÁS SOFISTICADA."
+  }
+] }
