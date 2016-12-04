@@ -16,11 +16,7 @@ public class PersistenceController : MonoBehaviour
     public Dictionary<Vector3, PersistedGameObject> SavedGameObjects =
         new Dictionary<Vector3, PersistedGameObject>();
 
-
-    public static string FileName = "ReachedChapter.dat";
-
-    public static int ReachedChapter;
-
+    public static string FileName = "SavedGame.dat";
 
     void Awake()
     {   
@@ -50,15 +46,41 @@ public class PersistenceController : MonoBehaviour
 
 
 
-    public static void SaveDataToDisk() 
+    /* // Activate when debugging
+    void OnGUI()
+    {
+        if(GUI.Button(new Rect(100,100, 300,100), "GUARDAR DATOS")) {
+            SaveDataToDisk();
+        }
+
+
+        if(GUI.Button(new Rect(100,200, 300,100), "CARGAR DATOS")) {
+            _LoadDataFromDisk();
+        }
+    }
+    */
+
+
+
+    public static void SaveDataToDisk ( )
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/" + FileName);
 
-        PersistentChapter chapter = new PersistentChapter();
-        chapter.ChapterNumber = ReachedChapter;
+        GameObject gc = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController);
+        DialogueController dialogCtrl = gc.GetComponent<DialogueController>();
+        PersistenceController persistenceCtrl = gc.GetComponent<PersistenceController>();
+        CollectionSystem collectionSystem = gc.GetComponent<CollectionSystem>();
+        TapController tapCtrl = gc.GetComponent<TapController>();
 
-        bf.Serialize(file, chapter);
+        SavedGame savedGame     = new SavedGame();
+        savedGame.Talkables     = dialogCtrl.SavedTalkableStates;
+        savedGame.GameObjects   = persistenceCtrl.SavedGameObjects;
+        savedGame.Collectables  = collectionSystem.SavedCollectables;
+        savedGame.Blockers      = collectionSystem.SavedBlockers;
+        savedGame.Taps          = tapCtrl.SavedTaps;
+
+        bf.Serialize(file, savedGame);
         file.Close();
     }
 
@@ -68,18 +90,238 @@ public class PersistenceController : MonoBehaviour
     {
         string nombreArch = Application.persistentDataPath + "/" + FileName;
 
+        GameObject gc = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController);
+        DialogueController dialogCtrl = gc.GetComponent<DialogueController>();
+        PersistenceController persistenceCtrl = gc.GetComponent<PersistenceController>();
+        CollectionSystem collectionSystem = gc.GetComponent<CollectionSystem>();
+        TapController tapCtrl = gc.GetComponent<TapController>();
+
         if(File.Exists(nombreArch)){
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(nombreArch, FileMode.Open);
+            FileStream file = File.Open(nombreArch, FileMode.Open)  ;
 
-            PersistentChapter chapter = (PersistentChapter)bf.Deserialize(file);
+            SavedGame savedGame = (SavedGame)bf.Deserialize(file);
+
             file.Close();
 
-            ReachedChapter = chapter.ChapterNumber;
+            dialogCtrl.SavedTalkableStates = savedGame.Talkables;
+            persistenceCtrl.SavedGameObjects = savedGame.GameObjects;
+            collectionSystem.SavedCollectables = savedGame.Collectables;
+            collectionSystem.SavedBlockers = savedGame.Blockers;
+            tapCtrl.SavedTaps = savedGame.Taps;
+
         } else  {
-            ReachedChapter = 0;
             SaveDataToDisk();
         }
             
     }
 }
+
+[System.Serializable]
+public class SavedGame 
+{
+    private Dictionary<Vector3Serializable, PersistedTalkable> _talkables;
+    private Dictionary<Vector3Serializable, GameObjectSerializable> _gameObjects;
+    private Dictionary<Vector3Serializable, PersistedCollectable> _collectables;
+    private Dictionary<Vector3Serializable, PersistedBlocker> _blockers;
+    private Dictionary<Vector3Serializable, bool> _taps;
+
+
+
+
+    public Dictionary<Vector3, PersistedTalkable> Talkables
+    {
+        get {
+            Dictionary<Vector3, PersistedTalkable> ret = new Dictionary<Vector3, PersistedTalkable>();
+
+            foreach(KeyValuePair<Vector3Serializable, PersistedTalkable> kv in _talkables) {
+                ret.Add(kv.Key.V3, kv.Value);
+            }
+
+            return ret;
+        }
+
+        set {
+            _talkables = new Dictionary<Vector3Serializable, PersistedTalkable>();
+            
+            foreach(KeyValuePair<Vector3, PersistedTalkable> kv in value) {
+                _talkables.Add(new Vector3Serializable(kv.Key), kv.Value);
+            }
+        }
+    }
+
+
+
+    public Dictionary<Vector3, PersistedGameObject> GameObjects {
+        get{
+            Dictionary<Vector3, PersistedGameObject> ret = new Dictionary<Vector3, PersistedGameObject>();
+
+            foreach(KeyValuePair<Vector3Serializable, GameObjectSerializable> kv in _gameObjects) {
+                ret.Add(kv.Key.V3, new PersistedGameObject (
+                    kv.Value.Position.V3,
+                    kv.Value.Rotation.Q,
+                    kv.Value.Scale.V3,
+                    kv.Value.Enabled
+                ));
+            }
+
+            return ret; 
+        }
+
+        set {
+            _gameObjects = new Dictionary<Vector3Serializable, GameObjectSerializable>();
+
+            foreach(KeyValuePair<Vector3, PersistedGameObject> kv in value) {
+                _gameObjects.Add(new Vector3Serializable(kv.Key), new GameObjectSerializable(kv.Value));
+            }
+        }
+    }
+
+
+
+    public Dictionary<Vector3, PersistedCollectable> Collectables
+    {
+        get{
+            Dictionary<Vector3, PersistedCollectable> ret = new Dictionary<Vector3, PersistedCollectable>();
+
+            foreach(KeyValuePair<Vector3Serializable, PersistedCollectable> kv in _collectables) {
+                ret.Add(kv.Key.V3, kv.Value);
+            }
+
+            return ret; 
+        }
+
+        set{
+            _collectables = new Dictionary<Vector3Serializable, PersistedCollectable>();
+
+            foreach(KeyValuePair<Vector3, PersistedCollectable> kv in value) {
+                _collectables.Add(new Vector3Serializable(kv.Key), kv.Value);
+            }
+        }
+    }
+
+
+
+    public Dictionary<Vector3, PersistedBlocker> Blockers
+    {
+        get{
+            Dictionary<Vector3, PersistedBlocker> ret = new Dictionary<Vector3, PersistedBlocker>();
+
+            foreach(KeyValuePair<Vector3Serializable, PersistedBlocker> kv in _blockers) {
+                ret.Add(kv.Key.V3, kv.Value);
+            }
+
+            return ret; 
+        }
+
+        set{
+            _blockers = new Dictionary<Vector3Serializable, PersistedBlocker>();
+
+            foreach(KeyValuePair<Vector3, PersistedBlocker> kv in value) {
+                _blockers.Add(new Vector3Serializable(kv.Key), kv.Value);
+            }
+        }
+    }
+
+
+
+    public Dictionary<Vector3, bool> Taps
+    {
+        get {
+            Dictionary<Vector3, bool> ret = new Dictionary<Vector3, bool>();
+
+            foreach(KeyValuePair<Vector3Serializable, bool> kv in _taps) {
+                ret.Add(kv.Key.V3, kv.Value);
+            }
+
+            return ret; 
+        }
+
+        set {
+            _taps = new Dictionary<Vector3Serializable, bool>();
+
+            foreach(KeyValuePair<Vector3, bool> kv in value) {
+                _taps.Add(new Vector3Serializable(kv.Key), kv.Value);
+            }
+        }    
+    }
+
+}
+
+[Serializable]
+public struct Vector3Serializable
+{
+    public float x;
+    public float y;
+    public float z;
+
+    public Vector3Serializable(Vector3 v3)
+    {
+        x = v3.x;
+        y = v3.y;
+        z = v3.z;
+    }
+
+    public Vector3 V3
+    { get { return new Vector3(x, y, z); } }
+}
+
+
+
+[Serializable]
+public struct QuaternionSerializable
+{
+    public float x;
+    public float y;
+    public float z;
+    public float w;
+
+    public QuaternionSerializable(Quaternion q)
+    {
+        x = q.x;
+        y = q.y;
+        z = q.z;
+        w = q.w;
+    }
+
+    public Quaternion Q
+    { get { return new Quaternion(x, y, z, w); } }
+}
+
+
+    
+[Serializable]
+public struct GameObjectSerializable
+{
+    public Vector3Serializable Position;
+    public QuaternionSerializable Rotation;
+    public Vector3Serializable Scale;
+    public bool Enabled;
+
+
+    public GameObjectSerializable(PersistedGameObject _go)
+    {
+        Position = new Vector3Serializable(_go.Position);
+        Rotation = new QuaternionSerializable(_go.Rotation);
+        Scale = new Vector3Serializable(_go.Scale);
+        Enabled = _go.Enabled;
+    }
+
+
+    public PersistedGameObject GameObject
+    { 
+        get { 
+            PersistedGameObject go = new PersistedGameObject(
+                Position.V3,
+                Rotation.Q, 
+                Scale.V3,
+                Enabled
+            );
+
+            return go;
+        } 
+    }
+}
+
+
+

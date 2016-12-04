@@ -4,6 +4,7 @@ using System.Collections;
 public class Collectable : MonoBehaviour {
 
     // spanish!!
+    [System.Serializable]
     public enum Tag { // implicitly static :O
         chatarra,
         flor,

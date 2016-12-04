@@ -2,7 +2,9 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class PersistedTalkable {
+[System.Serializable]
+public class PersistedTalkable 
+{
     public int DialogueIndex;
     public bool IsForcedToTalk;
     public bool WasRead;

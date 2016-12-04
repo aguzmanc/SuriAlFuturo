@@ -129,7 +129,8 @@ public class Talkable : MonoBehaviour {
         return _currentLine >= 0;
     }
 
-    public void TriggerDialogue (int index) {
+    public void TriggerDialogue (int index) 
+    {
         SetDialogueIndex(index);
         WasTriggered = true;
     }
