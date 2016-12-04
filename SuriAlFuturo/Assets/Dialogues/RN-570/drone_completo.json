@@ -1,0 +1,23 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Si integramos ese drone que encontraste, a TIM-0TTY, va a poder contar más cosas desde el cielo."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Pero va a necesitar unos ojos que VEAN DE MÁS LEJOS. Esa cámara vieja podría servir."
+  }, {
+    "Avatar": "Tim",
+    "Name": "Tim",
+    "Emotion": "normal",
+    "Text": "Detectado nuevo hardware... BIP! Encendiendo motores, ALTURA: 2 metros... Enfocando cámara, ALCANCE: 3.1 kilómetros"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Quedaste muy bien Tim! creo que Natalia estaría muy feliz con Tim como AYUDANTE"
+  }
+] }

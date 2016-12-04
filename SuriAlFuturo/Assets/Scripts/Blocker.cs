@@ -11,6 +11,7 @@ public class Blocker : MonoBehaviour {
     public bool WasForcedToUnblock = false;
     public List<Requirement> UnmetRequirements = new List<Requirement>();
     public WaterTap ImprovesFuturePatch;
+    public GameObject EnablesGameObject;
 
     public GameObject UnblockedPosition;
     public GameObject Model;
@@ -105,6 +106,10 @@ public class Blocker : MonoBehaviour {
 
         if (ImprovesFuturePatch != null) {
             ImprovesFuturePatch.ToggleFountain(false);
+        }
+
+        if (EnablesGameObject != null) {
+            EnablesGameObject.SetActive(true);
         }
     }
 
