@@ -8,6 +8,7 @@ public class Blocker : MonoBehaviour {
 
     public float Speed = 5;
     public bool IsUnblocked;
+    public bool DisablesOnUnblock = false;
     public bool WasForcedToUnblock = false;
     public List<Requirement> UnmetRequirements = new List<Requirement>();
     public WaterTap ImprovesFuturePatch;
@@ -30,6 +31,8 @@ public class Blocker : MonoBehaviour {
     private bool _interactionTriggered;
     private Dictionary<Collectable.Tag, Dialogue[]> _customDontNeedThat
         = new Dictionary<Collectable.Tag, Dialogue[]>();
+    private Dictionary<Collectable.Tag, CustomAccept> _customAccept
+        = new Dictionary<Collectable.Tag, CustomAccept>();
 
     void Start () {
         PersistenceKey = transform.position;
@@ -50,9 +53,20 @@ public class Blocker : MonoBehaviour {
         _controller.Load(this);
     }
 
+    // needs refactorization
     void Update () {
         if (Input.GetButtonDown("Give") || _interactionTriggered) {
             _interactionTriggered = false;
+
+            try {
+                CustomAccept c = _customAccept[_controller.GetActiveRequirement()];
+                TheTalkable.SetDialogueIndex(c.DialogueIndex);
+                _controller.RegisterAsGiven(_controller.GetActiveRequirement());
+                TheTalkable.IsForcedToTalk = true;
+                c.enabled = false;
+                c.Activate();
+                return;
+            } catch {}
 
             if (_canTake && !TheTalkable.IsTalking() &&
                 false == TryToTakeRequirement(_controller.GetActiveRequirement())) {
@@ -64,6 +78,7 @@ public class Blocker : MonoBehaviour {
                         _customDontNeedThat[_controller.GetActiveRequirement()];
                     hasCustomRejection = true;
                 } catch {}
+
                 if (hasCustomRejection) {
                     TheTalkable.ForceDialogue(customRejection);
                 } else {
@@ -128,6 +143,7 @@ public class Blocker : MonoBehaviour {
         return UnmetRequirements.Count == 0;
     }
 
+    // needs refactorization
     public bool TryToTakeRequirement (Collectable.Tag requirement) {
         // int i = UnmetRequirements.IndexOf(requirement);
         int i = _IndexOfRequirement(requirement);
@@ -185,5 +201,9 @@ public class Blocker : MonoBehaviour {
 
     public void Register (CustomDontNeedThat rejection) {
         _customDontNeedThat[rejection.Item] = rejection.GetDialogues();
+    }
+
+    public void Register (CustomAccept c) {
+        _customAccept[c.Item] = c;
     }
 }

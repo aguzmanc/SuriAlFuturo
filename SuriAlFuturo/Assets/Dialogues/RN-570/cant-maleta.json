@@ -1,0 +1,18 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "no puedo reparar esa maleta, está cerrada con llave."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Tal vez deberíamos pedirle la llave a Natalia... pero cómo?"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Por qué no intentas darle ALGO QUE NECESITE?"
+  }
+] }

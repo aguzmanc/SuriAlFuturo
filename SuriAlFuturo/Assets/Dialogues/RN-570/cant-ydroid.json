@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Ese ydroid tiene un SISTEMA OPERATIVO PRIVATIVO. Lo que significa que no puedo modificar su código."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Está diseñado para ser usado por humanos, un robot nunca podría usarlo."
+  }
+] }

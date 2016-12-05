@@ -1,10 +1,5 @@
 { "Dialogues" : [
   {
-    "Avatar": "Natalia",
-    "Name": "Natalia",
-    "Emotion": "happy",
-    "Text": "Suri! Qué lindo drone, qué es lo que hace?"
-  }, {
     "Avatar": "Tim",
     "Name": "Tim",
     "Emotion": "normal",
@@ -20,11 +15,6 @@
     "Emotion": "happy",
     "Text": "Tim es muy confiable! puede contar lo que sea, le pusimos alas y una cámara."
   }, {
-    "Avatar": "Suri",
-    "Name": "Suri",
-    "Emotion": "happy",
-    "Text": "Úsalo, sé que tu le darás un mejor uso que yo."
-  }, {
     "Avatar": "Tim",
     "Name": "Tim",
     "Emotion": "happy",
@@ -33,6 +23,21 @@
     "Avatar": "Natalia",
     "Name": "Natalia",
     "Emotion": "sad",
-    "Text": "Justo como sospechaba. Debo comunicar a las autoridades para que salven el lago."
+    "Text": "No sé si pueda confiar en él, según cálculos preliminares, al lago aún le quedan otros 200 años de vida."
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Necesito mis apuntes para corroborar lo que Tim dice, pero los dejé en mi casa al centro del lago, en la MALETA VERDE."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Yo puedo traérselo, mientras tanto, le dejo a Tim, seguro le será de mucha ayuda!"
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Muchas gracias Suri!! Toma la llave."
   }
 ] }

@@ -32,6 +32,8 @@ public class Collectable : MonoBehaviour {
         pala,
         cosechadora,
         dron_completo,
+        llave,
+        notas,
 
         NONE
     };

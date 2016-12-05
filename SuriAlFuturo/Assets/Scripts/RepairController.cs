@@ -5,6 +5,7 @@ using SuriAlFuturo;
 
 public class RepairController : MonoBehaviour {
     public List<Repair> Repairs;
+    public List<Repair> Cant;
 
     public GameObject RepairButton;
     private Talkable _talkable;
@@ -18,10 +19,14 @@ public class RepairController : MonoBehaviour {
     }
 
     public void TriggerRepair () {
-        Debug.Log("!!");
         foreach (Repair r in Repairs) {
             if (r.TryToRepair()) {
-                Debug.Log("Can repair!! :O");
+                return;
+            }
+        }
+
+        foreach (Repair r in Cant) {
+            if (r.TryToRepair()) {
                 return;
             }
         }
@@ -29,5 +34,19 @@ public class RepairController : MonoBehaviour {
 
     public void RegisterTalkable (Talkable t) {
         _talkable = t;
+    }
+
+    public void RegisterRepair (Repair r) {
+        if (r.CantRepair) {
+            Cant.Add(r);
+        } else {
+            Repairs.Add(r);
+        }
+    }
+
+    public void Unregister (Repair r) {
+        if (false == Repairs.Remove(r)) {
+            Cant.Remove(r);
+        }
     }
 }

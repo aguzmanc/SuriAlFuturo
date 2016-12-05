@@ -7,6 +7,7 @@ public class Repair : MonoBehaviour {
     public List<Collectable.Tag> OldItems;
     public GameObject RepairedItem;
     public TextAsset Message;
+    public bool CantRepair = false;
 
     private Dialogue[] _digestedMessage;
     private CollectionSystem _collectionController;
@@ -16,19 +17,21 @@ public class Repair : MonoBehaviour {
         _collectionController = GameObject.FindGameObjectWithTag(Tag.GameController)
             .GetComponent<CollectionSystem>();
         _controller = _collectionController.GetComponent<RepairController>();
-        _controller.Repairs.Add(this);
+        _controller.RegisterRepair(this);
     }
 
     void OnDestroy () {
-        _controller.Repairs.Remove(this);
+        _controller.Unregister(this);
     }
 
     public bool TryToRepair () {
         if (CanRepair()) {
-            SpawnRepairedItem();
             _controller.NotifyRepair(this);
-            foreach (Collectable.Tag item in OldItems) {
-                _collectionController.RegisterAsGiven(item);
+            if (false == CantRepair) {
+                SpawnRepairedItem();
+                foreach (Collectable.Tag item in OldItems) {
+                    _collectionController.RegisterAsGiven(item);
+                }
             }
             return true;
         }

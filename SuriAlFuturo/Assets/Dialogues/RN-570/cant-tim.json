@@ -1,0 +1,38 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "TIM-0TTY! qué le pasó a tu cuerpo?"
+  }, {
+    "Avatar": "Tim",
+    "Name": "Tim",
+    "Emotion": "normal",
+    "Text": "Fue retirado y fundido para fines más útiles durante la crisis del hierro."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Suri, este robot es un sensor estadístico con inteligencia artificial."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "'Estadístico'? le podría ayudar a Natalia a contar."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "En el estado en el que está, no le será de mucha ayuda. Su VISIÓN ES MUY CORTA, y NO PUEDE MOVERSE."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Si me trajeras un DRONE, de esos que vuelan, y una CÁMARA ANTIGUA, podría reparar a Tim."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Creo que vi algo así en el futuro!"
+  }
+] }
