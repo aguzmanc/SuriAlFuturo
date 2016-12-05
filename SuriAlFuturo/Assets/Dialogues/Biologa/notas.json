@@ -1,0 +1,38 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Gracias Suri! veamos, veamos..."
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "scared",
+    "Text": "OH NO!"
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "sad",
+    "Text": "Lo que dice Tim es verdad... Suri... cómo? de dónde lo sacaste? oh no, oh no... esto no puede ser."
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "mad",
+    "Text": "Debo avisar a las autoridades! debemos comenzar un plan estratégico para salvar al lago."
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Suri, sin tí, este lago se habría secado, muchas gracias! no sé qué darte a cambio."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "No tienes por qué darme nada, yo solo quiero que el lago no se seque, para que todos tengamos un futuro mejor."
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Realmente te importa mucho el medio ambiente. Por qué no vienes a mi casa esta noche? puedo enseñarte todo lo que sé sobre biología."
+  }
+] }

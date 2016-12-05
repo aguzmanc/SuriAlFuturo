@@ -13,16 +13,21 @@
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "sad",
-    "Text": "En el futuro el lago se va a secar porque no cuidamos el agua"
+    "Text": "En el futuro el lago se va a secar porque no cuidamos el agua, encontré un portal del tiempo, y así pude recuperar las cosas."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
-    "Emotion": "sad",
-    "Text": "mira! haz dejado una pila abierta detrás de tí"
+    "Emotion": "happy",
+    "Text": "Con la ayuda de un robot llamado Ernesto pude reparar lo de adentro!"
+  }, {
+    "Avatar": "Fernando",
+    "Name": "Fernando",
+    "Emotion": "scared",
+    "Text": "Qué loco! mi papá siempre decía que el agua se acabaría, pero no creí que fuera verdad."
   }, {
     "Avatar": "Fernando",
     "Name": "Fernando",
     "Emotion": "happy",
-    "Text": "Tienes razón. Suri, me ayudas a cerrarla? prometo cuidar el agua de ahora en adelante"
+    "Text": "Gracias Suri!! muchas gracias por tu ayuda!!"
   }
 ] }
