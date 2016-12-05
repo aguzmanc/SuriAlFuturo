@@ -4,6 +4,7 @@ using System.Collections;
 public class Collectable : MonoBehaviour {
 
     // spanish!!
+    [System.Serializable]
     public enum Tag { // implicitly static :O
         chatarra,
         flor,
@@ -76,10 +77,11 @@ public class Collectable : MonoBehaviour {
     }
 
     public PersistedCollectable GetPersistedObject () {
-        return new PersistedCollectable(IsTaken);
+        return new PersistedCollectable(IsTaken, Name);
     }
 
     public void LoadPersistedObject (PersistedCollectable persisted) {
         this.IsTaken = persisted.IsTaken;
+        this.Name = persisted.Name;
     }
 }

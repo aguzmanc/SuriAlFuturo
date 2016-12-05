@@ -2,7 +2,9 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class PersistedBlocker {
+[System.Serializable]
+public class PersistedBlocker 
+{
     public bool IsUnblocked;
     public List<Requirement> UnmetRequirements = new List<Requirement>();
 

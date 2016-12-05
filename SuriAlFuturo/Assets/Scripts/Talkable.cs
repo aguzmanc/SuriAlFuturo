@@ -27,6 +27,13 @@ public class Talkable : MonoBehaviour {
     private Dialogue[]  _digestedDialogue;
     private MobileUI _mobileUI;
 
+
+    void Awake()
+    {
+        
+    }
+
+
     void Start () {
         PersistenceKey = this.transform.position;
 
@@ -129,7 +136,8 @@ public class Talkable : MonoBehaviour {
         return _currentLine >= 0;
     }
 
-    public void TriggerDialogue (int index) {
+    public void TriggerDialogue (int index) 
+    {
         SetDialogueIndex(index);
         WasTriggered = true;
     }

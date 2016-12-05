@@ -24,6 +24,8 @@ public class CollectionSystem : MonoBehaviour {
         if (!UIController) {
             throw(new UnityException("I need a canvas with a UI Inventory component attached, when created, drag it into the UI Controller field!"));
         }
+
+        UIController.Refresh();
     }
 
     public Collectable.Tag GetActiveRequirement () {
@@ -40,20 +42,29 @@ public class CollectionSystem : MonoBehaviour {
         }
     }
 
-    // TODO: check if already registed? (maybe not necessary)
     public void RegisterAsTaken (Collectable collectable) {
         RegisterAsTaken(collectable.Name);
     }
+
     public void RegisterAsTaken (Collectable.Tag collectable) {
+
+        Debug.Log("taken: " + collectable);
+
         _takenStuff[collectable] = true;
-        Inventory.Add(collectable);
+        if(false == Inventory.Contains(collectable)) {
+            Inventory.Add(collectable);
+        }
         UIController.Refresh();
     }
 
     public void RegisterAsGiven (Collectable collectable) {
         RegisterAsGiven(collectable.Name);
     }
-    public void RegisterAsGiven (Collectable.Tag collectable) {
+
+
+
+    public void RegisterAsGiven (Collectable.Tag collectable) 
+    {
         _givenStuff[collectable] = true;
         Inventory.Remove(collectable);
         UIController.Refresh();
