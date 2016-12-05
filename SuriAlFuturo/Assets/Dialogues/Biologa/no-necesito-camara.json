@@ -1,0 +1,33 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Mira! es una cámara, James dice que puede enfocar cosas desde muy lejos."
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "En serio? puedo verla?... es verdad, puedo ver mi casa desde aquí!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Te la regalo! Seguro con ella vas a poder contar las cosas más fácilmente"
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Gracias Suri, eres un amor. Pero no la necesito, Omar, el ingeniero va a llegar mañana."
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Él tiene un telescopio que podemos adaptar para ver mucho más lejos."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "No puedo esperar tanto, pobre abuelito, ya debe tener hambre. Tal vez Natalia necesite una MÁQUINA MÁS SOFISTICADA."
+  }
+] }

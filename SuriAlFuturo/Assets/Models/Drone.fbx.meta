@@ -19,10 +19,12 @@ ModelImporter:
     2300002: Drone
     2300004: Helice
     2300006: TMT
+    2300008: //RootNode
     3300000: CameraDrone
     3300002: Drone
     3300004: Helice
     3300006: TMT
+    3300008: //RootNode
     4300000: CameraDrone
     4300002: Helice
     4300004: TMT
@@ -34,7 +36,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleCurves: 1
+    resampleRotations: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 

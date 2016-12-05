@@ -1,0 +1,43 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Tim",
+    "Name": "Tim",
+    "Emotion": "normal",
+    "Text": "Cercanía de individuos detectados. Niños humanos: uno! Individuos caninos: uno!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Quién dijo eso?"
+  }, {
+    "Avatar": "Tim",
+    "Name": "Tim",
+    "Emotion": "normal",
+    "Text": "Inteligencia artificial modelo TIM-0TTY. Año de fabricación: 2033, status: Funcionalidades al 30%."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Eres otro robot!"
+  }, {
+    "Avatar": "Tim",
+    "Name": "Tim",
+    "Emotion": "normal",
+    "Text": "Corrección, solo soy el cerebro de un robot. Necesito módulos extra de movimiento, puedo controlar máquina anfitriona."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Para qué te construyeron?"
+  }, {
+    "Avatar": "Tim",
+    "Name": "Tim",
+    "Emotion": "normal",
+    "Text": "Para contabilizar, procesar e interpretar información de todo lo que mis ojos puedan ver."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Tim podría ayudarle a Natalia... si tan solo pudiera VER MÁS LEJOS, y MOVERSE SOLO."
+  }
+] }

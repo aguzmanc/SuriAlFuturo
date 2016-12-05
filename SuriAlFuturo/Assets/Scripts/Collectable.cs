@@ -40,6 +40,7 @@ public class Collectable : MonoBehaviour {
     public Vector3 PersistenceKey;
     public Tag Name = Tag.NONE;
     public bool IsTaken;
+    public GameObject EnablesSomething;
 
     private CollectionSystem _controller;
 
@@ -51,6 +52,10 @@ public class Collectable : MonoBehaviour {
     }
 
     void Update () {
+        if (EnablesSomething != null) {
+            EnablesSomething.SetActive(true);
+        }
+
         if (IsTaken) {
             gameObject.SetActive(false);
         }
