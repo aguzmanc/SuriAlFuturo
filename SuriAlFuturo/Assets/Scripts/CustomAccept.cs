@@ -16,7 +16,7 @@ public class CustomAccept : MonoBehaviour {
     }
 
     public void Activate () {
-        ImprovesFuturePatch.ToggleFountain(true);
+        ImprovesFuturePatch.ToggleFountain(false);
     }
 
 }

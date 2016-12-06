@@ -6,6 +6,7 @@ using System.IO;
 using SuriAlFuturo;
 
 public class Talkable : MonoBehaviour {
+    private bool _triggeredByCollider;
     public List<bool> ReadDialogues;
     public bool WasTriggered = false;
     public List<TextAsset> Dialogues;
@@ -77,7 +78,10 @@ public class Talkable : MonoBehaviour {
                 WasRead = true;
                 ReadDialogues[_currentDialogue] = true;
                 if (WillTalkForcedDialogue) {
-                    _gameController.CanTalk = WillTalkForcedDialogue = false;
+                    if (!_triggeredByCollider) {
+                        _gameController.CanTalk = false;
+                    }
+                    WillTalkForcedDialogue = false;
                 } else {
                     ReadDialogues[_currentDialogue] = true;
                 }
@@ -97,6 +101,7 @@ public class Talkable : MonoBehaviour {
         _currentLine = -1;
         InteractIndicator.SetActive(true);
         _controller.ActiveTalkable = this;
+        _triggeredByCollider = true;
     }
 
     void OnTriggerExit (Collider c) {
@@ -106,6 +111,7 @@ public class Talkable : MonoBehaviour {
         if (_controller.ActiveTalkable == this) {
             _controller.ActiveTalkable = null;
         }
+        _triggeredByCollider = false;
     }
 
     void OnDestroy () {

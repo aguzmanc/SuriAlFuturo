@@ -6,6 +6,8 @@ using SuriAlFuturo;
 public class Blocker : MonoBehaviour {
     public Vector3 PersistenceKey;
 
+    public GameObject ArtificialTrigger;
+
     public float Speed = 5;
     public bool IsUnblocked;
     public bool DisablesOnUnblock = false;
@@ -106,12 +108,20 @@ public class Blocker : MonoBehaviour {
         _controller.Save(this);
     }
 
-    void OnTriggerEnter (Collider player) {
+    public void TriggerEnter () {
         _gameController.CloseToBlocker = _canTake = true;
     }
 
-    void OnTriggerExit (Collider player) {
+    public void TriggerExit () {
         _gameController.CloseToBlocker = _canTake = false;
+    }
+
+    void OnTriggerEnter (Collider player) {
+        TriggerEnter();
+    }
+
+    void OnTriggerExit (Collider player) {
+        TriggerExit();
     }
 
     public void Unblock () {
@@ -131,6 +141,13 @@ public class Blocker : MonoBehaviour {
         if (DisablesGameObject != null) {
             DisablesGameObject.SetActive(false);
         }
+
+        try {
+            SphereCollider c = GetComponent<SphereCollider>();
+            c.enabled = false;
+            ArtificialTrigger.SetActive(true);
+            TriggerExit();
+        } catch {}
     }
 
     public void ForcedUnblock () {
