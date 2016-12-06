@@ -83,6 +83,7 @@ public class Dock : MonoBehaviour {
         chapu.Embark();
 
         DockedShip.GetComponent<CharacterMovement>().IsControlledByPlayer = true;
+        DockedShip.GetComponent<Ship>().ShrinkCollider();
         _camera.Target = DockedShip;
         _gameController.SetDrivingBoat(true);
     }
@@ -94,6 +95,7 @@ public class Dock : MonoBehaviour {
         Suri.transform.position = DisembarkPlace.transform.position;
         Suri.SetActive(true);
         DockedShip.GetComponent<CharacterMovement>().IsControlledByPlayer = false;
+        DockedShip.GetComponent<Ship>().EnlargeCollider();
         _camera.Target = Suri;
         _gameController.SetDrivingBoat(false);
 
