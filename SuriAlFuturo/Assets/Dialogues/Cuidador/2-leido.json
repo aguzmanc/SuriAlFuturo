@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "generic-young",
+    "Name": "Marco",
+    "Emotion": "normal",
+    "Text": "Con más dinero y personal podríamos haber previsto mejor el futuro, y tal vez el cráter seguiría lleno de agua."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Esta reserva natural necesita ayuda en el pasado!"
+  }
+] }

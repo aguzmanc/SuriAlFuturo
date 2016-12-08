@@ -1,0 +1,18 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "old-enrique",
+    "Name": "Enrique",
+    "Emotion": "normal",
+    "Text": "Suri?! No, imposible, ya estaría vieja. Pero te pareces mucho a ella!"
+  }, {
+    "Avatar": "old-enrique",
+    "Name": "Enrique",
+    "Emotion": "normal",
+    "Text": "Ella siempre fue buena conmigo, le preocupaba harto el futuro del lago."
+  }, {
+    "Avatar": "old-enrique",
+    "Name": "Enrique",
+    "Emotion": "normal",
+    "Text": "Me regaló esta patineta, y desde entonces, cuido el agua y las plantas."
+  }
+] }

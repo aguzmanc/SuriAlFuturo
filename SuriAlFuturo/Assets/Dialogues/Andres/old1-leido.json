@@ -1,0 +1,23 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Andrés",
+    "Name": "Andrés",
+    "Emotion": "normal",
+    "Text": "Nuestra granja habría quebrado de no ser por esa cosechadora que mi abuelo inventó"
+  }, {
+    "Avatar": "Andrés",
+    "Name": "Andrés",
+    "Emotion": "normal",
+    "Text": "Mi abuelo siempre decía que fue un regalo de una niña llamada Suri, pero parece imposible!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "jajajaja... tan imposible como los viajes en el tiempo"
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "happy",
+    "Text": "Woooof!! Wooof!!"
+  }
+] }

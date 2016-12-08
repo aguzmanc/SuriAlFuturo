@@ -1,0 +1,23 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "generic-young",
+    "Name": "Marco",
+    "Emotion": "normal",
+    "Text": "hola! yo cuido la reserva. Ese cráter antes estaba lleno de agua!"
+  }, {
+    "Avatar": "generic-young",
+    "Name": "Marco",
+    "Emotion": "normal",
+    "Text": "Esta reserva nunca ha tenido mucho presupuesto, ni ayudantes, sólamente llegan voluntarios."
+  }, {
+    "Avatar": "generic-young",
+    "Name": "Marco",
+    "Emotion": "normal",
+    "Text": "Con más dinero y personal podríamos haber previsto mejor el futuro, y tal vez el cráter seguiría lleno de agua."
+  }, {
+    "Avatar": "generic-young",
+    "Name": "Marco",
+    "Emotion": "normal",
+    "Text": "Si los aldeanos no hubieran cuidado el agua, probablemente el cráter estaría totalmente seco."
+  }
+] }

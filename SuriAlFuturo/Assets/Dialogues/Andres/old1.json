@@ -1,0 +1,33 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Andrés?!"
+  }, {
+    "Avatar": "Andres",
+    "Name": "Andrés",
+    "Emotion": "normal",
+    "Text": "Sí... quién eres tú? cómo sabes mi nombre?"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Este... tú... tú inventaste el cosechador de energía limpia, cierto?"
+  }, {
+    "Avatar": "Andrés",
+    "Name": "Andrés",
+    "Emotion": "normal",
+    "Text": "No, no, ese fue mi abuelo... él me heredó su granja. Toda mi familia cosecha la tierra sin dañar a la pachamama."
+  }, {
+    "Avatar": "Andrés",
+    "Name": "Andrés",
+    "Emotion": "normal",
+    "Text": "También escribimos todo lo que sabemos por internet! muchos están imitando nuestras costumbres."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Ya veo. Cuidar a la pachamama es muy importante... hasta luego nieto de Andrés!"
+  }
+] }
