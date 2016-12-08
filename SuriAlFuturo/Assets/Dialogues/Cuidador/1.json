@@ -1,0 +1,28 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "generic-young",
+    "Name": "Marco",
+    "Emotion": "normal",
+    "Text": "Hola! Yo cuido la reserva, y quién eres tú? nunca te había visto antes."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "hola! Yo soy Suri! mucho gusto... conoce a Natalia?"
+  }, {
+    "Avatar": "generic-young",
+    "Name": "Marco",
+    "Emotion": "normal",
+    "Text": "Natalia? claro! era una bióloga capísima, ella, junto con Omar lograron extender la vida del lago un poquito más"
+  }, {
+    "Avatar": "generic-young",
+    "Name": "Marco",
+    "Emotion": "normal",
+    "Text": "Pero nunca lograron contabilizar correctamente toda la vida alrededor del lago."
+  }, {
+    "Avatar": "generic-young",
+    "Name": "Marco",
+    "Emotion": "normal",
+    "Text": "Si tan solo hubieran tenido más ayuda, tal vez todavía tendríamos lago."
+  }
+] }

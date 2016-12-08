@@ -1,0 +1,33 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Anciano",
+    "Name": "Don Sebastián",
+    "Emotion": "normal",
+    "Text": "Suri!!.. qué bien que volviste"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Abuelito! espera, ya casi lo logro."
+  }, {
+    "Avatar": "Anciano",
+    "Name": "Don Sebastián",
+    "Emotion": "normal",
+    "Text": "Vi como el agua del lago volvía, y empezaron a salir plantas y árboles!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Estoy diciéndoles a las personas que deben cuidar el agua. Es difícil, pero creo que está funcionando."
+  }, {
+    "Avatar": "Anciano",
+    "Name": "Don Sebastián",
+    "Emotion": "normal",
+    "Text": "Es muy bonito ver cómo la vida vuelve! pero tienes que apurarte, no hay nada de comer aquí arriba."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "No te preocupes abuelito, pronto te bajaremos de allí."
+  }
+] }

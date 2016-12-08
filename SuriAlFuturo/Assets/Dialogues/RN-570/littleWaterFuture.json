@@ -1,0 +1,28 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Mis sensores indican perturbaciones temporales emanando del portal. El futuro ha mejorado en un 10%!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Sólamente le dije a Joaquín que cerrara una pila, y que cuidara el agua."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Ya podré salvar a mi abuelito?"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Tus acciones tienen un impacto en el futuro, pero el riesgo ecológico aún es elevado."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Para salvar a tu abuelito, aún debes mejorar al futuro en un 90%"
+  }
+] }

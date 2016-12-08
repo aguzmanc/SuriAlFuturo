@@ -1,0 +1,18 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Último estado registrado del futuro: Mejorado en un 10%!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "Pero aún no podemos salvar al abuelito. Chapu, deberíamos convencer a Enrique de que cuide el agua."
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "happy",
+    "Text": "Wooof!"
+  }
+] }

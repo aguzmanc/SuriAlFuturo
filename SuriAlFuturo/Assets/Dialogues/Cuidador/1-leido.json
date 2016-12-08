@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "generic-young",
+    "Name": "Marco",
+    "Emotion": "normal",
+    "Text": "Natalia y Omar eran capísimos, pero sin presupuesto ni ayudantes, no pudieron salvar al lago."
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "cry",
+    "Text": "awwwww"
+  }
+] }
