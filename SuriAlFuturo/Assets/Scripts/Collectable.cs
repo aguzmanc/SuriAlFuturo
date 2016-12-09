@@ -66,6 +66,8 @@ public class Collectable : MonoBehaviour {
     void OnTriggerEnter (Collider player) {
         IsTaken = true;
         _controller.RegisterAsTaken(this);
+
+        GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController).GetComponent<SFXController>().PlayPickItem();
     }
 
     void OnDestroy () {

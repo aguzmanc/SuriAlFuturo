@@ -86,6 +86,8 @@ public class Dock : MonoBehaviour {
         DockedShip.GetComponent<Ship>().ShrinkCollider();
         _camera.Target = DockedShip;
         _gameController.SetDrivingBoat(true);
+
+        _gameController.GetComponent<SFXController>().PlayEmbark();
     }
 
 
@@ -102,6 +104,8 @@ public class Dock : MonoBehaviour {
         Chapu chapu = _gameController.GetComponent<GameController>().Chapu.GetComponent<Chapu>();
         chapu.gameObject.SetActive(true);
         chapu.Disembark();
+
+        _gameController.GetComponent<SFXController>().PlayDisembark();
     }
 
 

@@ -173,6 +173,7 @@ public class Talkable : MonoBehaviour {
     }
 
     public void SayIDontWantThat () {
+        _gameController.GetComponent<SFXController>().PlayError();
         ForceDialogue(new Dialogue[1] {_controller.DontNeedThat});
     }
 

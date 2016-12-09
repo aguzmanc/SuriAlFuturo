@@ -2,8 +2,11 @@ using UnityEngine;
 using System.Collections;
 using SuriAlFuturo;
 
-public class WaterTap : MonoBehaviour {
+public class WaterTap : MonoBehaviour 
+{
     public Vector3 PersistenceKey;
+    public AudioSource WaterFlowingSound;
+
 
     public bool IsOn {
         get {
@@ -56,13 +59,18 @@ public class WaterTap : MonoBehaviour {
         _tapController.Taps.Remove(this);
     }
 
-    public void ToggleFountain (bool value){
+    public void ToggleFountain (bool value) 
+    {
         _isOn = value;
 
         if(_isOn) {
             _fountain.Play();
+            _gameController.GetComponent<SFXController>().PlayWaterOn();
+            WaterFlowingSound.UnPause();
         } else {
             _fountain.Stop();
+            _gameController.GetComponent<SFXController>().PlayWaterOff();
+            WaterFlowingSound.Pause();
         }
     }
 

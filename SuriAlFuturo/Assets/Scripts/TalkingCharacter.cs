@@ -24,5 +24,7 @@ public class TalkingCharacter : MonoBehaviour {
     public void SetEmotion (string newEmotion) {
         // _mecanim.SetTrigger(newEmotion);
         _mecanim.Play(newEmotion);
+
+        _controller.GetComponent<SFXController>().PlayDialogue(Name, newEmotion);
     }
 }

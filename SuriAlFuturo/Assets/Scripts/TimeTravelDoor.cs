@@ -13,6 +13,8 @@ public class TimeTravelDoor : MonoBehaviour
     private ParticleSystem _particles;
     private UnityStandardAssets.Utility.AutoMoveAndRotate _autoRotate;
     private TimeTravelController _timeTravelController;
+    private AudioSource _timeTravelDoorSound;
+
 
 
 	void Start () 
@@ -20,6 +22,7 @@ public class TimeTravelDoor : MonoBehaviour
         _particles = GetComponent<ParticleSystem>();
         _autoRotate = GetComponent<UnityStandardAssets.Utility.AutoMoveAndRotate>();
         _timeTravelController = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController).GetComponent<TimeTravelController>();
+        _timeTravelDoorSound = GetComponent<AudioSource>();
 
         StartCoroutine(TimeTravelCycle());
 	}
@@ -36,6 +39,8 @@ public class TimeTravelDoor : MonoBehaviour
             _timeTravelEnabled = false;
 
             UIFlash.Flash();
+            _timeTravelController.GetComponent<SFXController>().PlayTimeTravel();
+            _timeTravelDoorSound.Pause();
 
             // workaround for SceneManager.UnloadScene inside triggers
             StartCoroutine(DeferedTimeTravel());
@@ -74,6 +79,8 @@ public class TimeTravelDoor : MonoBehaviour
             // reenabling time travel
             _timeTravelEnabled = true;
             CenterLight.enabled = true;
+            _timeTravelController.GetComponent<SFXController>().PlayTimeMachineOn();
+            _timeTravelDoorSound.UnPause();
         }
     }
 
