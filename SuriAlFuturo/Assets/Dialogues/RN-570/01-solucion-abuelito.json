@@ -3,7 +3,7 @@
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "cry",
-    "Text": "Mi abuelito está encerrado en medio de la isla en el futuro. Cómo lo traemos de vuelta?"
+    "Text": "Mi abuelito está encerrado en medio de la isla en el futuro. ¿Cómo lo traemos de vuelta?"
   }, {
     "Avatar": "RN-570",
     "Name": "RN-570",
@@ -28,16 +28,16 @@
     "Avatar": "RN-570",
     "Name": "RN-570",
     "Emotion": "normal",
-    "Text": "Vuelve aquí cada vez que hayas hecho entrar en conciencia a alguien, y veras como el futuro habrá cambiado un poco"
+    "Text": "Vuelve aquí cada vez que hayas hecho entrar en conciencia a alguien, y veras como el futuro habrá cambiado un poco."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "happy",
-    "Text": "Entonces vamos cumplir la misión de una vez Chapu!"
+    "Text": "¡Entonces vamos cumplir la misión de una vez Chapu!"
   }, {
     "Avatar": "Chapu",
     "Name": "Chapu",
     "Emotion": "happy",
-    "Text": "Wrhorff!!"
+    "Text": "¡¡Wrhorff!!"
   }
 ] }

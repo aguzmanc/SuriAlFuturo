@@ -81,8 +81,6 @@ public class SFXController : MonoBehaviour
         if(character=="RN-570"){character="Robot";} // fix to avoid problems with enum names
         if(character=="old-joaquin" || character=="old-enrique"){character="Anciano";}
 
-
-
         _currentCharacter = character;
         _currentEmotion = emotion;
 

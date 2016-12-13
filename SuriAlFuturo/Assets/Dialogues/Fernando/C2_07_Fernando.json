@@ -3,17 +3,17 @@
     "Avatar": "Fernando",
     "Name": "Fernando",
     "Emotion": "happy",
-    "Text": "Pero si es la pequeña Suri! Qué te trae por aquí?"
+    "Text": "¡Pero si es la pequeña Suri! Qué te trae por aquí?"
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "happy",
-    "Text": "Fernando! Qué bueno verte, debo salvar el lago!"
+    "Text": "¡Fernando qué bueno verte!, ¡Debo salvar el lago!"
   }, {
     "Avatar": "Fernando",
     "Name": "Fernando",
     "Emotion": "happy",
-    "Text": "Salvar el lago de qué?"
+    "Text": "¿Salvar el lago de qué?"
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
@@ -23,22 +23,22 @@
     "Avatar": "Fernando",
     "Name": "Fernando",
     "Emotion": "happy",
-    "Text": "Tienes razón. Me recuerdas a la nueva huésped en nuestro pueblo"
+    "Text": "Tienes razón. Me recuerdas a la nueva huésped en nuestro pueblo..."
   }, {
     "Avatar": "Fernando",
     "Name": "Fernando",
     "Emotion": "happy",
-    "Text": "También habla de salvar la naturaleza, creo que es una científica o algo así."
+    "Text": "... también habla de salvar la naturaleza, creo que es una científica o algo así."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "surprised",
-    "Text": "Científica! Quién es?"
+    "Text": "¡Científica! ¿Quién es?"
   }, {
     "Avatar": "Fernando",
     "Name": "Fernando",
     "Emotion": "happy",
-    "Text": "Su nombre es Natalia, llegó esta mañana y estoy ayudándole a traer sus cosas."
+    "Text": "Su nombre es Natalia, llegó esta mañana y estoy ayudándole a traer sus cosas en esa maleta verde."
   }, {
     "Avatar": "Fernando",
     "Name": "Fernando",
@@ -48,6 +48,6 @@
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "happy",
-    "Text": "Voy a preguntarle cómo salvar al lago!"
+    "Text": "¡Voy a preguntarle cómo salvar al lago!"
   }
 ] }

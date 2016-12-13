@@ -3,12 +3,12 @@
     "Avatar": "Joaquin",
     "Name": "Joaquín",
     "Emotion": "sad",
-    "Text": "Ese niño me pone de los nervios, todos los días sale a verme. Me gustaría jugar con él, ya me aburrí de jugar solo."
+    "Text": "Ese niño me pone de los nervios, todos los días sale a verme. Me gustaría jugar con él. Ya me aburrí de jugar solo."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "happy",
-    "Text": "Ya intentaste hablar con él?"
+    "Text": "¿Ya intentaste hablar con él?"
   }, {
     "Avatar": "Joaquin",
     "Name": "Joaquín",
@@ -18,22 +18,22 @@
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "surprised",
-    "Text": "Joaquín! hay un caño abierto allí, por qué desperdicias el agua? en el futuro el lago se va a secar!"
+    "Text": "¡Joaquín! hay un grifo abierto allí, ¿Por qué desperdicias el agua? ¡En el futuro el lago se va a secar!"
   }, {
     "Avatar": "Joaquin",
     "Name": "Joaquín",
     "Emotion": "happy",
-    "Text": "Tu crees? me parece imposible que el lago se seque! es infinito!"
+    "Text": "¿Tu crees? ¿Me parece imposible que el lago se seque! ¡Es infinito!"
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "sad",
-    "Text": "no es infinito, el lago es bajito nomás, en la escuela dice que tiene 150 metros de altura, nada es infinito!"
+    "Text": "No es infinito, el lago es bajito nomás. En la escuela dijeron que tiene 150 metros de altura, ¡nada es infinito!"
   }, {
     "Avatar": "Joaquin",
     "Name": "Joaquín",
     "Emotion": "sad",
-    "Text": "Tienes razón! y si el lago se seca todos los pescaditos se van a morir, Suri, me ayudas a cerrarlo?"
+    "Text": "Tienes razón, y si el lago se seca, todos los pescaditos se van a morir.  Suri, ¿Me ayudas a cerrarlo?"
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
@@ -43,16 +43,16 @@
     "Avatar": "Joaquin",
     "Name": "Joaquín",
     "Emotion": "happy",
-    "Text": "Lo prometo!"
+    "Text": "¡Lo prometo!"
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "happy",
-    "Text": "Gracias Joaquín! por eso me caes tan bien"
+    "Text": "¡Gracias Joaquín, Por eso me caes tan bien!"
   }, {
     "Avatar": "Chapu",
     "Name": "Chapu",
     "Emotion": "bark",
-    "Text": "waw!"
+    "Text": "¡waw!"
   }  ]
 }

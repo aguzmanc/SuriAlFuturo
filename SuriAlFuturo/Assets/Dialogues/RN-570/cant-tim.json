@@ -3,7 +3,7 @@
     "Avatar": "RN-570",
     "Name": "RN-570",
     "Emotion": "normal",
-    "Text": "TIM-0TTY! qué le pasó a tu cuerpo?"
+    "Text": "¡TIM-0TTY! ¿Qué le pasó a tu cuerpo?"
   }, {
     "Avatar": "Tim",
     "Name": "Tim",
@@ -18,7 +18,7 @@
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "surprised",
-    "Text": "'Estadístico'? le podría ayudar a Natalia a contar."
+    "Text": "¿Estadístico? Podría ayudarle a Natalia a contar."
   }, {
     "Avatar": "RN-570",
     "Name": "RN-570",
@@ -33,6 +33,6 @@
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "surprised",
-    "Text": "Creo que vi algo así en el futuro!"
+    "Text": "¡Creo que vi algo así en el futuro!"
   }
 ] }

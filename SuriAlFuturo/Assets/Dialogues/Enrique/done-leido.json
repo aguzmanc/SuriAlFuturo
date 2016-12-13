@@ -3,7 +3,7 @@
     "Avatar": "Kid",
     "Name": "Enrique",
     "Emotion": "mad",
-    "Text": "Este... Suri... gracias por la patineta"
+    "Text": "Este... Suri... ¡Gracias por la patineta¡"
   }, {
     "Avatar": "Kid",
     "Name": "Enrique",
@@ -13,7 +13,7 @@
     "Avatar": "Kid",
     "Name": "Enrique",
     "Emotion": "sad",
-    "Text": "De ahora en adelante, voy a cuidar más el agua... este... perdón... por hablarte así."
+    "Text": "De ahora en adelante, voy a cuidar más el agua... este... perdón por hablarte así."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
@@ -23,6 +23,6 @@
     "Avatar": "Kid",
     "Name": "Enrique",
     "Emotion": "happy",
-    "Text": "Lo prometo!"
+    "Text": "¡Lo prometo!"
   }
 ] }

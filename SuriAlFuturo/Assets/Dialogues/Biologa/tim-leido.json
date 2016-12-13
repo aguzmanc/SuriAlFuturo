@@ -3,7 +3,7 @@
     "Avatar": "Natalia",
     "Name": "Natalia",
     "Emotion": "happy",
-    "Text": "Ok Tim, Puedes contar cuántos insectos hay en el lago?"
+    "Text": "Ok Tim, ¿Puedes contar cuántos insectos hay en el lago?"
   }, {
     "Avatar": "Tim",
     "Name": "Tim",
@@ -13,11 +13,11 @@
     "Avatar": "Natalia",
     "Name": "Natalia",
     "Emotion": "happy",
-    "Text": "Omar, el ingeniero, va a llegar mañana, él podrá construir eso. Mientras tanto, puedes contar cuántas aves hay alrededor del lago?"
+    "Text": "Omar, el ingeniero, va a llegar mañana, él podrá construir eso. Mientras tanto, ¿Puedes contar cuántas aves hay alrededor del lago?"
   }, {
     "Avatar": "Tim",
     "Name": "Tim",
     "Emotion": "normal",
-    "Text": "afirmativo, comenzando rutina de conteo."
+    "Text": "Afirmativo, .. ¡bip! ... comenzando rutina de conteo."
   }
 ] }
