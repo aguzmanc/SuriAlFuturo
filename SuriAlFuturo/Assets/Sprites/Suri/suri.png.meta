@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 430f01bf00b594b4183fb0425d53ecbe
-timeCreated: 1447532934
+timeCreated: 1481703802
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -43,7 +43,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 1
+    filterMode: 2
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -58,7 +58,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
@@ -69,281 +69,284 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1024
+        width: 341.35715
+        height: 341
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -35, y: 73}
-        - {x: -73, y: 37}
-        - {x: -73, y: -73}
-        - {x: 73, y: -73}
-        - {x: 73, y: 40}
-        - {x: 36, y: 73}
+      - - {x: -73.5, y: 22}
+        - {x: -73.5, y: -73}
+        - {x: 73.5, y: -73}
+        - {x: 73.5, y: 21}
+        - {x: 64.5, y: 56}
+        - {x: 25.5, y: 73}
+        - {x: -36.5, y: 73}
+        - {x: -45.5, y: 64}
     - name: suri_1
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 341
         y: 0
-        width: 1024
-        height: 1024
+        width: 341.35715
+        height: 341
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 61, y: -73}
-        - {x: 73, y: -73}
-        - {x: 73, y: 51}
-        - {x: 40, y: 73}
-        - {x: -57, y: 73}
-        - {x: -72, y: 54}
-        - {x: -73, y: 38}
-        - {x: -73, y: -73}
-        - {x: 39, y: -73}
-        - {x: 37, y: -61}
-        - {x: 29, y: -48}
-        - {x: 21, y: -41}
+      - - {x: -42.5, y: 73}
+        - {x: -73.5, y: 59}
+        - {x: -73.5, y: -73}
+        - {x: 73.5, y: -73}
+        - {x: 73.5, y: 25}
+        - {x: 43.5, y: 73}
     - name: suri_2
       rect:
         serializedVersion: 2
-        x: 2048
+        x: 682
         y: 0
-        width: 1024
-        height: 1024
+        width: 341.35715
+        height: 341
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 33, y: 73}
-        - {x: -21, y: 73}
-        - {x: -46, y: 65}
-        - {x: -68, y: 23}
-        - {x: -73, y: 9}
-        - {x: -73, y: -73}
-        - {x: 73, y: -73}
-        - {x: 73, y: 25}
-        - {x: 70, y: 46}
+      - - {x: 18.5, y: 73}
+        - {x: -36.5, y: 73}
+        - {x: -69.5, y: 57}
+        - {x: -73.5, y: 19}
+        - {x: -73.5, y: -73}
+        - {x: 73.5, y: -73}
+        - {x: 73.5, y: 18}
+        - {x: 47.5, y: 67}
     - name: suri_3
       rect:
         serializedVersion: 2
-        x: 3072
+        x: 1023
         y: 0
-        width: 1024
-        height: 1024
+        width: 341.35715
+        height: 341
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 73, y: -73}
-        - {x: 73, y: 34}
-        - {x: 30, y: 73}
-        - {x: -20, y: 73}
-        - {x: -45, y: 61}
-        - {x: -72, y: 23}
-        - {x: -73, y: 21}
-        - {x: -73, y: -73}
-        - {x: 45, y: -73}
-        - {x: 33, y: -50}
-        - {x: 23, y: -42}
-        - {x: 61, y: -73}
+      - - {x: -49.5, y: 73}
+        - {x: -73.5, y: 41}
+        - {x: -73.5, y: -73}
+        - {x: 73.5, y: -73}
+        - {x: 73.5, y: 68}
+        - {x: 62.5, y: 73}
     - name: suri_4
       rect:
         serializedVersion: 2
-        x: 4096
+        x: 1364
         y: 0
-        width: 1024
-        height: 1024
+        width: 341.35715
+        height: 341
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 73, y: 54}
-        - {x: 61, y: 73}
-        - {x: -45, y: 73}
-        - {x: -73, y: 65}
-        - {x: -73, y: -73}
-        - {x: -65, y: -73}
-        - {x: -50, y: -31}
-        - {x: -42, y: -73}
-        - {x: 73, y: -73}
+      - - {x: 39.5, y: -66}
+        - {x: 31.5, y: -48}
+        - {x: 16.5, y: -38}
+        - {x: 43.5, y: -23}
+        - {x: 60.5, y: -73}
+        - {x: 73.5, y: -73}
+        - {x: 73.5, y: 12}
+        - {x: 62.5, y: 45}
+        - {x: 32.5, y: 73}
+        - {x: -30.5, y: 73}
+        - {x: -70.5, y: 58}
+        - {x: -73.5, y: 36}
+        - {x: -73.5, y: -73}
+        - {x: -63.5, y: -73}
+        - {x: -54.5, y: -41}
+        - {x: -40.5, y: -73}
+        - {x: 39.5, y: -73}
     - name: suri_5
       rect:
         serializedVersion: 2
-        x: 5120
+        x: 1705
         y: 0
-        width: 1024
-        height: 1024
+        width: 341.35715
+        height: 341
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 73, y: -73}
-        - {x: 73, y: 45}
-        - {x: 69, y: 65}
-        - {x: 39, y: 73}
-        - {x: -56, y: 73}
-        - {x: -73, y: 58}
-        - {x: -73, y: -73}
-        - {x: 42, y: -73}
-        - {x: 39, y: -63}
-        - {x: 32, y: -48}
-        - {x: 62, y: -73}
+      - - {x: -55.5, y: 73}
+        - {x: -73.5, y: 69}
+        - {x: -73.5, y: -73}
+        - {x: 73.5, y: -73}
+        - {x: 73.5, y: 57}
+        - {x: 61.5, y: 73}
     - name: suri_6
       rect:
         serializedVersion: 2
-        x: 6144
+        x: 2046
         y: 0
-        width: 1024
-        height: 1024
+        width: 341.35715
+        height: 341
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -47, y: 73}
-        - {x: -73, y: 33}
-        - {x: -73, y: -73}
-        - {x: 73, y: -73}
-        - {x: 73, y: 36}
-        - {x: 33, y: 73}
+      - - {x: 43.5, y: 73}
+        - {x: -50.5, y: 73}
+        - {x: -73.5, y: 18}
+        - {x: -73.5, y: -73}
+        - {x: 73.5, y: -73}
+        - {x: 73.5, y: 27}
+        - {x: 68.5, y: 60}
     - name: suri_7
       rect:
         serializedVersion: 2
-        x: 7168
+        x: 2387
         y: 0
-        width: 1024
-        height: 1024
+        width: 341.35715
+        height: 341
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 34, y: 73}
-        - {x: -29, y: 73}
-        - {x: -68, y: 58}
-        - {x: -73, y: -10}
-        - {x: -73, y: -73}
-        - {x: 73, y: -73}
-        - {x: 73, y: 38}
-        - {x: 35, y: 72}
+      - - {x: 73.5, y: 68}
+        - {x: 54.5, y: 73}
+        - {x: -46.5, y: 73}
+        - {x: -73.5, y: 27}
+        - {x: -73.5, y: -73}
+        - {x: -62.5, y: -73}
+        - {x: -50.5, y: -32}
+        - {x: -43.5, y: -73}
+        - {x: 73.5, y: -73}
     - name: suri_8
       rect:
         serializedVersion: 2
-        x: 8192
+        x: 2728
         y: 0
-        width: 1024
-        height: 1024
+        width: 341.35715
+        height: 341
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 59, y: -73}
-        - {x: 73, y: -73}
-        - {x: 73, y: 36}
-        - {x: 37, y: 73}
-        - {x: -29, y: 73}
-        - {x: -69, y: 44}
-        - {x: -73, y: -2}
-        - {x: -73, y: -73}
-        - {x: 41, y: -73}
-        - {x: 41, y: -71}
-        - {x: 38, y: -62}
-        - {x: 31, y: -48}
+      - - {x: 73.5, y: -73}
+        - {x: 73.5, y: 43}
+        - {x: 26.5, y: 73}
+        - {x: -20.5, y: 73}
+        - {x: -41.5, y: 68}
+        - {x: -63.5, y: 39}
+        - {x: -73.5, y: 2}
+        - {x: -73.5, y: -73}
+        - {x: 48.5, y: -73}
+        - {x: 35.5, y: -56}
+        - {x: 24.5, y: -42}
+        - {x: 61.5, y: -73}
     - name: suri_9
       rect:
         serializedVersion: 2
-        x: 9216
+        x: 3069
         y: 0
-        width: 1024
-        height: 1024
+        width: 341.35715
+        height: 341
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 41, y: 73}
-        - {x: -42, y: 73}
-        - {x: -73, y: 33}
-        - {x: -73, y: -73}
-        - {x: 73, y: -73}
-        - {x: 73, y: 30}
-        - {x: 68, y: 55}
+      - - {x: 73.5, y: 54}
+        - {x: 28.5, y: 73}
+        - {x: -38.5, y: 73}
+        - {x: -57.5, y: 49}
+        - {x: -71.5, y: 19}
+        - {x: -73.5, y: -14}
+        - {x: -73.5, y: -73}
+        - {x: -62.5, y: -73}
+        - {x: -54.5, y: -42}
+        - {x: -39.5, y: -73}
+        - {x: 73.5, y: -73}
     - name: suri_10
       rect:
         serializedVersion: 2
-        x: 10240
+        x: 3410
         y: 0
-        width: 1024
-        height: 1024
+        width: 341.35715
+        height: 341
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 63, y: -73}
-        - {x: 73, y: -73}
-        - {x: 73, y: 27}
-        - {x: 58, y: 70}
-        - {x: 43, y: 73}
-        - {x: -49, y: 73}
-        - {x: -72, y: 47}
-        - {x: -73, y: 39}
-        - {x: -73, y: -73}
-        - {x: 41, y: -73}
-        - {x: 42, y: -69}
-        - {x: 35, y: -50}
-        - {x: 25, y: -42}
+      - - {x: 42.5, y: -22}
+        - {x: 62.5, y: -73}
+        - {x: 73.5, y: -73}
+        - {x: 73.5, y: 43}
+        - {x: 56.5, y: 73}
+        - {x: -40.5, y: 73}
+        - {x: -73.5, y: 62}
+        - {x: -73.5, y: -73}
+        - {x: 51.5, y: -73}
+        - {x: 37.5, y: -54}
+        - {x: 29.5, y: -47}
+        - {x: 20.5, y: -39}
     - name: suri_11
       rect:
         serializedVersion: 2
-        x: 11264
+        x: 3751
         y: 0
-        width: 1024
-        height: 1024
+        width: 341.35715
+        height: 341
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 28, y: 73}
-        - {x: -38, y: 73}
-        - {x: -73, y: 30}
-        - {x: -73, y: -73}
-        - {x: 73, y: -73}
-        - {x: 73, y: 28}
-        - {x: 42, y: 66}
+      - - {x: 60.5, y: -73}
+        - {x: 73.5, y: -73}
+        - {x: 73.5, y: 57}
+        - {x: 34.5, y: 73}
+        - {x: -57.5, y: 73}
+        - {x: -73.5, y: 42}
+        - {x: -73.5, y: -73}
+        - {x: 41.5, y: -73}
+        - {x: 40.5, y: -60}
+        - {x: 26.5, y: -41}
     - name: suri_12
       rect:
         serializedVersion: 2
-        x: 12288
+        x: 4092
         y: 0
-        width: 1024
-        height: 1024
+        width: 341.35715
+        height: 341
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -39, y: 73}
-        - {x: -66, y: 54}
-        - {x: -73, y: 0}
-        - {x: -73, y: -73}
-        - {x: 73, y: -73}
-        - {x: 73, y: 58}
-        - {x: 35, y: 73}
+      - - {x: -44.5, y: -73}
+        - {x: 73.5, y: -73}
+        - {x: 73.5, y: 33}
+        - {x: 35.5, y: 73}
+        - {x: -37.5, y: 73}
+        - {x: -73.5, y: 21}
+        - {x: -73.5, y: -73}
+        - {x: -63.5, y: -73}
+        - {x: -58.5, y: -64}
+        - {x: -54.5, y: -54}
+        - {x: -50.5, y: -65}
     - name: suri_13
       rect:
         serializedVersion: 2
-        x: 13312
+        x: 4433
         y: 0
-        width: 1024
-        height: 1024
+        width: 341.35715
+        height: 341
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -43, y: 73}
-        - {x: -54, y: 57}
-        - {x: -73, y: 6}
-        - {x: -73, y: -73}
-        - {x: 73, y: -73}
-        - {x: 73, y: 52}
-        - {x: 41, y: 73}
+      - - {x: -40.5, y: 73}
+        - {x: -73.5, y: 9}
+        - {x: -73.5, y: -73}
+        - {x: 73.5, y: -73}
+        - {x: 73.5, y: 31}
+        - {x: 52.5, y: 73}
     outline: []
   spritePackingTag: 
   userData: 

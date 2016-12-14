@@ -27,7 +27,7 @@ public class TimeTravelController : MonoBehaviour
         _firstPresentLoad = true;
         _waitForTitle = true;
 
-        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+        // SceneManager.sceneLoaded += OnLevelFinishedLoading;
     }
 
 
