@@ -11,9 +11,23 @@ public class Dock : MonoBehaviour {
     private GameController _gameController;
     private DockController _dockController;
     private bool _isInterfaceInteractionTriggered;
+
     private FollowCamera _camera;
 
-    void Start () {
+    public FollowCamera Cam {
+        get {
+            if(_camera == null)
+                _camera = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.MainCamera).transform.parent.
+                    gameObject.GetComponent<FollowCamera>();
+
+            return _camera;
+        }
+    }
+
+
+
+    void Start () 
+    {
         _isInterfaceInteractionTriggered = false;
 
         _gameController = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController)
@@ -21,8 +35,6 @@ public class Dock : MonoBehaviour {
         _dockController = _gameController.GetComponent<DockController>();
         _dockController.Docks.Add(this);
         Suri = _gameController.GetComponent<GameController>().Suri;
-        _camera = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.MainCamera).transform.parent.
-            gameObject.GetComponent<FollowCamera>();
     }
     
     void Update () {
@@ -84,7 +96,7 @@ public class Dock : MonoBehaviour {
 
         DockedShip.GetComponent<CharacterMovement>().IsControlledByPlayer = true;
         DockedShip.GetComponent<Ship>().ShrinkCollider();
-        _camera.Target = DockedShip;
+        Cam.Target = DockedShip;
         _gameController.SetDrivingBoat(true);
 
         _gameController.GetComponent<SFXController>().PlayEmbark();
@@ -98,7 +110,7 @@ public class Dock : MonoBehaviour {
         Suri.SetActive(true);
         DockedShip.GetComponent<CharacterMovement>().IsControlledByPlayer = false;
         DockedShip.GetComponent<Ship>().EnlargeCollider();
-        _camera.Target = Suri;
+        Cam.Target = Suri;
         _gameController.SetDrivingBoat(false);
 
         Chapu chapu = _gameController.GetComponent<GameController>().Chapu.GetComponent<Chapu>();

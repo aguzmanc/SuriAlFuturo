@@ -22,7 +22,7 @@ public class SFXController : MonoBehaviour
 
     [System.Serializable]
     public class DialogueSFX {
-        public enum Character {Suri, Chapu, Anciano, Cholita, Kid, Fernando, Robot, Joaquin, James, Andres, ydroid};
+        public enum Character {Suri, Chapu, Anciano, Cholita, Kid, Fernando, Robot, Joaquin, James, Andres, ydroid, Natalia};
         public enum Emotion {happy,sad,cry,surprised,bark,neutral,normal,mad,laugh,scared};
 
         public Character character;
@@ -74,12 +74,12 @@ public class SFXController : MonoBehaviour
 
     public void PlayDialogue(string character, string emotion) 
     {
+        if(character=="RN-570"){character="Robot";} // fix to avoid problems with enum names
+        if(character=="old-joaquin" || character=="old-enrique"){character="Anciano";}
+
         if(character == _currentCharacter && emotion == _currentEmotion) {
             return;
         }
-
-        if(character=="RN-570"){character="Robot";} // fix to avoid problems with enum names
-        if(character=="old-joaquin" || character=="old-enrique"){character="Anciano";}
 
         _currentCharacter = character;
         _currentEmotion = emotion;
