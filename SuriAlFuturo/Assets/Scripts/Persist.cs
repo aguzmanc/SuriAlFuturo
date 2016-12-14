@@ -24,6 +24,7 @@ public class Persist : MonoBehaviour {
     }
 
     void OnDisable () {
+        Enabled = false;
         _controller.Save(this);
     }
 
