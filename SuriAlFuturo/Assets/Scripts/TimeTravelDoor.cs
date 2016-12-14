@@ -7,7 +7,7 @@ public class TimeTravelDoor : MonoBehaviour
     public WindZone Wind;
     public Light CenterLight;
     public int SecondsAfterTravelDisabled = 10;
-    public TimeTravelFlash UIFlash;
+//    public TimeTravelFlash UIFlash;
 
     private bool _timeTravelEnabled;
     private ParticleSystem _particles;
@@ -38,11 +38,12 @@ public class TimeTravelDoor : MonoBehaviour
         {
             _timeTravelEnabled = false;
 
-            UIFlash.Flash();
+//            UIFlash.Flash();
             _timeTravelController.GetComponent<SFXController>().PlayTimeTravel();
             _timeTravelDoorSound.Pause();
 
             // workaround for SceneManager.UnloadScene inside triggers
+            _timeTravelController.ShowFlash();
             StartCoroutine(DeferedTimeTravel());
             coll.GetComponent<CharacterMovement>().TimeTravel();
         }

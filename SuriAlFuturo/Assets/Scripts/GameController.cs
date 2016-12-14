@@ -28,6 +28,8 @@ public class GameController : MonoBehaviour {
         _collectionSystem = GetComponent<CollectionSystem>();
         _dialogueController = GetComponent<DialogueController>();
         Screen.orientation = ScreenOrientation.LandscapeLeft;
+
+        FollowingCamera.gameObject.SetActive(false);
     }
 
     public void SetDrivingBoat (bool value) {

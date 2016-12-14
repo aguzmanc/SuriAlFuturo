@@ -48,6 +48,6 @@ public class TitlePresentation : MonoBehaviour
         yield return new WaitUntil(()=>FlashToGame.HasFinishedFade);
 
         SceneManager.LoadScene("BaseScene");
-
+    
     }
 }

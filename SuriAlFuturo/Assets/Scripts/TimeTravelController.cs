@@ -19,6 +19,7 @@ public class TimeTravelController : MonoBehaviour
     public FadeInFadeOut Title;
     public FadeInFadeOut PressKeyToContinueText;
     public GameObject PressKeyToStartButton;
+    public FadeInFadeOut UIFlash;
 
 
     void Awake()
@@ -27,9 +28,9 @@ public class TimeTravelController : MonoBehaviour
         _firstPresentLoad = true;
         _waitForTitle = true;
 
-        // SceneManager.sceneLoaded += OnLevelFinishedLoading;
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
     }
-
+        
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
@@ -39,11 +40,15 @@ public class TimeTravelController : MonoBehaviour
         }
 
         Debug.Log("Level Loaded : " + scene.name);
+
+        UIFlash.FadeOut();
     }
 
 
     void Start ()
     {
+        UIFlash.Show();
+
         // Unload Al Scenes except BaseScene  (just for debug in unity)
         for (int i=0; i<SceneManager.sceneCount; i++) {
             string sceneName = SceneManager.GetSceneAt(i).name;
@@ -80,6 +85,11 @@ public class TimeTravelController : MonoBehaviour
         return tapController.CountWaterTapsOff() + 1;
     }
 
+
+    public void ShowFlash()
+    {
+        UIFlash.Show();
+    }
 
 
     public void StartGame() 

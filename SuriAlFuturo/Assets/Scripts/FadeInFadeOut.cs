@@ -62,6 +62,16 @@ public class FadeInFadeOut : MonoBehaviour
         }
 	}
 
+    public void Show(){
+        ChangeFade(_img, 1f);
+        ChangeFade(_text, 1f);
+    }
+
+    public void Hide() {
+        ChangeFade(_img, 0f);
+        ChangeFade(_text, 0f);
+    }
+
 
     public void FadeIn() 
     {
