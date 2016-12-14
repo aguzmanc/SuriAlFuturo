@@ -3,6 +3,7 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
     public FollowCamera FollowingCamera;
+    public GameObject TitleCamera;
     public GameObject Suri;
     public GameObject Chapu;
     public GameObject MovementGizmos;
@@ -35,6 +36,13 @@ public class GameController : MonoBehaviour {
         } else {
             FollowingCamera.ExitWater();
         }
+    }
+
+
+    public void StartGame() 
+    {
+        TitleCamera.SetActive(false);
+        FollowingCamera.gameObject.SetActive(true);
     }
 
 }
