@@ -67,10 +67,13 @@ public class WaterTap : MonoBehaviour
             _fountain.Play();
             _gameController.GetComponent<SFXController>().PlayWaterOn();
             WaterFlowingSound.UnPause();
+
         } else {
             _fountain.Stop();
             _gameController.GetComponent<SFXController>().PlayWaterOff();
             WaterFlowingSound.Pause();
+
+            _gameController.GetComponent<TapController>().NotifyTapOff();
         }
     }
 
