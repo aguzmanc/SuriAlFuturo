@@ -1,0 +1,93 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "¡Abuelito! ¡Al fin podemos irnos a casa!"
+  }, {
+    "Avatar": "Anciano",
+    "Name": "Don Sebasti{an",
+    "Emotion": "normal",
+    "Text": "Sabía que lo lograrías hijita ¡pudiste salvar el lago!"
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Han pasado muchos años pero nunca me olvidé de ti."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "¿Te sirvió el drone?"
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "¡Me sirvió muchísimo!"
+  }, {
+    "Avatar": "Andres",
+    "Name": "Andres",
+    "Emotion": "happy",
+    "Text": "Mi abuelo hablaba maravillas de tí. Gracias a la cosechadora que le diste pudo hacer muchas copias más"
+  }, {
+    "Avatar": "Andres",
+    "Name": "Andres",
+    "Emotion": "happy",
+    "Text": "Y eso hizo que la vida en el pueblo fuera mejor."
+  }, {
+    "Avatar": "old-enrique",
+    "Name": "Enrique",
+    "Emotion": "normal",
+    "Text": "Cuando desapareciste me sentí muy mal por haber sido tan malo, y me puse a pensar en lo que dijiste"
+  }, {
+    "Avatar": "old-enrique",
+    "Name": "Enrique",
+    "Emotion": "normal",
+    "Text": "Desde entonces cuido el medio ambiente, y les enseñé a mis hijos y a mis nietos a hacerlo también."
+  }, {
+    "Avatar": "old-joaquin",
+    "Name": "Joaquín",
+    "Emotion": "normal",
+    "Text": "Yo también, cultivé el amor por la naturaleza por encima de nuestras necesidades."
+  }, {
+    "Avatar": "old-joaquin",
+    "Name": "Joaquín",
+    "Emotion": "normal",
+    "Text": "¡Nos diste una gran lección! ¿Quién iba a pensar que andabas viajando en el tiempo?"
+  }, {
+    "Avatar": "Anciano",
+    "Name": "Don Sebastián",
+    "Emotion": "normal",
+    "Text": "Te hiciste famosa Suri, jejeje"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Me alegra que todo este bien ahora"
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "happy",
+    "Text": "whoorff!!"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN'=-570",
+    "Emotion": "normal",
+    "Text": "Corrección: todo está bien ahora, porque las cosas estuvieron bien en el presente, que ahora es el pasado"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Ahora debemos volver a casa."
+  }, {
+    "Avatar": "Anciano",
+    "Name": "Don Sebastián",
+    "Emotion": "normal",
+    "Text": "La vista es muy bonita, me alegra que el futuro será así de vivo. Quedémonos un rato más."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "¡Está bien abuelito! pero debemos volver mañana porque tengo que ir a la escuela jajajaja"
+  }
+] }

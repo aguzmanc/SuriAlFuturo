@@ -5,6 +5,7 @@ using SuriAlFuturo;
 public class Persist : MonoBehaviour {
     public Vector3 PersistenceKey;
     public bool Enabled = false;
+    public float t = 0;
 
     private PersistenceController _controller;
 
@@ -24,11 +25,15 @@ public class Persist : MonoBehaviour {
     }
 
     void OnDisable () {
+        t = Time.time;
         Enabled = false;
         _controller.Save(this);
     }
 
     void OnDestroy () {
+        if (Mathf.Abs(t - Time.time) < 1) {
+            Enabled = true;
+        }
         _controller.Save(this);
     }
 
