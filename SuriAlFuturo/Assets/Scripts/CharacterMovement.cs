@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
+using System.Collections.Generic;
 using SuriAlFuturo;
 
 public class CharacterMovement : MonoBehaviour
@@ -11,14 +12,13 @@ public class CharacterMovement : MonoBehaviour
     public float CurrentSpeedPercent;
     public Vector3 Direction;
 
-    private bool _isInteracting;
+    public bool _isInteracting;
     private GameObject _gizmos;
     private Animator _gizmosAnimator;
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private GameController _controller;
     private GameObject[] _floors;
-    private UIController _uiController;
     private EventSystem _eventSystem;
 
     private Touch _tap;
@@ -34,7 +34,6 @@ public class CharacterMovement : MonoBehaviour
             GetComponent<GameController>();
         _gizmos = _controller.MovementGizmos;
         _gizmosAnimator = _gizmos.GetComponent<Animator>();
-        _uiController = GameObject.FindGameObjectWithTag(Tag.Canvas).
             GetComponent<UIController>();
         _eventSystem = GameObject.FindGameObjectWithTag(Tag.EventSystem).
             GetComponent<EventSystem>();
@@ -75,7 +74,9 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    public void UpdateMovement () {
+
+    public void UpdateMovement () 
+    {
         if (IsControlledByArrows) { // keyboard control!
             if(_navMeshAgent.isActiveAndEnabled){
                 _navMeshAgent.Stop();
@@ -83,7 +84,8 @@ public class CharacterMovement : MonoBehaviour
                                     Mathf.Max( Mathf.Abs(Input.GetAxis("Vertical")),
                                              Mathf.Abs(Input.GetAxis("Horizontal")) ));
             }
-        } else if (false == _IsInteractionBlocked()) {
+        } else if (false == _IsInteractionBlocked()) 
+        {
             if(StartInteracting()){
                 _gizmosAnimator.SetTrigger("Born");
             }
@@ -104,7 +106,7 @@ public class CharacterMovement : MonoBehaviour
             if(StopInteracting()) {
                 _gizmosAnimator.SetTrigger("Die");
             }
-        }
+        } 
     }
 
     public void UpdateDirection () {
@@ -203,19 +205,20 @@ public class CharacterMovement : MonoBehaviour
 
     private bool StartInteracting () 
     {
-        if(false == _isInteracting)
-        {
-            if(Input.GetMouseButtonDown(0))
-            {
-                _isInteracting = true;
-                return true;
-            }
+        if(_isInteracting) {
+            return false;
+        }
 
-            if(_tapped) {
-                if(_tap.phase == TouchPhase.Began) {
-                    _isInteracting = true;    
-                    return true;
-                }
+        if(Input.GetMouseButtonDown(0))
+        {
+            _isInteracting = true;
+            return true;
+        }
+
+        if(_tapped) {
+            if(_tap.phase == TouchPhase.Began) {
+                _isInteracting = true;    
+                return true;
             }
         }
 
@@ -226,19 +229,20 @@ public class CharacterMovement : MonoBehaviour
 
     private bool StopInteracting() 
     {
-        if(_isInteracting)
+        if(!_isInteracting) {
+            return false;
+        }
+
+        if(Input.GetMouseButtonUp(0))
         {
-            if(Input.GetMouseButtonUp(0))
-            {
+            _isInteracting = false;
+            return true;
+        }
+
+        if(_tapped) {
+            if(_tap.phase == TouchPhase.Ended) {
                 _isInteracting = false;
                 return true;
-            }
-
-            if(_tapped) {
-                if(_tap.phase == TouchPhase.Ended) {
-                    _isInteracting = false;
-                    return true;
-                }
             }
         }
 

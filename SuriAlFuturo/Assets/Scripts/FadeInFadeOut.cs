@@ -24,6 +24,7 @@ public class FadeInFadeOut : MonoBehaviour
 	}
 	
 
+
 	void Update () 
     {
         if(_fadingIn) {
@@ -62,15 +63,22 @@ public class FadeInFadeOut : MonoBehaviour
         }
 	}
 
-    public void Show(){
+
+
+    public void Show()
+    {
         ChangeFade(_img, 1f);
         ChangeFade(_text, 1f);
     }
 
-    public void Hide() {
+
+
+    public void Hide() 
+    {
         ChangeFade(_img, 0f);
         ChangeFade(_text, 0f);
     }
+
 
 
     public void FadeIn() 
@@ -81,12 +89,14 @@ public class FadeInFadeOut : MonoBehaviour
     }
 
 
+
     public void FadeOut() 
     {
         _secondsFading = SecondsToFade;
         _fadingOut = true;
         _finishedFlag = false;
     }
+
 
     // just consume once
     public bool HasFinishedFade {
@@ -107,7 +117,11 @@ public class FadeInFadeOut : MonoBehaviour
         
         Color c = img.color;
         img.color = new Color(c.r, c.g, c.b, factor);
+
+        img.enabled = (factor > 0f);
     }
+
+
 
     void ChangeFade(Text text, float factor)
     {
@@ -116,6 +130,8 @@ public class FadeInFadeOut : MonoBehaviour
 
         Color c = text.color;
         text.color = new Color(c.r, c.g, c.b, factor);
+
+        text.enabled = (factor > 0f);
     }
 
 }
