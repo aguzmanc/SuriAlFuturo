@@ -74,7 +74,8 @@ public class Talkable : MonoBehaviour {
             // _currentLine iterates between [-1, _digestedDialogue.Length-1]
             _currentLine = (_currentLine + 2) % (qtyOfLines + 1) - 1;
 
-            if (_currentLine == -1) {
+            if (_currentLine == -1) { // when dialog finished
+                _gameController.CanTalk = false;
                 WasRead = true;
                 ReadDialogues[_currentDialogue] = true;
                 if (WillTalkForcedDialogue) {
