@@ -101,6 +101,8 @@ public class TimeTravelController : MonoBehaviour
             SceneManager.UnloadScene("Present");
             SceneManager.LoadSceneAsync(CurrentReality, LoadSceneMode.Additive);
         }
+
+        UIFlash.Show();
     }
 
 
