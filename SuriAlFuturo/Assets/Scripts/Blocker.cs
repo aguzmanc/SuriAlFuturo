@@ -130,9 +130,11 @@ public class Blocker : MonoBehaviour {
         _navMeshAgent.enabled = true;
         _navMeshAgent.SetDestination(UnblockedPosition.transform.position);
 
-        if (ImprovesFuturePatch != null) {
-            ImprovesFuturePatch.ToggleFountain(false);
-        }
+        try {
+            if (ImprovesFuturePatch != null) {
+                ImprovesFuturePatch.ToggleFountain(false);
+            }
+        } catch {}
 
         if (EnablesGameObject != null) {
             EnablesGameObject.SetActive(true);
