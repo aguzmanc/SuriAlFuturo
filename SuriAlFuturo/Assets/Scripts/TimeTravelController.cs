@@ -108,6 +108,8 @@ public class TimeTravelController : MonoBehaviour
 
     IEnumerator PresentationSequence () 
     {
+        PressKeyToStartButton.SetActive(false);
+        
         SceneManager.LoadSceneAsync("Present", LoadSceneMode.Additive);
 
         yield return new WaitWhile(()=>_waitForTitle);
