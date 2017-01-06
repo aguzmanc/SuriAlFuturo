@@ -60,7 +60,8 @@ public class Blocker : MonoBehaviour {
         if (Input.GetButtonDown("Give") || _interactionTriggered) {
             _interactionTriggered = false;
 
-            try {
+            // try {
+            if (_customAccept.ContainsKey(_controller.GetActiveRequirement())) {
                 CustomAccept c = _customAccept[_controller.GetActiveRequirement()];
                 TheTalkable.SetDialogueIndex(c.DialogueIndex);
                 _controller.RegisterAsGiven(_controller.GetActiveRequirement());
@@ -68,7 +69,8 @@ public class Blocker : MonoBehaviour {
                 c.enabled = false;
                 c.Activate();
                 return;
-            } catch {}
+            }
+            // } catch {}
 
             if (_canTake && !TheTalkable.IsTalking() &&
                 false == TryToTakeRequirement(_controller.GetActiveRequirement())) {
