@@ -73,7 +73,9 @@ public class WaterTap : MonoBehaviour
             _gameController.GetComponent<SFXController>().PlayWaterOff();
             WaterFlowingSound.Pause();
 
-            _gameController.GetComponent<TapController>().NotifyTapOff();
+            if(_canInteract){ // only when Suri is close
+                _gameController.GetComponent<TapController>().NotifyTapOff();
+            }
         }
     }
 
