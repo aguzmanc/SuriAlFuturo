@@ -14,6 +14,7 @@ public class Subscriber : MonoBehaviour
     public Blocker TheBlocker;
     public int DialogueIndex;
     public Talkable TheTalkable;
+    public Collider Collider;
 
     private EventController _controller;
 
@@ -57,6 +58,11 @@ public class Subscriber : MonoBehaviour
 
         if (TheTalkable != null) {
             TheTalkable.TriggerDialogue(DialogueIndex);
+        }
+
+
+        if(Collider != null) {
+            Collider.enabled = true;
         }
 
         this.enabled = false;

@@ -106,7 +106,9 @@ public class CharacterMovement : MonoBehaviour
             if(StopInteracting()) {
                 _gizmosAnimator.SetTrigger("Die");
             }
-        } 
+        } else if (StopInteracting()) { // force to stop interact
+            _gizmosAnimator.SetTrigger("Die");
+        }
     }
 
     public void UpdateDirection () {

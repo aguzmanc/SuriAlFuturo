@@ -2,5 +2,7 @@ public enum Event {
     AbuelitoEncontrado,
     Test,
     HabladoConNatalia,
-    LittleWaterFutureVisto
+    LittleWaterFutureVisto,
+    HabladoConJoaquin,
+    Ninguno
 }
