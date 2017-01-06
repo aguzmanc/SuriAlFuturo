@@ -69,6 +69,10 @@ public class FadeInFadeOut : MonoBehaviour
     {
         ChangeFade(_img, 1f);
         ChangeFade(_text, 1f);
+
+        _fadingOut = false;
+        _fadingIn = false;
+        _secondsFading = -1;
     }
 
 
@@ -77,6 +81,11 @@ public class FadeInFadeOut : MonoBehaviour
     {
         ChangeFade(_img, 0f);
         ChangeFade(_text, 0f);
+
+        _finishedFlag = true;
+        _fadingOut = false;
+        _fadingIn = false;
+        _secondsFading = -1;
     }
 
 
