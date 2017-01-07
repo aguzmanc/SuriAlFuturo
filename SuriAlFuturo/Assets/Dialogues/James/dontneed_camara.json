@@ -1,0 +1,18 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "James",
+    "Name": "James",
+    "Emotion": "happy",
+    "Text": "¿Como te sientes con tu nueva cámara? Puede tomar fotos desde muy lejos."
+  }, {
+    "Avatar": "James",
+    "Name": "James",
+    "Emotion": "happy",
+    "Text": "Podrías tomar unas fotos muy buenas de todo el lago incluyendo todos sus árboles."
+  }, {
+    "Avatar": "James",
+    "Name": "James",
+    "Emotion": "happy",
+    "Text": "Pero tendrías que poner la cámara en un lugar muy alto, o sobre una máquina voladora."
+  }
+] }
