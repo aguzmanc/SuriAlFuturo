@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Parece una patineta, pero no tiene llantas, y con motor."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Debe ser una patineta voladora, a Enrique podría gustarle esto."
+  }
+] }
