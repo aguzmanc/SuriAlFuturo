@@ -96,19 +96,22 @@ public class TimeTravelController : MonoBehaviour
     {
         Title.gameObject.SetActive(false);
         PressKeyToContinueText.gameObject.SetActive(false);
-        PressKeyToStartButton.SetActive(false);
 
         if(CurrentReality != "Present") {
             SceneManager.UnloadScene("Present");
             SceneManager.LoadSceneAsync(CurrentReality, LoadSceneMode.Additive);
+
+            UIFlash.Show();
         }
+
+
     }
 
 
 
     IEnumerator PresentationSequence () 
     {
-        PressKeyToStartButton.SetActive(false);
+        //PressKeyToStartButton.SetActive(false);
         
         SceneManager.LoadSceneAsync("Present", LoadSceneMode.Additive);
 
@@ -122,8 +125,8 @@ public class TimeTravelController : MonoBehaviour
 
         PressKeyToContinueText.FadeIn();
 
-        yield return new WaitUntil(()=>PressKeyToContinueText.HasFinishedFade);
+        //yield return new WaitUntil(()=>PressKeyToContinueText.HasFinishedFade);
 
-        PressKeyToStartButton.SetActive(true);
+        //PressKeyToStartButton.SetActive(true);
     }
 }

@@ -1,0 +1,19 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Joaquin",
+    "Name": "Joaquin",
+    "Emotion": "happy",
+    "Text": "Deberías darle mi vieja patineta al niño raro ese, tal vez así se anime a venir a jugar con nosotros."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Si, lo haré."
+  }, 
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "Solo espero que no me salga con alguno de sus berrinches."
+  }
+] }
