@@ -1,0 +1,23 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Andres",
+    "Name": "Andrés",
+    "Emotion": "normal",
+    "Text": "!Eso parece un motor desarmado! Un motor muy raro."
+  }, {
+    "Avatar": "Andres",
+    "Name": "Andrés",
+    "Emotion": "normal",
+    "Text": "Aunque no tiene un contenedor de gasolina, y tiene partes extrañas también ¡Qué extraño!"
+  }, {
+    "Avatar": "Andres",
+    "Name": "Andrés",
+    "Emotion": "normal",
+    "Text": "Imagínate ver motores funcionando solo con energía limpia que no contamine. Sería maravilloso."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Lo llevaré donde un amigo, creo que sabe REPARAR este tipo de motores."
+  }
+] }

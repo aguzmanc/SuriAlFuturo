@@ -1,0 +1,25 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Andres",
+    "Name": "Andrés",
+    "Emotion": "normal",
+    "Text": "!Una pala mecánica!. Es muy útil para cosechar mas rápidamente."
+  }, {
+    "Avatar": "Andres",
+    "Name": "Andrés",
+    "Emotion": "normal",
+    "Text": "Lo malo es que solo se usan en vehículos que contaminan mucho para hacer su trabajo."
+  },
+		{
+    "Avatar": "Andres",
+    "Name": "Andrés",
+    "Emotion": "normal",
+    "Text": "Si hubiera algún MOTOR de energía limpia con lo que combinarlo sería tan feliz. Y lo compartiría con el mundo."
+  },
+	 {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "happy",
+    "Text": "¡Woooof Wooof!"
+  }
+] }
