@@ -79,6 +79,8 @@ public class Talkable : MonoBehaviour {
                 } else {
                     ReadDialogues[_currentDialogue] = true;
                 }
+            } else {
+                _gameController.CanTalk = true;
             }
         }
     }
