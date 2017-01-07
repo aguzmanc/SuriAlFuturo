@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 1957fdaeecb15c042822dac40d77d867
-timeCreated: 1480295908
+guid: e3571b917a37cab488c19be8ecd7e93d
+timeCreated: 1483749799
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -31,17 +31,16 @@ ModelImporter:
     100046: Bone_R.002
     100048: Bone_R.003
     100050: Bone_R.003_end
-    100052: Camera
-    100054: IK_Leg_L
-    100056: IK_Leg_L_end
-    100058: IK_Leg_R
-    100060: IK_Leg_R_end
-    100062: Knee_L
-    100064: Knee_L_end
-    100066: Knee_R
-    100068: Knee_R_end
-    100070: Sphere
-    100072: //RootNode
+    100052: IK_Leg_L
+    100054: IK_Leg_L_end
+    100056: IK_Leg_R
+    100058: IK_Leg_R_end
+    100060: Knee_L
+    100062: Knee_L_end
+    100064: Knee_R
+    100066: Knee_R_end
+    100068: Sphere
+    100070: //RootNode
     400000: Arm1_L
     400002: Arm1_R
     400004: Arm2_L
@@ -68,30 +67,31 @@ ModelImporter:
     400046: Bone_R.002
     400048: Bone_R.003
     400050: Bone_R.003_end
-    400052: Camera
-    400054: IK_Leg_L
-    400056: IK_Leg_L_end
-    400058: IK_Leg_R
-    400060: IK_Leg_R_end
-    400062: Knee_L
-    400064: Knee_L_end
-    400066: Knee_R
-    400068: Knee_R_end
-    400070: Sphere
-    400072: //RootNode
+    400052: IK_Leg_L
+    400054: IK_Leg_L_end
+    400056: IK_Leg_R
+    400058: IK_Leg_R_end
+    400060: Knee_L
+    400062: Knee_L_end
+    400064: Knee_R
+    400066: Knee_R_end
+    400068: Sphere
+    400070: //RootNode
     4300000: Sphere
     7400000: Armature|Breathe
     7400002: Armature|LookAround
     7400004: Armature|Walk
-    7400006: Armature|x
-    7400008: Armature|xx
-    7400010: Armature|xxx
-    7400012: Armature|xxxx
-    7400014: Armature|xxxxx
-    7400016: Armature|xxxxxx
-    7400018: Sphere|Breathe
-    7400020: Sphere|x
-    7400022: Sphere|xxxxxx
+    7400006: Armature|Walk.002
+    7400008: Armature|Walkz
+    7400010: Armature|x
+    7400012: Armature|xx
+    7400014: Armature|xxx
+    7400016: Armature|xxxx
+    7400018: Armature|xxxxx
+    7400020: Armature|xxxxxx
+    7400022: Sphere|Breathe
+    7400024: Sphere|x
+    7400026: Sphere|xxxxxx
     9500000: //RootNode
     13700000: Sphere
   materials:
@@ -101,7 +101,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
@@ -210,8 +210,6 @@ ModelImporter:
         weight: 1
       - path: Armature/Knee_R/Knee_R_end
         weight: 1
-      - path: Camera
-        weight: 1
       - path: Sphere
         weight: 1
       maskType: 0
@@ -312,18 +310,16 @@ ModelImporter:
         weight: 1
       - path: Armature/Knee_R/Knee_R_end
         weight: 1
-      - path: Camera
-        weight: 1
       - path: Sphere
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Walk
-      takeName: Armature|Walk
+      name: Armature|Walkz
+      takeName: Armature|Walkz
       firstFrame: 0
-      lastFrame: 1
+      lastFrame: 32
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -413,8 +409,6 @@ ModelImporter:
       - path: Armature/Knee_R
         weight: 1
       - path: Armature/Knee_R/Knee_R_end
-        weight: 1
-      - path: Camera
         weight: 1
       - path: Sphere
         weight: 1

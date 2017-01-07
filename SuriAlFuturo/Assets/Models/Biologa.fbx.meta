@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 7d4a7c5d8052f724ab03b6889e65ee6b
-timeCreated: 1480213141
+guid: 720288b18dc72ec4dad68fedd5402cb4
+timeCreated: 1483746235
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -78,18 +78,11 @@ ModelImporter:
     400068: Knee_R_end
     400070: Sphere
     4300000: Sphere
-    7400000: Breathe
-    7400002: LookAround
-    7400004: Walk
-    7400006: Armature|x
-    7400008: Armature|xx
-    7400010: Armature|xxx
-    7400012: Armature|xxxx
-    7400014: Armature|xxxxx
-    7400016: Armature|xxxxxx
-    7400018: Sphere|Breathe
-    7400020: Sphere|x
-    7400022: Sphere|xxxxxx
+    7400000: Armature|Breathe
+    7400002: Armature|LookAround
+    7400004: Armature|Walk.002
+    7400006: Armature|Walkz
+    7400008: Sphere|Walkz
     9500000: //RootNode
     13700000: Sphere
   materials:
@@ -99,7 +92,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
@@ -114,7 +107,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Breathe
+      name: Armature|Breathe
       takeName: Armature|Breathe
       firstFrame: 0
       lastFrame: 40
@@ -214,10 +207,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: LookAround
+      name: Armature|LookAround
       takeName: Armature|LookAround
       firstFrame: 0
-      lastFrame: 180
+      lastFrame: 132
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -314,10 +307,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Walk
-      takeName: Armature|Walk
+      name: Armature|Walkz
+      takeName: Armature|Walkz
       firstFrame: 0
-      lastFrame: 1
+      lastFrame: 31
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
