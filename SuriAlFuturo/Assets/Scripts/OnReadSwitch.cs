@@ -7,7 +7,7 @@ public class OnReadSwitch : MonoBehaviour {
 
     public int OnDialogueIndexRead;
     public int SwitchTo;
-    public Event TriggeredEvent;
+    public Event TriggeredEvent = Event.Ninguno;
 
     private EventController _controller;
     

@@ -4,5 +4,6 @@ public enum Event {
     HabladoConNatalia,
     LittleWaterFutureVisto,
     HabladoConJoaquin,
+    HabladoConFernando,
     Ninguno
 }
