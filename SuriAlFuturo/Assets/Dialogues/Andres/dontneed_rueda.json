@@ -1,0 +1,23 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Andres",
+    "Name": "Andrés",
+    "Emotion": "normal",
+    "Text": "Que rueda mas extraña, parece hecha de un material mucho mas resistente que la goma, hasta diria que es orgánica."
+  }, {
+    "Avatar": "Andres",
+    "Name": "Andrés",
+    "Emotion": "normal",
+    "Text": "Las ruedas de goma contaminan mucho, se deshechan luego de un tiempo. Pero esta rueda es especial."
+  }, {
+    "Avatar": "Andres",
+    "Name": "Andrés",
+    "Emotion": "normal",
+    "Text": "Ponerla en un vehículo con un MOTOR de energía limpia, sería de mucha utilidad para cosechar mis legumbres."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "¡Construyamos algo así, sería beneficioso para todos! Conozco alguien que repara todo."
+  }
+] }

@@ -50,7 +50,7 @@ public class WaterTap : MonoBehaviour
         if (Input.GetButtonDown("Interact") || _interactionTriggered) {
             _interactionTriggered = false;
             if (_canInteract) {
-                ToggleFountain(!_isOn);
+                ToggleFountain(!_isOn, false);
             }
         }
     }
@@ -68,7 +68,7 @@ public class WaterTap : MonoBehaviour
         _tapController.Taps.Remove(this);
     }
 
-    public void ToggleFountain (bool value) 
+    public void ToggleFountain (bool value, bool forceNotifyUI) 
     {
         _isOn = value;
 
@@ -82,10 +82,13 @@ public class WaterTap : MonoBehaviour
             _gameController.GetComponent<SFXController>().PlayWaterOff();
             WaterFlowingSound.Pause();
 
-            if(_canInteract){ // only when Suri is close
+            if(_canInteract || forceNotifyUI){ // only when Suri is close
                 _gameController.GetComponent<TapController>().NotifyTapOff();
             }
         }
+
+        // disables interaction with tap after using it.
+        _gameController.CanUseTap = _canInteract = false;
     }
 
     public void TriggerInteraction () {
@@ -104,7 +107,7 @@ public class WaterTap : MonoBehaviour
     }
 
     public void Load (bool isOn, bool isUsable) {
-        ToggleFountain(isOn);
+        ToggleFountain(isOn, false);
         _isUsable = isUsable;
         GetComponent<Collider>().enabled = isUsable;
     }
