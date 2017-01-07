@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Fernando",
+    "Name": "Fernando",
+    "Emotion": "happy",
+    "Text": "¿Puedes avisarle a Natalia que la maleta verde ya llegó?"
+  }, {
+    "Avatar": "Fernando",
+    "Name": "Fernando",
+    "Emotion": "happy",
+    "Text": "Natalia está en la reserva natural, al otro lado del lago."
+  }
+] }

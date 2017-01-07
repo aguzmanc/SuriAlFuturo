@@ -14,5 +14,15 @@
     "Name": "Natalia",
     "Emotion": "happy",
     "Text": "¿Ya fuiste a hablar con Fernando?"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Chapu, deberíamos ir a hablar con Fernando"
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "bark",
+    "Text": "waw!"
   }
 ] }

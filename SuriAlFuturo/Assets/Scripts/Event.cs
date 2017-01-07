@@ -1,9 +1,11 @@
 public enum Event {
+    Ninguno,
     AbuelitoEncontrado,
-    Test,
-    HabladoConNatalia,
+    NataliaConocida,
     LittleWaterFutureVisto,
     HabladoConJoaquin,
     HabladoConFernando,
-    Ninguno
+    MaletaVerdeLlego,
+    AdvertenciaMaletaVerde,
+    FernandoEnProblemas,
 }

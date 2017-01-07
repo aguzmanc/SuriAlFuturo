@@ -16,6 +16,8 @@ public class Subscriber : MonoBehaviour
     public Talkable TheTalkable;
     public Collider Collider;
 
+    public GameObject Spawns;
+
     private EventController _controller;
 
     void Start () 
@@ -71,6 +73,10 @@ public class Subscriber : MonoBehaviour
 
         if (DisappearsOnTrigger) {
             this.gameObject.SetActive(false);
+        }
+
+        if (Spawns != null) {
+            Spawns.SetActive(true);
         }
     }
 

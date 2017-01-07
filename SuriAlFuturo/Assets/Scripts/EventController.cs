@@ -13,6 +13,7 @@ public class EventController : MonoBehaviour {
         new Dictionary<Event, int>();
 
     public List<Subscriber> AliveSubscribers = new List<Subscriber>();
+    public List<Event> debug; // for debugging
 
     void Start () {
         
@@ -23,6 +24,7 @@ public class EventController : MonoBehaviour {
             TriggeredEvents[e]++;
         } catch {
             TriggeredEvents[e] = 1;
+            debug.Add(e);
         }
 
         foreach (Subscriber s in AliveSubscribers) {

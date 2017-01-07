@@ -1,0 +1,28 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Hola Natalia! Fernando dice que ya llegó la maleta verde."
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Qué bien! ¿podrías por favor decirle que la maneje con cuidado?"
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "tiene equipo científico tan delicado, que podría arruinarse con la humedad"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "¡Si le pasara algo a esa maleta ya no podrías ayudar al lago!"
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "¡Exáctamente! por favor Suri, ve rápido a decirle que sea cuidadoso con esa maleta."
+  }
+] }

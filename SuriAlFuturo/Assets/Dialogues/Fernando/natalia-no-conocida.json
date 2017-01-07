@@ -1,0 +1,38 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Fernando",
+    "Name": "Fernando",
+    "Emotion": "happy",
+    "Text": "¡Pero si es la pequeña Suri!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "¡Fernando qué bueno verte! ¿Qué estás haciendo aquí?"
+  }, {
+    "Avatar": "Fernando",
+    "Name": "Fernando",
+    "Emotion": "happy",
+    "Text": "Esta mañana llegó una señorita a vivir aquí, se llama Natalia y estoy ayudándole a mudarse."
+  }, {
+    "Avatar": "Fernando",
+    "Name": "Fernando",
+    "Emotion": "happy",
+    "Text": "Habla todo el tiempo de salvar la naturaleza, ¡dice que el lago se va a secar en 500 años!."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "¡Salvar la naturaleza! ¿En dónde puedo encontrarla?"
+  }, {
+    "Avatar": "Fernando",
+    "Name": "Fernando",
+    "Emotion": "happy",
+    "Text": "Seguro anda por la reserva natural, al otro lado del lago."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "¡Voy a preguntarle cómo salvar al lago!"
+  }
+] }

@@ -1,0 +1,18 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "¡Hola Fernando! veo que la maleta verde de Natalia ya ha llegado."
+  }, {
+    "Avatar": "Fernando",
+    "Name": "Fernando",
+    "Emotion": "happy",
+    "Text": "¡Hola Suri! Sí, ya ha llegado. ¿Podrías por favor avisarle a Natalia?"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "¡En seguida!"
+  }
+] }

@@ -1,0 +1,18 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "¿Ya le dijiste a Fernando que sea cuidadoso con la maleta verde?."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "Chapu, debemos encontrar la forma de arreglar la maleta de Natalia. Tal vez Ernesto pueda ayudarnos."
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "sad",
+    "Text": "awwwww"
+  }
+] }

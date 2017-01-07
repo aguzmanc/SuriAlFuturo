@@ -1,14 +1,9 @@
 { "Dialogues" : [
   {
-    "Avatar": "Suri",
-    "Name": "Suri",
-    "Emotion": "happy",
-    "Text": "¡Hola! Usted no es de aquí, ¿O si?"
-  }, {
     "Avatar": "Natalia",
     "Name": "Natalia",
     "Emotion": "happy",
-    "Text": "¡Hola! Soy Natalia. Acabo de llegar hoy. Vengo a medir el daño ambiental en este lago."
+    "Text": "¡Hola! Soy Natalia. Llegué hoy al lago y vengo a medir el daño ambiental."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
@@ -18,12 +13,12 @@
     "Avatar": "Natalia",
     "Name": "Natalia",
     "Emotion": "happy",
-    "Text": "¡Lo es! Y tengo que contar cuántos animales, agua y árboles hay aquí."
+    "Text": "¡Lo es! Para lograrlo, tengo que contar cuántos animales, agua y árboles hay aquí."
   }, {
     "Avatar": "Natalia",
     "Name": "Natalia",
     "Emotion": "happy",
-    "Text": "Ojalá hubiese ALGÚN AYUDANTE que pudiera CONTAR todas esas cosas por mí, es un trabajo muy agotador."
+    "Text": "Ojalá hubiese ALGÚN AYUDANTE que pudiera CONTAR todas esas cosas por mí."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
@@ -38,7 +33,7 @@
     "Avatar": "Natalia",
     "Name": "Natalia",
     "Emotion": "happy",
-    "Text": "Dile a FERNANDO que la maleta verde tiene instrumentos de vidrio, y que la trate con cuidado."
+    "Text": "Pregúntale a Fernando si mi maleta verde ya llegó."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",

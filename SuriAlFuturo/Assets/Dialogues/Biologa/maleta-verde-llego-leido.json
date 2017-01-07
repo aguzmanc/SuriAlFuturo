@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Por favor Suri, ve rápido a decirle a Fernando que sea cuidadoso con esa maleta."
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Recuerda que Fernando está en mi casa, al centro del lago."
+  }
+] }
