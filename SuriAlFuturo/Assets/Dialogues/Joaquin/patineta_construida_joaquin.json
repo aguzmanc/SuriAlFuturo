@@ -1,0 +1,19 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Joaquin",
+    "Name": "Joaquin",
+    "Emotion": "happy",
+    "Text": "¡Otra patineta flotante!. ¿De donde las consigues?."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Tengo un poco de ayuda del futuro, y un amigo que construye cosas."
+  }, 
+  {
+    "Avatar": "Joaquin",
+    "Name": "Joaquin",
+    "Emotion": "sad",
+    "Text": "Me gustaría conocer a tu amigo, pero mis papás no llegan aún para darme permiso de salir."
+  }
+] }
