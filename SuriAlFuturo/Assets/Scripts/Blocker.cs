@@ -134,7 +134,7 @@ public class Blocker : MonoBehaviour {
 
         try {
             if (ImprovesFuturePatch != null) {
-                ImprovesFuturePatch.ToggleFountain(false);
+                ImprovesFuturePatch.ToggleFountain(false, true);
             }
         } catch {}
 
