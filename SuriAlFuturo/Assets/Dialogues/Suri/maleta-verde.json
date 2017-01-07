@@ -1,0 +1,23 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "La maleta de la señorita Natalia!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "¡Todo lo de adentro se debe haber arruinado!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "cry",
+    "Text": "¡Ya no va a poder salvar al lago!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "¡Deberíamos llevarla con Ernesto, dijo que podía reparar cosas!"
+  }
+] }
