@@ -86,6 +86,9 @@ public class WaterTap : MonoBehaviour
                 _gameController.GetComponent<TapController>().NotifyTapOff();
             }
         }
+
+        // disables interaction with tap after using it.
+        _gameController.CanUseTap = _canInteract = false;
     }
 
     public void TriggerInteraction () {
