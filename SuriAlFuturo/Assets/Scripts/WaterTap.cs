@@ -14,8 +14,16 @@ public class WaterTap : MonoBehaviour
         }
     }
 
+    public bool IsUsable {
+        get{
+            return _isUsable;
+        }
+    }
+
+
     private ParticleSystem _fountain;
     public bool _isOn;
+    public bool _isUsable;
     public bool _canInteract;
     private bool _interactionTriggered;
 
@@ -25,6 +33,7 @@ public class WaterTap : MonoBehaviour
 
     void Start () {
         _isOn = true;
+        _isUsable = GetComponent<Collider>().enabled;
         PersistenceKey = this.transform.position;
 
         _fountain = GetComponentInChildren<ParticleSystem>();
@@ -83,13 +92,21 @@ public class WaterTap : MonoBehaviour
         _interactionTriggered = true;
     }
 
-    #region PERSISTENCE
-    public bool GetPersistedObject () {
-        return _isOn;
+    public void EnableUsable() 
+    {
+        _isUsable = true;
     }
 
-    public void Load (bool isOn) {
+    #region PERSISTENCE
+    public PersistedWaterSource GetPersistedObject () 
+    {
+        return new PersistedWaterSource(_isOn, _isUsable);
+    }
+
+    public void Load (bool isOn, bool isUsable) {
         ToggleFountain(isOn);
+        _isUsable = isUsable;
+        GetComponent<Collider>().enabled = isUsable;
     }
     #endregion
 }

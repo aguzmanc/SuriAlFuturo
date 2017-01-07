@@ -63,6 +63,8 @@ public class Subscriber : MonoBehaviour
 
         if(Collider != null) {
             Collider.enabled = true;
+            WaterTap tap = GetComponent<WaterTap>();
+            tap.EnableUsable();
         }
 
         this.enabled = false;

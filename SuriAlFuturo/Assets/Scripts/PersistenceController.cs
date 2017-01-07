@@ -129,7 +129,7 @@ public class SavedGame
     private Dictionary<Vector3Serializable, GameObjectSerializable> _gameObjects;
     private Dictionary<Vector3Serializable, PersistedCollectable> _collectables;
     private Dictionary<Vector3Serializable, PersistedBlocker> _blockers;
-    private Dictionary<Vector3Serializable, bool> _taps;
+    private Dictionary<Vector3Serializable, PersistedWaterSource> _taps;
 
 
     public List<Collectable.Tag> Inventory;
@@ -232,12 +232,12 @@ public class SavedGame
 
 
 
-    public Dictionary<Vector3, bool> Taps
+    public Dictionary<Vector3, PersistedWaterSource> Taps
     {
         get {
-            Dictionary<Vector3, bool> ret = new Dictionary<Vector3, bool>();
+            Dictionary<Vector3, PersistedWaterSource> ret = new Dictionary<Vector3, PersistedWaterSource>();
 
-            foreach(KeyValuePair<Vector3Serializable, bool> kv in _taps) {
+            foreach(KeyValuePair<Vector3Serializable, PersistedWaterSource> kv in _taps) {
                 ret.Add(kv.Key.V3, kv.Value);
             }
 
@@ -245,9 +245,9 @@ public class SavedGame
         }
 
         set {
-            _taps = new Dictionary<Vector3Serializable, bool>();
+            _taps = new Dictionary<Vector3Serializable, PersistedWaterSource>();
 
-            foreach(KeyValuePair<Vector3, bool> kv in value) {
+            foreach(KeyValuePair<Vector3, PersistedWaterSource> kv in value) {
                 _taps.Add(new Vector3Serializable(kv.Key), kv.Value);
             }
         }    

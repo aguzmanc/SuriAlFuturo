@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class TapController : MonoBehaviour {
     public List<WaterTap> Taps = new List<WaterTap>();
-    public Dictionary<Vector3, bool> SavedTaps = new Dictionary<Vector3, bool>();
+    public Dictionary<Vector3, PersistedWaterSource> SavedTaps = new Dictionary<Vector3, PersistedWaterSource>();
 
     public FadeInFadeOut GoodNewsBG;
     public FadeInFadeOut GoodNewsText;
@@ -27,7 +27,8 @@ public class TapController : MonoBehaviour {
 
     public void Load (WaterTap tap) {
         try {
-            tap.Load(SavedTaps[tap.PersistenceKey]);
+            PersistedWaterSource saved = SavedTaps[tap.PersistenceKey];
+            tap.Load(saved.IsOn,saved.IsUsable);
         } catch {}
     }
 
