@@ -49,10 +49,6 @@ public class Talkable : MonoBehaviour {
         }
 
         _DigestDialogue();
-        if(InteractIndicator != null) {
-            InteractIndicator.SetActive(false);
-        }
-        
         _controller.Talkables.Add(this);
     }
 
@@ -95,13 +91,11 @@ public class Talkable : MonoBehaviour {
     void OnTriggerEnter (Collider c) {
         _gameController.CanTalk = _canInteract = true;
         _currentLine = -1;
-        InteractIndicator.SetActive(true);
         _controller.ActiveTalkable = this;
         _triggeredByCollider = true;
     }
 
     void OnTriggerExit (Collider c) {
-        InteractIndicator.SetActive(false);
         _gameController.CanTalk = _canInteract = false;
         _currentLine = -1;
         if (_controller.ActiveTalkable == this) {
@@ -138,7 +132,7 @@ public class Talkable : MonoBehaviour {
         return _currentLine >= 0;
     }
 
-    public void TriggerDialogue (int index) 
+    public void TriggerDialogue (int index)
     {
         SetDialogueIndex(index);
         WasTriggered = true;
@@ -176,7 +170,7 @@ public class Talkable : MonoBehaviour {
     public void TriggerInteraction () {
         _interactionTriggered = true;
     }
-    
+
     public PersistedTalkable GetPersistedTalkable () {
         return new PersistedTalkable(_currentDialogue, IsForcedToTalk, WasRead,
                                      ReadDialogues);
