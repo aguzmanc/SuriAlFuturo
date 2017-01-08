@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
     public FollowCamera FollowingCamera;
@@ -19,6 +20,7 @@ public class GameController : MonoBehaviour {
     }
     // tap == pila
     public bool CanUseTap;
+    public List<GameObject> EnableOnStartGame;
 
     private bool _canGive;
     private CollectionSystem _collectionSystem;
@@ -45,6 +47,10 @@ public class GameController : MonoBehaviour {
     {
         TitleCamera.SetActive(false);
         FollowingCamera.gameObject.SetActive(true);
+
+        foreach (GameObject g in EnableOnStartGame) {
+            g.SetActive(true);
+        }
     }
 
 }
