@@ -1,20 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
+using SuriAlFuturo;
 
 public class SmoothFollower : MonoBehaviour 
 {
     public Transform Target;
     public float Smoothness = 0.1f;
 
+    private GameController _controller;
 	
-	void Start () {
-	
+	void Start () 
+    {
+        _controller = GameObject.FindGameObjectWithTag(Tag.GameController)
+            .GetComponent<GameController>();
 	}
 	
 	
 	void Update () 
     {
-        Vector3 to = new Vector3(Target.position.x, transform.position.y, Target.position.z);
+        Transform tg = Target;
+        
+        if(tg == null){
+            tg = _controller.ControlledCharacter.transform;
+        }
+
+        Vector3 to = new Vector3(tg.position.x, transform.position.y, tg.position.z);
         transform.position = Vector3.Lerp(transform.position, to, Smoothness * Time.deltaTime);
 	}
 }
