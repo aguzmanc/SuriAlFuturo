@@ -13,6 +13,7 @@ public class FadeInFadeOut : MonoBehaviour
 
     public float SecondsToFade = 2;
 
+
 	void Start () 
     {
         _fadingIn = false;

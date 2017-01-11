@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
     public FollowCamera FollowingCamera;
@@ -9,6 +10,8 @@ public class GameController : MonoBehaviour {
     public GameObject Chapu;
     public GameObject MovementGizmos;
     public GameObject ControlledCharacter;
+
+
     public bool CloseToBlocker;
     public bool CanTalk;
     public bool CanGive {
@@ -51,6 +54,12 @@ public class GameController : MonoBehaviour {
         foreach (GameObject g in EnableOnStartGame) {
             g.SetActive(true);
         }
+    }
+
+
+    public void GoToCredits()
+    {
+        SceneManager.LoadScene("Credits", LoadSceneMode.Single);
     }
 
 }
