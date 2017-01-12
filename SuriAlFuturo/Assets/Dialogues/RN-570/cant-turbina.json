@@ -1,0 +1,18 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "¿Puedes reciclar esta turbina?"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Esa turbina pertenecía a una patineta voladora. Son muy populares en el futuro."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Si me trajeras una patineta normal, podría construirte una patineta voladora, como las del futuro."
+  }
+] }

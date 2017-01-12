@@ -10,11 +10,18 @@ public class RepairController : MonoBehaviour {
     public GameObject RepairButton;
     public TextAsset DefaultRejection;
 
+    private DialogueController _dialogueController;
     private Talkable _talkable;
     private Dialogue[] _digestedRejection;
 
     void Start () {
-        // RepairButton = GameObject.FindGameObjectWithTag(Tag.RepairButton);
+        _dialogueController = GetComponent<DialogueController>();
+    }
+
+    void Update () {
+        if (RepairButton.activeSelf) {
+            RepairButton.SetActive(!_dialogueController.IsTalkingToSomeone());
+        }
     }
 
     public void NotifyRepair (Repair r) {

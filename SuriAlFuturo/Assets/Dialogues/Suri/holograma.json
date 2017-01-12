@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "¿Qué es esto que encontré? Parece un holograma. Deberíamos dárselo a Doña Mónica."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Estaba buscando un dispositivo de realidad aumentada para el cumpleaños del Enrique."
+  }
+] }
