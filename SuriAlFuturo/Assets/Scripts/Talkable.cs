@@ -19,6 +19,8 @@ public class Talkable : MonoBehaviour {
     public string DefaultAvatar = "Cholita";
     public Vector3 PersistenceKey;
 
+    private int asdf;
+
     private bool _interactionTriggered;
     private int _currentLine;
     private int _currentDialogue;
@@ -42,11 +44,13 @@ public class Talkable : MonoBehaviour {
         _mobileUI = GameObject.
             FindGameObjectWithTag(Tag.Canvas).GetComponent<MobileUI>();
 
-        if (_controller.HasSavedData(this)) {
-            _controller.Load(this);
-        } else {
-            _currentLine = -1;
-            _currentDialogue = 0;
+        if (!WasTriggered) {
+            if (_controller.HasSavedData(this)) {
+                _controller.Load(this);
+            } else {
+                _currentLine = -1;
+                _currentDialogue = 0;
+            }
         }
 
         _DigestDialogue();

@@ -30,8 +30,6 @@ public class Subscriber : MonoBehaviour
         _controller.RegisterAsAlive(this);
     }
 
-
-
     void OnDestroy () 
     {
         try{
@@ -56,11 +54,10 @@ public class Subscriber : MonoBehaviour
         }
     }
 
-
-
     public void Trigger () 
     {
         Triggered = true;
+
         if (GetsUnblocked) {
             try {
                 TheBlocker.Unblock();
@@ -71,14 +68,11 @@ public class Subscriber : MonoBehaviour
             TheTalkable.TriggerDialogue(DialogueIndex);
         }
 
-
         if(Collider != null) {
             Collider.enabled = true;
             WaterTap tap = GetComponent<WaterTap>();
             tap.EnableUsable();
         }
-
-        this.enabled = false;
 
         if (DisappearsOnTrigger) {
             this.gameObject.SetActive(false);
@@ -87,6 +81,8 @@ public class Subscriber : MonoBehaviour
         if (Spawns != null) {
             Spawns.SetActive(true);
         }
+
+        this.enabled = false;
     }
 
 
@@ -104,7 +100,9 @@ public class Subscriber : MonoBehaviour
 
         if (!Triggered && _controller.TimesTriggered(EventSubscribed) > 0) {
             Trigger();
-            TheBlocker.ForcedUnblock();
+            if (TheBlocker != null) {
+                TheBlocker.ForcedUnblock();
+            }
         }
     }
 }
