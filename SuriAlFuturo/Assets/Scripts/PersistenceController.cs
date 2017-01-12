@@ -73,6 +73,7 @@ public class PersistenceController : MonoBehaviour
         CollectionSystem collectionSystem = gc.GetComponent<CollectionSystem>();
         TapController tapCtrl = gc.GetComponent<TapController>();
         TimeTravelController timeTravelCtrl = gc.GetComponent<TimeTravelController>();
+        EventController eventCtrl = gc.GetComponent<EventController>();
 
         SavedGame savedGame     = new SavedGame();
         savedGame.Talkables         = dialogCtrl.SavedTalkableStates;
@@ -82,6 +83,8 @@ public class PersistenceController : MonoBehaviour
         savedGame.Inventory         = collectionSystem.Inventory;
         savedGame.Taps              = tapCtrl.SavedTaps;
         savedGame.CurrentReality    = timeTravelCtrl.CurrentReality;
+        savedGame.TouchTriggers     = eventCtrl.SavedTouchTriggers;
+        savedGame.TriggeredEvents   = eventCtrl.TriggeredEvents;
 
         bf.Serialize(file, savedGame);
         file.Close();
@@ -99,6 +102,7 @@ public class PersistenceController : MonoBehaviour
         CollectionSystem collectionSystem = gc.GetComponent<CollectionSystem>();
         TapController tapCtrl = gc.GetComponent<TapController>();
         TimeTravelController timeTravelCtrl = gc.GetComponent<TimeTravelController>();
+        EventController eventCtrl = gc.GetComponent<EventController>();
 
         if(File.Exists(nombreArch)){
             BinaryFormatter bf = new BinaryFormatter();
@@ -115,6 +119,8 @@ public class PersistenceController : MonoBehaviour
             collectionSystem.Inventory          = savedGame.Inventory;
             tapCtrl.SavedTaps                   = savedGame.Taps;
             timeTravelCtrl.CurrentReality       = savedGame.CurrentReality;
+            eventCtrl.SavedTouchTriggers        = savedGame.TouchTriggers;
+            eventCtrl.TriggeredEvents           = savedGame.TriggeredEvents;
         } else  {
             SaveDataToDisk();
         }
@@ -130,6 +136,9 @@ public class SavedGame
     private Dictionary<Vector3Serializable, PersistedCollectable> _collectables;
     private Dictionary<Vector3Serializable, PersistedBlocker> _blockers;
     private Dictionary<Vector3Serializable, PersistedWaterSource> _taps;
+
+    public Dictionary<Vector3Serializable, PersistedOnTouchTrigger> _touchTriggers;
+    public Dictionary<Event, int> _triggeredEvents;
 
 
     public List<Collectable.Tag> Inventory;
@@ -251,6 +260,36 @@ public class SavedGame
                 _taps.Add(new Vector3Serializable(kv.Key), kv.Value);
             }
         }    
+    }
+
+
+    public Dictionary<Vector3, PersistedOnTouchTrigger> TouchTriggers 
+    {
+        get {
+            Dictionary<Vector3, PersistedOnTouchTrigger> ret = new Dictionary<Vector3, PersistedOnTouchTrigger>();
+
+            foreach(KeyValuePair<Vector3Serializable, PersistedOnTouchTrigger> kv in _touchTriggers) {
+                ret.Add(kv.Key.V3, kv.Value);
+            }
+
+            return ret; 
+        }
+
+        set {
+            _touchTriggers = new Dictionary<Vector3Serializable, PersistedOnTouchTrigger>();
+
+            foreach(KeyValuePair<Vector3, PersistedOnTouchTrigger> kv in value) {
+                _touchTriggers.Add(new Vector3Serializable(kv.Key), kv.Value);
+            }
+        }
+        
+    }
+
+
+    public Dictionary<Event, int> TriggeredEvents 
+    {
+        get{return _triggeredEvents;}
+        set{_triggeredEvents = value;}
     }
 
 }

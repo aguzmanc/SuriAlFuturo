@@ -1,7 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-public class PersistedOnTouchTrigger {
+[System.Serializable]
+public class PersistedOnTouchTrigger 
+{
     public bool Triggered;
 
     public PersistedOnTouchTrigger (bool triggered) {

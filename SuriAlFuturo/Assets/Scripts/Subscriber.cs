@@ -39,7 +39,12 @@ public class Subscriber : MonoBehaviour
         } catch {
             Debug.LogError(name);
         }
-        _controller.UnregisterAsAlive(this);
+
+        try{
+            _controller.UnregisterAsAlive(this);
+        } catch {
+            Debug.LogError("new: " + name);
+        }
     }
 
 
