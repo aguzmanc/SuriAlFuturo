@@ -9,5 +9,15 @@
     "Name": "RN-570",
     "Emotion": "normal",
     "Text": "Está diseñado para ser usado por humanos, un robot nunca podría usarlo."
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Un humano con aspiraciones de fotógrafo sería muy feliz con este aparato"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Alrededor del lago suelen haber turistas, y a ellos les gusta tomar fotografías."
   }
 ] }
