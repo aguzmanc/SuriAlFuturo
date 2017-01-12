@@ -19,7 +19,10 @@ public class ShipAnimation : MonoBehaviour {
     
     void Update () {
         Suri.SetActive(_shipMover.IsControlledByPlayer);
-        _suriAnimator.SetFloat("Speed", _shipMover.CurrentSpeedPercent);
-        _totoraShipAnimator.SetFloat("Speed", _shipMover.CurrentSpeedPercent);
+
+        if(_shipMover.IsControlledByPlayer){
+            _suriAnimator.SetFloat("Speed", _shipMover.CurrentSpeedPercent);
+            _totoraShipAnimator.SetFloat("Speed", _shipMover.CurrentSpeedPercent);
+        }
     }
 }
