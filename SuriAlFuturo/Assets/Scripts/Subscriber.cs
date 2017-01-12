@@ -34,7 +34,11 @@ public class Subscriber : MonoBehaviour
 
     void OnDestroy () 
     {
+        try{
         _controller.Save(this);
+        } catch {
+            Debug.LogError(name);
+        }
         _controller.UnregisterAsAlive(this);
     }
 

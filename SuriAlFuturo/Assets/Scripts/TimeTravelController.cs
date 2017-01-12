@@ -39,8 +39,6 @@ public class TimeTravelController : MonoBehaviour
             _waitForTitle = false;
         }
 
-        Debug.Log("Level Loaded : " + scene.name);
-
         UIFlash.FadeOut();
     }
 

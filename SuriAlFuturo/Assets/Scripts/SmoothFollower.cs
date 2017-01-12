@@ -20,11 +20,13 @@ public class SmoothFollower : MonoBehaviour
     {
         Transform tg = Target;
         
-        if(tg == null){
+        if(tg == null && _controller.ControlledCharacter != null){
             tg = _controller.ControlledCharacter.transform;
         }
 
-        Vector3 to = new Vector3(tg.position.x, transform.position.y, tg.position.z);
-        transform.position = Vector3.Lerp(transform.position, to, Smoothness * Time.deltaTime);
+        if(tg != null) {
+            Vector3 to = new Vector3(tg.position.x, transform.position.y, tg.position.z);
+            transform.position = Vector3.Lerp(transform.position, to, Smoothness * Time.deltaTime);
+        }
 	}
 }

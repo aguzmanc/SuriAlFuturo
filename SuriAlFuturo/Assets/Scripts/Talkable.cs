@@ -38,6 +38,7 @@ public class Talkable : MonoBehaviour {
         _gameController = GameObject.
             FindGameObjectWithTag(Tag.GameController).GetComponent<GameController>();
         _controller = _gameController.GetComponent<DialogueController>();
+
         _mobileUI = GameObject.
             FindGameObjectWithTag(Tag.Canvas).GetComponent<MobileUI>();
 
@@ -85,7 +86,12 @@ public class Talkable : MonoBehaviour {
         if (_canInteract) {
             _canInteract = _gameController.CanTalk = false;
         }
-        _controller.Save(this);
+
+        try{
+            _controller.Save(this);
+        } catch{
+            Debug.LogError("error Talkable OnDisable(): " + name); 
+        }
     }
 
     void OnTriggerEnter (Collider c) {
@@ -105,7 +111,11 @@ public class Talkable : MonoBehaviour {
     }
 
     void OnDestroy () {
+        try{
         _controller.Save(this);
+        } catch{
+            Debug.LogError("data: " + name);
+        }
         _controller.Talkables.Remove(this);
     }
 

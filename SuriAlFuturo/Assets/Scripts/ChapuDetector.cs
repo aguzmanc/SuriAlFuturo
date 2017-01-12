@@ -28,7 +28,9 @@ public class ChapuDetector : MonoBehaviour
     {
         if(_chapuAgent != null){
             if(_currentFollowPoint != null) {
-                _chapuAgent.SetDestination(_currentFollowPoint.position);
+                if(_chapuAgent.isOnNavMesh) {
+                    _chapuAgent.SetDestination(_currentFollowPoint.position);
+                }
             }
 
             _chapuAnimator.SetFloat("velocity", _chapuAgent.velocity.magnitude);

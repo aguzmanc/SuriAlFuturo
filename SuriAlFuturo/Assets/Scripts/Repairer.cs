@@ -19,5 +19,9 @@ public class Repairer : MonoBehaviour {
     void OnTriggerExit () {
         _controller.RepairButton.SetActive(false);
     }
+
+    void OnDestroy() {
+        _controller.RepairButton.SetActive(false);
+    }
     
 }

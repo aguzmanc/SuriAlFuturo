@@ -14,6 +14,7 @@ public class StaticNVFollower : MonoBehaviour
 	
 	void Update () 
     {
-        _agent.SetDestination(FollowTo.position);
+        if(_agent.isOnNavMesh)
+            _agent.SetDestination(FollowTo.position);
 	}
 }

@@ -84,8 +84,6 @@ public class SFXController : MonoBehaviour
         _currentCharacter = character;
         _currentEmotion = emotion;
 
-        Debug.Log("char: " + character + "  emotion: " + emotion);  
-
         DialogueSFX.Character ch = (DialogueSFX.Character)System.Enum.Parse(typeof(DialogueSFX.Character), character);
         DialogueSFX.Emotion emo = (DialogueSFX.Emotion)System.Enum.Parse(typeof(DialogueSFX.Emotion), emotion);
 
