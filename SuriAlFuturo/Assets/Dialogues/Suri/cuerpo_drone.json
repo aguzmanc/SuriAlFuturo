@@ -1,0 +1,18 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "¡Es el cuerpo de un drone!"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Podríamos usarlo junto con el robot Tim que encontramos."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Pero mejor si le preguntamos a Ernesto"
+  }
+] }

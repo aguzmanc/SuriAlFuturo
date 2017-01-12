@@ -23,6 +23,9 @@ public class ShipAnimation : MonoBehaviour {
         if(_shipMover.IsControlledByPlayer){
             _suriAnimator.SetFloat("Speed", _shipMover.CurrentSpeedPercent);
             _totoraShipAnimator.SetFloat("Speed", _shipMover.CurrentSpeedPercent);
+        } else {
+            _suriAnimator.SetFloat("Speed", 0);
+            _totoraShipAnimator.SetFloat("Speed", 0);
         }
     }
 }

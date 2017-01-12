@@ -23,7 +23,11 @@ public class OnReadSwitch : MonoBehaviour {
     void Update () {
         if (TheTalkable.ReadDialogues[OnDialogueIndexRead] &&
             TheTalkable.GetDialogueIndex() == OnDialogueIndexRead) {
-            TheTalkable.SetDialogueIndex(SwitchTo);
+            try{
+                TheTalkable.SetDialogueIndex(SwitchTo);
+            }catch{
+                Debug.Log("Error trying to switch from " + OnDialogueIndexRead + " to " + SwitchTo + " at " + name);
+            }
             this.enabled = false;
 
             _controller.TriggerEvent(TriggeredEvent);
