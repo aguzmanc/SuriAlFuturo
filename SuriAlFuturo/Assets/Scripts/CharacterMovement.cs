@@ -79,7 +79,7 @@ public class CharacterMovement : MonoBehaviour
     public void UpdateMovement ()
     {
         if (IsControlledByArrows) { // keyboard control!
-            if(_navMeshAgent.isActiveAndEnabled){
+            if(_navMeshAgent.isActiveAndEnabled && _navMeshAgent.isOnNavMesh){
                 _navMeshAgent.Stop();
                 _navMeshAgent.Move(this.Direction * Time.deltaTime * Speed *
                                     Mathf.Max( Mathf.Abs(Input.GetAxis("Vertical")),
@@ -97,7 +97,7 @@ public class CharacterMovement : MonoBehaviour
                 if(GetInteractionDestination(out destination)) {
                     _gizmos.transform.position = destination;
                     _gizmos.SetActive(true);
-                    if(_navMeshAgent.isActiveAndEnabled){
+                    if(_navMeshAgent.isActiveAndEnabled && _navMeshAgent.isOnNavMesh){
                         _navMeshAgent.Resume();
                         _navMeshAgent.SetDestination(destination);
                     }

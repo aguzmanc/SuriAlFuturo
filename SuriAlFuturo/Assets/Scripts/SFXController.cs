@@ -22,7 +22,7 @@ public class SFXController : MonoBehaviour
 
     [System.Serializable]
     public class DialogueSFX {
-        public enum Character {Suri, Chapu, Anciano, Cholita, Kid, Fernando, Robot, Joaquin, James, Andres, ydroid, Natalia};
+        public enum Character {Suri, Chapu, Anciano, Cholita, Kid, Fernando, Robot, Joaquin, James, Andres, ydroid, Natalia, Tim};
         public enum Emotion {happy,sad,cry,surprised,bark,neutral,normal,mad,laugh,scared};
 
         public Character character;
