@@ -55,8 +55,11 @@ public class WaterTap : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter (Collider c) {
-        _gameController.CanUseTap = _canInteract = true;
+    void OnTriggerEnter (Collider c) 
+    {
+        if(c.tag==Tag.Player){
+            _gameController.CanUseTap = _canInteract = true;
+        }
     }
 
     void OnTriggerExit (Collider c) {
