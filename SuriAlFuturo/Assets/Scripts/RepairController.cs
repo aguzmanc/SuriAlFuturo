@@ -8,7 +8,10 @@ public class RepairController : MonoBehaviour {
     public List<Repair> Cant;
 
     public GameObject RepairButton;
+    public TextAsset DefaultRejection;
+
     private Talkable _talkable;
+    private Dialogue[] _digestedRejection;
 
     void Start () {
         // RepairButton = GameObject.FindGameObjectWithTag(Tag.RepairButton);
@@ -30,6 +33,8 @@ public class RepairController : MonoBehaviour {
                 return;
             }
         }
+
+        _talkable.ForceDialogue(GetRejectionMessage());
     }
 
     public void RegisterTalkable (Talkable t) {
@@ -48,5 +53,13 @@ public class RepairController : MonoBehaviour {
         if (false == Repairs.Remove(r)) {
             Cant.Remove(r);
         }
+    }
+
+    public Dialogue[] GetRejectionMessage () {
+        if (_digestedRejection == null) {
+            _digestedRejection = JsonUtility.FromJson<JsonDialogueData>(DefaultRejection.text).Dialogues;
+        }
+
+        return _digestedRejection;
     }
 }
