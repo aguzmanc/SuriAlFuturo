@@ -49,7 +49,6 @@ public class CharacterMovement : MonoBehaviour
             UpdateTapDetector();
             UpdateDirection();
             UpdateMovement();
-            UpdateAnimatorParameters();
 
             _controller.ControlledCharacter = this.gameObject;
 
@@ -60,6 +59,8 @@ public class CharacterMovement : MonoBehaviour
             }
             CurrentSpeedPercent = 0;
         }
+
+        UpdateAnimatorParameters();
     }
 
     public void UpdateAnimatorParameters () {
@@ -75,7 +76,7 @@ public class CharacterMovement : MonoBehaviour
     }
 
 
-    public void UpdateMovement () 
+    public void UpdateMovement ()
     {
         if (IsControlledByArrows) { // keyboard control!
             if(_navMeshAgent.isActiveAndEnabled){
@@ -84,7 +85,7 @@ public class CharacterMovement : MonoBehaviour
                                     Mathf.Max( Mathf.Abs(Input.GetAxis("Vertical")),
                                              Mathf.Abs(Input.GetAxis("Horizontal")) ));
             }
-        } else if (false == _IsInteractionBlocked()) 
+        } else if (false == _IsInteractionBlocked())
         {
             if(StartInteracting()){
                 _gizmosAnimator.SetTrigger("Born");
@@ -137,17 +138,17 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-    public void UpdateTapDetector () 
+    public void UpdateTapDetector ()
     {
         _tapped = (Input.touchCount > 0);
         if(_tapped){
             _tap = Input.GetTouch(0);
-        } 
+        }
     }
 
 
 
-    public bool GetInteractionPosition (out Vector2 pos) 
+    public bool GetInteractionPosition (out Vector2 pos)
     {
         pos = new Vector2();
 
@@ -166,7 +167,7 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-    public bool GetInteractionDestination (out Vector3 destination) 
+    public bool GetInteractionDestination (out Vector3 destination)
     {
         destination = new Vector3(Mathf.NegativeInfinity,
                                   Mathf.NegativeInfinity,
@@ -190,7 +191,7 @@ public class CharacterMovement : MonoBehaviour
             }
 
             return found;
-        } 
+        }
 
         return false;
     }
@@ -198,14 +199,14 @@ public class CharacterMovement : MonoBehaviour
 
 
     // Temporal disable Nav Mesh while scene change is made
-    public void TimeTravel() 
+    public void TimeTravel()
     {
         StartCoroutine(TemporalDisableNavMesh());
     }
 
 
 
-    private bool StartInteracting () 
+    private bool StartInteracting ()
     {
         if(_isInteracting) {
             return false;
@@ -219,7 +220,7 @@ public class CharacterMovement : MonoBehaviour
 
         if(_tapped) {
             if(_tap.phase == TouchPhase.Began) {
-                _isInteracting = true;    
+                _isInteracting = true;
                 return true;
             }
         }
@@ -229,7 +230,7 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-    private bool StopInteracting() 
+    private bool StopInteracting()
     {
         if(!_isInteracting) {
             return false;
@@ -253,7 +254,7 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-    private bool _IsInteractionBlocked () 
+    private bool _IsInteractionBlocked ()
     {
         return (_eventSystem.IsPointerOverGameObject() ||
                 (_tapped && _eventSystem.IsPointerOverGameObject(_tap.fingerId)));
@@ -268,4 +269,3 @@ public class CharacterMovement : MonoBehaviour
         _navMeshAgent.enabled = true;
     }
 }
-
