@@ -9,4 +9,5 @@ public enum Event {
     AdvertenciaMaletaVerde,
     FernandoEnProblemas,
     MaletaVerdeRecuperada,
+    HabladoConEnrique,
 }
