@@ -67,7 +67,6 @@ public class Talkable : MonoBehaviour {
             if (_currentLine == -1) { // when dialog finished
                 _gameController.CanTalk = false;
                 WasRead = true;
-                ReadDialogues[_currentDialogue] = true;
                 if (WillTalkForcedDialogue) {
                     if (!_triggeredByCollider) {
                         _gameController.CanTalk = false;

@@ -1,0 +1,33 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "¿Podrías por favor convertir esta patineta en una patineta voladora?"
+  }, {
+    "Avatar": "RN-5T0",
+    "Name": "RN-5T0",
+    "Emotion": "normal",
+    "Text": "Negativo. Para hacer eso necesitaría una turbina."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "¿Dónde podría encontrar algo así?"
+  }, {
+    "Avatar": "RN-570",
+    "Name": "RN-570",
+    "Emotion": "normal",
+    "Text": "Probabilidad de encontrar una turbina en el fondo del lago, en el futuro: 98.7%"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "Chapu, vayamos al futuro a buscar una de esas turbinas"
+  }, {
+    "Avatar": "Chapu",
+    "Name": "Chapu",
+    "Emotion": "bark",
+    "Text": "warf!"
+  }
+] }
