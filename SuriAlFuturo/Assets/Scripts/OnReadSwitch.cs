@@ -21,8 +21,7 @@ public class OnReadSwitch : MonoBehaviour {
     }
 
     void Update () {
-	    if (TheTalkable.GetDialogueIndex() == OnDialogueIndexRead &&
-            TheTalkable.WasRead) {
+        if (TheTalkable.ReadDialogues[OnDialogueIndexRead]) {
             TheTalkable.SetDialogueIndex(SwitchTo);
             this.enabled = false;
 
