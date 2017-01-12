@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour 
 {
@@ -7,7 +9,11 @@ public class UIController : MonoBehaviour
     public GameObject TextFin;
     public GameObject ButtonGoToCredits;
 
+
     bool _isEnding;
+
+
+
 
     void Start() 
     {
@@ -46,6 +52,8 @@ public class UIController : MonoBehaviour
 
         ButtonGoToCredits.SetActive(true);
     }
+
+
 
 
 }

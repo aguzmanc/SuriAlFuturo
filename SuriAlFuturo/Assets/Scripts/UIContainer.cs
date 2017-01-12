@@ -10,6 +10,7 @@ public class UIContainer : MonoBehaviour {
 
     public int Index;
     private UIInventory _controller;
+    private Collectable.Tag _tag;
 
     void Start () {
         Icon = GetComponent<Image>();
@@ -21,14 +22,33 @@ public class UIContainer : MonoBehaviour {
         ActiveIndicator.SetActive(Active);
     }
 
-    public void SetSprite (Sprite sprite) {
+    public void SetSprite (Sprite sprite, Collectable.Tag tag) 
+    {
         if (Icon == null) {
             Icon = GetComponent<Image>();
         }
         Icon.sprite = sprite;
+        _tag = tag;
     }
 
     public void SetActive () {
         _controller.SetActive(this);
     }
+
+
+    public void Press()
+    {
+        Debug.Log("Press");
+        _controller.ShowInventoryLabel(_tag);
+    }
+
+
+
+    public void Release()
+    {
+        Debug.Log("Release");
+        _controller.HideInventoryLabel();
+    }
+
+
 }
