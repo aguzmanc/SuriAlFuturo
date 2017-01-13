@@ -83,6 +83,17 @@ public class Subscriber : MonoBehaviour
         this.enabled = false;
     }
 
+    public void LoadTriggered () {
+        if (DisappearsOnTrigger) {
+            this.gameObject.SetActive(false);
+        }
+
+        if (Spawns != null) {
+            Spawns.SetActive(true);
+            Debug.Log("Spawning!! :O");
+        }
+    }
+
 
 
     public PersistedSubscriber GetPersistedObject () 
@@ -101,6 +112,8 @@ public class Subscriber : MonoBehaviour
             if (TheBlocker != null) {
                 TheBlocker.ForcedUnblock();
             }
+        } else if (Triggered) {
+            LoadTriggered();
         }
     }
 }
