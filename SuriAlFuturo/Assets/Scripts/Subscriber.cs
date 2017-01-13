@@ -59,9 +59,7 @@ public class Subscriber : MonoBehaviour
         Triggered = true;
 
         if (GetsUnblocked) {
-            try {
-                TheBlocker.Unblock();
-            } catch {}
+            TheBlocker.Unblock();
         }
 
         if (TheTalkable != null) {

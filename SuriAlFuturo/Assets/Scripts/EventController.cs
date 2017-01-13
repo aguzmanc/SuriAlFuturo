@@ -16,9 +16,9 @@ public class EventController : MonoBehaviour {
     public List<Event> debug; // for debugging
 
     void Start () {
-        
+
     }
-    
+
     public void TriggerEvent (Event e) {
         try {
             TriggeredEvents[e]++;
@@ -39,9 +39,10 @@ public class EventController : MonoBehaviour {
     }
 
     public void Load (OnTouchTrigger trigger) {
-        try {
-            trigger.Load(SavedTouchTriggers[trigger.PersistenceKey]);
-        } catch {}
+        if (!SavedTouchTriggers.ContainsKey(trigger.PersistenceKey)) {
+            SavedTouchTriggers[trigger.PersistenceKey] = trigger.GetPersistedObject();
+        }
+        trigger.Load(SavedTouchTriggers[trigger.PersistenceKey]);
     }
 
     public void Save (Subscriber s) {
@@ -49,9 +50,10 @@ public class EventController : MonoBehaviour {
     }
 
     public void Load (Subscriber s) {
-        try {
-            s.Load(SavedSubscribers[s.PersistenceKey]);
-        } catch {}
+        if (!SavedSubscribers.ContainsKey(s.PersistenceKey)) {
+            SavedSubscribers[s.PersistenceKey] = s.GetPersistedObject();
+        }
+        s.Load(SavedSubscribers[s.PersistenceKey]);
     }
 
     public int TimesTriggered (Event e) {
