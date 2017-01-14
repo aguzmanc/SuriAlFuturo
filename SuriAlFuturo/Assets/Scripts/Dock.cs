@@ -26,7 +26,7 @@ public class Dock : MonoBehaviour {
 
 
 
-    void Start () 
+    void Start ()
     {
         _isInterfaceInteractionTriggered = false;
 
@@ -36,7 +36,7 @@ public class Dock : MonoBehaviour {
         _dockController.Docks.Add(this);
         Suri = _gameController.GetComponent<GameController>().Suri;
     }
-    
+
     void Update () {
         Indicator.SetActive(CanEmbark() || CanDisembark());
         if (Indicator.activeSelf) {
@@ -104,12 +104,13 @@ public class Dock : MonoBehaviour {
 
 
 
-    public void Disembark () 
+    public void Disembark ()
     {
         Suri.transform.position = DisembarkPlace.transform.position;
         Suri.SetActive(true);
         DockedShip.GetComponent<CharacterMovement>().IsControlledByPlayer = false;
         DockedShip.GetComponent<Ship>().EnlargeCollider();
+        DockedShip.transform.position = transform.position + 11.2f * transform.right;
         Cam.Target = Suri;
         _gameController.SetDrivingBoat(false);
 
@@ -122,7 +123,7 @@ public class Dock : MonoBehaviour {
 
 
 
-    public void TriggerInterfaceInteraction () 
+    public void TriggerInterfaceInteraction ()
     {
         _isInterfaceInteractionTriggered = true;
     }
