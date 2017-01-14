@@ -5,6 +5,7 @@ using SuriAlFuturo;
 public class Persist : MonoBehaviour {
     public Vector3 PersistenceKey;
     public bool Enabled = true;
+    public bool ResetsOnGameStart = false;
 
     private float _disabledOn = 0;
     private bool _isInitialized = false;
@@ -18,7 +19,13 @@ public class Persist : MonoBehaviour {
             .GetComponent<PersistenceController>();
 
         if (_controller.HasSavedData(this)) {
-            _controller.Load(this);
+            if ((ResetsOnGameStart &&
+                 _controller.HasBeenLoaded.ContainsKey(this.PersistenceKey)) ||
+                !ResetsOnGameStart) {
+                _controller.Load(this);
+            } else {
+                _controller.NotifyLoad(this);
+            }
         }
 
         gameObject.SetActive(Enabled);

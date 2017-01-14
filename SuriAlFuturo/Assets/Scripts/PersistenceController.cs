@@ -16,6 +16,9 @@ public class PersistenceController : MonoBehaviour
     public Dictionary<Vector3, PersistedGameObject> SavedGameObjects =
         new Dictionary<Vector3, PersistedGameObject>();
 
+    public Dictionary<Vector3, bool> HasBeenLoaded =
+        new Dictionary<Vector3, bool>();
+
     public static string FileName = "SavedGame.dat";
 
     public bool ShipMightBeInaccessible = true;
@@ -41,6 +44,11 @@ public class PersistenceController : MonoBehaviour
     public void Load (Persist gameObject)
     {
         gameObject.Load(SavedGameObjects[gameObject.PersistenceKey]);
+        NotifyLoad(gameObject);
+    }
+
+    public void NotifyLoad (Persist gameObject) {
+        HasBeenLoaded[gameObject.PersistenceKey] = true;
     }
 
 
