@@ -26,7 +26,7 @@ public class Blocker : MonoBehaviour {
     private GameController _gameController;
 
     private int _receibedDialogueIndex;
-    private bool _canTake;
+    public bool _canTake = false;
     private NavMeshObstacle _navMeshObstacle;
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
@@ -53,6 +53,7 @@ public class Blocker : MonoBehaviour {
         _navMeshAgent.enabled = false;
 
         _controller.Load(this);
+        _canTake = false;
     }
 
     // needs refactorization
@@ -148,9 +149,9 @@ public class Blocker : MonoBehaviour {
 
         try {
             SphereCollider c = GetComponent<SphereCollider>();
+            TriggerExit();
             c.enabled = false;
             ArtificialTrigger.SetActive(true);
-            TriggerExit();
         } catch {}
     }
 
