@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class ShipAnimation : MonoBehaviour {
+    public GameObject Travelers;
     public GameObject Suri;
     public GameObject TotoraShip;
     [HideInInspector]
@@ -18,13 +19,13 @@ public class ShipAnimation : MonoBehaviour {
     }
     
     void Update () {
-        Suri.SetActive(_shipMover.IsControlledByPlayer);
+        Travelers.SetActive(_shipMover.IsControlledByPlayer);
 
         if(_shipMover.IsControlledByPlayer){
             _suriAnimator.SetFloat("Speed", _shipMover.CurrentSpeedPercent);
             _totoraShipAnimator.SetFloat("Speed", _shipMover.CurrentSpeedPercent);
         } else {
-            _suriAnimator.SetFloat("Speed", 0);
+            // _suriAnimator.SetFloat("Speed", 0);
             _totoraShipAnimator.SetFloat("Speed", 0);
         }
     }

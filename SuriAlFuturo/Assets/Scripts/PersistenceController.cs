@@ -11,20 +11,26 @@ public class PersistentChapter{
     public int ChapterNumber;
 }
 
-public class PersistenceController : MonoBehaviour 
+public class PersistenceController : MonoBehaviour
 {
     public Dictionary<Vector3, PersistedGameObject> SavedGameObjects =
         new Dictionary<Vector3, PersistedGameObject>();
 
     public static string FileName = "SavedGame.dat";
 
+    public bool ShipMightBeInaccessible = true;
+
     void Awake()
-    {   
+    {
         _LoadDataFromDisk();
     }
 
+    void Start () {
+        ShipMightBeInaccessible = true;
+    }
 
-    public void Save (Persist gameObject) 
+
+    public void Save (Persist gameObject)
     {
         SavedGameObjects[gameObject.PersistenceKey] =
             gameObject.GetPersistenceObject();
@@ -32,14 +38,14 @@ public class PersistenceController : MonoBehaviour
 
 
 
-    public void Load (Persist gameObject) 
+    public void Load (Persist gameObject)
     {
         gameObject.Load(SavedGameObjects[gameObject.PersistenceKey]);
     }
 
 
 
-    public bool HasSavedData (Persist gameObject) 
+    public bool HasSavedData (Persist gameObject)
     {
         return SavedGameObjects.ContainsKey(gameObject.PersistenceKey);
     }
@@ -124,12 +130,12 @@ public class PersistenceController : MonoBehaviour
         } else  {
             SaveDataToDisk();
         }
-            
+
     }
 }
 
 [System.Serializable]
-public class SavedGame 
+public class SavedGame
 {
     private Dictionary<Vector3Serializable, PersistedTalkable> _talkables;
     private Dictionary<Vector3Serializable, GameObjectSerializable> _gameObjects;
@@ -159,7 +165,7 @@ public class SavedGame
 
         set {
             _talkables = new Dictionary<Vector3Serializable, PersistedTalkable>();
-            
+
             foreach(KeyValuePair<Vector3, PersistedTalkable> kv in value) {
                 _talkables.Add(new Vector3Serializable(kv.Key), kv.Value);
             }
@@ -181,7 +187,7 @@ public class SavedGame
                 ));
             }
 
-            return ret; 
+            return ret;
         }
 
         set {
@@ -204,7 +210,7 @@ public class SavedGame
                 ret.Add(kv.Key.V3, kv.Value);
             }
 
-            return ret; 
+            return ret;
         }
 
         set{
@@ -227,7 +233,7 @@ public class SavedGame
                 ret.Add(kv.Key.V3, kv.Value);
             }
 
-            return ret; 
+            return ret;
         }
 
         set{
@@ -250,7 +256,7 @@ public class SavedGame
                 ret.Add(kv.Key.V3, kv.Value);
             }
 
-            return ret; 
+            return ret;
         }
 
         set {
@@ -259,11 +265,11 @@ public class SavedGame
             foreach(KeyValuePair<Vector3, PersistedWaterSource> kv in value) {
                 _taps.Add(new Vector3Serializable(kv.Key), kv.Value);
             }
-        }    
+        }
     }
 
 
-    public Dictionary<Vector3, PersistedOnTouchTrigger> TouchTriggers 
+    public Dictionary<Vector3, PersistedOnTouchTrigger> TouchTriggers
     {
         get {
             Dictionary<Vector3, PersistedOnTouchTrigger> ret = new Dictionary<Vector3, PersistedOnTouchTrigger>();
@@ -272,7 +278,7 @@ public class SavedGame
                 ret.Add(kv.Key.V3, kv.Value);
             }
 
-            return ret; 
+            return ret;
         }
 
         set {
@@ -282,11 +288,11 @@ public class SavedGame
                 _touchTriggers.Add(new Vector3Serializable(kv.Key), kv.Value);
             }
         }
-        
+
     }
 
 
-    public Dictionary<Event, int> TriggeredEvents 
+    public Dictionary<Event, int> TriggeredEvents
     {
         get{return _triggeredEvents;}
         set{_triggeredEvents = value;}
@@ -335,7 +341,7 @@ public struct QuaternionSerializable
 }
 
 
-    
+
 [Serializable]
 public struct GameObjectSerializable
 {
@@ -355,19 +361,16 @@ public struct GameObjectSerializable
 
 
     public PersistedGameObject GameObject
-    { 
-        get { 
+    {
+        get {
             PersistedGameObject go = new PersistedGameObject(
                 Position.V3,
-                Rotation.Q, 
+                Rotation.Q,
                 Scale.V3,
                 Enabled
             );
 
             return go;
-        } 
+        }
     }
 }
-
-
-

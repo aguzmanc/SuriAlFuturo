@@ -90,7 +90,6 @@ public class Subscriber : MonoBehaviour
 
         if (Spawns != null) {
             Spawns.SetActive(true);
-            Debug.Log("Spawning!! :O");
         }
     }
 

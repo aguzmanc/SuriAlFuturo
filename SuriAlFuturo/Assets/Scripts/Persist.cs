@@ -4,8 +4,10 @@ using SuriAlFuturo;
 
 public class Persist : MonoBehaviour {
     public Vector3 PersistenceKey;
-    public bool Enabled = false;
-    public float t = 0;
+    public bool Enabled = true;
+
+    private float _disabledOn = 0;
+    private bool _isInitialized = false;
 
     private PersistenceController _controller;
 
@@ -18,20 +20,27 @@ public class Persist : MonoBehaviour {
         if (_controller.HasSavedData(this)) {
             _controller.Load(this);
         }
+
+        gameObject.SetActive(Enabled);
+
+        _isInitialized = true;
     }
 
-    void Update () {
-        Enabled = gameObject.activeSelf;
+    void OnEnable () {
+        if (_isInitialized) {
+            Enabled = true;
+        }
     }
 
     void OnDisable () {
-        t = Time.time;
+        _disabledOn = Time.time;
         Enabled = false;
         _controller.Save(this);
     }
 
     void OnDestroy () {
-        if (Mathf.Abs(t - Time.time) < 1) {
+        // cuando se desactiva al destruirse, los eventos ocurren en el mismo frame.
+        if (_disabledOn == Time.time) {
             Enabled = true;
         }
         _controller.Save(this);
@@ -41,7 +50,7 @@ public class Persist : MonoBehaviour {
         transform.position = persisted.Position;
         transform.rotation = persisted.Rotation;
         transform.localScale = persisted.Scale;
-        gameObject.SetActive(persisted.Enabled);
+        Enabled = persisted.Enabled;
     }
 
     public PersistedGameObject GetPersistenceObject () {
