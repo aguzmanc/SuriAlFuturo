@@ -67,7 +67,9 @@ public class CharacterMovement : MonoBehaviour
         CurrentSpeedPercent = GetSpeedPercent();
 
         if (CurrentSpeedPercent != 0) {
-            transform.forward = new Vector3(Direction.x, 0, Direction.z);
+            if(Direction.x != 0 && Direction.z != 0) {
+                transform.forward = new Vector3(Direction.x, 0, Direction.z);
+            }
         }
 
         if (_animator != null) {
