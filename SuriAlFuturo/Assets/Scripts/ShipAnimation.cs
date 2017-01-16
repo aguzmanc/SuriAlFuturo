@@ -7,6 +7,7 @@ public class ShipAnimation : MonoBehaviour {
     public GameObject TotoraShip;
     [HideInInspector]
     public Transform ChapuHolder;
+    public ParticleSystem MovementTray;
 
     private CharacterMovement _shipMover;
     private Animator _suriAnimator;
@@ -27,6 +28,16 @@ public class ShipAnimation : MonoBehaviour {
         } else {
             // _suriAnimator.SetFloat("Speed", 0);
             _totoraShipAnimator.SetFloat("Speed", 0);
+        }
+
+        if (MovementTray != null) {
+            if (_shipMover.CurrentSpeedPercent > 0 && !MovementTray.isPlaying) {
+                Debug.Log("play!");
+                MovementTray.Play();
+            } else if (_shipMover.CurrentSpeedPercent == 0 && MovementTray.isPlaying) {
+                Debug.Log("stop!");
+                MovementTray.Stop();
+            }
         }
     }
 }
