@@ -31,6 +31,7 @@ public class Blocker : MonoBehaviour {
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private bool _interactionTriggered;
+    
     private Dictionary<Collectable.Tag, Dialogue[]> _customDontNeedThat
         = new Dictionary<Collectable.Tag, Dialogue[]>();
     private Dictionary<Collectable.Tag, CustomAccept> _customAccept

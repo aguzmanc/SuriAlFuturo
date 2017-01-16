@@ -11,6 +11,7 @@ public class CharacterMovement : MonoBehaviour
     public bool IsControlledByArrows = true;
     public float CurrentSpeedPercent;
     public Vector3 Direction;
+    public ParticleSystem MovementTray;
 
     public bool _isInteracting;
     private GameObject _gizmos;
@@ -69,6 +70,14 @@ public class CharacterMovement : MonoBehaviour
         if (CurrentSpeedPercent != 0) {
             if(Direction.x != 0 && Direction.z != 0) {
                 transform.forward = new Vector3(Direction.x, 0, Direction.z);
+            }
+
+            if (MovementTray != null) {
+                MovementTray.Stop();
+            }
+        } else {
+            if (MovementTray != null) {
+                MovementTray.Play();
             }
         }
 
