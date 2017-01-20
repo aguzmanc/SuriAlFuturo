@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour {
     public GameObject Chapu;
     public GameObject MovementGizmos;
     public GameObject ControlledCharacter;
+    public GameObject StartButton;
 
 
     public bool CloseToBlocker;
@@ -35,6 +36,14 @@ public class GameController : MonoBehaviour {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
 
         FollowingCamera.gameObject.SetActive(false);
+    }
+
+    void Update () {
+        if (Input.GetButtonDown("Start")) {
+            GetComponent<TimeTravelController>().StartGame();
+            StartGame();
+            StartButton.SetActive(false);
+        }
     }
 
     public void SetDrivingBoat (bool value) {

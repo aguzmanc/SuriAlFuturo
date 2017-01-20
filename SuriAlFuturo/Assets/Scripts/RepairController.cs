@@ -19,8 +19,15 @@ public class RepairController : MonoBehaviour {
     }
 
     void Update () {
+        if (Input.GetButtonDown("LoadUnloadToShip")) {
+            Debug.Log("ZOMGZ!! that's the button! " + Time.time);
+        }
+
         if (RepairButton.activeSelf) {
             RepairButton.SetActive(!_dialogueController.IsTalkingToSomeone());
+            if (Input.GetButtonDown("Give")) {
+                TriggerRepair();
+            }
         }
     }
 

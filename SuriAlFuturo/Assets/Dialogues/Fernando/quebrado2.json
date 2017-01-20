@@ -1,0 +1,13 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Andres",
+    "Name": "Andres",
+    "Emotion": "normal",
+    "Text": "Antes esto era la granja de mi abuelo, ahora solo es un lote seco y desolado."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "Pobre Andrés, si tan solo hubiera tenido una COSECHADORA que funcione CON ENERGÍA LIMPIA."
+  }
+] }

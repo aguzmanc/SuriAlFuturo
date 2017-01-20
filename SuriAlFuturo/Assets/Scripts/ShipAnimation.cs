@@ -25,19 +25,18 @@ public class ShipAnimation : MonoBehaviour {
         if(_shipMover.IsControlledByPlayer){
             _suriAnimator.SetFloat("Speed", _shipMover.CurrentSpeedPercent);
             _totoraShipAnimator.SetFloat("Speed", _shipMover.CurrentSpeedPercent);
+
+            if (MovementTray != null) {
+                if (_shipMover.CurrentSpeedPercent > 0 && !MovementTray.isPlaying) {
+                    MovementTray.Play();
+                } else if (_shipMover.CurrentSpeedPercent == 0 && MovementTray.isPlaying) {
+                    MovementTray.Stop();
+                }
+            }
         } else {
             // _suriAnimator.SetFloat("Speed", 0);
             _totoraShipAnimator.SetFloat("Speed", 0);
-        }
-
-        if (MovementTray != null) {
-            if (_shipMover.CurrentSpeedPercent > 0 && !MovementTray.isPlaying) {
-                Debug.Log("play!");
-                MovementTray.Play();
-            } else if (_shipMover.CurrentSpeedPercent == 0 && MovementTray.isPlaying) {
-                Debug.Log("stop!");
-                MovementTray.Stop();
-            }
+            MovementTray.Stop();
         }
     }
 }

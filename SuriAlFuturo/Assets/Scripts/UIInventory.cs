@@ -95,6 +95,18 @@ public class UIInventory : MonoBehaviour {
         Slots[ActiveItem].Active = true;
     }
 
+    public void Update () {
+        if (Input.GetButtonDown("InventaryNext")) {
+            ActiveItem++;
+            Refresh();
+            Debug.Log("Next! " + Time.time);
+        } else if (Input.GetButtonDown("InventaryPrevious")) {
+            ActiveItem--;
+            Refresh();
+            Debug.Log("previous! " + Time.time);
+        }
+    }
+
     public Collectable.Tag GetActiveRequirement () {
         if (_controller.CountOwnedItems() == 0) {
             return Collectable.Tag.NONE;

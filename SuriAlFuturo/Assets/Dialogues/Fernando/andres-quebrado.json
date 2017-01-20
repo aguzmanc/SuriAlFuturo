@@ -1,0 +1,28 @@
+{ "Dialogues" : [
+  {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "surprised",
+    "Text": "Andrés?!"
+  }, {
+    "Avatar": "Andres",
+    "Name": "Andrés",
+    "Emotion": "normal",
+    "Text": "Sí... Cómo sabes mi nombre? no te había visto antes"
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "happy",
+    "Text": "¡Eres joven! hace muchos, muchos años tú tenías una granja aquí."
+  }, {
+    "Avatar": "Andres",
+    "Name": "Andres",
+    "Emotion": "normal",
+    "Text": "¡ah no! ese era mi abuelito. Tenía una granja aquí, pero ha quebrado."
+  }, {
+    "Avatar": "Suri",
+    "Name": "Suri",
+    "Emotion": "sad",
+    "Text": "¡Debe ser! cultivar la tierra sin MÁQUINAS consume mucho tiempo."
+  }
+] }
