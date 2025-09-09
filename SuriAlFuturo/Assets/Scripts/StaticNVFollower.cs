@@ -5,11 +5,11 @@ public class StaticNVFollower : MonoBehaviour
 {
     public Transform FollowTo;
 
-    NavMeshAgent _agent;
+    UnityEngine.AI.NavMeshAgent _agent;
 
 	void Start () 
     {
-        _agent = GetComponent<NavMeshAgent>();
+        _agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 	}
 	
 	void Update () 

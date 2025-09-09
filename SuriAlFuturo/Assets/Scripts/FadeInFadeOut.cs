@@ -16,6 +16,7 @@ public class FadeInFadeOut : MonoBehaviour
 
 	void Start () 
     {
+      //transform;
         _fadingIn = false;
         _fadingOut = false;
         _finishedFlag = true;
@@ -124,7 +125,7 @@ public class FadeInFadeOut : MonoBehaviour
     {
         if(img == null)
             return;
-        
+
         Color c = img.color;
         img.color = new Color(c.r, c.g, c.b, factor);
 

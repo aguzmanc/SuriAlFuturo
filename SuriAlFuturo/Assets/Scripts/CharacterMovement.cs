@@ -15,7 +15,7 @@ public class CharacterMovement : MonoBehaviour
     public bool _isInteracting;
     private GameObject _gizmos;
     private Animator _gizmosAnimator;
-    private NavMeshAgent _navMeshAgent;
+    private UnityEngine.AI.NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private GameController _controller;
     private GameObject[] _floors;
@@ -25,7 +25,7 @@ public class CharacterMovement : MonoBehaviour
     private bool _tapped;
 
     void Start () {
-        _navMeshAgent = GetComponent<NavMeshAgent> ();
+        _navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent> ();
         _animator = GetComponent<Animator>();
         _navMeshAgent.speed = Speed;
         _isInteracting = false;
