@@ -1,31 +1,60 @@
 fileFormatVersion: 2
 guid: 430f01bf00b594b4183fb0425d53ecbe
-timeCreated: 1481703802
-licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: suri_0
-    21300002: suri_1
-    21300004: suri_2
-    21300006: suri_3
-    21300008: suri_4
-    21300010: suri_5
-    21300012: suri_6
-    21300014: suri_7
-    21300016: suri_8
-    21300018: suri_9
-    21300020: suri_10
-    21300022: suri_11
-    21300024: suri_12
-    21300026: suri_13
-  serializedVersion: 2
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: suri_0
+  - first:
+      213: 21300002
+    second: suri_1
+  - first:
+      213: 21300004
+    second: suri_2
+  - first:
+      213: 21300006
+    second: suri_3
+  - first:
+      213: 21300008
+    second: suri_4
+  - first:
+      213: 21300010
+    second: suri_5
+  - first:
+      213: 21300012
+    second: suri_6
+  - first:
+      213: 21300014
+    second: suri_7
+  - first:
+      213: 21300016
+    second: suri_8
+  - first:
+      213: 21300018
+    second: suri_9
+  - first:
+      213: 21300020
+    second: suri_10
+  - first:
+      213: 21300022
+    second: suri_11
+  - first:
+      213: 21300024
+    second: suri_12
+  - first:
+      213: 21300026
+    second: suri_13
+  externalObjects: {}
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -33,38 +62,110 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 8
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: 2
     aniso: 16
-    mipBias: -1
-    wrapMode: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: suri_0
+    - serializedVersion: 2
+      name: suri_0
       rect:
         serializedVersion: 2
         x: 0
@@ -74,16 +175,19 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -73.5, y: 22}
-        - {x: -73.5, y: -73}
-        - {x: 73.5, y: -73}
-        - {x: 73.5, y: 21}
-        - {x: 64.5, y: 56}
-        - {x: 25.5, y: 73}
-        - {x: -36.5, y: 73}
-        - {x: -45.5, y: 64}
-    - name: suri_1
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: suri_1
       rect:
         serializedVersion: 2
         x: 341
@@ -93,14 +197,19 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -42.5, y: 73}
-        - {x: -73.5, y: 59}
-        - {x: -73.5, y: -73}
-        - {x: 73.5, y: -73}
-        - {x: 73.5, y: 25}
-        - {x: 43.5, y: 73}
-    - name: suri_2
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: suri_2
       rect:
         serializedVersion: 2
         x: 682
@@ -110,16 +219,19 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 18.5, y: 73}
-        - {x: -36.5, y: 73}
-        - {x: -69.5, y: 57}
-        - {x: -73.5, y: 19}
-        - {x: -73.5, y: -73}
-        - {x: 73.5, y: -73}
-        - {x: 73.5, y: 18}
-        - {x: 47.5, y: 67}
-    - name: suri_3
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: suri_3
       rect:
         serializedVersion: 2
         x: 1023
@@ -129,14 +241,19 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -49.5, y: 73}
-        - {x: -73.5, y: 41}
-        - {x: -73.5, y: -73}
-        - {x: 73.5, y: -73}
-        - {x: 73.5, y: 68}
-        - {x: 62.5, y: 73}
-    - name: suri_4
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: suri_4
       rect:
         serializedVersion: 2
         x: 1364
@@ -146,25 +263,19 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 39.5, y: -66}
-        - {x: 31.5, y: -48}
-        - {x: 16.5, y: -38}
-        - {x: 43.5, y: -23}
-        - {x: 60.5, y: -73}
-        - {x: 73.5, y: -73}
-        - {x: 73.5, y: 12}
-        - {x: 62.5, y: 45}
-        - {x: 32.5, y: 73}
-        - {x: -30.5, y: 73}
-        - {x: -70.5, y: 58}
-        - {x: -73.5, y: 36}
-        - {x: -73.5, y: -73}
-        - {x: -63.5, y: -73}
-        - {x: -54.5, y: -41}
-        - {x: -40.5, y: -73}
-        - {x: 39.5, y: -73}
-    - name: suri_5
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: suri_5
       rect:
         serializedVersion: 2
         x: 1705
@@ -174,14 +285,19 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -55.5, y: 73}
-        - {x: -73.5, y: 69}
-        - {x: -73.5, y: -73}
-        - {x: 73.5, y: -73}
-        - {x: 73.5, y: 57}
-        - {x: 61.5, y: 73}
-    - name: suri_6
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: suri_6
       rect:
         serializedVersion: 2
         x: 2046
@@ -191,15 +307,19 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 43.5, y: 73}
-        - {x: -50.5, y: 73}
-        - {x: -73.5, y: 18}
-        - {x: -73.5, y: -73}
-        - {x: 73.5, y: -73}
-        - {x: 73.5, y: 27}
-        - {x: 68.5, y: 60}
-    - name: suri_7
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: suri_7
       rect:
         serializedVersion: 2
         x: 2387
@@ -209,17 +329,19 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 73.5, y: 68}
-        - {x: 54.5, y: 73}
-        - {x: -46.5, y: 73}
-        - {x: -73.5, y: 27}
-        - {x: -73.5, y: -73}
-        - {x: -62.5, y: -73}
-        - {x: -50.5, y: -32}
-        - {x: -43.5, y: -73}
-        - {x: 73.5, y: -73}
-    - name: suri_8
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2305410000000000800000000000000
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: suri_8
       rect:
         serializedVersion: 2
         x: 2728
@@ -229,20 +351,19 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 73.5, y: -73}
-        - {x: 73.5, y: 43}
-        - {x: 26.5, y: 73}
-        - {x: -20.5, y: 73}
-        - {x: -41.5, y: 68}
-        - {x: -63.5, y: 39}
-        - {x: -73.5, y: 2}
-        - {x: -73.5, y: -73}
-        - {x: 48.5, y: -73}
-        - {x: 35.5, y: -56}
-        - {x: 24.5, y: -42}
-        - {x: 61.5, y: -73}
-    - name: suri_9
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03305410000000000800000000000000
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: suri_9
       rect:
         serializedVersion: 2
         x: 3069
@@ -252,19 +373,19 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 73.5, y: 54}
-        - {x: 28.5, y: 73}
-        - {x: -38.5, y: 73}
-        - {x: -57.5, y: 49}
-        - {x: -71.5, y: 19}
-        - {x: -73.5, y: -14}
-        - {x: -73.5, y: -73}
-        - {x: -62.5, y: -73}
-        - {x: -54.5, y: -42}
-        - {x: -39.5, y: -73}
-        - {x: 73.5, y: -73}
-    - name: suri_10
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23305410000000000800000000000000
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: suri_10
       rect:
         serializedVersion: 2
         x: 3410
@@ -274,20 +395,19 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 42.5, y: -22}
-        - {x: 62.5, y: -73}
-        - {x: 73.5, y: -73}
-        - {x: 73.5, y: 43}
-        - {x: 56.5, y: 73}
-        - {x: -40.5, y: 73}
-        - {x: -73.5, y: 62}
-        - {x: -73.5, y: -73}
-        - {x: 51.5, y: -73}
-        - {x: 37.5, y: -54}
-        - {x: 29.5, y: -47}
-        - {x: 20.5, y: -39}
-    - name: suri_11
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43305410000000000800000000000000
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: suri_11
       rect:
         serializedVersion: 2
         x: 3751
@@ -297,18 +417,19 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 60.5, y: -73}
-        - {x: 73.5, y: -73}
-        - {x: 73.5, y: 57}
-        - {x: 34.5, y: 73}
-        - {x: -57.5, y: 73}
-        - {x: -73.5, y: 42}
-        - {x: -73.5, y: -73}
-        - {x: 41.5, y: -73}
-        - {x: 40.5, y: -60}
-        - {x: 26.5, y: -41}
-    - name: suri_12
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63305410000000000800000000000000
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: suri_12
       rect:
         serializedVersion: 2
         x: 4092
@@ -318,19 +439,19 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -44.5, y: -73}
-        - {x: 73.5, y: -73}
-        - {x: 73.5, y: 33}
-        - {x: 35.5, y: 73}
-        - {x: -37.5, y: 73}
-        - {x: -73.5, y: 21}
-        - {x: -73.5, y: -73}
-        - {x: -63.5, y: -73}
-        - {x: -58.5, y: -64}
-        - {x: -54.5, y: -54}
-        - {x: -50.5, y: -65}
-    - name: suri_13
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83305410000000000800000000000000
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: suri_13
       rect:
         serializedVersion: 2
         x: 4433
@@ -340,15 +461,47 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -40.5, y: 73}
-        - {x: -73.5, y: 9}
-        - {x: -73.5, y: -73}
-        - {x: 73.5, y: -73}
-        - {x: 73.5, y: 31}
-        - {x: 52.5, y: 73}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3305410000000000800000000000000
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
-  spritePackingTag: 
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      suri_0: 21300000
+      suri_1: 21300002
+      suri_10: 21300020
+      suri_11: 21300022
+      suri_12: 21300024
+      suri_13: 21300026
+      suri_2: 21300004
+      suri_3: 21300006
+      suri_4: 21300008
+      suri_5: 21300010
+      suri_6: 21300012
+      suri_7: 21300014
+      suri_8: 21300016
+      suri_9: 21300018
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
