@@ -8,7 +8,7 @@ public class ChapuDetector : MonoBehaviour
     public float WalkingThreshold = 2f;
 
     public Transform _currentFollowPoint;
-    public NavMeshAgent _chapuAgent;
+    public UnityEngine.AI.NavMeshAgent _chapuAgent;
     public Animator _chapuAnimator;
 
 	void Start () 
@@ -20,7 +20,7 @@ public class ChapuDetector : MonoBehaviour
         if(chapu == null)
             throw new UnityException("Chapu prefab must be inside the scene");
         
-        _chapuAgent = chapu.GetComponent<NavMeshAgent>();
+        _chapuAgent = chapu.GetComponent<UnityEngine.AI.NavMeshAgent>();
         _chapuAnimator = chapu.GetComponentInChildren<Animator>();
 	}
 	

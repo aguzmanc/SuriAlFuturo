@@ -27,8 +27,8 @@ public class Blocker : MonoBehaviour {
 
     private int _receibedDialogueIndex;
     public bool _canTake = false;
-    private NavMeshObstacle _navMeshObstacle;
-    private NavMeshAgent _navMeshAgent;
+    private UnityEngine.AI.NavMeshObstacle _navMeshObstacle;
+    private UnityEngine.AI.NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private bool _interactionTriggered;
     
@@ -45,12 +45,12 @@ public class Blocker : MonoBehaviour {
 
         _controller = _gameController.GetComponent<CollectionSystem>();
 
-        _navMeshObstacle = Obstacle.GetComponent<NavMeshObstacle>();
+        _navMeshObstacle = Obstacle.GetComponent<UnityEngine.AI.NavMeshObstacle>();
         _animator = Model.GetComponent<Animator>();
 
         _controller.Blockers.Add(this);
 
-        _navMeshAgent = TheTalkable.GetComponent<NavMeshAgent>();
+        _navMeshAgent = TheTalkable.GetComponent<UnityEngine.AI.NavMeshAgent>();
         _navMeshAgent.enabled = false;
 
         _controller.Load(this);
