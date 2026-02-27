@@ -110,6 +110,8 @@ public class PersistenceController : MonoBehaviour
     {
         string nombreArch = Application.persistentDataPath + "/" + FileName;
 
+        Debug.Log("nombre arch: " + nombreArch);
+
         GameObject gc = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController);
         DialogueController dialogCtrl = gc.GetComponent<DialogueController>();
         PersistenceController persistenceCtrl = gc.GetComponent<PersistenceController>();

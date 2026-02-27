@@ -70,15 +70,11 @@ public class CharacterMovement : MonoBehaviour
         UpdateAnimatorParameters();
     }
 
-    void _OnEnable()
-    {
-        NavMeshHit hit;
 
-        // evita que el agente vuelva a estar anclado al Nav Mesh (sino isOnNavMesh dara falso)
-        if (NavMesh.SamplePosition(transform.position, out hit, 2f, 1 << NavMesh.GetAreaFromName("Walkable")))
-        {
-            _navMeshAgent.Warp(hit.position);
-        }
+
+    void OnEnable()
+    {
+        FixNavMeshPosition(transform.position);
     }
 
 
@@ -100,10 +96,17 @@ public class CharacterMovement : MonoBehaviour
 
     public void Warp(Vector3 pos)
     { 
+        FixNavMeshPosition(pos);
+    }
+
+
+    
+    void FixNavMeshPosition(Vector3 pos)
+    { 
         NavMeshHit hit;
 
         // evita que el agente vuelva a estar anclado al Nav Mesh (sino isOnNavMesh dara falso)
-        if (NavMesh.SamplePosition(pos, out hit, 2f, 1 << NavMesh.GetAreaFromName("Walkable")))
+        if (NavMesh.SamplePosition(pos, out hit, 2f, _navMeshAgent.areaMask))
         {
             _navMeshAgent.Warp(hit.position);
         }
@@ -303,5 +306,7 @@ public class CharacterMovement : MonoBehaviour
         _navMeshAgent.enabled = false;
         yield return new WaitForSeconds(2f);
         _navMeshAgent.enabled = true;
+
+        FixNavMeshPosition(transform.position);
     }
 }
