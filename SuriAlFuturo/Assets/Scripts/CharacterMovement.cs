@@ -1,8 +1,10 @@
-using UnityEngine;
-using UnityEngine.EventSystems;
+using SuriAlFuturo;
 using System.Collections;
 using System.Collections.Generic;
-using SuriAlFuturo;
+using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.EventSystems;
+using static UnityEditor.PlayerSettings;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -39,8 +41,13 @@ public class CharacterMovement : MonoBehaviour
             GetComponent<EventSystem>();
     }
 
+    public bool onNavMesh;
+
     void Update ()
     {
+        onNavMesh = _navMeshAgent.isOnNavMesh;
+        
+
         if (IsControlledByPlayer) {
 
             IsControlledByArrows = Mathf.Abs(Input.GetAxis("Horizontal")) > 0 ||
@@ -63,6 +70,18 @@ public class CharacterMovement : MonoBehaviour
         UpdateAnimatorParameters();
     }
 
+    void _OnEnable()
+    {
+        NavMeshHit hit;
+
+        // evita que el agente vuelva a estar anclado al Nav Mesh (sino isOnNavMesh dara falso)
+        if (NavMesh.SamplePosition(transform.position, out hit, 2f, 1 << NavMesh.GetAreaFromName("Walkable")))
+        {
+            _navMeshAgent.Warp(hit.position);
+        }
+    }
+
+
     public void UpdateAnimatorParameters () {
         CurrentSpeedPercent = GetSpeedPercent();
 
@@ -78,11 +97,26 @@ public class CharacterMovement : MonoBehaviour
     }
 
 
+
+    public void Warp(Vector3 pos)
+    { 
+        NavMeshHit hit;
+
+        // evita que el agente vuelva a estar anclado al Nav Mesh (sino isOnNavMesh dara falso)
+        if (NavMesh.SamplePosition(pos, out hit, 2f, 1 << NavMesh.GetAreaFromName("Walkable")))
+        {
+            _navMeshAgent.Warp(hit.position);
+        }
+    }
+
+
+
     public void UpdateMovement ()
     {
         if (IsControlledByArrows) { // keyboard control!
+            
             if(_navMeshAgent.isActiveAndEnabled && _navMeshAgent.isOnNavMesh){
-                _navMeshAgent.Stop();
+                _navMeshAgent.isStopped = true;
                 _navMeshAgent.Move(this.Direction * Time.deltaTime * Speed *
                                     Mathf.Max( Mathf.Abs(Input.GetAxis("Vertical")),
                                              Mathf.Abs(Input.GetAxis("Horizontal")) ));
