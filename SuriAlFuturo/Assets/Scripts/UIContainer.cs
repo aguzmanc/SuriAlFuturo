@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -25,7 +25,7 @@ public class UIContainer : MonoBehaviour {
     public void SetSprite (Sprite sprite, Collectable.Tag tag) 
     {
         if (Icon == null) {
-            Icon = GetComponent<Image>();
+            Icon = GetComponent<UnityEngine.UI.Image>();
         }
         Icon.sprite = sprite;
         _tag = tag;

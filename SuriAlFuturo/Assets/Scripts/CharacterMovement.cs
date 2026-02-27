@@ -54,7 +54,7 @@ public class CharacterMovement : MonoBehaviour
 
         } else {
             if(_navMeshAgent.isActiveAndEnabled){
-                _navMeshAgent.Stop();
+                _navMeshAgent.isStopped = true;
                 _navMeshAgent.velocity = Vector3.zero;
             }
             CurrentSpeedPercent = 0;
