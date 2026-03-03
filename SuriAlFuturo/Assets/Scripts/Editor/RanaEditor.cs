@@ -46,9 +46,9 @@ public class RanaEditor : Editor
         if (GUILayout.Button("➕ Agregar punto"))
         {
             Undo.RecordObject(_rana, "Agregar punto Rana");
-            Vector3 nuevo = _rana.transform.position + new Vector3(Random.Range(-2f, 2f), 0f, Random.Range(-2f, 2f));
-            nuevo.y = _rana.transform.position.y;
-            _rana.Puntos.Add(nuevo);
+            // Nuevo punto en local, desplazado aleatoriamente desde el origen local
+            Vector3 nuevoLocal = new Vector3(Random.Range(-2f, 2f), 0f, Random.Range(-2f, 2f));
+            _rana.Puntos.Add(nuevoLocal);
             _puntoSeleccionado = _rana.Puntos.Count - 1;
             EditorUtility.SetDirty(_rana);
             SceneView.RepaintAll();
@@ -77,8 +77,6 @@ public class RanaEditor : Editor
         }
         else
         {
-            float yFijo = _rana.transform.position.y;
-
             for (int i = 0; i < _rana.Puntos.Count; i++)
             {
                 EditorGUILayout.BeginHorizontal();
@@ -91,14 +89,15 @@ public class RanaEditor : Editor
                 }
                 GUI.color = Color.white;
 
-                Vector3 p = _rana.Puntos[i];
+                // Mostrar y editar coordenadas locales X y Z
+                Vector3 local = _rana.Puntos[i];
                 EditorGUI.BeginChangeCheck();
-                float nuevoX = EditorGUILayout.FloatField(p.x, GUILayout.Width(60));
-                float nuevoZ = EditorGUILayout.FloatField(p.z, GUILayout.Width(60));
+                float nuevoX = EditorGUILayout.FloatField(local.x, GUILayout.Width(60));
+                float nuevoZ = EditorGUILayout.FloatField(local.z, GUILayout.Width(60));
                 if (EditorGUI.EndChangeCheck())
                 {
                     Undo.RecordObject(_rana, "Mover punto Rana");
-                    _rana.Puntos[i] = new Vector3(nuevoX, yFijo, nuevoZ);
+                    _rana.Puntos[i] = new Vector3(nuevoX, 0f, nuevoZ);
                     EditorUtility.SetDirty(_rana);
                     SceneView.RepaintAll();
                 }
@@ -124,8 +123,8 @@ public class RanaEditor : Editor
         {
             EditorGUILayout.HelpBox(
                 "Modo edición activo:\n" +
-                " Arrastra las esferas para mover puntos (solo XZ)\n" +
-                " Ctrl+Click en la escena para agregar un punto nuevo",
+                "• Arrastra las esferas para mover puntos (solo XZ)\n" +
+                "• Ctrl+Click en la escena para agregar un punto nuevo",
                 MessageType.Info);
         }
 
@@ -136,21 +135,26 @@ public class RanaEditor : Editor
     {
         if (_rana == null || _rana.Puntos == null) return;
 
-        float yFijo = _rana.transform.position.y;
+        float yMundo = _rana.transform.position.y;
         UnityEngine.Event e = UnityEngine.Event.current;
 
+        // Ctrl+Click para agregar punto
         if (_modoEdicionPuntos && e.type == EventType.MouseDown && e.button == 0 && e.control)
         {
             Ray ray = HandleUtility.GUIPointToWorldRay(e.mousePosition);
-            float t = (yFijo - ray.origin.y) / ray.direction.y;
+            float t = (yMundo - ray.origin.y) / ray.direction.y;
 
             if (t > 0f)
             {
-                Vector3 hitPoint = ray.origin + ray.direction * t;
-                hitPoint.y = yFijo;
+                Vector3 hitMundo = ray.origin + ray.direction * t;
+                hitMundo.y = yMundo;
+
+                // Convertir posición mundo a local antes de guardar
+                Vector3 hitLocal = _rana.transform.InverseTransformPoint(hitMundo);
+                hitLocal.y = 0f;
 
                 Undo.RecordObject(_rana, "Agregar punto Rana");
-                _rana.Puntos.Add(hitPoint);
+                _rana.Puntos.Add(hitLocal);
                 _puntoSeleccionado = _rana.Puntos.Count - 1;
                 EditorUtility.SetDirty(_rana);
                 e.Use();
@@ -158,17 +162,21 @@ public class RanaEditor : Editor
             }
         }
 
+        // Círculo de distancia máxima
         Handles.color = _colorCirculo;
-        Vector3 posRana = new Vector3(_rana.transform.position.x, yFijo, _rana.transform.position.z);
+        Vector3 posRana = new Vector3(_rana.transform.position.x, yMundo, _rana.transform.position.z);
         DrawHandleCircle(posRana, _rana.DistanciaMaxima);
 
+        // Líneas entre puntos dentro del rango
         for (int i = 0; i < _rana.Puntos.Count; i++)
         {
-            Vector3 pi = new Vector3(_rana.Puntos[i].x, yFijo, _rana.Puntos[i].z);
+            Vector3 mundoI = _rana.transform.TransformPoint(_rana.Puntos[i]);
+            Vector3 pi = new Vector3(mundoI.x, yMundo, mundoI.z);
 
             for (int j = i + 1; j < _rana.Puntos.Count; j++)
             {
-                Vector3 pj = new Vector3(_rana.Puntos[j].x, yFijo, _rana.Puntos[j].z);
+                Vector3 mundoJ = _rana.transform.TransformPoint(_rana.Puntos[j]);
+                Vector3 pj = new Vector3(mundoJ.x, yMundo, mundoJ.z);
                 float dist = Vector3.Distance(
                     new Vector3(pi.x, 0f, pi.z),
                     new Vector3(pj.x, 0f, pj.z)
@@ -182,9 +190,11 @@ public class RanaEditor : Editor
             }
         }
 
+        // Handles por punto
         for (int i = 0; i < _rana.Puntos.Count; i++)
         {
-            Vector3 p = new Vector3(_rana.Puntos[i].x, yFijo, _rana.Puntos[i].z);
+            Vector3 mundo = _rana.transform.TransformPoint(_rana.Puntos[i]);
+            Vector3 p = new Vector3(mundo.x, yMundo, mundo.z);
             bool seleccionado = (i == _puntoSeleccionado);
 
             Handles.color = seleccionado ? _colorPuntoSelected : _colorPuntoNormal;
@@ -206,7 +216,7 @@ public class RanaEditor : Editor
             {
                 EditorGUI.BeginChangeCheck();
 
-                Vector3 nuevaPos = Handles.FreeMoveHandle(
+                Vector3 nuevaPosMundo = Handles.FreeMoveHandle(
                     p,
                     HandleUtility.GetHandleSize(p) * 0.15f,
                     Vector3.zero,
@@ -216,8 +226,11 @@ public class RanaEditor : Editor
                 if (EditorGUI.EndChangeCheck())
                 {
                     Undo.RecordObject(_rana, "Mover punto Rana");
-                    nuevaPos.y = yFijo;
-                    _rana.Puntos[i] = nuevaPos;
+                    // Forzar Y mundo, luego convertir a local
+                    nuevaPosMundo.y = yMundo;
+                    Vector3 nuevoLocal = _rana.transform.InverseTransformPoint(nuevaPosMundo);
+                    nuevoLocal.y = 0f;
+                    _rana.Puntos[i] = nuevoLocal;
                     _puntoSeleccionado = i;
                     EditorUtility.SetDirty(_rana);
                 }

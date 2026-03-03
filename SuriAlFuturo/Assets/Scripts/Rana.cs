@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rana : MonoBehaviour
 {
-    [Header("Puntos de movimiento")]
+    [Header("Puntos de movimiento (espacio local)")]
     [SerializeField] List<Vector3> _puntos = new List<Vector3>();
 
     [Header("Configuración de distancia")]
@@ -52,6 +52,14 @@ public class Rana : MonoBehaviour
         StartCoroutine(RutinaMovimiento());
     }
 
+    // Convierte un punto local al mundo, forzando Y del objeto
+    Vector3 PuntoEnMundo(int indice)
+    {
+        Vector3 mundo = transform.TransformPoint(_puntos[indice]);
+        mundo.y = _yFijo;
+        return mundo;
+    }
+
     IEnumerator RutinaMovimiento()
     {
         while (true)
@@ -65,9 +73,8 @@ public class Rana : MonoBehaviour
                 continue;
 
             int indiceElegido = puntosValidos[Random.Range(0, puntosValidos.Count)];
-            Vector3 destino = _puntos[indiceElegido];
 
-            yield return StartCoroutine(Saltar(destino));
+            yield return StartCoroutine(Saltar(PuntoEnMundo(indiceElegido)));
 
             _indicePuntoActual = indiceElegido;
         }
@@ -110,7 +117,9 @@ public class Rana : MonoBehaviour
         {
             if (i == _indicePuntoActual) continue;
 
-            Vector3 puntoPlanar = new Vector3(_puntos[i].x, 0f, _puntos[i].z);
+            Vector3 puntoMundo = PuntoEnMundo(i);
+            Vector3 puntoPlanar = new Vector3(puntoMundo.x, 0f, puntoMundo.z);
+
             if (Vector3.Distance(posActual, puntoPlanar) <= _distanciaMaxima)
                 validos.Add(i);
         }
@@ -126,7 +135,8 @@ public class Rana : MonoBehaviour
 
         for (int i = 0; i < _puntos.Count; i++)
         {
-            Vector3 puntoPlanar = new Vector3(_puntos[i].x, 0f, _puntos[i].z);
+            Vector3 puntoMundo = PuntoEnMundo(i);
+            Vector3 puntoPlanar = new Vector3(puntoMundo.x, 0f, puntoMundo.z);
             float d = Vector3.Distance(posActual, puntoPlanar);
 
             if (d < distanciaMinima)
@@ -147,14 +157,16 @@ public class Rana : MonoBehaviour
 
         for (int i = 0; i < _puntos.Count; i++)
         {
-            Vector3 p = new Vector3(_puntos[i].x, yBase, _puntos[i].z);
+            Vector3 mundo = transform.TransformPoint(_puntos[i]);
+            Vector3 p = new Vector3(mundo.x, yBase, mundo.z);
 
             Gizmos.color = (i == _indicePuntoActual) ? Color.green : Color.yellow;
             Gizmos.DrawSphere(p, 0.15f);
 
             for (int j = i + 1; j < _puntos.Count; j++)
             {
-                Vector3 q = new Vector3(_puntos[j].x, yBase, _puntos[j].z);
+                Vector3 mundoJ = transform.TransformPoint(_puntos[j]);
+                Vector3 q = new Vector3(mundoJ.x, yBase, mundoJ.z);
                 float dist = Vector3.Distance(
                     new Vector3(p.x, 0f, p.z),
                     new Vector3(q.x, 0f, q.z)
