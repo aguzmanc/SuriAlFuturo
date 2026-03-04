@@ -13,11 +13,11 @@ public class CharacterMovement : MonoBehaviour
     public bool IsControlledByArrows = true;
     public float CurrentSpeedPercent;
     public Vector3 Direction;
+    public UnityEngine.AI.NavMeshAgent NavMeshAgent;
 
     public bool _isInteracting;
     private GameObject _gizmos;
     private Animator _gizmosAnimator;
-    private UnityEngine.AI.NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private GameController _controller;
     private GameObject[] _floors;
@@ -26,10 +26,17 @@ public class CharacterMovement : MonoBehaviour
     private Touch _tap;
     private bool _tapped;
 
-    void Start () {
-        _navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent> ();
+    void Awake()
+    {
+        if(NavMeshAgent == null){
+            NavMeshAgent = GetComponent<NavMeshAgent>();
+        }
+    }
+
+    void Start () 
+    {
         _animator = GetComponent<Animator>();
-        _navMeshAgent.speed = Speed;
+        NavMeshAgent.speed = Speed;
         _isInteracting = false;
 
         _controller = GameObject.FindGameObjectWithTag(SuriAlFuturo.Tag.GameController).
@@ -41,13 +48,9 @@ public class CharacterMovement : MonoBehaviour
             GetComponent<EventSystem>();
     }
 
-    public bool onNavMesh;
 
     void Update ()
     {
-        onNavMesh = _navMeshAgent.isOnNavMesh;
-        
-
         if (IsControlledByPlayer) {
 
             IsControlledByArrows = Mathf.Abs(Input.GetAxis("Horizontal")) > 0 ||
@@ -60,9 +63,9 @@ public class CharacterMovement : MonoBehaviour
             _controller.ControlledCharacter = this.gameObject;
 
         } else {
-            if(_navMeshAgent.isActiveAndEnabled){
-                _navMeshAgent.isStopped = true;
-                _navMeshAgent.velocity = Vector3.zero;
+            if(NavMeshAgent.isActiveAndEnabled){
+                NavMeshAgent.isStopped = true;
+                NavMeshAgent.velocity = Vector3.zero;
             }
             CurrentSpeedPercent = 0;
         }
@@ -106,9 +109,9 @@ public class CharacterMovement : MonoBehaviour
         NavMeshHit hit;
 
         // evita que el agente vuelva a estar anclado al Nav Mesh (sino isOnNavMesh dara falso)
-        if (NavMesh.SamplePosition(pos, out hit, 2f, _navMeshAgent.areaMask))
+        if (NavMesh.SamplePosition(pos, out hit, 2f, NavMeshAgent.areaMask))
         {
-            _navMeshAgent.Warp(hit.position);
+            NavMeshAgent.Warp(hit.position);
         }
     }
 
@@ -118,9 +121,9 @@ public class CharacterMovement : MonoBehaviour
     {
         if (IsControlledByArrows) { // keyboard control!
             
-            if(_navMeshAgent.isActiveAndEnabled && _navMeshAgent.isOnNavMesh){
-                _navMeshAgent.isStopped = true;
-                _navMeshAgent.Move(this.Direction * Time.deltaTime * Speed *
+            if(NavMeshAgent.isActiveAndEnabled && NavMeshAgent.isOnNavMesh){
+                NavMeshAgent.isStopped = true;
+                NavMeshAgent.Move(this.Direction * Time.deltaTime * Speed *
                                     Mathf.Max( Mathf.Abs(Input.GetAxis("Vertical")),
                                              Mathf.Abs(Input.GetAxis("Horizontal")) ));
             }
@@ -136,9 +139,9 @@ public class CharacterMovement : MonoBehaviour
                 if(GetInteractionDestination(out destination)) {
                     _gizmos.transform.position = destination;
                     _gizmos.SetActive(true);
-                    if(_navMeshAgent.isActiveAndEnabled && _navMeshAgent.isOnNavMesh){
-                        _navMeshAgent.Resume();
-                        _navMeshAgent.SetDestination(destination);
+                    if(NavMeshAgent.isActiveAndEnabled && NavMeshAgent.isOnNavMesh){
+                        NavMeshAgent.Resume();
+                        NavMeshAgent.SetDestination(destination);
                     }
                 }
             }
@@ -162,7 +165,7 @@ public class CharacterMovement : MonoBehaviour
                 (FollowCamera.Instance.Forward * Input.GetAxis("Vertical") +
                  FollowCamera.Instance.Right * Input.GetAxis("Horizontal")).normalized;
         } else {
-            this.Direction = _navMeshAgent.velocity.normalized;
+            this.Direction = NavMeshAgent.velocity.normalized;
         }
     }
 
@@ -171,7 +174,7 @@ public class CharacterMovement : MonoBehaviour
             return Mathf.Max(Mathf.Abs(Input.GetAxis("Horizontal")),
                              Mathf.Abs(Input.GetAxis("Vertical")));
         } else {
-            return _navMeshAgent.velocity.magnitude / Speed;
+            return NavMeshAgent.velocity.magnitude / Speed;
         }
     }
 
@@ -303,9 +306,9 @@ public class CharacterMovement : MonoBehaviour
 
     private IEnumerator TemporalDisableNavMesh()
     {
-        _navMeshAgent.enabled = false;
+        NavMeshAgent.enabled = false;
         yield return new WaitForSeconds(2f);
-        _navMeshAgent.enabled = true;
+        NavMeshAgent.enabled = true;
 
         FixNavMeshPosition(transform.position);
     }
