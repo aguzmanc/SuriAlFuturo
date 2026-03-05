@@ -1,162 +1,201 @@
 fileFormatVersion: 2
 guid: a0f5fe9427a40d54aafbb4dabccd9799
-timeCreated: 1473219064
-licenseType: Free
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: Armature
-    100002: Bone
-    100004: Bone.001
-    100006: Bone.001_end
-    100008: Bone.002
-    100010: Bone_L
-    100012: Bone_L.001
-    100014: Bone_L.001_end
-    100016: Bone_L.002
-    100018: Bone_L.003
-    100020: Bone_L.003_end
-    100022: Bone_L.004
-    100024: Bone_L.004_end
-    100026: Bone_R
-    100028: Bone_R.001
-    100030: Bone_R.001_end
-    100032: Bone_R.002
-    100034: Bone_R.003
-    100036: Bone_R.003_end
-    100038: Bone_R.004
-    100040: Bone_R.004_end
-    100042: Cylinder.002
-    100044: //RootNode
-    400000: Armature
-    400002: Bone
-    400004: Bone.001
-    400006: Bone.001_end
-    400008: Bone.002
-    400010: Bone_L
-    400012: Bone_L.001
-    400014: Bone_L.001_end
-    400016: Bone_L.002
-    400018: Bone_L.003
-    400020: Bone_L.003_end
-    400022: Bone_L.004
-    400024: Bone_L.004_end
-    400026: Bone_R
-    400028: Bone_R.001
-    400030: Bone_R.001_end
-    400032: Bone_R.002
-    400034: Bone_R.003
-    400036: Bone_R.003_end
-    400038: Bone_R.004
-    400040: Bone_R.004_end
-    400042: Cylinder.002
-    400044: //RootNode
-    4300000: Cylinder.002
-    7400000: Armature|CameraAction
-    7400002: Armature|IddleBreathe
-    7400004: Armature|IddleLilJumps
-    7400006: Armature|IddleLookUp
-    7400008: Armature|Walk
-    9500000: //RootNode
-    13700000: Cylinder.002
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Armature
+  - first:
+      1: 100002
+    second: Bone
+  - first:
+      1: 100004
+    second: Bone.001
+  - first:
+      1: 100006
+    second: Bone.001_end
+  - first:
+      1: 100008
+    second: Bone.002
+  - first:
+      1: 100010
+    second: Bone_L
+  - first:
+      1: 100012
+    second: Bone_L.001
+  - first:
+      1: 100014
+    second: Bone_L.001_end
+  - first:
+      1: 100016
+    second: Bone_L.002
+  - first:
+      1: 100018
+    second: Bone_L.003
+  - first:
+      1: 100020
+    second: Bone_L.003_end
+  - first:
+      1: 100022
+    second: Bone_L.004
+  - first:
+      1: 100024
+    second: Bone_L.004_end
+  - first:
+      1: 100026
+    second: Bone_R
+  - first:
+      1: 100028
+    second: Bone_R.001
+  - first:
+      1: 100030
+    second: Bone_R.001_end
+  - first:
+      1: 100032
+    second: Bone_R.002
+  - first:
+      1: 100034
+    second: Bone_R.003
+  - first:
+      1: 100036
+    second: Bone_R.003_end
+  - first:
+      1: 100038
+    second: Bone_R.004
+  - first:
+      1: 100040
+    second: Bone_R.004_end
+  - first:
+      1: 100042
+    second: Cylinder.002
+  - first:
+      1: 100044
+    second: //RootNode
+  - first:
+      4: 400000
+    second: Armature
+  - first:
+      4: 400002
+    second: Bone
+  - first:
+      4: 400004
+    second: Bone.001
+  - first:
+      4: 400006
+    second: Bone.001_end
+  - first:
+      4: 400008
+    second: Bone.002
+  - first:
+      4: 400010
+    second: Bone_L
+  - first:
+      4: 400012
+    second: Bone_L.001
+  - first:
+      4: 400014
+    second: Bone_L.001_end
+  - first:
+      4: 400016
+    second: Bone_L.002
+  - first:
+      4: 400018
+    second: Bone_L.003
+  - first:
+      4: 400020
+    second: Bone_L.003_end
+  - first:
+      4: 400022
+    second: Bone_L.004
+  - first:
+      4: 400024
+    second: Bone_L.004_end
+  - first:
+      4: 400026
+    second: Bone_R
+  - first:
+      4: 400028
+    second: Bone_R.001
+  - first:
+      4: 400030
+    second: Bone_R.001_end
+  - first:
+      4: 400032
+    second: Bone_R.002
+  - first:
+      4: 400034
+    second: Bone_R.003
+  - first:
+      4: 400036
+    second: Bone_R.003_end
+  - first:
+      4: 400038
+    second: Bone_R.004
+  - first:
+      4: 400040
+    second: Bone_R.004_end
+  - first:
+      4: 400042
+    second: Cylinder.002
+  - first:
+      4: 400044
+    second: //RootNode
+  - first:
+      43: 4300000
+    second: Cylinder.002
+  - first:
+      74: 7400000
+    second: Armature|CameraAction
+  - first:
+      74: 7400002
+    second: Armature|IddleBreathe
+  - first:
+      74: 7400004
+    second: Armature|IddleLilJumps
+  - first:
+      74: 7400006
+    second: Armature|IddleLookUp
+  - first:
+      74: 7400008
+    second: Armature|Walk
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Cylinder.002
+  externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations:
-    - serializedVersion: 16
-      name: Armature|CameraAction
-      takeName: Armature|CameraAction
-      firstFrame: 0
-      lastFrame: 298
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Bone
-        weight: 1
-      - path: Armature/Bone/Bone.001
-        weight: 1
-      - path: Armature/Bone/Bone.001/Bone.001_end
-        weight: 1
-      - path: Armature/Bone/Bone.002
-        weight: 1
-      - path: Armature/Bone/Bone.002/Bone_L.004
-        weight: 1
-      - path: Armature/Bone/Bone.002/Bone_L.004/Bone_L.004_end
-        weight: 1
-      - path: Armature/Bone/Bone.002/Bone_R.004
-        weight: 1
-      - path: Armature/Bone/Bone.002/Bone_R.004/Bone_R.004_end
-        weight: 1
-      - path: Armature/Bone/Bone_L
-        weight: 1
-      - path: Armature/Bone/Bone_L/Bone_L.001
-        weight: 1
-      - path: Armature/Bone/Bone_L/Bone_L.001/Bone_L.001_end
-        weight: 1
-      - path: Armature/Bone/Bone_R
-        weight: 1
-      - path: Armature/Bone/Bone_R/Bone_R.001
-        weight: 1
-      - path: Armature/Bone/Bone_R/Bone_R.001/Bone_R.001_end
-        weight: 1
-      - path: Armature/Bone_L.002
-        weight: 1
-      - path: Armature/Bone_L.002/Bone_L.003
-        weight: 1
-      - path: Armature/Bone_L.002/Bone_L.003/Bone_L.003_end
-        weight: 1
-      - path: Armature/Bone_R.002
-        weight: 1
-      - path: Armature/Bone_R.002/Bone_R.003
-        weight: 1
-      - path: Armature/Bone_R.002/Bone_R.003/Bone_R.003_end
-        weight: 1
-      - path: Cylinder.002
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Armature|IddleBreathe
       takeName: Armature|IddleBreathe
+      internalID: 0
       firstFrame: 0
       lastFrame: 50
       wrapMode: 0
@@ -231,6 +270,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Armature|IddleLilJumps
       takeName: Armature|IddleLilJumps
+      internalID: 0
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -305,6 +345,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Armature|IddleLookUp
       takeName: Armature|IddleLookUp
+      internalID: 0
       firstFrame: 0
       lastFrame: 51
       wrapMode: 0
@@ -379,6 +420,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Armature|Walk
       takeName: Armature|Walk
+      internalID: 0
       firstFrame: 0
       lastFrame: 19
       wrapMode: 0
@@ -450,31 +492,130 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Roll
+      takeName: Armature|Roll
+      internalID: -1586833281672801082
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/Bone.001
+        weight: 1
+      - path: Armature/Bone/Bone.001/Bone.001_end
+        weight: 1
+      - path: Armature/Bone/Bone.002
+        weight: 1
+      - path: Armature/Bone/Bone.002/Bone_L.004
+        weight: 1
+      - path: Armature/Bone/Bone.002/Bone_L.004/Bone_L.004_end
+        weight: 1
+      - path: Armature/Bone/Bone.002/Bone_R.004
+        weight: 1
+      - path: Armature/Bone/Bone.002/Bone_R.004/Bone_R.004_end
+        weight: 1
+      - path: Armature/Bone/Bone_L
+        weight: 1
+      - path: Armature/Bone/Bone_L/Bone_L.001
+        weight: 1
+      - path: Armature/Bone/Bone_L/Bone_L.001/Bone_L.001_end
+        weight: 1
+      - path: Armature/Bone/Bone_R
+        weight: 1
+      - path: Armature/Bone/Bone_R/Bone_R.001
+        weight: 1
+      - path: Armature/Bone/Bone_R/Bone_R.001/Bone_R.001_end
+        weight: 1
+      - path: Armature/Bone_L.002
+        weight: 1
+      - path: Armature/Bone_L.002/Bone_L.003
+        weight: 1
+      - path: Armature/Bone_L.002/Bone_L.003/Bone_L.003_end
+        weight: 1
+      - path: Armature/Bone_R.002
+        weight: 1
+      - path: Armature/Bone_R.002/Bone_R.003
+        weight: 1
+      - path: Armature/Bone_R.002/Bone_R.003/Bone_R.003_end
+        weight: 1
+      - path: Cylinder.002
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -484,11 +625,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

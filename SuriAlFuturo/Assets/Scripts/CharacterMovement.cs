@@ -9,22 +9,73 @@ using static UnityEditor.PlayerSettings;
 public class CharacterMovement : MonoBehaviour
 {
     public float Speed = 0;
+    
     public bool IsControlledByPlayer = false;
     public bool IsControlledByArrows = true;
     public float CurrentSpeedPercent;
     public Vector3 Direction;
     public UnityEngine.AI.NavMeshAgent NavMeshAgent;
 
-    public bool _isInteracting;
-    private GameObject _gizmos;
-    private Animator _gizmosAnimator;
-    private Animator _animator;
-    private GameController _controller;
-    private GameObject[] _floors;
-    private EventSystem _eventSystem;
+    [Header("ROLL")]
+    public float RollSpeed = 20;
 
-    private Touch _tap;
-    private bool _tapped;
+
+    bool _isInteracting;
+    GameObject _gizmos;
+    Animator _gizmosAnimator;
+    Animator _animator;
+    GameController _controller;
+    GameObject[] _floors;
+    EventSystem _eventSystem;
+
+    Touch _tap;
+    bool _tapped;
+
+
+    float GetSpeed()
+    { 
+        return isRolling ? RollSpeed : Speed;
+    }
+
+
+    public void Warp(Vector3 pos)
+    { 
+        FixNavMeshPosition(pos);
+    }
+
+
+    // Temporal disable Nav Mesh while scene change is made
+    public void TimeTravel()
+    {
+        StartCoroutine(TemporalDisableNavMesh());
+    }
+
+
+    public bool isRolling;
+    public float rollTime;
+
+    Coroutine _rollCoroutine;
+
+    public void Roll()
+    { 
+        if(_rollCoroutine ==null)
+            _rollCoroutine = StartCoroutine(_Roll());
+    }
+
+
+    IEnumerator _Roll()
+    {
+        isRolling = true;
+        _animator.SetTrigger("Roll");
+
+        yield return new WaitForSeconds(rollTime);
+        isRolling = false;
+
+        _rollCoroutine = null;
+    }
+
+
+
 
     void Awake()
     {
@@ -32,6 +83,7 @@ public class CharacterMovement : MonoBehaviour
             NavMeshAgent = GetComponent<NavMeshAgent>();
         }
     }
+
 
     void Start () 
     {
@@ -81,7 +133,7 @@ public class CharacterMovement : MonoBehaviour
     }
 
 
-    public void UpdateAnimatorParameters () {
+    void UpdateAnimatorParameters () {
         CurrentSpeedPercent = GetSpeedPercent();
 
         if (CurrentSpeedPercent != 0) {
@@ -93,13 +145,6 @@ public class CharacterMovement : MonoBehaviour
         if (_animator != null) {
             _animator.SetBool("IsWalking", CurrentSpeedPercent != 0);
         }
-    }
-
-
-
-    public void Warp(Vector3 pos)
-    { 
-        FixNavMeshPosition(pos);
     }
 
 
@@ -117,13 +162,18 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-    public void UpdateMovement ()
+    void UpdateMovement ()
     {
         if (IsControlledByArrows) { // keyboard control!
             
             if(NavMeshAgent.isActiveAndEnabled && NavMeshAgent.isOnNavMesh){
+
+                if(Input.GetKeyDown(KeyCode.Space)) { 
+                    Roll();
+                }
+
                 NavMeshAgent.isStopped = true;
-                NavMeshAgent.Move(this.Direction * Time.deltaTime * Speed *
+                NavMeshAgent.Move(this.Direction * Time.deltaTime * GetSpeed() *
                                     Mathf.Max( Mathf.Abs(Input.GetAxis("Vertical")),
                                              Mathf.Abs(Input.GetAxis("Horizontal")) ));
             }
@@ -140,7 +190,7 @@ public class CharacterMovement : MonoBehaviour
                     _gizmos.transform.position = destination;
                     _gizmos.SetActive(true);
                     if(NavMeshAgent.isActiveAndEnabled && NavMeshAgent.isOnNavMesh){
-                        NavMeshAgent.Resume();
+                        NavMeshAgent.isStopped = false;
                         NavMeshAgent.SetDestination(destination);
                     }
                 }
@@ -154,7 +204,8 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    public void UpdateDirection () {
+
+    void UpdateDirection () {
 
         if (IsControlledByPlayer) {
             this.Direction =  new Vector3(0,0,0);
@@ -169,18 +220,18 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    public float GetSpeedPercent () {
+
+    float GetSpeedPercent () {
         if (IsControlledByArrows) {
             return Mathf.Max(Mathf.Abs(Input.GetAxis("Horizontal")),
                              Mathf.Abs(Input.GetAxis("Vertical")));
         } else {
-            return NavMeshAgent.velocity.magnitude / Speed;
+            return NavMeshAgent.velocity.magnitude / GetSpeed();
         }
     }
 
 
-
-    public void UpdateTapDetector ()
+    void UpdateTapDetector ()
     {
         _tapped = (Input.touchCount > 0);
         if(_tapped){
@@ -190,7 +241,7 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-    public bool GetInteractionPosition (out Vector2 pos)
+    bool GetInteractionPosition (out Vector2 pos)
     {
         pos = new Vector2();
 
@@ -209,7 +260,7 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-    public bool GetInteractionDestination (out Vector3 destination)
+    bool GetInteractionDestination (out Vector3 destination)
     {
         destination = new Vector3(Mathf.NegativeInfinity,
                                   Mathf.NegativeInfinity,
@@ -240,15 +291,7 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-    // Temporal disable Nav Mesh while scene change is made
-    public void TimeTravel()
-    {
-        StartCoroutine(TemporalDisableNavMesh());
-    }
-
-
-
-    private bool StartInteracting ()
+    bool StartInteracting ()
     {
         if(_isInteracting) {
             return false;
@@ -272,7 +315,7 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-    private bool StopInteracting()
+    bool StopInteracting()
     {
         if(!_isInteracting) {
             return false;
@@ -296,7 +339,7 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-    private bool _IsInteractionBlocked ()
+    bool _IsInteractionBlocked ()
     {
         return (_eventSystem.IsPointerOverGameObject() ||
                 (_tapped && _eventSystem.IsPointerOverGameObject(_tap.fingerId)));
@@ -304,7 +347,7 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-    private IEnumerator TemporalDisableNavMesh()
+    IEnumerator TemporalDisableNavMesh()
     {
         NavMeshAgent.enabled = false;
         yield return new WaitForSeconds(2f);
