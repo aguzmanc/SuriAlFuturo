@@ -17,7 +17,19 @@ public class CharacterMovement : MonoBehaviour
     public UnityEngine.AI.NavMeshAgent NavMeshAgent;
 
     [Header("ROLL")]
+    public bool canRoll = false;
     public float RollSpeed = 20;
+    public float rollTime;
+
+    [Header("DAMAGE")]
+    public bool isDamaged = false;
+    public bool isBlinking = false;
+    public float damageTime = 0.2f;
+    public float blinkTime = 3f;
+
+
+
+    [HideInInspector] public bool isRolling;
 
 
     bool _isInteracting;
@@ -33,7 +45,10 @@ public class CharacterMovement : MonoBehaviour
 
 
     float GetSpeed()
-    { 
+    {
+        if(isDamaged) 
+            return 0;
+           
         return isRolling ? RollSpeed : Speed;
     }
 
@@ -51,13 +66,15 @@ public class CharacterMovement : MonoBehaviour
     }
 
 
-    public bool isRolling;
-    public float rollTime;
+    
 
     Coroutine _rollCoroutine;
 
     public void Roll()
     { 
+        if(!canRoll) 
+            return;
+
         if(_rollCoroutine ==null)
             _rollCoroutine = StartCoroutine(_Roll());
     }
@@ -72,6 +89,38 @@ public class CharacterMovement : MonoBehaviour
         isRolling = false;
 
         _rollCoroutine = null;
+    }
+
+
+    public void Damage()
+    { 
+        if(isDamaged || isBlinking)
+            return;
+       
+
+        if(_rollCoroutine != null) { 
+            StopCoroutine(_rollCoroutine);
+            isRolling = false;
+            _rollCoroutine = null;
+        }
+
+        StartCoroutine (_Damage());
+    }
+
+    IEnumerator _Damage()
+    { 
+        isDamaged = true;
+        isBlinking = true;
+
+        _animator.SetBool("IsBlinking", true);
+
+        yield return new WaitForSeconds(damageTime);
+        isDamaged = false;
+
+        yield return new WaitForSeconds(blinkTime - damageTime);
+        isBlinking = false;
+
+        _animator.SetBool("IsBlinking", false);
     }
 
 
