@@ -9,7 +9,7 @@ using static UnityEditor.PlayerSettings;
 public class CharacterMovement : MonoBehaviour
 {
     public float Speed = 0;
-    
+
     public bool IsControlledByPlayer = false;
     public bool IsControlledByArrows = true;
     public float CurrentSpeedPercent;
@@ -46,15 +46,15 @@ public class CharacterMovement : MonoBehaviour
 
     float GetSpeed()
     {
-        if(isDamaged) 
+        if (isDamaged)
             return 0;
-           
+
         return isRolling ? RollSpeed : Speed;
     }
 
 
     public void Warp(Vector3 pos)
-    { 
+    {
         FixNavMeshPosition(pos);
     }
 
@@ -66,16 +66,16 @@ public class CharacterMovement : MonoBehaviour
     }
 
 
-    
+
 
     Coroutine _rollCoroutine;
 
     public void Roll()
-    { 
-        if(!canRoll) 
+    {
+        if (!canRoll)
             return;
 
-        if(_rollCoroutine ==null)
+        if (_rollCoroutine == null)
             _rollCoroutine = StartCoroutine(_Roll());
     }
 
@@ -93,22 +93,23 @@ public class CharacterMovement : MonoBehaviour
 
 
     public void Damage()
-    { 
-        if(isDamaged || isBlinking)
+    {
+        if (isDamaged || isBlinking)
             return;
-       
 
-        if(_rollCoroutine != null) { 
+
+        if (_rollCoroutine != null)
+        {
             StopCoroutine(_rollCoroutine);
             isRolling = false;
             _rollCoroutine = null;
         }
 
-        StartCoroutine (_Damage());
+        StartCoroutine(_Damage());
     }
 
     IEnumerator _Damage()
-    { 
+    {
         isDamaged = true;
         isBlinking = true;
 
@@ -128,13 +129,14 @@ public class CharacterMovement : MonoBehaviour
 
     void Awake()
     {
-        if(NavMeshAgent == null){
+        if (NavMeshAgent == null)
+        {
             NavMeshAgent = GetComponent<NavMeshAgent>();
         }
     }
 
 
-    void Start () 
+    void Start()
     {
         _animator = GetComponent<Animator>();
         NavMeshAgent.speed = Speed;
@@ -144,15 +146,16 @@ public class CharacterMovement : MonoBehaviour
             GetComponent<GameController>();
         _gizmos = _controller.MovementGizmos;
         _gizmosAnimator = _gizmos.GetComponent<Animator>();
-            GetComponent<UIController>();
+        GetComponent<UIController>();
         _eventSystem = GameObject.FindGameObjectWithTag(Tag.EventSystem).
             GetComponent<EventSystem>();
     }
 
 
-    void Update ()
+    void Update()
     {
-        if (IsControlledByPlayer) {
+        if (IsControlledByPlayer)
+        {
 
             IsControlledByArrows = Mathf.Abs(Input.GetAxis("Horizontal")) > 0 ||
                 Mathf.Abs(Input.GetAxis("Vertical")) > 0;
@@ -163,8 +166,11 @@ public class CharacterMovement : MonoBehaviour
 
             _controller.ControlledCharacter = this.gameObject;
 
-        } else {
-            if(NavMeshAgent.isActiveAndEnabled){
+        }
+        else
+        {
+            if (NavMeshAgent.isActiveAndEnabled)
+            {
                 NavMeshAgent.isStopped = true;
                 NavMeshAgent.velocity = Vector3.zero;
             }
@@ -182,24 +188,28 @@ public class CharacterMovement : MonoBehaviour
     }
 
 
-    void UpdateAnimatorParameters () {
+    void UpdateAnimatorParameters()
+    {
         CurrentSpeedPercent = GetSpeedPercent();
 
-        if (CurrentSpeedPercent != 0) {
-            if(Direction.x != 0 && Direction.z != 0) {
+        if (CurrentSpeedPercent != 0)
+        {
+            if (Direction.x != 0 && Direction.z != 0)
+            {
                 transform.forward = new Vector3(Direction.x, 0, Direction.z);
             }
         }
 
-        if (_animator != null) {
+        if (_animator != null)
+        {
             _animator.SetBool("IsWalking", CurrentSpeedPercent != 0);
         }
     }
 
 
-    
+
     void FixNavMeshPosition(Vector3 pos)
-    { 
+    {
         NavMeshHit hit;
 
         // evita que el agente vuelva a estar anclado al Nav Mesh (sino isOnNavMesh dara falso)
@@ -211,95 +221,120 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-    void UpdateMovement ()
+    void UpdateMovement()
     {
-        if (IsControlledByArrows) { // keyboard control!
-            
-            if(NavMeshAgent.isActiveAndEnabled && NavMeshAgent.isOnNavMesh){
+        if (IsControlledByArrows)
+        { // keyboard control!
 
-                if(Input.GetKeyDown(KeyCode.Space)) { 
+            if (NavMeshAgent.isActiveAndEnabled && NavMeshAgent.isOnNavMesh)
+            {
+
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
                     Roll();
                 }
 
                 NavMeshAgent.isStopped = true;
                 NavMeshAgent.Move(this.Direction * Time.deltaTime * GetSpeed() *
-                                    Mathf.Max( Mathf.Abs(Input.GetAxis("Vertical")),
-                                             Mathf.Abs(Input.GetAxis("Horizontal")) ));
+                                    Mathf.Max(Mathf.Abs(Input.GetAxis("Vertical")),
+                                             Mathf.Abs(Input.GetAxis("Horizontal"))));
             }
-        } else if (false == _IsInteractionBlocked())
+        }
+        /* ***** DISABLING CLICK MOVEMENT TYPE
+        else if (false == _IsInteractionBlocked())
         {
-            if(StartInteracting()){
+            if (StartInteracting())
+            {
                 _gizmosAnimator.SetTrigger("Born");
             }
 
-            if(_isInteracting) {
+            if (_isInteracting)
+            {
                 Vector3 destination;
 
-                if(GetInteractionDestination(out destination)) {
+                if (GetInteractionDestination(out destination))
+                {
                     _gizmos.transform.position = destination;
                     _gizmos.SetActive(true);
-                    if(NavMeshAgent.isActiveAndEnabled && NavMeshAgent.isOnNavMesh){
+                    if (NavMeshAgent.isActiveAndEnabled && NavMeshAgent.isOnNavMesh)
+                    {
                         NavMeshAgent.isStopped = false;
                         NavMeshAgent.SetDestination(destination);
                     }
                 }
             }
 
-            if(StopInteracting()) {
+            if (StopInteracting())
+            {
                 _gizmosAnimator.SetTrigger("Die");
             }
-        } else if (StopInteracting()) { // force to stop interact
+        }
+        else if (StopInteracting())
+        { // force to stop interact
             _gizmosAnimator.SetTrigger("Die");
         }
+        */
     }
 
 
-    void UpdateDirection () {
+    void UpdateDirection()
+    {
 
-        if (IsControlledByPlayer) {
-            this.Direction =  new Vector3(0,0,0);
+        if (IsControlledByPlayer)
+        {
+            this.Direction = new Vector3(0, 0, 0);
         }
 
-        if (IsControlledByArrows) {
+        if (IsControlledByArrows)
+        {
             this.Direction =
                 (FollowCamera.Instance.Forward * Input.GetAxis("Vertical") +
                  FollowCamera.Instance.Right * Input.GetAxis("Horizontal")).normalized;
-        } else {
+        }
+        else
+        {
             this.Direction = NavMeshAgent.velocity.normalized;
         }
     }
 
 
-    float GetSpeedPercent () {
-        if (IsControlledByArrows) {
+    float GetSpeedPercent()
+    {
+        if (IsControlledByArrows)
+        {
             return Mathf.Max(Mathf.Abs(Input.GetAxis("Horizontal")),
                              Mathf.Abs(Input.GetAxis("Vertical")));
-        } else {
+        }
+        else
+        {
             return NavMeshAgent.velocity.magnitude / GetSpeed();
         }
     }
 
 
-    void UpdateTapDetector ()
+    void UpdateTapDetector()
     {
         _tapped = (Input.touchCount > 0);
-        if(_tapped){
+        if (_tapped)
+        {
             _tap = Input.GetTouch(0);
         }
     }
 
 
 
-    bool GetInteractionPosition (out Vector2 pos)
+    bool GetInteractionPosition(out Vector2 pos)
     {
         pos = new Vector2();
 
-        if (Input.GetMouseButton(0)) {
+        if (Input.GetMouseButton(0))
+        {
             pos = Input.mousePosition;
             return true;
         }
 
-        if (_tapped) {
+        if (_tapped)
+        {
             pos = _tap.position;
             return true;
         }
@@ -309,7 +344,7 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-    bool GetInteractionDestination (out Vector3 destination)
+    bool GetInteractionDestination(out Vector3 destination)
     {
         destination = new Vector3(Mathf.NegativeInfinity,
                                   Mathf.NegativeInfinity,
@@ -317,22 +352,48 @@ public class CharacterMovement : MonoBehaviour
 
         Vector2 pos2d;
 
-        if(GetInteractionPosition(out pos2d)) {
+        if (GetInteractionPosition(out pos2d))
+        {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(pos2d);
             _floors = GameObject.FindGameObjectsWithTag(Tag.Floor);
 
             bool found = false;
-            foreach (GameObject floor in _floors) {
-                if (floor.GetComponent<Collider>().Raycast(ray, out hit, 200)) {
-                    if (hit.point.y > destination.y) {
+            foreach (GameObject floor in _floors)
+            {
+                if (floor.GetComponent<Collider>().Raycast(ray, out hit, 200))
+                {
+                    if (hit.point.y > destination.y)
+                    {
                         destination = hit.point;
                         found = true;
                     }
                 }
             }
 
-            return found;
+            if (!found) return false;
+
+
+            Debug.DrawRay(destination, Vector3.up * 5, Color.red);
+
+
+            NavMeshHit navMeshHit;
+            if ((NavMesh.SamplePosition(destination,
+                                                out navMeshHit,
+                                                7f,
+                                                NavMeshAgent.areaMask)))
+            {
+                Debug.Log("Sampled: " + found);
+                destination = navMeshHit.position;
+                Debug.DrawRay(destination, Vector3.up * 5, Color.blue);
+                return true; // cuando esta dentro del navmesh
+            }
+            else
+            {
+
+                Debug.Log("NOT FOUND");
+                return false;
+            }
         }
 
         return false;
@@ -340,20 +401,23 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-    bool StartInteracting ()
+    bool StartInteracting()
     {
-        if(_isInteracting) {
+        if (_isInteracting)
+        {
             return false;
         }
 
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             _isInteracting = true;
             return true;
         }
 
-        if(_tapped) {
-            if(_tap.phase == TouchPhase.Began) {
+        if (_tapped)
+        {
+            if (_tap.phase == TouchPhase.Began)
+            {
                 _isInteracting = true;
                 return true;
             }
@@ -366,18 +430,21 @@ public class CharacterMovement : MonoBehaviour
 
     bool StopInteracting()
     {
-        if(!_isInteracting) {
+        if (!_isInteracting)
+        {
             return false;
         }
 
-        if(Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             _isInteracting = false;
             return true;
         }
 
-        if(_tapped) {
-            if(_tap.phase == TouchPhase.Ended) {
+        if (_tapped)
+        {
+            if (_tap.phase == TouchPhase.Ended)
+            {
                 _isInteracting = false;
                 return true;
             }
@@ -388,7 +455,7 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-    bool _IsInteractionBlocked ()
+    bool _IsInteractionBlocked()
     {
         return (_eventSystem.IsPointerOverGameObject() ||
                 (_tapped && _eventSystem.IsPointerOverGameObject(_tap.fingerId)));
