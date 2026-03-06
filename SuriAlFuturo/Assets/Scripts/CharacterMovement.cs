@@ -28,7 +28,6 @@ public class CharacterMovement : MonoBehaviour
     public float blinkTime = 3f;
 
 
-
     [HideInInspector] public bool isRolling;
 
 
@@ -75,6 +74,9 @@ public class CharacterMovement : MonoBehaviour
         if (!canRoll)
             return;
 
+        if(isBlinking)
+            return;
+
         if (_rollCoroutine == null)
             _rollCoroutine = StartCoroutine(_Roll());
     }
@@ -105,6 +107,7 @@ public class CharacterMovement : MonoBehaviour
             _rollCoroutine = null;
         }
 
+        GameController.Damage();
         StartCoroutine(_Damage());
     }
 
@@ -154,9 +157,15 @@ public class CharacterMovement : MonoBehaviour
 
     void Update()
     {
+        if(GameController.gameFinished){
+            if(_animator)
+                _animator.SetBool("IsWalking", false);
+
+            return; // stop playing
+        }
+
         if (IsControlledByPlayer)
         {
-
             IsControlledByArrows = Mathf.Abs(Input.GetAxis("Horizontal")) > 0 ||
                 Mathf.Abs(Input.GetAxis("Vertical")) > 0;
 
