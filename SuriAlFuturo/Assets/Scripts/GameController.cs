@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     public static GameController _instance;
 
     public static int TOTAL_HEALTH = 5;
+    public static int STAMINA_TIME = 2;
 
     public FollowCamera FollowingCamera;
     public GameObject TitleCamera;
@@ -37,6 +38,8 @@ public class GameController : MonoBehaviour
 
     private int _health;
     private bool _gameFinished;
+
+    private float _timeToRecoverStamina;
     
 
     public static bool gameFinished
@@ -51,6 +54,7 @@ public class GameController : MonoBehaviour
 
     public static event System.Action onDamage;
     public static event System.Action onGameFinished;
+    public static event System.Action<float> onStaminaChanged;
 
 
 
@@ -69,6 +73,8 @@ public class GameController : MonoBehaviour
 
         _health = TOTAL_HEALTH;
         _gameFinished = false;
+
+        _timeToRecoverStamina = 0; 
     }
 
 
@@ -77,6 +83,16 @@ public class GameController : MonoBehaviour
             GetComponent<TimeTravelController>().StartGame();
             StartGame();
             StartButton.SetActive(false);
+        }
+
+
+        if(_gameFinished == false){ 
+            _timeToRecoverStamina -= Time.deltaTime;
+            _timeToRecoverStamina = Mathf.Max(0, _timeToRecoverStamina);
+
+            // 0 -> no stamina
+            // 1 -> full stamina
+            onStaminaChanged ? .Invoke(1f - (_timeToRecoverStamina / STAMINA_TIME));
         }
     }
 
@@ -129,6 +145,17 @@ public class GameController : MonoBehaviour
     public static void RestartGame()
     { 
         SceneManager.LoadScene("BaseScene", LoadSceneMode.Single);
+    }
+
+
+    public static bool ResetStamina()
+    { 
+        if(_instance._timeToRecoverStamina == 0){ 
+            _instance._timeToRecoverStamina = STAMINA_TIME;
+            return true;
+        }
+
+        return false;
     }
 
 }

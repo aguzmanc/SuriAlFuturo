@@ -31,13 +31,19 @@ public class Rana : MonoBehaviour
     public List<Vector3> Puntos => _puntos;
     public float DistanciaMaxima => _distanciaMaxima;
     public float YFijo => _yFijo;
+    public bool Moving => _moving;
 
     int _indicePuntoActual = -1;
     float _yFijo;
+    bool _moving;
+
+
+
 
     void Start()
     {
         _yFijo = transform.position.y;
+        _moving = false;
 
         if (_curvaSalto == null || _curvaSalto.length == 0)
         {
@@ -87,6 +93,7 @@ public class Rana : MonoBehaviour
 
         float tiempoTranscurrido = 0f;
 
+        _moving = true;
         while (tiempoTranscurrido < _duracionSalto)
         {
             tiempoTranscurrido += Time.deltaTime;
@@ -99,6 +106,8 @@ public class Rana : MonoBehaviour
             OnProgresoSalto?.Invoke(t);
             yield return null;
         }
+
+        _moving = false;
 
         transform.position = new Vector3(destino.x, _yFijo, destino.z);
         OnProgresoSalto?.Invoke(1f);

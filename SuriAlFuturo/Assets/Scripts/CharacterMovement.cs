@@ -20,12 +20,14 @@ public class CharacterMovement : MonoBehaviour
     public bool canRoll = false;
     public float RollSpeed = 20;
     public float rollTime;
+    
 
     [Header("DAMAGE")]
     public bool isDamaged = false;
     public bool isBlinking = false;
     public float damageTime = 0.2f;
     public float blinkTime = 3f;
+
 
 
     [HideInInspector] public bool isRolling;
@@ -41,6 +43,9 @@ public class CharacterMovement : MonoBehaviour
 
     Touch _tap;
     bool _tapped;
+
+
+    public static event System.Action onRoll;
 
 
     float GetSpeed()
@@ -77,13 +82,20 @@ public class CharacterMovement : MonoBehaviour
         if(isBlinking)
             return;
 
-        if (_rollCoroutine == null)
-            _rollCoroutine = StartCoroutine(_Roll());
+
+        if(GameController.ResetStamina())
+        { 
+            if (_rollCoroutine == null) {
+                _rollCoroutine = StartCoroutine(_Roll());
+            }
+        }
     }
 
 
     IEnumerator _Roll()
     {
+        onRoll ? . Invoke();
+
         isRolling = true;
         _animator.SetTrigger("Roll");
 
