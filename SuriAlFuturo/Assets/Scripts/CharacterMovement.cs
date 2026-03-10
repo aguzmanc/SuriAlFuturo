@@ -167,8 +167,13 @@ public class CharacterMovement : MonoBehaviour
     }
 
 
+    public bool isOnNavMesh;
+
+
     void Update()
     {
+        isOnNavMesh = NavMeshAgent.isOnNavMesh; 
+
         if(GameController.gameFinished){
             if(_animator)
                 _animator.SetBool("IsWalking", false);

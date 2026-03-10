@@ -31,7 +31,7 @@ public class PerlinTransformation : MonoBehaviour
     void Update () 
     {
         Value = ((Mathf.PerlinNoise(_posPerlin.x, _posPerlin.y) * Amplitude * 2) - Amplitude) + Offset;
-        _posPerlin += (_vPerlin * Velocity);
+        _posPerlin += (_vPerlin * Velocity) * Time.deltaTime;
 
         //transform.localPosition = new Vector3(PosX ? noise : 0, PosY ? noise : 0, PosZ ? noise : 0);
         //transform.localRotation = Quaternion.Euler( new Vector3(RotX?noise:0,RotY?noise:0,RotZ?noise:0));
