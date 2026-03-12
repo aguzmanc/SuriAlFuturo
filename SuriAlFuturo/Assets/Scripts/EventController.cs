@@ -15,9 +15,24 @@ public class EventController : MonoBehaviour {
     public List<Subscriber> AliveSubscribers = new List<Subscriber>();
     public List<Event> debug; // for debugging
 
-    void Start () {
 
+    static EventController _instance;
+
+    public static EventController Instance => _instance;
+
+
+    void Awake()
+    {
+        _instance = this;
     }
+
+
+    void OnDestroy()
+    {
+        _instance = null;
+    }
+
+
 
     public void TriggerEvent (Event e) {
         try {

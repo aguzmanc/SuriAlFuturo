@@ -18,6 +18,7 @@ public class SFXController : MonoBehaviour
     public AudioSource ErrorSound;
     public AudioSource WaterOnSound;
     public AudioSource WaterOffSound;
+    public AudioSource GoodNewsSound;
     public AudioSource TimeTravelSound;
     public AudioSource TimeMachineOnSound;
     public AudioSource DamageSound;
@@ -114,6 +115,8 @@ public class SFXController : MonoBehaviour
     public void PlayWaterOn(){WaterOnSound.Play();}
 
     public void PlayWaterOff(){WaterOffSound.Play();}
+
+    public void PlayGoodNews(){ GoodNewsSound.Play();}
 
     public void PlayTimeTravel(){TimeTravelSound.Play();}
 

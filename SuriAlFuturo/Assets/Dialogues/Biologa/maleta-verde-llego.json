@@ -3,17 +3,17 @@
     "Avatar": "Suri",
     "Name": "Suri",
     "Emotion": "happy",
-    "Text": "Hola Natalia! Fernando dice que ya llegó la maleta verde."
+    "Text": "¡Hola Natalia! Fernando dice que ya llegó su MALETA."
   }, {
     "Avatar": "Natalia",
     "Name": "Natalia",
     "Emotion": "happy",
-    "Text": "Qué bien! ¿podrías por favor decirle que la maneje con cuidado?"
+    "Text": "¡Qué bien! ¿podrías por favor decirle que la maneje con cuidado?"
   }, {
     "Avatar": "Natalia",
     "Name": "Natalia",
     "Emotion": "happy",
-    "Text": "tiene equipo científico tan delicado, que podría arruinarse con la humedad"
+    "Text": "Esa maleta tiene equipo científico tan delicado, que podría arruinarse con la humedad"
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
@@ -23,6 +23,6 @@
     "Avatar": "Natalia",
     "Name": "Natalia",
     "Emotion": "happy",
-    "Text": "¡Exáctamente! por favor Suri, ve rápido a decirle que sea cuidadoso con esa maleta."
+    "Text": "¡Exáctamente! por favor Suri, ve rápido a decirle que sea cuidadoso con esa MALETA."
   }
 ] }

@@ -71,18 +71,20 @@ public class WaterTap : MonoBehaviour
         _tapController.Taps.Remove(this);
     }
 
-    public void ToggleFountain (bool value, bool forceNotifyUI) 
+    public void ToggleFountain (bool value, bool forceNotifyUI, bool playToggleSound=true) 
     {
         _isOn = value;
 
         if(_isOn) {
             _fountain.Play();
-            _gameController.GetComponent<SFXController>().PlayWaterOn();
+            if(playToggleSound)
+                _gameController.GetComponent<SFXController>().PlayWaterOn();
             WaterFlowingSound.UnPause();
 
         } else {
             _fountain.Stop();
-            _gameController.GetComponent<SFXController>().PlayWaterOff();
+            if(playToggleSound)
+                _gameController.GetComponent<SFXController>().PlayWaterOff();
             WaterFlowingSound.Pause();
 
             if(_canInteract || forceNotifyUI){ // only when Suri is close
@@ -110,7 +112,7 @@ public class WaterTap : MonoBehaviour
     }
 
     public void Load (bool isOn, bool isUsable) {
-        ToggleFountain(isOn, false);
+        ToggleFountain(isOn, false,false);
         _isUsable = isUsable;
         GetComponent<Collider>().enabled = isUsable;
     }
