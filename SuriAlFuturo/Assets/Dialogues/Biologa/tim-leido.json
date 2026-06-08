@@ -3,21 +3,26 @@
     "Avatar": "Natalia",
     "Name": "Natalia",
     "Emotion": "happy",
-    "Text": "Ok Tim, ¿Puedes contar cuántos insectos hay en el lago?"
+    "Text": "Ok Tim, ¿Puedes contar cuántos insectos hay alrededor del lago?"
   }, {
     "Avatar": "Tim",
     "Name": "Tim",
     "Emotion": "normal",
-    "Text": "Necesito pequeño hardware con capacidades de excavación."
+    "Text": "Necesito algún dispositivo ultrasensible para rastrear bajo tierra. Así podré contarlos."
   }, {
     "Avatar": "Natalia",
     "Name": "Natalia",
     "Emotion": "happy",
-    "Text": "Omar, el ingeniero, va a llegar mañana, él podrá construir eso. Mientras tanto, ¿Puedes contar cuántas aves hay alrededor del lago?"
+    "Text": "Mañana llegará más equipo para trabajar en eso.  Mientras tanto, ¿Puedes contar cuántas aves hay alrededor del lago?"
   }, {
     "Avatar": "Tim",
     "Name": "Tim",
     "Emotion": "normal",
     "Text": "Afirmativo, .. ¡bip! ... comenzando rutina de conteo."
+  }, {
+    "Avatar": "Natalia",
+    "Name": "Natalia",
+    "Emotion": "happy",
+    "Text": "Suri, ¿Hay alguna noticia sobre mi MALETA VERDE?"
   }
 ] }

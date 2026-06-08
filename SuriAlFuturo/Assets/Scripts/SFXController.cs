@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 
 public class SFXController : MonoBehaviour 
 {
     private string _currentCharacter;
     private string _currentEmotion;
+
+    [SerializeField]
+    public AudioMixer _mixer;
 
     public AudioSource EmbarkSound;
     public AudioSource DisembarkSound;
@@ -14,8 +18,12 @@ public class SFXController : MonoBehaviour
     public AudioSource ErrorSound;
     public AudioSource WaterOnSound;
     public AudioSource WaterOffSound;
+    public AudioSource GoodNewsSound;
     public AudioSource TimeTravelSound;
     public AudioSource TimeMachineOnSound;
+    public AudioSource DamageSound;
+    public AudioSource FinishGameSound;
+    public AudioSource RollSound;
 
 
     public AudioSource DialogAudioSource;
@@ -53,6 +61,46 @@ public class SFXController : MonoBehaviour
 
     }
 
+    void Start()
+    {
+        GameController.onDamage += OnDamage;
+
+        GameController.onGameFinished +=  OnGameFinished;
+
+        CharacterMovement.onRoll += OnRoll;
+
+        _mixer.SetFloat("Music", 0f);    // 0 dB = volumen normal
+    }
+
+    void OnDestroy()
+    {
+        GameController.onDamage -= OnDamage;
+
+        GameController.onGameFinished -=  OnGameFinished;
+
+        CharacterMovement.onRoll -= OnRoll;
+    }
+
+
+    void OnRoll()
+    {
+        RollSound.Play();
+    }
+
+
+    void OnDamage()
+    { 
+        DamageSound.Play();
+    }
+
+
+    void OnGameFinished()
+    { 
+        _mixer.SetFloat("Music", -80f);  // -80 dB = silencio
+        FinishGameSound.Play();
+    }
+
+
 
     public void PlayEmbark(){EmbarkSound.Play();}
 
@@ -67,6 +115,8 @@ public class SFXController : MonoBehaviour
     public void PlayWaterOn(){WaterOnSound.Play();}
 
     public void PlayWaterOff(){WaterOffSound.Play();}
+
+    public void PlayGoodNews(){ GoodNewsSound.Play();}
 
     public void PlayTimeTravel(){TimeTravelSound.Play();}
 

@@ -57,6 +57,7 @@ public class TapController : MonoBehaviour {
     {
         GoodNewsBG.FadeIn();
         GoodNewsText.FadeIn();
+        GetComponent<SFXController>().PlayGoodNews();
 
         yield return new WaitUntil(()=>GoodNewsText.HasFinishedFade);
 

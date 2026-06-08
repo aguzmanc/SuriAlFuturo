@@ -1,0 +1,23 @@
+
+- Poner mas grande las celdas del inventario.
+- Cuando hay muchos items, el UI se solapa con los corazones de salud.
+- Es posible regalar cosas a personajes sin haber hablado antes con ellos.
+
+
+ERROR de NARRATIVA: 
+
+- Luego de darle la patineta a Enrique el niño malo, y no haber cerrado la pila, El aun dice "vi que apagaste la pila". 
+
+- Cuando Suri  habla con el Nieto de Andres, le reconoce , aunque nunca haya hablado antes con Andres.
+
+- Suri menciona que Tim podria ayudar a Natalia, sin haber conocido a Natalia. 
+
+- Cuando se crea el Drone volador, menciona a Natalia, sin haberla conocido antes.
+
+- Cuando Fernando abrio la maleta y ya esta disponible las notas (recogida o no), al ir a hablar con Natalia, aun se menciona que la maleta esta arruinada.
+
+
+- [C] Cuando tengo en inventario el yDroid, y cuerpo del Drone y la cabeza, no puedo construir nada, solo me sale mensaje relacionado con el yDroid.
+
+
+

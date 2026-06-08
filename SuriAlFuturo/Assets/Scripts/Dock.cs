@@ -106,9 +106,11 @@ public class Dock : MonoBehaviour {
 
     public void Disembark ()
     {
-        Suri.transform.position = DisembarkPlace.transform.position;
         Suri.SetActive(true);
+        Suri.GetComponent<CharacterMovement>().Warp(DisembarkPlace.transform.position);
+        
         DockedShip.GetComponent<CharacterMovement>().IsControlledByPlayer = false;
+        
         DockedShip.GetComponent<Ship>().EnlargeCollider();
         DockedShip.transform.position = transform.position + 11.2f * transform.right;
         Cam.Target = Suri;
@@ -119,6 +121,7 @@ public class Dock : MonoBehaviour {
         chapu.Disembark();
 
         _gameController.GetComponent<SFXController>().PlayDisembark();
+
     }
 
 

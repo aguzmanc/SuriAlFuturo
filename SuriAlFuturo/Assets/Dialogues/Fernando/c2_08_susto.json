@@ -18,7 +18,7 @@
     "Avatar": "Fernando",
     "Name": "Fernando",
     "Emotion": "scared",
-    "Text": "... la maleta verde está en el fondo del lago."
+    "Text": "... la maleta verde está en el lago, y es muy pesada para sacarla."
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
@@ -32,7 +32,7 @@
   }, {
     "Avatar": "Suri",
     "Name": "Suri",
-    "Emotion": "happy",
+    "Emotion": "surprised",
     "Text": "Descuida. ¡Chapu y yo encontraremos la forma de recuperarlas!"
   }
 ] }

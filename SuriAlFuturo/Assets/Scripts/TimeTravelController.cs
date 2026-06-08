@@ -51,7 +51,8 @@ public class TimeTravelController : MonoBehaviour
         for (int i=0; i<SceneManager.sceneCount; i++) {
             string sceneName = SceneManager.GetSceneAt(i).name;
             if(sceneName != "BaseScene"){
-                SceneManager.UnloadScene(sceneName);
+                SceneManager.UnloadSceneAsync(sceneName);
+                //SceneManager.UnloadScene(sceneName);
             }
         }
 

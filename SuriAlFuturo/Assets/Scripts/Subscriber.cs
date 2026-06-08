@@ -18,31 +18,20 @@ public class Subscriber : MonoBehaviour
 
     public GameObject Spawns;
 
-    private EventController _controller;
 
     void Start () 
     {
-        _controller = GameObject.FindGameObjectWithTag(Tag.GameController)
-            .GetComponent<EventController>();
         PersistenceKey = transform.position;
 
-        _controller.Load(this);
-        _controller.RegisterAsAlive(this);
+        EventController.Instance.Load(this);
+        EventController.Instance.RegisterAsAlive(this);
     }
+
 
     void OnDestroy () 
     {
-        try{
-        _controller.Save(this);
-        } catch {
-            Debug.LogError(name);
-        }
-
-        try{
-            _controller.UnregisterAsAlive(this);
-        } catch {
-            Debug.LogError("new: " + name);
-        }
+        EventController.Instance.Save(this);
+        EventController.Instance.UnregisterAsAlive(this);
     }
 
 
@@ -89,6 +78,7 @@ public class Subscriber : MonoBehaviour
         }
 
         if (Spawns != null) {
+            Debug.Log("Load:" + this.name);// + ":  " + persisted.Triggered);
             Spawns.SetActive(true);
         }
     }
@@ -106,7 +96,9 @@ public class Subscriber : MonoBehaviour
     {
         Triggered = persisted.Triggered;
 
-        if (!Triggered && _controller.TimesTriggered(EventSubscribed) > 0) {
+        int timesTriggered = EventController.Instance.TimesTriggered(EventSubscribed);
+
+        if (!Triggered && timesTriggered   > 0) {
             Trigger();
             if (TheBlocker != null) {
                 TheBlocker.ForcedUnblock();
